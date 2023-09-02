@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   OnSubmit(){
     if(this.loginForm.valid){
-      this.router.navigate(['main']);
+      this.router.navigate(['assessor']);
       // this.auth.login(this.loginForm.value)
       // .subscribe({
       //   next:(res)=>{
