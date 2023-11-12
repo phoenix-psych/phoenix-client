@@ -1,0 +1,169 @@
+<form [formGroup]="form">
+    <div>
+        <button mat-button color="primary"  matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+    </div>
+    
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Equal Opportunities Monitoring Form
+                </mat-panel-title>
+                <mat-panel-description>
+                    The Phoenix Psychology Practice Limited wants to meet the aims and commitments set out in its equality policy.
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <span class="text-format-content ">
+                <span>The Phoenix Psychology Practice Limited wants to meet the aims and commitments set out in its equality policy. This includes not discriminating under the Equality Act 2010, and building an accurate picture of the make-up of the workforce in encouraging equality and diversity.</span><br>  <br><span>The organisation needs your help and co-operation to enable it to do this, but filling in this form is voluntary. The information provided will be kept confidential and will be used for monitoring purposes.</span><br><br><span>If you have any questions about the form contact <a href="mailto:dee@phonenix-psych.com" class="linkified">dee@phonenix-psych.com</a>&nbsp;</span><br><span><br></span>
+            </span>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="padded-div">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gender?
+        </mat-label>
+        <mat-form-field class="padded-formcontrol">
+            <mat-label>Gender</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of gender" [value]="food.value">
+                {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><b>Do you have any convictions, cautions, reprimands or final warnings that are not “protected” as defined by the above act?</b></span></mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValueConvictionGp" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="Yes1">Yes</mat-radio-button>
+                <mat-radio-button class="example-margin" value="No1">No</mat-radio-button>
+                <mat-radio-button class="example-margin" value="NotToSay1">Prefer not to say</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age?
+        </mat-label>
+        <mat-form-field class="padded-formcontrol">
+            <mat-label>Age</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of ageRange" [value]="food.value">
+                {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="4" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Which associate role(s) are you registering for?</mat-label>
+        <section class="example-section">
+            <span class="example-list-section">
+                <ul>
+                <li *ngFor="let subtask of task2.subtasks">
+                    <mat-checkbox [checked]="subtask.completed"
+                                [color]="subtask.color"
+                                (ngModelChange)="updateAllComplete()">
+                    {{subtask.name}}
+                    </mat-checkbox>
+                </li>
+                </ul>
+            </span>
+            </section>
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="5" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><b>Do you consider yourself to have a disability, specific learning difference or health condition?
+            </b></span></mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValueDisability" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="Yes2">Yes</mat-radio-button>
+                <mat-radio-button class="example-margin" value="No2">No</mat-radio-button>
+                <mat-radio-button class="example-margin" value="NotToSay2">Prefer not to say</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+
+    <div *ngIf="selectedValueDisability == 'True'">
+        <div class="padded-div">
+            <mat-label matBadge="6" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="text-format-content ">What is the effect or impact of your disability, learning difference or health condition on your work?<br><br>(Please note:&nbsp;<span>The information in this form is for monitoring purposes only. If you believe you need a ‘reasonable adjustment’, then please discuss this with <a href="mailto:emma@phoenix-psych.com" class="linkified">emma@phoenix-psych.com</a> or <a href="mailto:dee@phoenix-psych.com" class="linkified">dee@phoenix-psych.com</a>).</span></span>
+            </mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput>
+                <mat-error> is mandatory.</mat-error>
+            </mat-form-field>
+        </div>    
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="7" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><b>What is your sexual orientation?
+            </b></span></mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValueDisability" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="NotToSay3">Prefer not to say</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Hetrosexual">Hetrosexual</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Gay">Gay</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Lesbian">Lesbian</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Bisexual">Bisexual</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Asexual">Asexual</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Pansexual">Pansexual</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Undecided">Undecided</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="8" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><b>What is your religious belief?
+            </b></span></mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValueDisability" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="NotToSay4">Prefer not to say</mat-radio-button>
+                <mat-radio-button class="example-margin" value="NoReligion">No religion or belief</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Budhist">Budhist</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Christian">Christian</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Hindu">Hindu</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Jewish">Jewish</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Muslim">Muslim</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Sikh">Sikh</mat-radio-button>
+                <mat-radio-button  value="Other1" class="padded-check">
+                <mat-form-field>
+                    <input matInput placeholder="Other1">
+                </mat-form-field>
+            </mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+    
+    <div class="padded-div">
+        <mat-label matBadge="9" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><b>Do you have caring responsibilities?
+            </b></span></mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValueDisability" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="No5">No</mat-radio-button>
+                <mat-radio-button class="example-margin" value="NotToSay5">Prefer not to say</mat-radio-button>
+                <mat-radio-button class="example-margin" value="Children">Primary carer of a child/children (under 18)</mat-radio-button>
+                <mat-radio-button class="example-margin" value="DisabledChild">Primary carer of disabled child/children</mat-radio-button>
+                <mat-radio-button class="example-margin" value="DisabledAdult">Primary carer of disabled adult (18 and over)</mat-radio-button>
+                <mat-radio-button class="example-margin" value="OlderPerson">Primary carer of older person</mat-radio-button>
+                <mat-radio-button class="example-margin" value="SecondaryCarer">Secondary carer (another person carries out the main caring role)</mat-radio-button>
+                <mat-radio-button  value="Other2" class="padded-check">
+                <mat-form-field>
+                    <input matInput placeholder="Other2">
+                </mat-form-field>
+            </mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+</form>

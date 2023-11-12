@@ -1,0 +1,145 @@
+<form [formGroup]="form">
+    <div>
+        <button mat-button color="primary"  matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+    </div>
+    
+    <div class="padded-div">
+        <div>
+            <span class="padded-div ">Please ensure that you have logged into the Associate AIMS page. Here you will be able to upload the following documents to support your Associate Registration. Please ensure that you click on the 'Next' button on the AIMS portal to see the full range of upload possibilities<br><br>You will be required to upload the following documents (that are applicable to your chosen Associate area):<br><br>
+                <div>
+                    <b>SpLD - Specialist Assessors/Teachers/Coaches:</b><br><br>
+                    <ol>
+                        <li>Level 7 or above qualification/certificate
+                            <div class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>Specialist Teaching Qualification (SpLD or other)
+                            <div  class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>AAT/CCET Certificate&nbsp;
+                            <div  class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>Practising Certificate
+                            <div  class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>Coaching CPD certificates or qualifications
+                            <div class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>If you have other memberships not mentioned in the Associate Registration form, please provide evidence of these<br>
+                            <div class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                
+                <br>
+
+                <div>
+                    <b>Psychologists (Occupational):</b><br><br>
+                    <ol>
+                        <li>British Psychological Society Membership
+                            <div class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>Health Care Professional Council registration
+                            <div class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>If you have other memberships not mentioned in the Associate Registration form, please provide evidence of these
+                            <div class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <br>
+                <div>
+                    <b>Counsellor:</b><br><br>
+                    <ol>
+                        <li>BACP Membership
+                            <div class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>The National Counselling Society
+                            <div  class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>If you have other memberships not mentioned in the Associate Registration form, please provide evidence of these
+                            <div  class="padded-formcontrol">
+                                <input type="file" id="fileInput" (change)="selectFile($event)" name="fileInput" />
+                                <button mat-flat-button color="primary" [disabled]="!currentFile" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li><br></li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <b>Other Documentation - Mandatory:</b><br><br>
+                    <ol>
+                        <li>Recent CRB or enhanced CRB document
+                            <div  class="padded-formcontrol">
+                                <input type="file" (change)="selectFile($event)" #fileInput  />
+                                <button mat-flat-button color="primary" [disabled]="!(fileInput.files && fileInput.files.length > 0)" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>Professional Indemnity Insurance Certificate
+                            <div  class="padded-formcontrol">
+                                <input type="file" (change)="selectFile($event)" #fileInput />
+                                <button mat-flat-button color="primary" [disabled]="!(fileInput.files && fileInput.files.length > 0)" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>ICO certificate - confirmation (document/email including ICO registration number)
+                            <div  class="padded-formcontrol">
+                                <input type="file" (change)="selectFile($event)" #fileInput />
+                                <button mat-flat-button color="primary" [disabled]="!(fileInput.files && fileInput.files.length > 0)" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>
+                            <b>Right To Work in the UK</b> - Copy of document you are providing as evidence for your right to work in the UK
+                            <div  class="padded-formcontrol">
+                                <input type="file" (change)="selectFile($event)" #fileInput />
+                                <button mat-flat-button color="primary" [disabled]="!(fileInput.files && fileInput.files.length > 0)" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                        <li>Copy of your current Curriculum Vitae with recent CPD or training attended where possible
+                            <div  class="padded-formcontrol">
+                                <input type="file" (change)="selectFile($event)" #fileInput />
+                                <button mat-flat-button color="primary" [disabled]="!(fileInput.files && fileInput.files.length > 0)" (click)="upload()" >Upload</button>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                
+                <br><br><br><br>
+            </span>
+        </div>
+        </div>
+</form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/authservice.service';
+import { NotifyService } from 'src/app/shared/notify.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm!:FormGroup; 
 
 
-  constructor(private fb : FormBuilder, private auth:AuthService, private router:Router) { }
+  constructor(private fb : FormBuilder, private auth:AuthService, private router:Router, private notificationService: NotifyService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -35,18 +36,28 @@ export class LoginComponent implements OnInit {
 
   OnSubmit(){
     if(this.loginForm.valid){
-      this.router.navigate(['assessor']);
-      // this.auth.login(this.loginForm.value)
-      // .subscribe({
-      //   next:(res)=>{
-      //     alert(res.message);
-      //     this.loginForm.reset();
-      //     this.router.navigate(['main']);
-      //   },
-      //   error:(err)=>{
-      //     alert(err?.error.message);
-      //   }
-      // })
+      this.auth.login(this.loginForm.value)
+      .subscribe({
+        next:(res)=>{
+          if(res.statusCode === 200)
+          {
+            localStorage.setItem('token', res.token);
+            localStorage.setItem('userType', res.userType);
+            localStorage.setItem('userId', res.userId);
+            this.loginForm.reset();
+            this.notificationService.success(`Welcome - ${res.name}`);
+            this.LoadUserScreen(res.userType);
+          }
+          else{
+            alert("StatusCode : " + res.statusCode);
+            localStorage.clear();
+          }
+        },
+        error:(err)=>{
+          alert("Exception" + err?.message);
+          localStorage.clear();
+        }
+      })
 
     }else{
       this.validateAllFormFields(this.loginForm);
@@ -54,8 +65,28 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  OnRegister(){
-    this.router.navigate(['register']);
+  LoadUserScreen(type : number){
+    //this.router.navigate(['assessor']);
+    switch (type) {
+        case 0:
+          this.router.navigate(['admin']);
+          break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+          this.router.navigate(['individual']);
+          break;
+        case 5:
+          this.router.navigate(['assessor']);
+          break;
+        case 6:
+          this.router.navigate(['corporate']);
+          break;
+        default:
+          this.router.navigate(['assessor']);
+          break;
+    }
   }
 
   private validateAllFormFields(formGroup : FormGroup){

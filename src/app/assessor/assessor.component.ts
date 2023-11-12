@@ -13,4 +13,8 @@ export class AssessorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+  logout(){
+    localStorage.clear();
+  }
 }

@@ -1,0 +1,97 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div>
+        <mat-grid-list cols="50">
+            <mat-grid-tile [colspan]="15" [rowspan]="10">
+                <div class="avatar-container">
+                    <div class="image-container" *ngIf="file; else placeholder"
+                    [ngClass]="{'box-shadow-avatar': !!file}"
+                    [ngStyle]="{backgroundImage: 'url(' + file + ')'}">
+                    </div>
+                
+                    <ng-template #placeholder>
+                        <div class="image-container avatar-placeholder">
+                        </div>
+                    </ng-template>
+                
+                    <label for="avatar-input-file">
+                        <div class="icon-wrapper">
+                            <input type="file" id="avatar-input-file" accept="image/*" (change)="onFileChange($event)" />
+                            <mat-icon class="icon" fontIcon="edit"></mat-icon>
+                        </div>
+                    </label>
+                
+                </div>
+            </mat-grid-tile>
+            
+            <mat-grid-tile [colspan]="18" [rowspan]="18" >
+                <div>
+                    <div>
+                        <span class="header-pos">First Name</span>
+                        <mat-form-field  appearance="outline">
+                            <input formControlName="fullName" matInput>
+                            <mat-error>Full Name is mandatory.</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="header-pos">Date Of Birth</mat-label>
+                        <mat-form-field  appearance="outline">
+                            <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="DOB">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error>Invalid Date Of Birth.</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label  class="header-pos">Email Address</mat-label>
+                        <mat-form-field  appearance="outline">
+                            <input formControlName="email" matInput>
+                            <mat-error>Invalid Email Address.</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label  class="header-pos">Phone Number</mat-label>
+                        <mat-form-field  appearance="outline">
+                            <input formControlName="phoneNumber" matInput>
+                            <mat-error>Phone Number is mandatory.</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="17" [rowspan]="18" >
+                <div >
+                    
+                    <div>
+                        <mat-label  class="header-pos">Current Address</mat-label>
+                        <mat-form-field  appearance="outline">
+                            <input formControlName="currentAddress" matInput>
+                            <mat-error>Current Address is mandatory.</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label  class="header-pos">PIN</mat-label>
+                        <mat-form-field  appearance="outline">
+                            <input formControlName="pin" matInput>
+                            <mat-error>PIN is mandatory.</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="header-pos">Preferred Personal Pronoun</mat-label>
+                        <mat-form-field  appearance="outline">
+                            <input formControlName="pronoun" matInput>
+                            <mat-error>PIN is mandatory.</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="15" [rowspan]="8">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="50" [rowspan]="5">
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+                    <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</form>

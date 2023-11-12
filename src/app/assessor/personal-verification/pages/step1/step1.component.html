@@ -1,0 +1,131 @@
+<form [formGroup]="form"  (submit)="onSubmit()">
+    <div>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+    </div>
+    <div class="padded-div">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Which associate role(s) are you registering for?</mat-label>
+        <section class="example-section">
+            <!-- <span class="example-list-section">
+              <mat-checkbox class="example-margin"
+                            [checked]="allComplete"
+                            [color]="task.color"
+                            [indeterminate]="someComplete()"
+                            (change)="setAll($event.checked)">
+                {{task.name}}
+              </mat-checkbox>
+            </span> -->
+            <span class="example-list-section">
+              <ul>
+                <li *ngFor="let subtask of task.subtasks">
+                  <mat-checkbox [checked]="subtask.completed"
+                                [color]="subtask.color"
+                                (change)="updateTask1Node(subtask.name)">
+                    {{subtask.name}}
+                  </mat-checkbox>
+                </li>
+              </ul>
+            </span>
+          </section>
+    </div>
+    <div class="padded-div">
+        <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you wish to register as an associate specialist assessor/teacher/coach?</mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValue2"   [ngModelOptions]="{standalone: true}" (ngModelChange)="onRadioChange2($event)">
+              <mat-radio-button class="example-margin" value="true">True</mat-radio-button>
+              <mat-radio-button class="example-margin" value="false">False</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+    <div *ngIf="selectedValue2 == 'true'">
+        <div class="padded-div">
+            <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Which professional bodies and or associations are you a member of:</mat-label>
+            <span class="example-list-section">
+                <ul>
+                  <li *ngFor="let subtask of task2.subtasks">
+                    <mat-checkbox [checked]="subtask.completed"
+                                  [color]="subtask.color"
+                                  (change)="updateTask2Node(subtask.name)">
+                      <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                      <mat-form-field *ngIf="subtask.name == 'Other'">
+                        <input matInput placeholder="Other">
+                    </mat-form-field>
+                    </mat-checkbox>
+                  </li>
+                </ul>
+            </span>
+            <!-- <mat-checkbox-group [(ngModel)]="selectedValue4" [ngModelOptions]="{standalone: true}">
+
+            </mat-checkbox-group>
+            <section>
+                <mat-checkbox value="PATOSS"  class="padded-check">PATOSS</mat-checkbox>
+                <mat-checkbox  value="BDA" class="padded-check">BDA</mat-checkbox>
+                <mat-checkbox  value="Dyslexia Guild" class="padded-check">Dyslexia Guild</mat-checkbox>
+                <mat-checkbox  value="SASC" class="padded-check">SASC</mat-checkbox>
+                <mat-checkbox  value="British Psychological Society" class="padded-check">British Psychological Society</mat-checkbox>
+                <mat-checkbox  value="Other" class="padded-check">
+                    <mat-form-field>
+                        <input matInput placeholder="Other">
+                    </mat-form-field>
+                </mat-checkbox>
+            </section> -->
+        </div>
+        <div class="padded-div">
+            <mat-label matBadge="4" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you hold a qualification in the assessment of Specific Learning Differences (or equivalent) up to Level 7 or above?
+            </mat-label>
+            <section class="example-section">
+                <mat-radio-group formControlName="answer4">
+                  <mat-radio-button class="example-margin" value="True">True</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
+                </mat-radio-group>
+            </section>
+        </div>
+        <div class="padded-div">
+            <mat-label matBadge="5" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you hold a  SpLD teaching qualification up to Level 5?
+            </mat-label>
+            <section class="example-section">
+                <mat-radio-group formControlName="answer5">
+                  <mat-radio-button class="example-margin" value="True">True</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
+                </mat-radio-group>
+            </section>
+        </div>
+        <div class="padded-div">
+            <mat-label matBadge="6" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you hold a current Practising Certificate? (In 'Other' please enter the expiry date of your certificate)
+            </mat-label>
+            <section class="example-section">
+                <mat-radio-group [(ngModel)]="selectedValue6"   [ngModelOptions]="{standalone: true}" (ngModelChange)="onRadioChange6()" >
+                  <mat-radio-button class="example-margin" value="True">True</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
+                  <mat-radio-button  value="Other" class="padded-check">
+                    <mat-form-field>
+                        <input matInput placeholder="Other" [(ngModel)]="other6" [ngModelOptions]="{standalone: true}" (ngModelChange)="onRadioChange6()"  >
+                    </mat-form-field>
+                </mat-radio-button>
+                </mat-radio-group>
+            </section>
+            <!-- <section>
+                <mat-checkbox value="True"  class="padded-check">True</mat-checkbox>
+                <mat-checkbox  value="False" class="padded-check">False</mat-checkbox>
+                <mat-checkbox  value="Other" class="padded-check">
+                    <mat-form-field>
+                        <input  matInput placeholder="Other">
+                    </mat-form-field>
+                </mat-checkbox>
+            </section> -->
+        </div>
+
+        <div class="padded-div">
+            <mat-label matBadge="7" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you hold a coaching qualification or have experience in coaching individuals' with Specific Learning Differences? Please give a brief outline of experience and and specific area that you have specialised in, for example, ADHD coaching). ?
+            </mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput formControlName="answer7">
+                <mat-error>Full Name is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+</form>

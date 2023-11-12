@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserTypeService {
 
-  baseApiUrl:string = environment.baseApiUrl;
+  baseApiUrl:string = ''; //environment.baseApiUrl;
   public userTypes: UserType[] = [];
   array = [];
 

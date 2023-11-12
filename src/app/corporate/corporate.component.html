@@ -1,0 +1,22 @@
+
+  <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="3">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="id">
+          <mat-form-field>
+            <input formControlName="name" matInput placeholder="Name*">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="comment" matInput placeholder="Comment">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" >Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>

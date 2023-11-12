@@ -1,0 +1,41 @@
+<form [formGroup]="form">
+    <div>
+        <button mat-button color="primary"  matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+    </div>
+    <div class="padded-div">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you wish to register as an associate Occupational Psychologist?</mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="True">True</mat-radio-button>
+                <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+    <div *ngIf="selectedValue == 'True'">
+        <div class="padded-div">
+            <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Which professional bodies do you have membership to?</mat-label>
+            
+            <section>
+                <mat-checkbox value="British Psychological Society"  class="padded-check">British Psychological Society</mat-checkbox>
+                <mat-checkbox  value="Health Care Professional Council" class="padded-check">Health Care Professional Council</mat-checkbox>
+                <mat-checkbox  value="Other" class="padded-check">
+                    <mat-form-field>
+                        <input matInput placeholder="Other">
+                    </mat-form-field>
+                </mat-checkbox>
+            </section>
+        </div>
+        <div class="padded-div">
+            <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please enter your qualification level and name.
+            </mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput>
+                <mat-error>Full Name is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+</form>
+    

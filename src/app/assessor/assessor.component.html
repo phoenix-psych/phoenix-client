@@ -1,33 +1,47 @@
-<div>
+<div class="fill-remaining-space">
     <mat-toolbar color="primary">
       <button mat-icon-button (click)="opened = !opened">
         <mat-icon>menu</mat-icon>
       </button>
       <span>Assessor</span>
+      <span class="toolbar-spacer"></span>
       <div class="badge-spacer">
         <mat-icon matBadge="15" matBadgeColor="warn" class="icon-display">notifications</mat-icon>
       </div>
-      <span class="toolbar-spacer"></span>
-      <button mat-flat-button color="warn">Notify</button>
+      <button mat-flat-button color="warn" routerLink="/login" (click)="logout()">Logout</button>
     </mat-toolbar>
   </div>
-  <div class="sidenav"> 
+  <div class="sidenav fill-remaining-space"> 
     <mat-sidenav-container>
-      <mat-sidenav [opened]="opened" mode="over">
+      <mat-sidenav opened mode="side">
         <mat-nav-list>
-            <a mat-list-item>Home</a>
-            <a mat-list-item>Assessor</a>
+            <a mat-list-item routerLink="/assessor/dashboard">Home</a>
+            <a mat-list-item routerLink="/assessor/profile">Profile</a>
+            <a mat-list-item routerLink="/assessor/personal-verification">Personal Verification</a>
+            <a mat-list-item routerLink="/assessor/servicelevel-agreement">Servicelevel Agreement</a>
+            <a mat-list-item routerLink="/assessor/clients">Clients</a>
+            <a mat-list-item routerLink="/assessor/report">Report</a>
+            <a mat-list-item routerLink="/assessor/slots">Slots</a>
+            <mat-list-item>TESTS</mat-list-item>
+            <mat-list-item>
+              <a mat-list-item routerLink="/assessor/misc">CTOPP</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-list-item routerLink="/assessor/tomal">TOMAL-2</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-list-item routerLink="/assessor/towre">TOWRE-2</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-list-item routerLink="/assessor/wrat">WRAT-5</a>
+            </mat-list-item>
+            <mat-list-item>
+              <a mat-list-item routerLink="/assessor/writ">WRIT</a>
+            </mat-list-item>
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>
-        <div class="container">
-            <mat-toolbar class="toolbar-spacer">
-                <span class="fill-remaining-space"></span>
-                <span>Assessor Management</span>
-                <span class="fill-remaining-space"></span>
-            </mat-toolbar>
-            <app-list></app-list>
-        </div>
+        <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

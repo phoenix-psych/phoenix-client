@@ -13,7 +13,7 @@ import { min } from 'lodash';
 })
 export class UserService {
 
-  baseApiUrl:string = environment.baseApiUrl;
+  baseApiUrl:string = ''; //environment.baseApiUrl;
   constructor(private http: HttpClient) { }
 
   UserList: User[] = [];

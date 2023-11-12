@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AssessorService {
 
-  baseApiUrl:string = environment.baseApiUrl;
+  baseApiUrl:string = ''; //environment.baseApiUrl;
   constructor(private http: HttpClient) { }
 
   UserList: Assessor[] = [];

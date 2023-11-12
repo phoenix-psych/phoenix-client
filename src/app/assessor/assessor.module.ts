@@ -20,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatCardModule } from '@angular/material/card'
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AssessorRoutingModule } from './assessor-routing.module';
 import { AssessorComponent } from './assessor.component';
@@ -28,12 +30,59 @@ import { ListComponent } from './list/list.component';
 import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { DatePipe } from '@angular/common';
 import {MatBadgeModule} from '@angular/material/badge';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PersonalVerificationComponent } from './personal-verification/personal-verification.component';
+import { ServiceLevelAgreementComponent } from './service-level-agreement/service-level-agreement.component';
+import { ClientsComponent } from './clients/clients.component';
+import { ReportComponent } from './report/report.component';
+import { SlotsComponent } from './slots/slots.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfileComponent } from './profile/profile.component';
+import { Step1Component } from './personal-verification/pages/step1/step1.component';
+import { Step2Component } from './personal-verification/pages/step2/step2.component';
+import { Step3Component } from './personal-verification/pages/step3/step3.component';
+import { Step4Component } from './personal-verification/pages/step4/step4.component';
+import { Step5Component } from './personal-verification/pages/step5/step5.component';
+import { Step6Component } from './personal-verification/pages/step6/step6.component';
+import { Step7Component } from './personal-verification/pages/step7/step7.component';
+import { Step8Component } from './personal-verification/pages/step8/step8.component';
+import { Report1Component } from './report/report1/report1.component';
+import { MiscellaneousComponent } from './miscellaneous/miscellaneous.component';
+import { Tomal2Component } from './tomal2/tomal2.component';
+import { Towre2Component } from './towre2/towre2.component';
+import { Wrat5Component } from './wrat5/wrat5.component';
+import { WritComponent } from './writ/writ.component';
+import { ArtComponent } from './art/art.component';
 
 @NgModule({
   declarations: [
     AssessorComponent,
     AddComponent,
-    ListComponent
+    ListComponent,
+    DashboardComponent,
+    PersonalVerificationComponent,
+    ServiceLevelAgreementComponent,
+    ClientsComponent,
+    ReportComponent,
+    SlotsComponent,
+    ProfileComponent,
+    Step1Component,
+    Step2Component,
+    Step3Component,
+    Step4Component,
+    Step5Component,
+    Step6Component,
+    Step7Component,
+    Step8Component,
+    Report1Component,
+    MiscellaneousComponent,
+    Tomal2Component,
+    Towre2Component,
+    Wrat5Component,
+    WritComponent,
+    ArtComponent
   ],
   imports: [
     CommonModule,
@@ -43,8 +92,6 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
@@ -55,15 +102,20 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatNativeDateModule,
     MatButtonModule,
     MatTableModule,
-    MatIconModule,
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatTabsModule,
 
     ReactiveFormsModule,
     FormsModule,
     DatePipe,
-    MatBadgeModule
+    MatBadgeModule,
+    MatCardModule ,
+    MatStepperModule,
+    MatProgressBarModule,
+    MatExpansionModule
+
   ]
 })
 export class AssessorModule { }

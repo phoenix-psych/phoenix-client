@@ -1,0 +1,89 @@
+<form [formGroup]="form">
+    <div>
+        <button mat-button color="primary"  matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+    </div>
+    
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Rehabilitation of Offenders Act - Required Information
+                </mat-panel-title>
+                <mat-panel-description>
+                    Rehabilitation of Offenders Act 1974 (Exceptions Order) 1975 (as amended 2013) by SI2013 1998
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <span class="text-format-content "><b><span>Rehabilitation of Offenders Act 1974 (Exceptions Order) 1975 (as amended 2013) by SI2013 1998</span></b><br><br>The Rehabilitation of Offenders Act gives individuals the right not to disclose details of 'spent' offences if asked about their criminal record. However, for certain excepted professions, offices and employments, ex-offenders have to disclose information about spent, as well as unspent convictions, provided the employer states clearly on the application form or at the interview that the job applied for is exempted.<br><br><span>Due to the nature of this role and the provision of Section 4 (2) of the <span>Rehabilitation of Offenders Act 1974 (Exceptions Order) 1975 (as amended 2013) by SI2013 1998 </span>you are required to give details of all criminal offences for which you have been convicted, including ‘spent’ convictions.</span><br><br><span>Do you have any convictions, cautions, reprimands or final warnings that are not “protected” as defined by the above act?</span><br><span><br></span>(<span style="color: rgb(0, 0, 0);"><u>Please note</u></span><b>:</b>&nbsp;A criminal record will not necessarily debar you from employment with our organisation. However, if you are appointed and it is later discovered that you have not disclosed the information requested, you may be dismissed.)<br><br><br></span>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="padded-div">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><b>Do you have any convictions, cautions, reprimands or final warnings that are not “protected” as defined by the above act?</b></span></mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValueConvictionGp" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="Yes">Yes</mat-radio-button>
+                <mat-radio-button class="example-margin" value="No">No</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+
+    <div *ngIf="selectedValueConvictionGp == 'True'">
+        <div class="padded-div">
+            <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please give details and dates of your convictions.
+            </mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput>
+                <mat-error> is mandatory.</mat-error>
+            </mat-form-field>
+        </div>    
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-format-content ">I declare that the above information is correct to the best of my knowledge. I understand that, due to the nature of this role, if it is found that I have failed to disclose the requested information&nbsp; my Assessor Agreement may be terminated.<br><br>(Please sign - type your name if you understand and agree with the above declaration).&nbsp;</span>
+        </mat-label>
+        <mat-form-field class="padded-formcontrol" appearance="outline">
+            <input matInput>
+            <mat-error> is mandatory.</mat-error>
+        </mat-form-field>
+    </div>    
+
+    <div class="padded-div">
+        <mat-label matBadge="4" matBadgePosition="before" matBadgeColor="accent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please print your name (CAPITAL LETTERS).
+        </mat-label>
+        <mat-form-field class="padded-formcontrol" appearance="outline">
+            <input matInput>
+            <mat-error> is mandatory.</mat-error>
+        </mat-form-field>
+    </div>    
+
+    <div class="padded-div">
+        <mat-label matBadge="5" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Please enter that date that the declaration was signed.?</mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput [matDatepicker]="picker2" placeholder="DOB">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                <mat-error>Invalid Date Of Birth.</mat-error>
+            </mat-form-field>
+    </div>
+    
+    <div class="padded-div">
+        <mat-label matBadge="6" matBadgePosition="before" matBadgeColor="accent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Associate role(s) being registered for by you:
+        </mat-label>
+        <mat-form-field class="padded-formcontrol" appearance="outline">
+            <input matInput>
+            <mat-error> is mandatory.</mat-error>
+        </mat-form-field>
+    </div>    
+
+
+</form>

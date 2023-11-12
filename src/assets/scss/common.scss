@@ -1,6 +1,7 @@
 .outer {
 height: 100vh;
-background: linear-gradient(to top, #c9c9ff 50%, #6e6ef6 90%) no-repeat;
+background: linear-gradient(to top, #03787c
+50%, #03e6c0 90%) no-repeat;
 }
 
 .panel-heading{
@@ -64,11 +65,5 @@ outline: none;
 box-shadow: none;
 }
 
-img {
-width: 40px; 
-height: 40px; 
-object-fit: cover; 
-border-radius: 50%; 
-position: relative;
-}
+
 

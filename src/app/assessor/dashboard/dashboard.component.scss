@@ -1,0 +1,30 @@
+p {
+    font-family: Lato;
+  }
+  
+  .example-card {
+    max-width: 300px;
+    margin: 4px
+  }
+  
+  .example-header-image {
+    background-image: './assets/images/clients.jpg';
+    background-size: cover;
+  }
+
+  .card {
+    width: 90%;
+    margin: 10px;
+  }
+  .card-body{
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    width: 200px; 
+    height: 40px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    position: relative;
+    }

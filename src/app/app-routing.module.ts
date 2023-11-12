@@ -14,6 +14,18 @@ const routes: Routes = [
   {
     path:'assessor', 
     loadChildren: () => import('./assessor/assessor.module').then(m => m.AssessorModule)
+  },
+  {
+    path:'admin', 
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path:'individual', 
+    loadChildren: () => import('./individual/individual.module').then(m => m.IndividualModule)
+  },
+  {
+    path:'corporate', 
+    loadChildren: () => import('./corporate/corporate.module').then(m => m.CorporateModule)
   }
 ];
 

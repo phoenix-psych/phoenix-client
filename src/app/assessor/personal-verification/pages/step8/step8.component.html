@@ -1,0 +1,87 @@
+<form [formGroup]="form">
+    <div>
+        <button mat-button color="primary"  matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+    </div>
+
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Right To Work In The UK
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>
+                <span class="text-format-content ">
+                    This section requests documentation to ensure your eligibility to work in the UK. Notes on documentation is included in the form. Thank you.
+                </span>
+            </p>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <div class="padded-div">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="text-format-content ">
+                I can provide the following document to prove my right to work in the UK and understand a copy of this document will be held on my personal file.<br><br>Document must be an original and from List A or List B (see notes).<br><br>You will be asked to upload these documents initially.&nbsp;
+            </span>
+        </mat-label>
+        <mat-form-field class="padded-formcontrol" appearance="outline">
+            <input matInput>
+            <mat-error> is mandatory.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Signature (typed)
+        </mat-label>
+        <mat-form-field class="padded-formcontrol" appearance="outline">
+            <input matInput>
+            <mat-error> is mandatory.</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="padded-div">
+        <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Date</mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput [matDatepicker]="picker3" placeholder="DOB">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+                <mat-error>Invalid Date Of Birth.</mat-error>
+            </mat-form-field>
+    </div>
+
+
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    NOTES
+                </mat-panel-title>
+                <mat-panel-description>
+                    Documents demonstrating right to work in the UK
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>
+                <span class="text-format-content ">
+                    <span style="font-size: 1.3em;"><b>NOTES:</b></span><br><b><br></b><span style="font-size: 1.3em;"><b>Documents demonstrating right to work in the UK</b></span><br><span><b><br></b></span><b>LIST A</b><br>Documents demonstrating an individual has the right to work in the UK with no&nbsp;<span>restrictions:</span><br><br>Documents listed as items 1 to 6 can be presented on their own as indefinite&nbsp;<span>evidence of eligibility to work in the UK</span><br><br><ol><li><span>A passport showing that the holder, or a person named in the passport as the&nbsp;</span>child of the holder, is a British citizen or a citizen of the UK and Colonies having the right of abode in the UK (current or expired) Please note that if the name on the passport has changed then a copy of your marriage certificate or deed poll will be needed.</li></ol><ol><li>A passport or national identity card showing that the holder, or a person named in the passport as the child of the holder, is a national of the European Economic Area or Switzerland.</li></ol><ol><li>A residence permit, registration certificate or document certifying or indicating permanent residence issued by the Home Office or the Border and Immigration Agency to a national of a European Economic Area country or Switzerland.</li></ol><ol><li>A permanent residence card issued by the Home Office or the Border and Immigration Agency to the family member of a national of a European Economic Area country or Switzerland.</li></ol><ol><li>A Biometric Immigration Document issued by the Border and Immigration Agency to the holder which indicates that the person named in it is allowed to stay indefinitely in the UK, or has no time limit on their stay in the UK.</li></ol><ol><li>A passport or other travel document endorsed to show that the holder is exempt from immigration control, is allowed to stay indefinitely in the UK, has the right of abode in the UK, or has no time limit on their stay in the UK.</li></ol><br><b>The following documents, if presented, must be accompanied by an official&nbsp;</b><b>document giving the person’s permanent National Insurance Number and their&nbsp;</b><b>name issued by a Government agency or a previous employer</b><br><b><br></b><b>List B</b><br><ol><li>An Immigration Status Document issued by the Home Office or the Border andImmigration Agency to the holder with an endorsement indicating that the person named in it is allowed to stay indefinitely in the UK or has no time limit on their stay in the UK.<br></li><li>A full birth certificate issued in the UK which includes the name(s) of at least one of the holder’s parents.<br></li><li>A full adoption certificate issued in the UK which includes the name(s) of at least one of the holder’s adoptive.<br></li><li>A birth certificate issued in the Channel Islands, the Isle of Man or Ireland.<br></li><li>An adoption certificate issued in the Channel Islands, the Isle of Man or Ireland.<br></li><li>A certificate of registration or naturalisation as a British citizen.<br></li><li>A letter issued by the Home Office or the Border and Immigration Agency to the holder which indicates that the person named in it is allowed to stay&nbsp;<span>indefinitely in the UK.</span></li></ol>
+                </span>
+            </p>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="padded-div">
+        <mat-form-field class="padded-formcontrol" appearance="outline">
+            <input matInput>
+            <mat-error> is mandatory.</mat-error>
+        </mat-form-field>
+    </div>
+</form>

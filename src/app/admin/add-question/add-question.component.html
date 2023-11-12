@@ -1,0 +1,65 @@
+<mat-toolbar>
+    <span>{{form.controls['id'].value?"Modify Question":"New Question"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  <form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="id">
+          <mat-form-field>
+            <mat-select formControlName="questionType" placeholder="Question Type" [(value)]="selected" (selectionChange)="onSelectionchanged()">
+              <ng-container *ngFor="let type of questionTypes">
+                <mat-option value="{{type.Value}}">{{type.Name}}</mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="question" matInput placeholder="Question Text*">
+            <mat-error>This field is mandatory.</mat-error>
+          </mat-form-field>
+          <div>
+            <section class="example-section">
+              <label class="example-margin">Question Group:</label>
+              <mat-radio-group formControlName="questionGroup">
+                <mat-radio-button class="example-margin" value="1">Assessor</mat-radio-button>
+                <mat-radio-button class="example-margin" value="2">Individual</mat-radio-button>
+              </mat-radio-group>
+            </section>
+          </div>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <mat-form-field *ngIf="selected == '3' || selected == '4'">
+            <input formControlName="option1" matInput placeholder="Option 1*">
+          </mat-form-field>
+          <mat-form-field *ngIf="selected == '3' || selected == '4'">
+            <input formControlName="option2" matInput placeholder="Option 2*">
+          </mat-form-field>
+          <mat-form-field *ngIf="selected == '3' || selected == '4'">
+            <input formControlName="option3" matInput placeholder="Option 3*">
+          </mat-form-field>
+          <mat-form-field *ngIf="selected == '3' || selected == '4'">
+            <input formControlName="option4" matInput placeholder="Option 4*">
+          </mat-form-field>
+          <!-- <mat-form-field *ngIf="selected == '3'">
+            <input formControlName="option5" matInput placeholder="Option 5*">
+          </mat-form-field>
+          <mat-form-field *ngIf="selected == '3'">
+            <input formControlName="option6" matInput placeholder="Option 6*">
+          </mat-form-field>
+          <mat-form-field *ngIf="selected == '3'">
+            <input formControlName="option7" matInput placeholder="Option 7*">
+          </mat-form-field> -->
+
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button> 
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </form>

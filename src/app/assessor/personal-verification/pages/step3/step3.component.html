@@ -1,0 +1,96 @@
+<form [formGroup]="form">
+    <div>
+        <button mat-button color="primary"  matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
+    </div>
+    
+    <div class="padded-div">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you wish to register as an associate Counsellor?</mat-label>
+        <section class="example-section">
+            <mat-radio-group [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button class="example-margin" value="True">True</mat-radio-button>
+                <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+    <div *ngIf="selectedValue == 'True'">
+        <div class="padded-div">
+            <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Which professional bodies do you have membership to?</mat-label>
+            
+            <section>
+                <mat-checkbox value="BACP"  class="padded-check">BACP</mat-checkbox>
+                <mat-checkbox  value="NCPS" class="padded-check">NCPS</mat-checkbox>
+                <mat-checkbox  value="Other" class="padded-check">
+                    <mat-form-field>
+                        <input matInput placeholder="Other">
+                    </mat-form-field>
+                </mat-checkbox>
+            </section>
+        </div>
+        <div class="padded-div">
+            <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you hold a coaching qualification or have experience in coaching individuals' with Specific Learning Differences? Please give a brief outline of experience and and specific area that you have specialised in, for example, ADHD coaching). ?
+            </mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput>
+                <mat-error>Full Name is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="padded-div">
+            <mat-label matBadge="4" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How would you describe your counselling experience?
+            </mat-label>
+            <mat-form-field class="padded-formcontrol">
+                <mat-label>Counselling Experience</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+        </div>
+        <div class="padded-div">
+            <mat-label matBadge="5" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What is the level and name of your counselling qualification? 
+            </mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput>
+                <mat-error> is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="padded-div">
+            <mat-label matBadge="6" matBadgePosition="before" matBadgeColor="accent">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What is your specialism?
+            </mat-label>
+            <mat-form-field class="padded-formcontrol" appearance="outline">
+                <input matInput>
+                <mat-error> is mandatory.</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="padded-div">
+        <mat-label matBadge="7" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you hold professional Indemnity Insurance?</mat-label>
+        <section class="example-section">
+            <mat-radio-group>
+                <mat-radio-button class="example-margin" value="Yes">Yes</mat-radio-button>
+                <mat-radio-button class="example-margin" value="No">No</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+    <div class="padded-div">
+        <mat-label matBadge="8" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you hold an ICO membership?</mat-label>
+        
+        <section>
+            <mat-checkbox value="Yes"  class="padded-check">Yes</mat-checkbox>
+            <mat-checkbox  value="No" class="padded-check">No</mat-checkbox>
+            <mat-checkbox  value="Other" class="padded-check">
+                <mat-form-field>
+                    <input matInput placeholder="Other">
+                </mat-form-field>
+            </mat-checkbox>
+        </section>
+    </div>
+</form>

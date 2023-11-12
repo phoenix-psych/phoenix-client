@@ -1,0 +1,102 @@
+<div class="span-30">
+    <p>Identifying Information </p>
+  </div>
+  
+<form [formGroup]="form">
+    <div class="span-30">
+        <span>Name</span>
+        <mat-form-field class="span-30" appearance="outline">
+            <input matInput formControlName="name">
+            <mat-error>Name is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-label>Date Of Birth</mat-label>
+        <mat-form-field class="span-30" appearance="outline">
+            <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Invalid Date Of Birth.</mat-error>
+        </mat-form-field>
+        <span>Age-Year</span>
+        <mat-form-field class="span-30"  appearance="outline">
+            <input matInput formControlName="ageYear" readonly="true">
+        </mat-form-field>
+        <span>Age-Month</span>
+        <mat-form-field class="span-30"  appearance="outline">
+            <input matInput formControlName="ageMonth" readonly="true">
+        </mat-form-field>
+    </div>
+</form>
+
+<div class="span-30"> 
+    <p>Subtest Performance</p>
+</div>
+
+<div class="span-50" >
+    <mat-grid-list  cols="20" rows="10" rowHeight="30px">
+        <div class="Header"> 
+        <mat-grid-tile colspan="5"><b>Subtest</b></mat-grid-tile>
+        <mat-grid-tile colspan="2"><b>Raw Score</b></mat-grid-tile>
+        <mat-grid-tile><b>Age Equ.</b></mat-grid-tile>
+        <mat-grid-tile><b>Grade Equ.</b></mat-grid-tile>
+        <mat-grid-tile><b>%ile Rank </b></mat-grid-tile>
+        <mat-grid-tile colspan="2"><b>Scaled Score</b></mat-grid-tile>
+        <mat-grid-tile colspan="2"><b>Standard Score</b></mat-grid-tile>
+        <mat-grid-tile><b>SEM</b></mat-grid-tile>
+        <mat-grid-tile colspan="5"><b>Descriptive Term</b></mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+
+<div class="span-30">
+    <p>Composite Performance</p>
+    <mat-select class="span-30" placeholder="Select Confidence Interval" [(value)]="selected" (selectionChange)="onSelectionchanged()">
+        <ng-container *ngFor="let ci of confidenceIntervals">
+        <mat-option value="{{ci.Value}}">{{ci.Name}}</mat-option>
+        </ng-container>
+    </mat-select>
+</div>
+
+<div class="span-50" >
+    <mat-grid-list  cols="22" rows="10" rowHeight="30px" [hidden]="hidden">
+        <div class="Header1"> 
+            <mat-grid-tile colspan="4" rowspan="2"><b>Composite</b></mat-grid-tile>
+            <mat-grid-tile colspan="9"><b>Subtest Scaled Score</b></mat-grid-tile>        
+            <mat-grid-tile rowspan="2"><b>SUM</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2"><b>%ile Rank</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2"><b>SEM</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2"><b>Score</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2"><b>Confidence Interval</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2"><b>Descriptive Term</b></mat-grid-tile>
+        </div>
+        <div class="Header2"> 
+            <mat-grid-tile><b>EL</b></mat-grid-tile>        
+            <mat-grid-tile><b>BW</b></mat-grid-tile>
+            <mat-grid-tile><b>PI</b></mat-grid-tile>
+            <mat-grid-tile><b>MD</b></mat-grid-tile>
+            <mat-grid-tile><b>NR</b></mat-grid-tile>
+            <mat-grid-tile><b>RD</b></mat-grid-tile>
+            <mat-grid-tile><b>RL</b></mat-grid-tile>
+            <mat-grid-tile><b>BN</b></mat-grid-tile>
+            <mat-grid-tile><b>SN</b></mat-grid-tile>
+        </div>
+        <div class="Phonological Awareness"> 
+            <mat-grid-tile colspan="4">Phonological Awareness</mat-grid-tile>
+            <mat-grid-tile>{{0}}</mat-grid-tile>        
+            <mat-grid-tile>{{0}}</mat-grid-tile>
+            <mat-grid-tile>{{0}}</mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile>{{0}}</mat-grid-tile>
+            <mat-grid-tile>{{0}}%</mat-grid-tile>
+            <mat-grid-tile>4</mat-grid-tile>
+            <mat-grid-tile>{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{0}}</mat-grid-tile>
+        </div>
+        
+    </mat-grid-list>
+</div> 
