@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-towre2',
-  templateUrl: './towre2.component.html',
-  styleUrls: ['./towre2.component.scss']
+  selector: 'app-dash',
+  templateUrl: './dash.component.html',
+  styleUrls: ['./dash.component.scss']
 })
-export class Towre2Component implements OnInit {
-
+export class DashComponent implements OnInit {
+  
   private baseUrl:string = environment.baseApiUrl;
   form!:FormGroup;
   confidenceIntervals: Array<any> = [
@@ -23,26 +23,16 @@ export class Towre2Component implements OnInit {
   selected : string = ''
   hidden : boolean = true
 
-  sweRawScore: string = ''
-  pdeRawScore: string = ''
-
-  descriptiveTerm: string = ''
-  descriptiveTerms: Array<any> = [
-    { Name:"Very Poor",From:"1",To:"69" },
-    { Name:"Poor",From:"70",To:"79"},
-    { Name:"Below Average",From:"80",To:"89"},
-    { Name:"Average",From:"90",To:"110"},
-    { Name:"Above Average",From:"111",To:"120" },
-    { Name:"Superior",From:"121",To:"130" },
-    { Name:"Very Superior",From:"131",To:"999"}
-  ];
-
+  
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) { }
 
-  getScore(a : string){
-
+  ngOnInit(): void {
   }
-  
+
+  Generate(hide : boolean = true){
+    this.hidden = hide;
+  }
+
   onDOBChange() {
     if (this.form.get('dob')?.value)
     {
@@ -56,21 +46,5 @@ export class Towre2Component implements OnInit {
         });
     }
   }
-  onSelectionchanged() {
-    this.hidden = false;
-  }
-
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      id: [''],
-      name: ['', Validators.required],
-      dob: ['', Validators.required],
-      ageYear: [''],
-      ageMonth: [''],
-    });
-
-    this.descriptiveTerm = this.descriptiveTerms.filter(x => Number(x.From) <= 100 &&  Number(x.To) >= 100)[0].Name;
-  }
-
 
 }

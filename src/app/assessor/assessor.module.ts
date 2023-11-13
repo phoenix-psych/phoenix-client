@@ -55,6 +55,8 @@ import { Towre2Component } from './towre2/towre2.component';
 import { Wrat5Component } from './wrat5/wrat5.component';
 import { WritComponent } from './writ/writ.component';
 import { ArtComponent } from './art/art.component';
+import { GoartComponent } from './goart/goart.component';
+import { DashComponent } from './dash/dash.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { ArtComponent } from './art/art.component';
     Towre2Component,
     Wrat5Component,
     WritComponent,
-    ArtComponent
+    ArtComponent,
+    GoartComponent,
+    DashComponent
   ],
   imports: [
     CommonModule,
