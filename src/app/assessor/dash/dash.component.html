@@ -28,21 +28,70 @@
 </form>
 
 <div class="span-30"> 
-    <p>Test Performance</p>
+    <p>Core Scores</p>
 </div>
 
 <div class="table1" >
-    <mat-grid-list  cols="16" rowHeight="30px">
+    <mat-grid-list  cols="10" rowHeight="30px">
         <div class="Header"> 
-            <mat-grid-tile colspan="4" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b></b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>No of Errors</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Accuracy (15 no of errors)</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Comprehension(no of correct responses)</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>No of Words / passage</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Time taken / pssage</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Speed of Reading (words per minute)</b></mat-grid-tile>
+            <mat-grid-tile colspan="4" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Task</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Raw Score</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Standard Score</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Score</b></mat-grid-tile>
         </div>
 
+        <div class="1"> 
+            <mat-grid-tile colspan="4">1. Copy Best (CB) Words per minute </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.cbRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('cb')" [disabled]="form.invalid || !this.cbRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+        </div>
+        <div class="2"> 
+            <mat-grid-tile colspan="4">2. Alphabet Writing (AW) Number of letters</mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.awRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('aw')" [disabled]="form.invalid || !this.awRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+        </div>
+        <div class="3"> 
+            <mat-grid-tile colspan="4">3. Copy Fast (CF) Words per minute</mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.cfRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('cf')" [disabled]="form.invalid || !this.cfRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+        </div>
+        <div class="4"> 
+            <mat-grid-tile colspan="4">4. Free Writing (FW) Words per minute </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.fwRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('fw')" [disabled]="form.invalid || !this.fwRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+        </div>
+        <div class="5"> 
+            <mat-grid-tile colspan="4">Total Score (Sum of Standard Scores 1-4)</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{0}}</mat-grid-tile>
+        </div>
+        <div class="6"> 
+            <mat-grid-tile colspan="4" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Total Standard Score</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="3" >
+                <input style="width: 50%;" matInput [(ngModel)]="this.totalRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" readonly>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">Confidence Interval (68%)</mat-grid-tile>
+            <mat-grid-tile colspan="1">Percentile</mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2">{{0}} To {{100}}</mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="2">{{2}}</mat-grid-tile>
+        </div>
     </mat-grid-list>
 </div>
 
@@ -51,22 +100,12 @@
 </div>
 
 <div class="span-30">
-    <p>Composite Performance</p>
-    <button class="span-30" (click)="Generate(false)">Generate</button>
+    <p>Summary of Recommendations:</p>
 </div>
 
-<div class="span-table2" >
-    <mat-grid-list  cols="14" rowHeight="30px" [hidden]="hidden">
-        <div class="Header"> 
-            <mat-grid-tile colspan="5" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b></b></mat-grid-tile>
-            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Total Score</b></mat-grid-tile>
-            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Centile</b></mat-grid-tile>
-            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Standard Score</b></mat-grid-tile>
-        </div>
-        
-    </mat-grid-list>
+<div  class="recommondation-span">
+    <textarea cols="100" rows="10" class="recommondation" placeholder="Type here.." [(ngModel)]="this.recommendation"></textarea>
 </div>
-
 
 <div class="span-30">
     <p></p>

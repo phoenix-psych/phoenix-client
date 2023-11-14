@@ -28,19 +28,100 @@
 </form>
 
 <div class="span-30"> 
-    <p>Test Performance</p>
+    <p>Performance Summary</p>
 </div>
 
 <div class="table1" >
-    <mat-grid-list  cols="16" rowHeight="30px">
+    <mat-grid-list  cols="13" rowHeight="30px">
         <div class="Header"> 
-            <mat-grid-tile colspan="4" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b></b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>No of Errors</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Accuracy (15 no of errors)</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Comprehension(no of correct responses)</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>No of Words / passage</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Time taken / pssage</b></mat-grid-tile>
-            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'" [style.color]="'black'"><b>Speed of Reading (words per minute)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b></b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Raw Score</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Age Equiv.</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Grade Equiv.</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>%ile Rank</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Scaled Score*</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>SEM</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Descriptive Term</b></mat-grid-tile>
+        </div>
+
+        <div class="1"> 
+            <mat-grid-tile colspan="3" >Rate</mat-grid-tile>
+            <mat-grid-tile colspan="2" >
+                <input matInput [(ngModel)]="this.sweRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.sweRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile ><b>1</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+        </div>
+
+        <div class="2"> 
+            <mat-grid-tile colspan="3" >Accuracy</mat-grid-tile>
+            <mat-grid-tile colspan="2" >
+                <input matInput [(ngModel)]="this.pdeRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.pdeRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile ><b>1</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+        </div>
+
+        <div class="3"> 
+            <mat-grid-tile colspan="3" >Fluency</mat-grid-tile>
+            <mat-grid-tile colspan="2" >
+                <input matInput [(ngModel)]="this.pdeRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.pdeRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile ><b>1</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+        </div>
+
+        <div class="4"> 
+            <mat-grid-tile colspan="3" >Comprehension</mat-grid-tile>
+            <mat-grid-tile colspan="2" >
+                <input matInput [(ngModel)]="this.pdeRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.pdeRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile ><b>1</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+        </div>
+
+        <div class="5"> 
+            <mat-grid-tile colspan="8" text-align="right">Sum of Scaled Scores =</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="4" ></mat-grid-tile>
+        </div>
+
+        <div class="6"> 
+            <mat-grid-tile colspan="2" rowspan="2" class="mat-border-top"></mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2" class="mat-border-top">Sum Of Scaled Scores</mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2" class="mat-border-top">Oral Reading %ile Rank</mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2" class="mat-border-top">Oral Reading Index</mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="2" class="mat-border-top">SEM</mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2" class="mat-border-top">Descriptive Term</mat-grid-tile>
+        </div>
+
+        <div class="6"> 
+            <mat-grid-tile colspan="2" class="mat-border-bottom"></mat-grid-tile>
+            <mat-grid-tile colspan="3" class="mat-border-bottom">{{2}}</mat-grid-tile>
+            <mat-grid-tile colspan="2" class="mat-border-bottom">{{3}}</mat-grid-tile>
+            <mat-grid-tile colspan="2" class="mat-border-bottom">{{4}}</mat-grid-tile>
+            <mat-grid-tile colspan="1" class="mat-border-bottom">3</mat-grid-tile>
+            <mat-grid-tile colspan="3" class="mat-border-bottom" style="color: green;">{{75}}-87</mat-grid-tile>
         </div>
 
     </mat-grid-list>
@@ -50,24 +131,11 @@
     <p></p>
 </div>
 
-<div class="span-30">
-    <p>Composite Performance</p>
-    <button class="span-30" (click)="Generate(false)">Generate</button>
+<div class="span-left-green"> 
+    <p style="padding-left: 10%;"><b>Descriptive Term : </b></p>
+    <p style="color: green;padding-left: 20%;"><b>{{descriptiveTerm}}</b></p>
 </div>
 
-<div class="span-table2" >
-    <mat-grid-list  cols="14" rowHeight="30px" [hidden]="hidden">
-        <div class="Header"> 
-            <mat-grid-tile colspan="5" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b></b></mat-grid-tile>
-            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Total Score</b></mat-grid-tile>
-            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Centile</b></mat-grid-tile>
-            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Standard Score</b></mat-grid-tile>
-        </div>
-        
-    </mat-grid-list>
-</div>
-
-
-<div class="span-30">
+<div class="span-30"> 
     <p></p>
 </div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
@@ -23,14 +23,36 @@ export class DashComponent implements OnInit {
   selected : string = ''
   hidden : boolean = true
 
+  cbRawScore: string = ''
+  awRawScore: string = ''
+  cfRawScore: string = ''
+  fwRawScore: string = ''
+  totalRawScore: string = ''
+  recommendation: string = ''
   
+  descriptiveTerm: string = ''
+  descriptiveTerms: Array<any> = [
+    { Name:"Very Poor",From:"1",To:"69" },
+    { Name:"Poor",From:"70",To:"79"},
+    { Name:"Below Average",From:"80",To:"89"},
+    { Name:"Average",From:"90",To:"110"},
+    { Name:"Above Average",From:"111",To:"120" },
+    { Name:"Superior",From:"121",To:"130" },
+    { Name:"Very Superior",From:"131",To:"999"}
+  ];
+
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) { }
 
   ngOnInit(): void {
-  }
+    this.form = this.formBuilder.group({
+      id: [''],
+      name: ['', Validators.required],
+      dob: ['', Validators.required],
+      ageYear: [''],
+      ageMonth: [''],
+    });
 
-  Generate(hide : boolean = true){
-    this.hidden = hide;
+    this.descriptiveTerm = this.descriptiveTerms.filter(x => Number(x.From) <= 100 &&  Number(x.To) >= 100)[0].Name;
   }
 
   onDOBChange() {
@@ -45,6 +67,10 @@ export class DashComponent implements OnInit {
           ageMonth: ageMonth,
         });
     }
+  }
+
+  getScore(s : string){
+    
   }
 
 }

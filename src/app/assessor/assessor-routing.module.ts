@@ -14,6 +14,8 @@ import { Towre2Component } from './towre2/towre2.component';
 import { Wrat5Component } from './wrat5/wrat5.component';
 import { WritComponent } from './writ/writ.component';
 import { ArtComponent } from './art/art.component';
+import { DashComponent } from './dash/dash.component';
+import { GoartComponent } from './goart/goart.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,14 @@ const routes: Routes = [
       {
         path:'art', 
         component:ArtComponent
+      },
+      {
+        path:'dash', 
+        component:DashComponent
+      },
+      {
+        path:'goart', 
+        component:GoartComponent
       }
     ]
   }
