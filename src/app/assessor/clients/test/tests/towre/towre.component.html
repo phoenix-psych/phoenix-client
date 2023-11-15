@@ -1,0 +1,104 @@
+<div class="span-30">
+    <p>Identifying Information </p>
+</div>
+  
+<form [formGroup]="form">
+    <div class="span-30">
+        <span>Name</span>
+        <mat-form-field class="form-span-small" appearance="outline">
+            <input matInput formControlName="name">
+            <mat-error>Name is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-label>Date Of Birth</mat-label>
+        <mat-form-field class="form-span-small" appearance="outline">
+            <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Invalid Date Of Birth.</mat-error>
+        </mat-form-field>
+        <span>Age-Year</span>
+        <mat-form-field class="form-span-extra-small"  appearance="outline">
+            <input matInput formControlName="ageYear" readonly="true">
+        </mat-form-field>
+        <span>Age-Month</span>
+        <mat-form-field class="form-span-extra-small"  appearance="outline">
+            <input matInput formControlName="ageMonth" readonly="true">
+        </mat-form-field>
+    </div>
+</form>
+
+<div class="span-30"> 
+    <p>Test Performance</p>
+</div>
+
+<div class="table1" >
+    <mat-grid-list  cols="16" rowHeight="30px">
+        <div class="Header"> 
+            <mat-grid-tile colspan="5" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b></b></mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Raw Score</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Age Equiv.</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Grade Equiv.</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>%ile Rank</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Scaled Score*</b></mat-grid-tile>
+            <mat-grid-tile rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>SEM</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Descriptive Term</b></mat-grid-tile>
+        </div>
+
+        <div class="1"> 
+            <mat-grid-tile colspan="5" >Sigbt Word Efficiency (SWE)</mat-grid-tile>
+            <mat-grid-tile colspan="3" >
+                <input matInput [(ngModel)]="this.sweRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.sweRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile ><b>(5)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+        </div>
+
+        <div class="2"> 
+            <mat-grid-tile colspan="5" >Phonemic Decoding Efficiency (PDE)</mat-grid-tile>
+            <mat-grid-tile colspan="3" >
+                <input matInput [(ngModel)]="this.pdeRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.pdeRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile ><b>(4)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+        </div>
+
+        <div class="3"> 
+            <mat-grid-tile colspan="11" text-align="right">Sum of Scaled Scores =</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="4" ></mat-grid-tile>
+        </div>
+
+        <div class="4"> 
+            <mat-grid-tile colspan="5" >Total Word Reading Efficiency Index (TWRE)</mat-grid-tile>
+            <mat-grid-tile colspan="5"></mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile ><b>(3)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+        </div>
+
+    </mat-grid-list>
+</div>
+
+<div class="span-30">
+    <p></p>
+</div>
+
+<div class="span-left-green"> 
+    <p style="padding-left: 10%;"><b>Descriptive Term : </b></p>
+    <p style="color: green;padding-left: 20%;"><b>{{descriptiveTerm}}</b></p>
+</div>
+
+<div class="span-30"> 
+    <p></p>
+</div>

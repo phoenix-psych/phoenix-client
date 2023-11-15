@@ -1,0 +1,284 @@
+<div class="span-30">
+    <p>Identifying Information </p>
+  </div>
+  
+  <form [formGroup]="form">
+    <div class="span-30">
+      <span>Name</span>
+      <mat-form-field class="span-30" appearance="outline">
+          <input matInput formControlName="name">
+          <mat-error>Name is mandatory.</mat-error>
+      </mat-form-field>
+      <mat-label>Date Of Birth</mat-label>
+      <mat-form-field class="span-30" appearance="outline">
+          <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Invalid Date Of Birth.</mat-error>
+      </mat-form-field>
+      <span>Age-Year</span>
+      <mat-form-field class="span-30"  appearance="outline">
+          <input matInput formControlName="ageYear" readonly="true">
+      </mat-form-field>
+      <span>Age-Month</span>
+      <mat-form-field class="span-30"  appearance="outline">
+          <input matInput formControlName="ageMonth" readonly="true">
+      </mat-form-field>
+  </div>
+  
+  <div class="span-30"> 
+    <p>Subtest Performance</p>
+  </div>
+  
+  <div class="span-50" >
+    <mat-grid-list  cols="20" rows="10" rowHeight="30px">
+      <div class="Header"> 
+        <mat-grid-tile colspan="5"><b>Subtest</b></mat-grid-tile>
+        <mat-grid-tile colspan="2"><b>Raw Score</b></mat-grid-tile>
+        <mat-grid-tile><b>Age Equ.</b></mat-grid-tile>
+        <mat-grid-tile><b>Grade Equ.</b></mat-grid-tile>
+        <mat-grid-tile><b>%ile Rank </b></mat-grid-tile>
+        <mat-grid-tile colspan="2"><b>Scaled Score</b></mat-grid-tile>
+        <mat-grid-tile colspan="2"><b>Standard Score</b></mat-grid-tile>
+        <mat-grid-tile><b>SEM</b></mat-grid-tile>
+        <mat-grid-tile colspan="5"><b>Descriptive Term</b></mat-grid-tile>
+      </div>
+      <div class="Elision (EL)"> 
+        <mat-grid-tile colspan="5">Elision (EL)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput [(ngModel)]="elRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getELRawScore()" [disabled]="form.invalid || !this.elRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.elPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.elScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.elScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class="Blending Words (BW)"> 
+        <mat-grid-tile colspan="5">Blending Words (BW)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="bwRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getBWRawScore()" [disabled]="form.invalid || !this.bwRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.bwPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.bwScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.bwScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class="Phoneme Isolation (Pl)"> 
+        <mat-grid-tile colspan="5">Phoneme Isolation (Pl)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="plRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getPLRawScore()" [disabled]="form.invalid || !this.plRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.plPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.plScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.plScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class="Memory for Digits (MD)"> 
+        <mat-grid-tile colspan="5"> Memory for Digits (MD)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="mdRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getMDRawScore()" [disabled]="form.invalid || !this.mdRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.mdPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.mdScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.mdScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class="Nonword Repetition (NR)"> 
+        <mat-grid-tile colspan="5">Nonword Repetition (NR)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="nrRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getNRRawScore()" [disabled]="form.invalid || !this.nrRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.nrPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.nrScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.nrScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class="Rapid Digit Naming (RD)"> 
+        <mat-grid-tile colspan="5">Rapid Digit Naming (RD)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="rdRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getRDRawScore()" [disabled]="form.invalid || !this.rdRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.rdPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.rdScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.rdScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class=" Rapid Letter Naming (RL) "> 
+        <mat-grid-tile colspan="5"> Rapid Letter Naming (RL) </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="rlRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getRLRawScore()" [disabled]="form.invalid || !this.rlRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.rlPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.rlScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.rlScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class="Blending Nonwords (BN)"> 
+        <mat-grid-tile colspan="5">Blending Nonwords (BN)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="bnRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getBNRawScore()" [disabled]="form.invalid || !this.bnRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.bnPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.bnScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.bnScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+      <div class="Segmenting Nonwords (SN)"> 
+        <mat-grid-tile colspan="5">Segmenting Nonwords (SN)</mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <input matInput  [(ngModel)]="snRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+          <button (click)="getSNRawScore()" [disabled]="form.invalid || !this.snRawScore">Check</button>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.snPercentageRank}}%</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.snScaleScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.CheckNAN(this.getStandardScore(this.snScaleScore))}}</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile colspan="5"></mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
+  
+  <div class="span-30">
+    <p>Composite Performance</p>
+    <mat-select class="span-30" placeholder="Select Confidence Interval" [(value)]="selected" (selectionChange)="onSelectionchanged()">
+      <ng-container *ngFor="let ci of confidenceIntervals">
+        <mat-option value="{{ci.Value}}">{{ci.Name}}</mat-option>
+      </ng-container>
+    </mat-select>
+  </div>
+  
+  <div class="span-50" >
+    <mat-grid-list  cols="22" rows="10" rowHeight="30px" [hidden]="hidden">
+      <div class="Header1"> 
+        <mat-grid-tile colspan="4" rowspan="2"><b>Composite</b></mat-grid-tile>
+        <mat-grid-tile colspan="9"><b>Subtest Scaled Score</b></mat-grid-tile>        
+        <mat-grid-tile rowspan="2"><b>SUM</b></mat-grid-tile>
+        <mat-grid-tile rowspan="2"><b>%ile Rank</b></mat-grid-tile>
+        <mat-grid-tile rowspan="2"><b>SEM</b></mat-grid-tile>
+        <mat-grid-tile rowspan="2"><b>Score</b></mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="2"><b>Confidence Interval</b></mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="2"><b>Descriptive Term</b></mat-grid-tile>
+      </div>
+      <div class="Header2"> 
+        <mat-grid-tile><b>EL</b></mat-grid-tile>        
+        <mat-grid-tile><b>BW</b></mat-grid-tile>
+        <mat-grid-tile><b>PI</b></mat-grid-tile>
+        <mat-grid-tile><b>MD</b></mat-grid-tile>
+        <mat-grid-tile><b>NR</b></mat-grid-tile>
+        <mat-grid-tile><b>RD</b></mat-grid-tile>
+        <mat-grid-tile><b>RL</b></mat-grid-tile>
+        <mat-grid-tile><b>BN</b></mat-grid-tile>
+        <mat-grid-tile><b>SN</b></mat-grid-tile>
+      </div>
+      <div class="Phonological Awareness"> 
+        <mat-grid-tile colspan="4">Phonological Awareness</mat-grid-tile>
+        <mat-grid-tile>{{this.elScaleScore}}</mat-grid-tile>        
+        <mat-grid-tile>{{this.bwScaleScore}}</mat-grid-tile>
+        <mat-grid-tile>{{this.plScaleScore}}</mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.paSum}}</mat-grid-tile>
+        <mat-grid-tile>{{this.pARank}}%</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+        <mat-grid-tile>{{this.pAScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.pACI}}</mat-grid-tile>
+        <mat-grid-tile colspan="3">{{this.pADesc}}</mat-grid-tile>
+      </div>
+      <div class="Phonological Memory"> 
+        <mat-grid-tile colspan="4">Phonological Memory</mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>        
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.mdScaleScore}}</mat-grid-tile>
+        <mat-grid-tile>{{this.nrScaleScore}}</mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.pmSum}}</mat-grid-tile>
+        <mat-grid-tile>{{this.pMRank}}%</mat-grid-tile>
+        <mat-grid-tile>6</mat-grid-tile>
+        <mat-grid-tile>{{this.pMScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.pMCI}}</mat-grid-tile>
+        <mat-grid-tile colspan="3">{{this.pMDesc}}</mat-grid-tile>
+      </div>
+      <div class="Rapid Symbolic Naming "> 
+        <mat-grid-tile colspan="4">Rapid Symbolic Naming </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>        
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.rdScaleScore}}</mat-grid-tile>
+        <mat-grid-tile>{{this.rlScaleScore}}</mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.rsnSum}}</mat-grid-tile>
+        <mat-grid-tile>{{this.rSNRank}}%</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+        <mat-grid-tile>{{this.rSNScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.rSNCI}}</mat-grid-tile>
+        <mat-grid-tile colspan="3">{{this.rSNDesc}}</mat-grid-tile>
+      </div>
+      <div class="Alt. Phonological Awareness"> 
+        <mat-grid-tile colspan="4">Alt. Phonological Awareness</mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>        
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>{{this.bnScaleScore}}</mat-grid-tile>
+        <mat-grid-tile>{{this.snScaleScore}}</mat-grid-tile>
+        <mat-grid-tile>{{this.apaSum}}</mat-grid-tile>
+        <mat-grid-tile>{{this.aPARank}}%</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+        <mat-grid-tile>{{this.aPAScore}}</mat-grid-tile>
+        <mat-grid-tile colspan="2">{{this.aPACI}}</mat-grid-tile>
+        <mat-grid-tile colspan="3">{{this.aPADesc}}</mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div> 
+  
+  </form>
+  
+  

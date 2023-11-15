@@ -1,0 +1,277 @@
+<div class="span-30">
+    <p>Identifying Information </p>
+</div>
+  
+<form [formGroup]="form">
+    <div class="span-30">
+        <span>Name</span>
+        <mat-form-field class="form-span-small" appearance="outline">
+            <input matInput formControlName="name">
+            <mat-error>Name is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-label>Date Of Birth</mat-label>
+        <mat-form-field class="form-span-small" appearance="outline">
+            <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Invalid Date Of Birth.</mat-error>
+        </mat-form-field>
+        <span>Age-Year</span>
+        <mat-form-field class="form-span-extra-small"  appearance="outline">
+            <input matInput formControlName="ageYear" readonly="true">
+        </mat-form-field>
+        <span>Age-Month</span>
+        <mat-form-field class="form-span-extra-small"  appearance="outline">
+            <input matInput formControlName="ageMonth" readonly="true">
+        </mat-form-field>
+
+        <section class="example-section">
+            <label class="example-margin">Question Group:</label>
+            <mat-radio-group formControlName="group">
+              <mat-radio-button class="example-margin" value="1">Green</mat-radio-button>
+              <mat-radio-button class="example-margin" value="2">Red</mat-radio-button>
+            </mat-radio-group>
+          </section>
+
+    </div>
+</form>
+
+<div class="span-table2" >
+    <mat-grid-list  cols="14" rowHeight="30px" rowHeight="30px">
+        <div class="Header"> 
+            <mat-grid-tile colspan="4" rowspan="3" [style.background]="'grey'">SUBTEST / COMPOSITE</mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'"><b>RAW SCORE</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'"><b>STANDARD SCORE</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'">
+                <b>
+                    <div class="span-30">
+                        <mat-select class="span-30" placeholder="C I" [(value)]="selected" (selectionChange)="onSelectionchanged()">
+                            <ng-container *ngFor="let ci of confidenceIntervals">
+                              <mat-option value="{{ci.Value}}">{{ci.Name}} %</mat-option>
+                            </ng-container>
+                        </mat-select>
+                        CONFIDENCE INTERVAL
+                    </div>
+                </b>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'"><b>PERCENTILE</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="3" [style.background]="'grey'"><b>GRADE EQUIVALENT</b></mat-grid-tile>
+        </div>
+        <div class="1"> 
+            <mat-grid-tile colspan="4">Word Reading</mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.wrRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.wrRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{wrStandardScore}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{wrCI}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{wrPer}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{wrGrade}}</mat-grid-tile>
+        </div>
+
+        <div class="2"> 
+            <mat-grid-tile colspan="4">Spelling</mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.spRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.spRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{spStandardScore}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{spCI}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{spPer}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{spGrade}}</mat-grid-tile>
+        </div>
+
+        <div class="3"> 
+            <mat-grid-tile colspan="4">Math Computation</mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.mcRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.mcRawScore">Check</button>
+            </mat-grid-tile>mc
+            <mat-grid-tile colspan="2">{{mcStandardScore}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{mcCI}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{mcPer}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{mcGrade}}</mat-grid-tile>
+        </div>
+
+        <div class="4"> 
+            <mat-grid-tile colspan="4">Sentence Comprehension</mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.scRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.scRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{scStandardScore}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{scCI}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{scPer}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{scGrade}}</mat-grid-tile>
+        </div>
+
+        <div class="5"> 
+            <mat-grid-tile colspan="4">Reading Composite</mat-grid-tile>
+            <mat-grid-tile colspan="2">
+                <input matInput [(ngModel)]="this.rcRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
+                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.rcRawScore">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">{{rcStandardScore}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{rcCI}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{rcPer}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{rcGrade}}</mat-grid-tile>
+        </div>
+        
+    </mat-grid-list>
+</div>
+
+
+<div class="span-30">
+    <p>Composite Performance</p>
+    <button class="span-30" (click)="Generate(false)">Generate</button>
+</div>
+
+
+<div class="span-table3" [hidden]="hidden">
+    <mat-grid-list  [cols]="this.cols+25" rowHeight="30px">
+        <div>
+            <mat-grid-tile colspan="25"></mat-grid-tile>
+            <div *ngFor="let item of [].constructor(100); let i = index">
+                <mat-grid-tile colspan="5" *ngIf="(i%5) == 0">{{i+50}}</mat-grid-tile>
+            </div>
+        </div>
+        <div>
+            <div *ngFor="let row of arr; let i=index">
+                <mat-grid-tile colspan="25">{{this.arr2[i]}}</mat-grid-tile>
+                <div *ngFor="let it of row; let j=index">
+                    <mat-grid-tile  [style.background]="this.arr[i][j]"></mat-grid-tile>
+                </div>
+            </div>
+        </div>
+    </mat-grid-list>
+</div>
+
+<div class="span-30">
+    <p>Standard Score Comparisons</p>
+</div>
+
+<div class="span-table4" [hidden]="hidden">
+    <mat-grid-list  cols="19" rowHeight="30px" rowHeight="30px">
+        <div class="Header"> 
+            <mat-grid-tile colspan="9" rowspan="2" [style.background]="'grey'"><b>Score ComparisonsDifference</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2" [style.background]="'grey'"><b>Difference</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" [style.background]="'grey'"><b>Significance Level</b></mat-grid-tile>
+            <mat-grid-tile colspan="5" [style.background]="'grey'"><b>Base Rate</b></mat-grid-tile>
+            <mat-grid-tile colspan="8" [style.background]="'grey'"><b>Table D.1 or D.2</b></mat-grid-tile>
+        </div>
+        <div class="1"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+
+            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
+
+        </div>
+        <div class="1"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+
+            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
+
+        </div>
+        <div class="1"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+
+            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
+
+        </div>
+        <div class="1"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+
+            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
+
+        </div>
+        <div class="1"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+
+            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
+
+        </div>
+        <div class="5"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom mat-grid-tile-bottom">Word Reading</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom mat-grid-tile-bottom" colspan="3">Spelling</mat-grid-tile>
+
+            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
+
+        </div>
+
+
+    </mat-grid-list>
+</div>
+
+<div class="span-30">
+    <p></p>
+</div>

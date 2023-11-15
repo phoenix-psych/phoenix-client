@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { NotifyService } from 'src/app/shared/notify.service';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.scss']
 })
-export class AddComponent implements OnInit {
+export class TestComponent implements OnInit {
 
   form !: FormGroup
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService,
-    public dialogRef: MatDialogRef<AddComponent>) { }
+    public dialogRef: MatDialogRef<TestComponent>) { }
 
 
   ngOnInit() {
@@ -45,5 +45,4 @@ export class AddComponent implements OnInit {
     this.form.reset();
     this.dialogRef.close();
   }
-
 }

@@ -57,6 +57,11 @@ import { WritComponent } from './writ/writ.component';
 import { ArtComponent } from './art/art.component';
 import { GoartComponent } from './goart/goart.component';
 import { DashComponent } from './dash/dash.component';
+import { TestComponent } from './clients/test/test.component';
+import { CtoppComponent } from './clients/test/tests/ctopp/ctopp.component';
+import { TomalComponent } from './clients/test/tests/tomal/tomal.component';
+import { TowreComponent } from './clients/test/tests/towre/towre.component';
+import { WratComponent } from './clients/test/tests/wrat/wrat.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +91,12 @@ import { DashComponent } from './dash/dash.component';
     WritComponent,
     ArtComponent,
     GoartComponent,
-    DashComponent
+    DashComponent,
+    TestComponent,
+    CtoppComponent,
+    TomalComponent,
+    TowreComponent,
+    WratComponent
   ],
   imports: [
     CommonModule,

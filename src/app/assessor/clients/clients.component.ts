@@ -9,6 +9,7 @@ import { AddComponent } from '../add/add.component';
 import { Assessor } from 'src/app/models/assessor.model';
 import { Client } from 'src/app/models/common/clients';
 import { Report1Component } from './report1/report1.component';
+import { TestComponent } from './test/test.component';
 
 @Component({
   selector: 'app-clients',
@@ -67,6 +68,16 @@ export class ClientsComponent implements OnInit {
     dialogConfig.width = "100%";
     dialogConfig.height = "100%";
     this.dialog.open(AddComponent,dialogConfig);
+  }
+
+  onTest(row: any){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.autoFocus= false,
+    dialogConfig.maxHeight= '90vh' 
+    dialogConfig.width = "100%";
+    this.dialog.open(TestComponent,dialogConfig);
   }
 
   onEdit(row: any){
