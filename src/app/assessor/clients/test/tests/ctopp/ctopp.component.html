@@ -4,27 +4,28 @@
   
   <form [formGroup]="form">
     <div class="span-30">
-      <span>Name</span>
-      <mat-form-field class="span-30" appearance="outline">
-          <input matInput formControlName="name">
-          <mat-error>Name is mandatory.</mat-error>
-      </mat-form-field>
-      <mat-label>Date Of Birth</mat-label>
-      <mat-form-field class="span-30" appearance="outline">
-          <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error>Invalid Date Of Birth.</mat-error>
-      </mat-form-field>
-      <span>Age-Year</span>
-      <mat-form-field class="span-30"  appearance="outline">
-          <input matInput formControlName="ageYear" readonly="true">
-      </mat-form-field>
-      <span>Age-Month</span>
-      <mat-form-field class="span-30"  appearance="outline">
-          <input matInput formControlName="ageMonth" readonly="true">
-      </mat-form-field>
-  </div>
+        <span>Name</span>
+        <mat-form-field class="form-span-small" appearance="outline">
+            <input matInput formControlName="name">
+            <mat-error>Name is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-label>Date Of Birth</mat-label>
+        <mat-form-field class="form-span-small" appearance="outline">
+            <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Invalid Date Of Birth.</mat-error>
+        </mat-form-field>
+        <span>Age-Year</span>
+        <mat-form-field class="form-span-extra-small"  appearance="outline">
+            <input matInput formControlName="ageYear" readonly="true">
+        </mat-form-field>
+        <span>Age-Month</span>
+        <mat-form-field class="form-span-extra-small"  appearance="outline">
+            <input matInput formControlName="ageMonth" readonly="true">
+        </mat-form-field>
+    </div>
+  </form>
   
   <div class="span-30"> 
     <p>Subtest Performance</p>
@@ -278,7 +279,5 @@
       </div>
     </mat-grid-list>
   </div> 
-  
-  </form>
   
   

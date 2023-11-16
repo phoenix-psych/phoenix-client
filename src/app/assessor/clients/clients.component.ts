@@ -75,7 +75,7 @@ export class ClientsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.autoFocus= false,
-    dialogConfig.maxHeight= '90vh' 
+    dialogConfig.height= '100%' 
     dialogConfig.width = "100%";
     this.dialog.open(TestComponent,dialogConfig);
   }

@@ -1,6 +1,25 @@
+
 .span-30
 {
     padding: 10px;
+}
+
+.form-span
+{
+    padding: 10px;
+    width: 200px;
+}
+
+.form-span-small
+{
+    padding: 10px;
+    width: 150px;
+}
+
+.form-span-extra-small
+{
+    padding: 10px;
+    width: 75px;
 }
 
 .span-50
@@ -16,6 +35,113 @@
     border: solid 2px #000;
 }
 
-.right-allign {
-    text-align: right;
+
+.text-inside-grid {
+    position: absolute;
+    left: 100px;
   }
+
+.container {
+display: inline-flex;
+align-items: center;
+}
+
+.span-table1
+{
+    padding-left: 30px;
+    padding-right: 300px;
+    width: 100%; 
+}
+.span-table2
+{
+    padding-left: 30px;
+    padding-right: 250px;
+    width: 100%; 
+}
+
+// input[type=text] {
+//     width: 20%;
+//     text-align: right; 
+//     padding-right: 3px;
+//     color: #ffffff;
+// }
+
+span-left-green
+{
+    padding-left: 100px;
+    color: red;
+    background-color: green($color: #02ff2c);
+}
+
+
+
+.mat-border-left {
+    border-left: solid 2px #000;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.mat-border-right {
+    border-right: solid 2px #000;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+}z
+
+.mat-border-left-right {
+    border-left: solid 2px #000;
+    border-right: solid 2px #000;
+    border-top: none;
+    border-bottom: none;
+}
+
+.mat-border-left-bottom {
+    border-left: solid 2px #000;
+    border-right: none;
+    border-top: none;
+    border-bottom: solid 2px #000;
+}
+
+
+.mat-border-right-bottom {
+    border-left: none;
+    border-right: solid 2px #000;
+    border-top: none;
+    border-bottom: solid 2px #000;
+}
+
+.mat-border-bottom {
+    border-bottom: solid 2px #000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+
+.mat-border-top {
+    border-top: solid 2px #000;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.mat-border-top-bottom {
+    border-top: solid 2px #000;
+    border-bottom: solid 2px #000;
+    border-left: none;
+    border-right: none;
+}
+
+.recommondation {
+    border: solid 2px #000;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+
+.recommondation-span
+{
+    padding-left: 10%;
+    padding-right: 10%;
+}
