@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseApiUrl:'https://phoenix-psych-service.azurewebsites.net/api/',
+  baseApiUrl:'https://localhost:7233/api/',
 };
 
 /*

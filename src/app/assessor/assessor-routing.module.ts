@@ -8,14 +8,14 @@ import { ClientsComponent } from './clients/clients.component';
 import { ReportComponent } from './report/report.component';
 import { SlotsComponent } from './slots/slots.component';
 import { ProfileComponent } from './profile/profile.component';
-import { MiscellaneousComponent } from './miscellaneous/miscellaneous.component';
-import { Tomal2Component } from './tomal2/tomal2.component';
-import { Towre2Component } from './towre2/towre2.component';
-import { Wrat5Component } from './wrat5/wrat5.component';
-import { WritComponent } from './writ/writ.component';
-import { ArtComponent } from './art/art.component';
-import { DashComponent } from './dash/dash.component';
-import { GoartComponent } from './goart/goart.component';
+// import { MiscellaneousComponent } from './miscellaneous/miscellaneous.component';
+// import { Tomal2Component } from './tomal2/tomal2.component';
+// import { Towre2Component } from './towre2/towre2.component';
+// import { Wrat5Component } from './wrat5/wrat5.component';
+// import { WritComponent } from './writ/writ.component';
+// import { ArtComponent } from './art/art.component';
+// import { DashComponent } from './dash/dash.component';
+// import { GoartComponent } from './goart/goart.component';
 
 const routes: Routes = [
   {
@@ -54,38 +54,38 @@ const routes: Routes = [
         path:'slots', 
         component:SlotsComponent
       },
-      {
-        path:'misc', 
-        component:MiscellaneousComponent
-      },
-      {
-        path:'tomal', 
-        component:Tomal2Component
-      },
-      {
-        path:'towre', 
-        component:Towre2Component
-      },
-      {
-        path:'wrat', 
-        component:Wrat5Component
-      },
-      {
-        path:'writ', 
-        component:WritComponent
-      },
-      {
-        path:'art', 
-        component:ArtComponent
-      },
-      {
-        path:'dash', 
-        component:DashComponent
-      },
-      {
-        path:'goart', 
-        component:GoartComponent
-      }
+      // {
+      //   path:'misc', 
+      //   component:MiscellaneousComponent
+      // },
+      // {
+      //   path:'tomal', 
+      //   component:Tomal2Component
+      // },
+      // {
+      //   path:'towre', 
+      //   component:Towre2Component
+      // },
+      // {
+      //   path:'wrat', 
+      //   component:Wrat5Component
+      // },
+      // {
+      //   path:'writ', 
+      //   component:WritComponent
+      // },
+      // {
+      //   path:'art', 
+      //   component:ArtComponent
+      // },
+      // {
+      //   path:'dash', 
+      //   component:DashComponent
+      // },
+      // {
+      //   path:'goart', 
+      //   component:GoartComponent
+      // }
     ]
   }
 ];

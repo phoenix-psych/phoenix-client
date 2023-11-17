@@ -5,11 +5,13 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotifyService } from 'src/app/shared/notify.service';
-import { AddComponent } from '../add/add.component';
-import { Assessor } from 'src/app/models/assessor.model';
-import { Client } from 'src/app/models/common/clients';
 import { Report1Component } from './report1/report1.component';
 import { TestComponent } from './test/test.component';
+import { Observable } from 'rxjs';
+import { ClientDto } from 'src/app/models/common/client.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { AddComponent } from './add/add.component';
 
 @Component({
   selector: 'app-clients',
@@ -18,38 +20,46 @@ import { TestComponent } from './test/test.component';
 })
 export class ClientsComponent implements OnInit {
 
+  private baseUrl:string = environment.baseApiUrl;
   constructor(
-    private dialog: MatDialog,
+    private dialog: MatDialog, 
+    private http: HttpClient,
     private notificationService: NotifyService,
     private dialogService: DialogService) { }
 
-  listData: MatTableDataSource<Client> = new MatTableDataSource<Client>;
-  displayedColumns: string[] = ['id','name', 'status', 'actions'];
+  listData: MatTableDataSource<ClientDto> = new MatTableDataSource<ClientDto>;
+  displayedColumns: string[] = ['id','name','dob','email','phone', 'status', 'actions'];
   @ViewChild(MatSort) sort = new MatSort ;
   @ViewChild(MatPaginator) paginator = MatPaginator;
   searchKey: string = "";
   loading = true;
 
   ngOnInit() {
-    let client = new Client('12we','JS','in progress');
-    this.listData.data.push(client);
+    // let client = new Client('12we','JS','in progress');
+    // this.listData.data.push(client);
     
-    // this.service.getUsers().subscribe(
-    //   list => {
-    //     this.loading = false;
-    //     let array = list.map(item => {
-    //       return item;
-    //     });
-    //     this.listData = new MatTableDataSource(array);
-    //     this.listData.sort = this.sort;
-    //     // this.listData.paginator = this.paginator;
-    //     this.listData.filterPredicate = (data, filter) => {
-    //       return this.displayedColumns.some(ele => {
-    //         return ele != 'actions' && data.fullName.toLowerCase().indexOf(filter) != -1;
-    //       });
-    //     };
-    //   });
+    this.getClients().subscribe(
+      list => {
+        this.loading = false;
+        let array = list.map(item => {
+          return item;
+        });
+        this.listData = new MatTableDataSource(array);
+        this.listData.sort = this.sort;
+        // this.listData.paginator = this.paginator;
+        this.listData.filterPredicate = (data, filter) => {
+          return this.displayedColumns.some(ele => {
+            return ele != 'actions' && data.name.toLowerCase().indexOf(filter) != -1;
+          });
+        };
+      });
   }
+
+  
+  getClients() : Observable<ClientDto[]> {
+    return this.http.get<ClientDto[]>(this.baseUrl + 'client');
+  }
+
 
   onSearchClear() {
     this.searchKey = "";
@@ -65,8 +75,8 @@ export class ClientsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "100%";
-    dialogConfig.height = "100%";
+    dialogConfig.width = "60%";
+    dialogConfig.height = "60%";
     this.dialog.open(AddComponent,dialogConfig);
   }
 
