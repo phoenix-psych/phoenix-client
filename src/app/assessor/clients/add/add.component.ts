@@ -70,9 +70,27 @@ export class AddComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       if (!this.form.get('id')?.value)
-        this.insertClient(this.form.value);
+      {
+        this.insertClient(this.form.value).subscribe({
+          next: (x) =>{
+            console.log(x);
+          },
+          error: (msg)=> {
+            console.log(msg);
+          }
+        });
+      }
       else
-        this.updateClient(this.form.value);
+      {
+        this.updateClient(this.form.value).subscribe({
+          next: (x) =>{
+            console.log(x);
+          },
+          error: (msg)=> {
+            console.log(msg);
+          }
+        });
+      }
 
       this.form.reset();
       this.notificationService.success(':: Submitted successfully');

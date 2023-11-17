@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ClientDto } from 'src/app/models/common/client.model';
 import { NotifyService } from 'src/app/shared/notify.service';
 
 @Component({
@@ -11,9 +12,14 @@ import { NotifyService } from 'src/app/shared/notify.service';
 })
 export class TestComponent implements OnInit {
 
+  name : string = '';
+  dob : Date = new Date();
+
   form !: FormGroup
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService,
-    public dialogRef: MatDialogRef<TestComponent>) { }
+    public dialogRef: MatDialogRef<TestComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ClientDto
+    ) { }
 
 
   ngOnInit() {

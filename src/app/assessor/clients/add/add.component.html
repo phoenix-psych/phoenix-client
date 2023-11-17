@@ -5,28 +5,27 @@
     <mat-icon>clear</mat-icon>
   </button>
 </mat-toolbar>
-<form [formGroup]="form" class="normal-form" (submit)="onSubmit()">
-  <mat-grid-list cols="3" rowHeight="50px">
-    <mat-grid-tile colspan="2">
+<form [formGroup]="form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile colspan="1">
       <input type="hidden" formControlName="id">
     </mat-grid-tile>
-    <mat-grid-tile colspan="2">
+    <mat-grid-tile rowspan="4">
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1">
       <mat-form-field class="form.normal-form">
         <input formControlName="name" matInput placeholder="Name*">
         <mat-error>This field is mandatory.</mat-error>
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile rowspan="7">
-      <div class="controles-container">
-        <div class="button-row">
-          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
-          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-        </div>
-      </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="2">
-      <mat-form-field class="form-span-small" appearance="outline">
+    
+    <mat-grid-tile colspan="1">
+      <mat-form-field class="form.normal-form" appearance="outline">
         <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -34,48 +33,21 @@
       </mat-form-field>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="2">
+    <mat-grid-tile colspan="1">
       <mat-form-field class="form.normal-form">
         <input formControlName="email" matInput placeholder="Email">
         <mat-error>This field is mandatory.</mat-error>
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2">
+    <mat-grid-tile colspan="1">
       <mat-form-field class="form.normal-form">
         <input formControlName="phone" matInput placeholder="Phone">
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2">
+    <!-- <mat-grid-tile colspan="1">
       <mat-form-field class="form.normal-form">
         <input formControlName="status" matInput placeholder="Status">
       </mat-form-field>
-    </mat-grid-tile>
-    
-    <!-- <mat-grid-tile>
-      <div class="controles-container">
-        <input type="hidden" formControlName="id">
-        <mat-form-field class="form.normal-form">
-          <input formControlName="name" matInput placeholder="Name*">
-          <mat-error>This field is mandatory.</mat-error>
-        </mat-form-field>
-        <mat-form-field class="form-span-small" appearance="outline">
-          <input matInput [matDatepicker]="picker" placeholder="DOB" formControlName="dob" (dateChange)="onDOBChange()">
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error>Invalid Date Of Birth.</mat-error>
-        </mat-form-field>
-        <mat-form-field class="form.normal-form">
-          <input formControlName="email" matInput placeholder="Email">
-          <mat-error>This field is mandatory.</mat-error>
-        </mat-form-field>
-        <mat-form-field class="form.normal-form">
-          <input formControlName="phone" matInput placeholder="Phone">
-        </mat-form-field>
-        <mat-form-field class="form.normal-form">
-          <input formControlName="status" matInput placeholder="Status">
-        </mat-form-field>
-      </div>
     </mat-grid-tile> -->
-    
   </mat-grid-list>
 </form>

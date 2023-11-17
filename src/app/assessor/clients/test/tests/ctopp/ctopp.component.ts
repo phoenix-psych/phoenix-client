@@ -1,6 +1,6 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Assessor } from 'src/app/models/assessor.model';
@@ -92,6 +92,9 @@ export class CtoppComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) { }
 
+  @Input() name = '';
+  @Input() dob = new Date();
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       id: [''],
@@ -100,6 +103,13 @@ export class CtoppComponent implements OnInit {
       ageYear: [''],
       ageMonth: [''],
     });
+
+    this.form.patchValue({
+      name: this.name,
+      dob: this.dob
+    });
+
+    this.onDOBChange();
   }
   
   onDOBChange() {

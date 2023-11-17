@@ -1,6 +1,6 @@
 
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { timer } from 'rxjs';
 import { NotifyService } from 'src/app/shared/notify.service';
@@ -132,6 +132,9 @@ export class ArtComponent implements OnInit {
   prComp8:string='0';
   prSpd8:string='0';
 
+  @Input() name = '';
+  @Input() dob = new Date();
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       id: [''],
@@ -141,6 +144,12 @@ export class ArtComponent implements OnInit {
       ageMonth: [''],
     });
 
+    this.form.patchValue({
+      name: this.name,
+      dob: this.dob
+    });
+
+    this.onDOBChange();
     timer(0, 1000).subscribe(() => {
       if(this.isRunning1) {
         this.second1++;

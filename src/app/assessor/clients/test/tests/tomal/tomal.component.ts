@@ -1,6 +1,6 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { forEach, keys } from 'lodash';
 import { TomalIndex } from 'src/app/models/common/tomal-index';
@@ -795,6 +795,10 @@ export class TomalComponent implements OnInit {
     this.li11 = c;
   }
 
+  
+  @Input() name = '';
+  @Input() dob = new Date();
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       id: [''],
@@ -803,6 +807,13 @@ export class TomalComponent implements OnInit {
       ageYear: [''],
       ageMonth: [''],
     });
+
+    this.form.patchValue({
+      name: this.name,
+      dob: this.dob
+    });
+
+    this.onDOBChange();
   }
 
   getRawScore(type : string) {

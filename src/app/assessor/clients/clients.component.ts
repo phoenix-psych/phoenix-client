@@ -75,8 +75,8 @@ export class ClientsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    dialogConfig.height = "60%";
+    dialogConfig.width = "40%";
+    // dialogConfig.height = "75%";
     this.dialog.open(AddComponent,dialogConfig);
   }
 
@@ -87,6 +87,7 @@ export class ClientsComponent implements OnInit {
     dialogConfig.autoFocus= false,
     dialogConfig.height= '100%' 
     dialogConfig.width = "100%";
+    dialogConfig.data = row;
     this.dialog.open(TestComponent,dialogConfig);
   }
 

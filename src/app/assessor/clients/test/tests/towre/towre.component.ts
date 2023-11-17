@@ -1,6 +1,6 @@
 
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
@@ -61,6 +61,9 @@ export class TowreComponent implements OnInit {
     this.hidden = false;
   }
 
+  @Input() name = '';
+  @Input() dob = new Date();
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       id: [''],
@@ -69,6 +72,13 @@ export class TowreComponent implements OnInit {
       ageYear: [''],
       ageMonth: [''],
     });
+
+    this.form.patchValue({
+      name: this.name,
+      dob: this.dob
+    });
+
+    this.onDOBChange();
 
     this.descriptiveTerm = this.descriptiveTerms.filter(x => Number(x.From) <= 100 &&  Number(x.To) >= 100)[0].Name;
   }

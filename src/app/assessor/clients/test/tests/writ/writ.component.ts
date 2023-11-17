@@ -1,6 +1,6 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WritIQ } from 'src/app/models/common/writ-iq';
 import { WritSubTest } from 'src/app/models/common/writ-subtest';
@@ -77,6 +77,9 @@ export class WritComponent implements OnInit {
     this.hidden = false;
   }
 
+  @Input() name = '';
+  @Input() dob = new Date();
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       id: [''],
@@ -85,6 +88,13 @@ export class WritComponent implements OnInit {
       ageYear: [''],
       ageMonth: [''],
     });
+
+    this.form.patchValue({
+      name: this.name,
+      dob: this.dob
+    });
+
+    this.onDOBChange();
   }
 
   Generate(hide : boolean = true){
