@@ -21,6 +21,7 @@ import { AddComponent } from './add/add.component';
 export class ClientsComponent implements OnInit {
 
   private baseUrl:string = environment.baseApiUrl;
+  
   constructor(
     private dialog: MatDialog, 
     private http: HttpClient,
@@ -28,7 +29,7 @@ export class ClientsComponent implements OnInit {
     private dialogService: DialogService) { }
 
   listData: MatTableDataSource<ClientDto> = new MatTableDataSource<ClientDto>;
-  displayedColumns: string[] = ['id','name','dob','email','phone', 'status', 'actions'];
+  displayedColumns: string[] = ['name','dob','serviceName','email','phone', 'status', 'actions']; // 'id',
   @ViewChild(MatSort) sort = new MatSort ;
   @ViewChild(MatPaginator) paginator = MatPaginator;
   searchKey: string = "";
@@ -54,12 +55,10 @@ export class ClientsComponent implements OnInit {
         };
       });
   }
-
   
   getClients() : Observable<ClientDto[]> {
     return this.http.get<ClientDto[]>(this.baseUrl + 'client');
   }
-
 
   onSearchClear() {
     this.searchKey = "";
@@ -70,14 +69,19 @@ export class ClientsComponent implements OnInit {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
 
-
   onCreate() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "40%";
     // dialogConfig.height = "75%";
-    this.dialog.open(AddComponent,dialogConfig);
+    this.dialog
+      .open(AddComponent, dialogConfig)
+      .afterClosed()
+      .subscribe(x => {
+          this.ngOnInit();
+      });
+
   }
 
   onTest(row: any){
@@ -109,8 +113,8 @@ export class ClientsComponent implements OnInit {
     this.dialog.open(Report1Component,dialogConfig);
   }
 
-
   onDelete(id: any){
+
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
     .afterClosed().subscribe(res =>{
       if(res){

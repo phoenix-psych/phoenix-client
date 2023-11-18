@@ -6,4 +6,6 @@ export interface ClientDto
   phone: string,
   dob: Date,
   status: string,
+  service: number,
+  serviceName: string,
 }

@@ -23,6 +23,10 @@
       <mat-header-cell *matHeaderCellDef  mat-sort-header>DOB</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.dob}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="serviceName">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>Service Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.serviceName}}</mat-cell>
+    </ng-container>
     <ng-container matColumnDef="email">
       <mat-header-cell *matHeaderCellDef  mat-sort-header>Email</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
@@ -38,8 +42,8 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <button mat-icon-button (click)="onTest(row)"><mat-icon matTooltip="Tests">launch</mat-icon></button>
-        <button mat-icon-button (click)="onReport(row)"><mat-icon  matTooltip="Report">print</mat-icon></button>
+        <button mat-icon-button (click)="onTest(row)"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button (click)="onReport(row)"><mat-icon>print</mat-icon></button>
         <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
       </mat-cell>
     </ng-container>

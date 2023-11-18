@@ -16,10 +16,22 @@ import { environment } from 'src/environments/environment';
 export class AddComponent implements OnInit {
 
   private baseUrl:string = environment.baseApiUrl;
-  form !: FormGroup
+  form !: FormGroup;
+  assessorServices: Array<any> = [
+    { Name:"SpLD Post 16 and HE",Value:"1" },
+    { Name:"EAA",Value:"2" },
+    { Name:"Diagnostic Assessment (Workplace)",Value:"3" },
+    { Name:"Diagnostic Assessment (Education)",Value:"4" },
+    { Name:"Pre-16",Value:"5" },
+    { Name:"SpLD Coach - Education",Value:"6" },
+    { Name:"SpLD Coach - Workplace",Value:"7" },
+    { Name:"Occupational Psychologist (chartered)",Value:"8" },
+    { Name:"Psychologist",Value:"9" },
+    { Name:"Counsellor",Value:"10" }
+  ];
+  
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService,
     public dialogRef: MatDialogRef<AddComponent>) { }
-
 
   ngOnInit() {
 
@@ -28,6 +40,7 @@ export class AddComponent implements OnInit {
       name: ['', Validators.required],
       dob: ['', Validators.required],
       email: ['', Validators.required],
+      service: [0, Validators.required],
       phone: [''],
       status: [''],
     });
@@ -44,7 +57,12 @@ export class AddComponent implements OnInit {
     // });
 
   }
+  
+  selected : string = ''
 
+  onSelectionchanged() {
+    //alert(this.selected);
+  }
   
   setHeader() {
     var userId = localStorage.getItem('userId');
