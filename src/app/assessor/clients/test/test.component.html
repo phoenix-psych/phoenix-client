@@ -7,8 +7,17 @@
 </mat-toolbar>
 
 <mat-tab-group  animationDuration="1000ms">
+    <mat-tab label="ART">
+      <app-art [name]="data.name" [dob]="data.dob"></app-art>
+    </mat-tab>
     <mat-tab label="CTOPP">
       <app-ctopp [name]="data.name" [dob]="data.dob"></app-ctopp>
+    </mat-tab>
+    <mat-tab label="DASH">
+      <app-dash [name]="data.name" [dob]="data.dob"></app-dash>
+    </mat-tab>
+    <mat-tab label="GOART">
+      <app-goart [name]="data.name" [dob]="data.dob"></app-goart>
     </mat-tab>
     <mat-tab label="TOMAL">
       <app-tomal [name]="data.name" [dob]="data.dob"></app-tomal>
@@ -21,15 +30,6 @@
     </mat-tab>
     <mat-tab label="WRIT">
       <app-writ [name]="data.name" [dob]="data.dob"></app-writ>
-    </mat-tab>
-    <mat-tab label="ART">
-      <app-art [name]="data.name" [dob]="data.dob"></app-art>
-    </mat-tab>
-    <mat-tab label="GOART">
-      <app-goart [name]="data.name" [dob]="data.dob"></app-goart>
-    </mat-tab>
-    <mat-tab label="DASH">
-      <app-dash [name]="data.name" [dob]="data.dob"></app-dash>
     </mat-tab>
     
 </mat-tab-group>

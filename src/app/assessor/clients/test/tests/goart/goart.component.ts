@@ -80,5 +80,9 @@ export class GoartComponent implements OnInit {
     this.descriptiveTerm = this.descriptiveTerms.filter(x => Number(x.From) <= 100 &&  Number(x.To) >= 100)[0].Name;
   }
 
+  onSave(){
+    
+  }
+
 
 }

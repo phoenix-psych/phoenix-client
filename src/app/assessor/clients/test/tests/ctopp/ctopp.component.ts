@@ -428,5 +428,9 @@ export class CtoppComponent implements OnInit {
       this.onSelectionchanged();
     }
   }
+  
+  onSave(){
+    
+  }
 
 }

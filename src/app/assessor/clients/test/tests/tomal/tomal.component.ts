@@ -1943,5 +1943,9 @@ export class TomalComponent implements OnInit {
     Reflect.set(this, dynamicKey, this.colorGreen);
   }
   
+  onSave(){
+    
+  }
+
 }
 

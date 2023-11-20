@@ -116,6 +116,7 @@ import { GoartComponent } from './clients/test/tests/goart/goart.component';
     MatProgressBarModule,
     MatExpansionModule,
     MatToolbarModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class AssessorModule { }

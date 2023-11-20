@@ -100,6 +100,7 @@ export class ClientsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
+    dialogConfig.data = row;
     this.dialog.open(AddComponent,dialogConfig);
   }
 
@@ -110,6 +111,7 @@ export class ClientsComponent implements OnInit {
     dialogConfig.width = "60%";
     dialogConfig.autoFocus= false,
     dialogConfig.maxHeight= '90vh' 
+    dialogConfig.data = row;
     this.dialog.open(Report1Component,dialogConfig);
   }
 

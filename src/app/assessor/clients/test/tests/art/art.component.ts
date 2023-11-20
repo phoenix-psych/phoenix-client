@@ -217,4 +217,8 @@ export class ArtComponent implements OnInit {
     }
   }
 
+  onSave(){
+    
+  }
+
 }

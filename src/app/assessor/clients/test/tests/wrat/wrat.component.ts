@@ -130,5 +130,11 @@ export class WratComponent implements OnInit {
   getScore(type : string){
 
   }
+
+  
+  onSave(){
+    
+  }
+
 }
 

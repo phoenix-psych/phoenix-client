@@ -19,13 +19,14 @@
         <span>Age-Year</span>
         <mat-form-field class="form-span-extra-small"  appearance="outline">
             <input matInput formControlName="ageYear" readonly="true">
-
-
         </mat-form-field>
         <span>Age-Month</span>
         <mat-form-field class="form-span-extra-small"  appearance="outline">
             <input matInput formControlName="ageMonth" readonly="true">
         </mat-form-field>
+        <button style="padding: 3%;margin-left: 40%;" mat-stroked-button (click)="onSave()">
+            <mat-icon>cloud_upload</mat-icon>
+        </button>
     </div>
 </form>
 

@@ -297,5 +297,9 @@ export class WritComponent implements OnInit {
    };
   }
 
+  onSave(){
+    
+  }
+
 }
 
