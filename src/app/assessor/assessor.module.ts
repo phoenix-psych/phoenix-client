@@ -44,7 +44,7 @@ import { Step5Component } from './personal-verification/pages/step5/step5.compon
 import { Step6Component } from './personal-verification/pages/step6/step6.component';
 import { Step7Component } from './personal-verification/pages/step7/step7.component';
 import { Step8Component } from './personal-verification/pages/step8/step8.component';
-import { Report1Component } from './report/report1/report1.component';
+import { Report1Component } from './clients/report1/report1.component';
 import { TestComponent } from './clients/test/test.component';
 import { AddComponent } from './clients/add/add.component';
 import { CtoppComponent } from './clients/test/tests/ctopp/ctopp.component';

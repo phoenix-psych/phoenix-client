@@ -2,7 +2,6 @@ import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core'
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatToolbar } from '@angular/material/toolbar';
 import { ClientDto } from 'src/app/models/common/client.model';
 import { DatePipe } from '@angular/common';
 

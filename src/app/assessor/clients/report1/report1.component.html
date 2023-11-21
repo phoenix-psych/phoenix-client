@@ -1,7 +1,14 @@
-<!-- <mat-toolbar> -->
-    <button (click)="generatePDF()">Generate</button>
+<mat-toolbar>
+    <span>Report</span>
     <span class="fill-remaining-space"></span>
-    <button (click)="this.dialogRef.close()">Close</button>
+    <button class ="btn-dialog-close" mat-stroked-button (click)="generatePDF()">Generate</button>
+    <button (click)="this.dialogRef.close()" mat-stroked-button >Close</button>
+</mat-toolbar>
+
+<!-- <mat-toolbar> -->
+    <!-- <button (click)="generatePDF()">Generate</button>
+    <span class="fill-remaining-space"></span>
+    <button (click)="this.dialogRef.close()">Close</button> -->
 <!-- </mat-toolbar> -->
 
 <div  id="invoice" #invoice>

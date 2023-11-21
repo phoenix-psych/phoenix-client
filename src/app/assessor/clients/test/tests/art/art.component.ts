@@ -1,8 +1,9 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { timer } from 'rxjs';
+import { ArtTest } from 'src/app/models/common/art-subtest';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
@@ -132,6 +133,26 @@ export class ArtComponent implements OnInit {
   prComp8:string='0';
   prSpd8:string='0';
 
+  smAccuracy:string='0';
+  smCompreAloud:string='0';
+  smSpeedAloud:string='0';
+  smCompreSilent:string='0';
+  smSpeedSilent:string='0';
+  smWritingSpeed:string='0';
+
+  smAccuracyCentile:string='0';
+  smAccuracyStd:string='0';
+  smCompreAloudCentile:string='0';
+  smCompreAloudStd:string='0';
+  smSpeedAloudCentile:string='0';
+  smSpeedAloudStd:string='0';
+  smCompreSilentCentile:string='0';
+  smCompreSilentStd:string='0';
+  smSpeedSilentCentile:string='0';
+  smSpeedSilentStd:string='0';
+  smWritingSpeedCentile:string='0';
+  smWritingSpeedStd:string='0';
+
   @Input() name = '';
   @Input() dob = new Date();
 
@@ -199,8 +220,109 @@ export class ArtComponent implements OnInit {
   
   }
 
-  Generate(hide : boolean = true){
-    this.hidden = hide;
+  Populate()
+  {
+    this.Generate('acc');
+    this.Generate('compA');
+    this.Generate('spdA');
+    this.Generate('compS');
+    this.Generate('spdS');
+  }
+
+  Generate(type : string){
+    this.hidden = false;
+    if(type == 'acc')
+    {
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smAccuracy + '', this.setHeader()).subscribe({
+        next: (x) =>{
+  
+          this.smAccuracyCentile = x.centile;
+          this.smAccuracyStd = x.standardScore;
+          
+          this.notificationService.success(`Standard Score Populated Successfully`);
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+    }
+
+    if(type == 'compA')
+    {
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smCompreAloud + '', this.setHeader()).subscribe({
+        next: (x) =>{
+  
+          this.smCompreAloudCentile = x.centile;
+          this.smCompreAloudStd = x.standardScore;
+          
+          this.notificationService.success(`Standard Score Populated Successfully`);
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+    }
+
+    if(type == 'spdA')
+    {
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smSpeedAloud + '', this.setHeader()).subscribe({
+        next: (x) =>{
+  
+          this.smSpeedAloudCentile = x.centile;
+          this.smSpeedAloudStd = x.standardScore;
+          
+          this.notificationService.success(`Standard Score Populated Successfully`);
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+    }
+
+    if(type == 'compS')
+    {
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smCompreSilent + '', this.setHeader()).subscribe({
+        next: (x) =>{
+  
+          this.smCompreSilentCentile = x.centile;
+          this.smCompreSilentStd = x.standardScore;
+          
+          this.notificationService.success(`Standard Score Populated Successfully`);
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+    }
+
+    if(type == 'spdS')
+    {
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smAccuracy + '', this.setHeader()).subscribe({
+        next: (x) =>{
+  
+          this.smSpeedSilentCentile = x.centile;
+          this.smSpeedSilentStd = x.standardScore;
+          
+          this.notificationService.success(`Standard Score Populated Successfully`);
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+    }
+    
+  }
+
+  setHeader() {
+    var userId = localStorage.getItem('userId');
+    var token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+      UserId : userId || ''
+    });
+    return {
+      headers: headers
+   };
   }
 
   onDOBChange() {
@@ -221,4 +343,35 @@ export class ArtComponent implements OnInit {
     
   }
 
+  getWritingSpeedScore(){
+    this.http.get<ArtTest>(this.baseUrl + 'assessor/wSpd?type=wSpd&score='+ this.smWritingSpeed + '', this.setHeader()).subscribe({
+      next: (x) =>{
+
+        this.smWritingSpeedCentile = x.centile;
+        this.smWritingSpeedStd = x.standardScore;
+        
+        this.notificationService.success(`Standard Score Populated Successfully`);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
+
+  onAccuracyChange(){
+    this.smAccuracy = (Number(this.prAcc1) + Number(this.prAcc2) + Number(this.prAcc3) + Number(this.prAcc4)).toString();
+  }
+  onCompreAloudChange(){
+    this.smCompreAloud = (Number(this.prCom1) + Number(this.prCom2) + Number(this.prCom3) + Number(this.prCom4)).toString();
+  }
+  onSpeedAloudChange(){
+    this.smSpeedAloud = (Number(this.prSpd1) + Number(this.prSpd2) + Number(this.prSpd3) + Number(this.prSpd4)).toString();
+  }
+  onCompreSilentChange(){
+    this.smCompreSilent = (Number(this.prComp5) + Number(this.prComp6) + Number(this.prComp7) + Number(this.prComp8)).toString();
+  }
+  onSpeedSilentChange(){
+    this.smSpeedSilent = (Number(this.prSpd5) + Number(this.prSpd6) + Number(this.prSpd7) + Number(this.prSpd8)).toString();
+  }
+  
 }

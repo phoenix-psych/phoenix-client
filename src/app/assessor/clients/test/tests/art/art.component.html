@@ -49,60 +49,61 @@
 
         <div class="1"> 
             <mat-grid-tile colspan="4" >Practice (Sport)</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prErr1}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prAcc1}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prCom1}}</mat-grid-tile>
+            <mat-grid-tile colspan="2" >
+                <input matInput  [(ngModel)]="prErr1" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc1"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%" ></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom1" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>58</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second1" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning1 ? 'timer_off' : 'timer'"  (click)="timer1Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd1}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd1" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
         </div>
         <div class="2"> 
             <mat-grid-tile colspan="4">Test1 (News)</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prErr2}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prAcc2}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prCom2}}</mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr2" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc2"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom2" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>178</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second2" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning2 ? 'timer_off' : 'timer'"  (click)="timer2Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd2}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd2" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
         </div>
         <div class="3"> 
             <mat-grid-tile colspan="4">Test2 (Film)</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prErr3}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prAcc3}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prCom3}}</mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr3" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc3"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom3" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>276</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second3" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning3 ? 'timer_off' : 'timer'"  (click)="timer3Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd3}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd3" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
         </div>
         <div class="4"> 
             <mat-grid-tile colspan="4">Test3 (Politics)</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prErr4}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prAcc4}}</mat-grid-tile>
-            <mat-grid-tile colspan="2" >{{prCom4}}</mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr4" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc4"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom4" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>502</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second4" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning4 ? 'timer_off' : 'timer'"  (click)="timer4Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd4}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd4" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
         </div>
         <div class="5"> 
             <mat-grid-tile colspan="4"><b>Total / Average</b></mat-grid-tile>
             <mat-grid-tile colspan="2" [style.background]="'black'"></mat-grid-tile>
-            <mat-grid-tile colspan="2"></mat-grid-tile>
-            <mat-grid-tile colspan="2"></mat-grid-tile>
+            <mat-grid-tile colspan="2">{{smAccuracy}}</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{smCompreAloud}}</mat-grid-tile>
             <mat-grid-tile colspan="2" [style.background]="'black'"></mat-grid-tile>
             <mat-grid-tile colspan="2" [style.background]="'black'"></mat-grid-tile>
-            <mat-grid-tile colspan="2"></mat-grid-tile>
+            <mat-grid-tile colspan="2">{{smSpeedAloud}}</mat-grid-tile>
         </div>
         
     </mat-grid-list>
@@ -124,54 +125,55 @@
         </div>
         <div class="1"> 
             <mat-grid-tile colspan="4">Practice (Food)</mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prComp5}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp5" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">59</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second5" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning5 ? 'timer_off' : 'timer'"  (click)="timer5Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd5}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd5" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">75 secs</mat-grid-tile>
         </div>
         
         <div class="2"> 
             <mat-grid-tile colspan="4">Test1 (Wildlife)</mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prComp6}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp6" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">179</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second6" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning6 ? 'timer_off' : 'timer'"  (click)="timer6Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd6}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd6" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">210 secs</mat-grid-tile>
         </div>
         <div class="3"> 
             <mat-grid-tile colspan="4">Test1 (Psychology)</mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prComp7}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp7" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">268</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second7" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning7 ? 'timer_off' : 'timer'"  (click)="timer7Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd7}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd7" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">280 secs</mat-grid-tile>
         </div>
         <div class="4"> 
             <mat-grid-tile colspan="4">Test1 (Science)</mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prComp8}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp8" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">506</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second8" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning8 ? 'timer_off' : 'timer'"  (click)="timer8Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2">{{prSpd8}}</mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd8" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
             <mat-grid-tile colspan="2">N/A</mat-grid-tile>
-        </div><div class="5"> 
-            <mat-grid-tile colspan="4">Total&nbsp;/&nbsp;Average</mat-grid-tile>
-            <mat-grid-tile colspan="2"></mat-grid-tile>
+        </div>
+        <div class="5"> 
+            <mat-grid-tile colspan="4"><b>Total&nbsp;/&nbsp;Average</b></mat-grid-tile>
+            <mat-grid-tile colspan="2">{{smCompreSilent}}</mat-grid-tile>
             <mat-grid-tile colspan="2" [style.background]="'black'"></mat-grid-tile>
             <mat-grid-tile colspan="2" [style.background]="'black'"></mat-grid-tile>
-            <mat-grid-tile colspan="2"></mat-grid-tile>
+            <mat-grid-tile colspan="2">{{smSpeedSilent}}</mat-grid-tile>
             <mat-grid-tile colspan="2" [style.background]="'black'"></mat-grid-tile>
         </div>
 
@@ -182,9 +184,8 @@
     <p></p>
 </div>
 
-<div class="span-30">
-    <p>Composite Performance</p>
-    <button class="span-30" (click)="Generate(false)">Generate</button>
+<div class="span-30" style="text-align: center">
+    <button class="span-30" (click)="Populate()" style="background-color: aquamarine">Generate</button>
 </div>
 
 <div class="span-table2" >
@@ -196,40 +197,43 @@
             <mat-grid-tile colspan="3" rowspan="2" [style.background]="'grey'" [style.color]="'black'"><b>Standard Score</b></mat-grid-tile>
         </div>
         <div class="1"> 
-            <mat-grid-tile colspan="5">Accuracy</mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
+            <mat-grid-tile colspan="5"><b>Accuracy</b></mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smAccuracy}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smAccuracyCentile}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smAccuracyStd}}</mat-grid-tile>
         </div>
         <div class="2"> 
-            <mat-grid-tile colspan="5">Coprehension (aloud)</mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
+            <mat-grid-tile colspan="5"><b>Coprehension (aloud)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smCompreAloud}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smCompreAloudCentile}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smCompreAloudStd}}</mat-grid-tile>
         </div>
         <div class="3"> 
-            <mat-grid-tile colspan="5">Speed of Reading (aloud) (Average Rate)</mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
+            <mat-grid-tile colspan="5"><b>Speed of Reading (aloud) (Average Rate)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smSpeedAloud}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smSpeedAloudCentile}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smSpeedAloudStd}}</mat-grid-tile>
         </div>
         <div class="4"> 
-            <mat-grid-tile colspan="5">Coprehension (silent)</mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
+            <mat-grid-tile colspan="5"><b>Coprehension (silent)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smCompreSilent}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smCompreSilentCentile}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smCompreSilentStd}}</mat-grid-tile>
         </div>
         <div class="5"> 
-            <mat-grid-tile colspan="5">Speed of Reading (silent) (Average Rate)</mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
+            <mat-grid-tile colspan="5"><b>Speed of Reading (silent) (Average Rate)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smSpeedSilent}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smSpeedSilentCentile}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smSpeedSilentStd}}</mat-grid-tile>
         </div>
         <div class="6"> 
-            <mat-grid-tile colspan="5">Writing Speed (Rate)</mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
+            <mat-grid-tile colspan="5"><b>Writing Speed (Rate)</b></mat-grid-tile>
+            <mat-grid-tile colspan="3">
+                <input matInput  [(ngModel)]="smWritingSpeed" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%">
+                <button (click)="getWritingSpeedScore()" [disabled]="!(this.smWritingSpeed != '0') ">Check</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smWritingSpeedCentile}}</mat-grid-tile>
+            <mat-grid-tile colspan="3">{{smWritingSpeedStd}}</mat-grid-tile>
         </div>
         
     </mat-grid-list>
