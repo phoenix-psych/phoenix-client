@@ -50,51 +50,51 @@
         <div class="1"> 
             <mat-grid-tile colspan="4" >Practice (Sport)</mat-grid-tile>
             <mat-grid-tile colspan="2" >
-                <input matInput  [(ngModel)]="prErr1" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc1"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%" ></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom1" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+                <input matInput  [(ngModel)]="prErr1" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc1"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;" ></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom1" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>58</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second1" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning1 ? 'timer_off' : 'timer'"  (click)="timer1Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd1" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd1" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
         </div>
         <div class="2"> 
             <mat-grid-tile colspan="4">Test1 (News)</mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr2" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc2"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom2" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr2" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc2"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom2" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>178</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second2" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning2 ? 'timer_off' : 'timer'"  (click)="timer2Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd2" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd2" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
         </div>
         <div class="3"> 
             <mat-grid-tile colspan="4">Test2 (Film)</mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr3" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc3"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom3" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr3" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc3"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom3" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>276</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second3" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning3 ? 'timer_off' : 'timer'"  (click)="timer3Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd3" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd3" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
         </div>
         <div class="4"> 
             <mat-grid-tile colspan="4">Test3 (Politics)</mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr4" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc4"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
-            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom4" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prErr4" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prAcc4"  (change)="onAccuracyChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
+            <mat-grid-tile colspan="2" ><input matInput  [(ngModel)]="prCom4" (change)="onCompreAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2"><b>502</b></mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second4" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning4 ? 'timer_off' : 'timer'"  (click)="timer4Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd4" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd4" (change)="onSpeedAloudChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
         </div>
         <div class="5"> 
             <mat-grid-tile colspan="4"><b>Total / Average</b></mat-grid-tile>
@@ -125,47 +125,47 @@
         </div>
         <div class="1"> 
             <mat-grid-tile colspan="4">Practice (Food)</mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp5" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp5" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">59</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second5" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning5 ? 'timer_off' : 'timer'"  (click)="timer5Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd5" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd5" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">75 secs</mat-grid-tile>
         </div>
         
         <div class="2"> 
             <mat-grid-tile colspan="4">Test1 (Wildlife)</mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp6" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp6" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">179</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second6" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning6 ? 'timer_off' : 'timer'"  (click)="timer6Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd6" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd6" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">210 secs</mat-grid-tile>
         </div>
         <div class="3"> 
             <mat-grid-tile colspan="4">Test1 (Psychology)</mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp7" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp7" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">268</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second7" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning7 ? 'timer_off' : 'timer'"  (click)="timer7Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd7" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd7" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">280 secs</mat-grid-tile>
         </div>
         <div class="4"> 
             <mat-grid-tile colspan="4">Test1 (Science)</mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp8" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prComp8" (change)="onCompreSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">506</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input [(ngModel)]="this.second8" type="text" placeholder="Timer" [style.background]="'#303030'"> Sec&nbsp;
                 <mat-icon [style.color]="'pink'" [fontIcon]="this.isRunning8 ? 'timer_off' : 'timer'"  (click)="timer8Change()"></mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd8" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%"></mat-grid-tile>
+            <mat-grid-tile colspan="2"><input matInput  [(ngModel)]="prSpd8" (change)="onSpeedSilentChange()" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;"></mat-grid-tile>
             <mat-grid-tile colspan="2">N/A</mat-grid-tile>
         </div>
         <div class="5"> 
@@ -229,7 +229,7 @@
         <div class="6"> 
             <mat-grid-tile colspan="5"><b>Writing Speed (Rate)</b></mat-grid-tile>
             <mat-grid-tile colspan="3">
-                <input matInput  [(ngModel)]="smWritingSpeed" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%">
+                <input matInput  [(ngModel)]="smWritingSpeed" [ngModelOptions]="{standalone: true}" style="color: black;background-color: white;width: 25%;text-align: center;">
                 <button (click)="getWritingSpeedScore()" [disabled]="!(this.smWritingSpeed != '0') ">Check</button>
             </mat-grid-tile>
             <mat-grid-tile colspan="3">{{smWritingSpeedCentile}}</mat-grid-tile>

@@ -36,6 +36,10 @@ export class ArtComponent implements OnInit {
     if(this.isRunning1 == true){
       this.second1 = 0;
     }
+    else{
+      this.prSpd1 = (Math.round((58 / this.second1 / 60) * 100) / 100).toString();
+      this.onSpeedAloudChange()
+    }
   }
   
   second2 = 0;
@@ -44,6 +48,10 @@ export class ArtComponent implements OnInit {
     this.isRunning2 = !this.isRunning2;
     if(this.isRunning2 == true){
       this.second2 = 0;
+    }
+    else{
+      this.prSpd2 = (Math.round((178 / this.second2 / 60) * 100) / 100).toString();
+      this.onSpeedAloudChange()
     }
   }
 
@@ -54,6 +62,10 @@ export class ArtComponent implements OnInit {
     if(this.isRunning3 == true){
       this.second3 = 0;
     }
+    else{
+      this.prSpd3 = (Math.round((276 / this.second3 / 60) * 100) / 100).toString();
+      this.onSpeedAloudChange()
+    }
   }
 
   second4 = 0;
@@ -62,6 +74,10 @@ export class ArtComponent implements OnInit {
     this.isRunning4 = !this.isRunning4;
     if(this.isRunning4 == true){
       this.second4 = 0;
+    }
+    else{
+      this.prSpd4 = (Math.round((502 / this.second4 / 60) * 100) / 100).toString();
+      this.onSpeedAloudChange()
     }
   }
 
@@ -72,6 +88,10 @@ export class ArtComponent implements OnInit {
     if(this.isRunning5 == true){
       this.second5 = 0;
     }
+    else{
+      this.prSpd5 = (Math.round((59 / this.second5 / 60) * 100) / 100).toString();
+      this.onSpeedSilentChange()
+    }
   }
 
   second6 = 0;
@@ -80,6 +100,10 @@ export class ArtComponent implements OnInit {
     this.isRunning6 = !this.isRunning6;
     if(this.isRunning6 == true){
       this.second6 = 0;
+    }
+    else{
+      this.prSpd6 = (Math.round((179 / this.second6 / 60) * 100) / 100).toString();
+      this.onSpeedSilentChange()
     }
   }
 
@@ -90,6 +114,10 @@ export class ArtComponent implements OnInit {
     if(this.isRunning7 == true){
       this.second7 = 0;
     }
+    else{
+      this.prSpd7 = (Math.round((268 / this.second7 / 60) * 100) / 100).toString();
+      this.onSpeedSilentChange()
+    }
   }
 
   second8 = 0;
@@ -98,6 +126,10 @@ export class ArtComponent implements OnInit {
     this.isRunning8 = !this.isRunning8;
     if(this.isRunning8 == true){
       this.second8 = 0;
+    }
+    else{
+      this.prSpd8 = (Math.round((506 / this.second8 / 60) * 100) / 100).toString();
+      this.onSpeedSilentChange()
     }
   }
 
@@ -297,7 +329,7 @@ export class ArtComponent implements OnInit {
 
     if(type == 'spdS')
     {
-      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smAccuracy + '', this.setHeader()).subscribe({
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smSpeedSilent + '', this.setHeader()).subscribe({
         next: (x) =>{
   
           this.smSpeedSilentCentile = x.centile;
@@ -344,7 +376,7 @@ export class ArtComponent implements OnInit {
   }
 
   getWritingSpeedScore(){
-    this.http.get<ArtTest>(this.baseUrl + 'assessor/wSpd?type=wSpd&score='+ this.smWritingSpeed + '', this.setHeader()).subscribe({
+    this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type=wSpd&score='+ this.smWritingSpeed + '', this.setHeader()).subscribe({
       next: (x) =>{
 
         this.smWritingSpeedCentile = x.centile;
@@ -359,19 +391,19 @@ export class ArtComponent implements OnInit {
   }
 
   onAccuracyChange(){
-    this.smAccuracy = (Number(this.prAcc1) + Number(this.prAcc2) + Number(this.prAcc3) + Number(this.prAcc4)).toString();
+    this.smAccuracy = (Number(this.prAcc1) + Number(this.prAcc2) + Number(this.prAcc3) + Number(this.prAcc4)).toFixed(2).toString();
   }
   onCompreAloudChange(){
-    this.smCompreAloud = (Number(this.prCom1) + Number(this.prCom2) + Number(this.prCom3) + Number(this.prCom4)).toString();
+    this.smCompreAloud = (Number(this.prCom1) + Number(this.prCom2) + Number(this.prCom3) + Number(this.prCom4)).toFixed(2).toString();
   }
   onSpeedAloudChange(){
-    this.smSpeedAloud = (Number(this.prSpd1) + Number(this.prSpd2) + Number(this.prSpd3) + Number(this.prSpd4)).toString();
+    this.smSpeedAloud = Math.round(Number((Number(this.prSpd1) + Number(this.prSpd2) + Number(this.prSpd3) + Number(this.prSpd4)).toFixed(2))).toString();
   }
   onCompreSilentChange(){
-    this.smCompreSilent = (Number(this.prComp5) + Number(this.prComp6) + Number(this.prComp7) + Number(this.prComp8)).toString();
+    this.smCompreSilent = (Number(this.prComp5) + Number(this.prComp6) + Number(this.prComp7) + Number(this.prComp8)).toFixed(2).toString();
   }
   onSpeedSilentChange(){
-    this.smSpeedSilent = (Number(this.prSpd5) + Number(this.prSpd6) + Number(this.prSpd7) + Number(this.prSpd8)).toString();
+    this.smSpeedSilent = Math.round(Number((Number(this.prSpd5) + Number(this.prSpd6) + Number(this.prSpd7) + Number(this.prSpd8)).toFixed(2))).toString();
   }
   
 }
