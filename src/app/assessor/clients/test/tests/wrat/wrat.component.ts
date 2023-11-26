@@ -16,7 +16,7 @@ export class WratComponent implements OnInit {
   form!:FormGroup;
   
   selected : string = ''
-  hidden : boolean = false;
+  hidden : boolean = true;
 
   rows: number = 5;
   cols: number = 100;
@@ -112,6 +112,7 @@ export class WratComponent implements OnInit {
       dob: ['', Validators.required],
       ageYear: [''],
       ageMonth: [''],
+      group: ['', Validators.required],
     });
 
     this.form.patchValue({
@@ -124,6 +125,7 @@ export class WratComponent implements OnInit {
 
   Generate(hide : boolean = true){
     this.hidden = hide;
+    alert(`A : ${this.form.get('group')?.value}`);
     
   }
 
