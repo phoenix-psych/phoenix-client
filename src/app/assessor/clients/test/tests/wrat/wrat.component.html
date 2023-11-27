@@ -31,8 +31,8 @@
         <section>
             <label style="margin-left: 40px;">Question Group:</label>
             <mat-radio-group  style="margin-left: 40px;" formControlName="group">
-              <mat-radio-button style="margin-left: 20px;color: green;" value="1">Green</mat-radio-button>
-              <mat-radio-button style="margin-left: 20px;color: red;" value="2">Red</mat-radio-button>
+              <mat-radio-button style="margin-left: 20px;color: blue" value="blue">Blue</mat-radio-button>
+              <mat-radio-button style="margin-left: 20px;color: green" value="green">Green</mat-radio-button>
             </mat-radio-group>
         </section>
 
@@ -64,7 +64,7 @@
             <mat-grid-tile colspan="4">Word Reading</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input matInput [(ngModel)]="this.wrRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
-                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.wrRawScore">Check</button>
+                <button (click)="getScore('wr', this.wrRawScore)" [disabled]="form.invalid || !this.wrRawScore">Check</button>
             </mat-grid-tile>
             <mat-grid-tile colspan="2">{{wrStandardScore}}</mat-grid-tile>
             <mat-grid-tile colspan="2">{{wrCI}}</mat-grid-tile>
@@ -76,7 +76,7 @@
             <mat-grid-tile colspan="4">Spelling</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input matInput [(ngModel)]="this.spRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
-                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.spRawScore">Check</button>
+                <button (click)="getScore('sp', this.spRawScore)" [disabled]="form.invalid || !this.spRawScore">Check</button>
             </mat-grid-tile>
             <mat-grid-tile colspan="2">{{spStandardScore}}</mat-grid-tile>
             <mat-grid-tile colspan="2">{{spCI}}</mat-grid-tile>
@@ -88,7 +88,7 @@
             <mat-grid-tile colspan="4">Math Computation</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input matInput [(ngModel)]="this.mcRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
-                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.mcRawScore">Check</button>
+                <button (click)="getScore('mc', this.mcRawScore)" [disabled]="form.invalid || !this.mcRawScore">Check</button>
             </mat-grid-tile>mc
             <mat-grid-tile colspan="2">{{mcStandardScore}}</mat-grid-tile>
             <mat-grid-tile colspan="2">{{mcCI}}</mat-grid-tile>
@@ -100,7 +100,7 @@
             <mat-grid-tile colspan="4">Sentence Comprehension</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input matInput [(ngModel)]="this.scRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
-                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.scRawScore">Check</button>
+                <button (click)="getScore('sc', this.scRawScore)" [disabled]="form.invalid || !this.scRawScore">Check</button>
             </mat-grid-tile>
             <mat-grid-tile colspan="2">{{scStandardScore}}</mat-grid-tile>
             <mat-grid-tile colspan="2">{{scCI}}</mat-grid-tile>
@@ -112,7 +112,7 @@
             <mat-grid-tile colspan="4">Reading Composite</mat-grid-tile>
             <mat-grid-tile colspan="2">
                 <input matInput [(ngModel)]="this.rcRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
-                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.rcRawScore">Check</button>
+                <button (click)="getScore('rc', this.rcRawScore)" [disabled]="form.invalid || !this.rcRawScore">Check</button>
             </mat-grid-tile>
             <mat-grid-tile colspan="2">{{rcStandardScore}}</mat-grid-tile>
             <mat-grid-tile colspan="2">{{rcCI}}</mat-grid-tile>
