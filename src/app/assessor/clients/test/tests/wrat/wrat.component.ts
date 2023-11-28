@@ -71,7 +71,7 @@ export class WratComponent implements OnInit {
     for (let i = 0; i < this.rows; i++) {
       this.arr[i] = [];
       for (let j = 0; j < this.cols; j++) {
-        this.arr[i][j] = 'grey';
+        this.arr[i][j] = '';
       }
     }
 
@@ -135,80 +135,72 @@ export class WratComponent implements OnInit {
   }
 
   Generate(hide : boolean = true){
+
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        this.arr[i][j] = '';
+      }
+    }
+
     this.hidden = hide;
-    let co = 'red'
+    let co = this.form.get('group')?.value;
 
     const word1 = this.wrCI.split('-');
     for (let i = 0; i < this.rows; i++) {
-      this.arr[i] = [];
       for (let j = 0; j < this.cols; j++) {
         if((j+48 >= Number(word1[0]) && j+48 <= Number(word1[1])) && i == 0){
           this.arr[i][j] = co;
         }
         else {
-          if (i == 0){
-            this.arr[i][j] = '';
-          }
+          this.arr[i][j] = this.arr[i][j] == co ? co : '';
         }
       }
     }
 
     const word2 = this.spCI.split('-');
     for (let i = 0; i < this.rows; i++) {
-      this.arr[i] = [];
       for (let j = 0; j < this.cols; j++) {
         if((j+48 >= Number(word2[0]) && j+48 <= Number(word2[1])) && i == 1){
           this.arr[i][j] = co;
         }
         else{
-          if (i == 1){
-            this.arr[i][j] = '';
-          }
+          this.arr[i][j] = this.arr[i][j] == co ? co : '';
         }
       }
     }
 
     const word3 = this.mcCI.split('-');
     for (let i = 0; i < this.rows; i++) {
-      this.arr[i] = [];
       for (let j = 0; j < this.cols; j++) {
         if((j+48 >= Number(word3[0]) && j+48 <= Number(word3[1])) && i == 2){
           this.arr[i][j] = co;
         }
         else {
-          if (i == 2){
-            this.arr[i][j] = '';
-          }
+          this.arr[i][j] = this.arr[i][j] == co ? co : '';
         }
       }
     }
 
     const word4 = this.scCI.split('-');
     for (let i = 0; i < this.rows; i++) {
-      this.arr[i] = [];
       for (let j = 0; j < this.cols; j++) {
         if((j+48 >= Number(word4[0]) && j+48 <= Number(word4[1])) && i == 3){
           this.arr[i][j] = co;
         }
         else {
-          if (i == 3){
-            this.arr[i][j] = '';
-          }
+          this.arr[i][j] = this.arr[i][j] == co ? co : '';
         }
       }
     }
 
     const word5 = this.rcCI.split('-');
     for (let i = 0; i < this.rows; i++) {
-      this.arr[i] = [];
       for (let j = 0; j < this.cols; j++) {
         if((j+48 >= Number(word5[0]) && j+48 <= Number(word5[1])) && i == 4){
           this.arr[i][j] = co;
         }
         else {
-          if (i == 4){
-            this.arr[i][j] = '';
-          }
+            this.arr[i][j] = this.arr[i][j] == co ? co : '';
         }
       }
     }
@@ -284,5 +276,13 @@ export class WratComponent implements OnInit {
     
   }
 
+
+  GetDiff(no1: string, no2: string) {
+
+    var sym = Number(no1) > Number(no2) ? '>' : '<=';
+    var dif = Number(no1) > Number(no2) ? Number(no1) - Number(no2) : Number(no2) - Number(no1);
+
+    return { symbol: sym, diff: dif };
+  }
 }
 

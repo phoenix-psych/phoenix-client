@@ -164,12 +164,12 @@
         </div>
         <div class="1"> 
             <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{wrStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">{{GetDiff(wrStandardScore,spStandardScore).symbol}}</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{spStandardScore}}</button></mat-grid-tile>
             <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
 
-            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{GetDiff(wrStandardScore,spStandardScore).diff}}</mat-grid-tile>
             <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
             <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
             <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
@@ -180,14 +180,14 @@
             <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
 
         </div>
-        <div class="1"> 
+        <div class="2"> 
             <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{wrStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">{{GetDiff(wrStandardScore,mcStandardScore).symbol}}</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{mcStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Math Computation</mat-grid-tile>
 
-            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{GetDiff(wrStandardScore,mcStandardScore).diff}}</mat-grid-tile>
             <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
             <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
             <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
@@ -198,14 +198,14 @@
             <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
 
         </div>
-        <div class="1"> 
+        <div class="3"> 
             <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{wrStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">{{GetDiff(wrStandardScore,scStandardScore).symbol}}</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{scStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Sentence Comprahension</mat-grid-tile>
 
-            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{GetDiff(wrStandardScore,scStandardScore).diff}}</mat-grid-tile>
             <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
             <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
             <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
@@ -216,32 +216,14 @@
             <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
 
         </div>
-        <div class="1"> 
-            <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
+        <div class="4"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom">Spelling</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{spStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">{{GetDiff(spStandardScore,mcStandardScore).symbol}}</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{mcStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Math Computation</mat-grid-tile>
 
-            <mat-grid-tile colspan="2">1</mat-grid-tile>
-            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
-            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
-            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
-            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
-
-        </div>
-        <div class="1"> 
-            <mat-grid-tile colspan="3" class="mat-border-bottom">Word Reading</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom" colspan="3">Spelling</mat-grid-tile>
-
-            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{GetDiff(spStandardScore,mcStandardScore).diff}}</mat-grid-tile>
             <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
             <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
             <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
@@ -253,13 +235,13 @@
 
         </div>
         <div class="5"> 
-            <mat-grid-tile colspan="3" class="mat-border-bottom mat-grid-tile-bottom">Word Reading</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom">&gt;=&lt;</mat-grid-tile>
-            <mat-grid-tile  class="mat-border-bottom"><button></button></mat-grid-tile>
-            <mat-grid-tile class="mat-border-bottom mat-grid-tile-bottom" colspan="3">Spelling</mat-grid-tile>
+            <mat-grid-tile colspan="3" class="mat-border-bottom">Spelling</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{spStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">{{GetDiff(spStandardScore,scStandardScore).symbol}}</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{scStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom" colspan="3">Sentence Comprahension</mat-grid-tile>
 
-            <mat-grid-tile colspan="2">1</mat-grid-tile>
+            <mat-grid-tile colspan="2">{{GetDiff(spStandardScore,scStandardScore).diff}}</mat-grid-tile>
             <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
             <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
             <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
@@ -270,7 +252,24 @@
             <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
 
         </div>
+        <div class="6"> 
+            <mat-grid-tile colspan="3" class="mat-border-bottom mat-grid-tile-bottom">Math Computation</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{mcStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom">{{GetDiff(mcStandardScore,scStandardScore).symbol}}</mat-grid-tile>
+            <mat-grid-tile  class="mat-border-bottom"><button>{{scStandardScore}}</button></mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom mat-grid-tile-bottom" colspan="3">Sentence Comprahension</mat-grid-tile>
 
+            <mat-grid-tile colspan="2">{{GetDiff(mcStandardScore,scStandardScore).diff}}</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">NS</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;.10</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;.05</mat-grid-tile>
+            <mat-grid-tile class="mat-border-left-bottom">&leq;25%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;15%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;10%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-bottom">&leq;5%</mat-grid-tile>
+            <mat-grid-tile class="mat-border-right-bottom">&leq;2%</mat-grid-tile>
+
+        </div>
 
     </mat-grid-list>
 </div>
