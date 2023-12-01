@@ -18,6 +18,8 @@ export class Report1Component implements OnInit {
   age : number = 0;
 
   @ViewChild('invoice') invoiceElement!: ElementRef;
+
+
   constructor(public dialogRef: MatDialogRef<Report1Component>,
     @Inject(MAT_DIALOG_DATA) public data: ClientDto,
     private datePipe: DatePipe) 
@@ -111,7 +113,7 @@ export class Report1Component implements OnInit {
     html2canvas(pdfHTML).then((canvas) => {
       const img = canvas.toDataURL();
       pdfDoc.addImage(img, 'jpg', margins.left, margins.top, margins.width, margins.height);
-      pdfDoc.save('file3.pdf');
+      pdfDoc.save(`Report:${this.data.name}(${this.data.email}).pdf`);
     });
   }
 
@@ -132,9 +134,9 @@ export class Report1Component implements OnInit {
         doc.addImage(canvas, 'PNG', 0, position, imgWidth, imgHeight, '', 'FAST');
         heightLeft -= pageHeight;
       }
-      doc.save('Downld.pdf');
+      doc.save(`Report:${this.data.name}(${this.data.email}).pdf`);
     });
-      }
+  }
 
 }
 
