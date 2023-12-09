@@ -10,8 +10,7 @@
     <span class="fill-remaining-space"></span>
     <button (click)="this.dialogRef.close()">Close</button> -->
 <!-- </mat-toolbar> -->
-
-<div  id="invoice" #invoice>
+<div  id="invoice" #invoice style="padding: 10px;">
     <div>
         <div style="clear:both">
             <div style="border-bottom:0.75pt solid #4472c4; clear:both">
@@ -258,7 +257,7 @@
             <a name="_Overview"></a><a name="_Toc115779167"></a><a href="#_Overview" style="text-decoration:none"><u><span style="color:#000000">Overview</span></u></a><a name="_Toc149733078"></a>
         </h1>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            This overview draws together the evidence for the outcomes and conclusions of XXXX’s assessment.&#xa0; Detailed information is given in the main body of the report and appendices.
+            This overview draws together the evidence for the outcomes and conclusions of {{this.data.name}}’s assessment.&#xa0; Detailed information is given in the main body of the report and appendices.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -267,7 +266,7 @@
             Referral
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX came forward for this assessment to gain an understanding of his/her learning differences together with indicators of his/her areas of strength. Additionally, XXXX wished to better understand his/her profile of learning differences so that he/she could develop more effective study strategies and access reasonable examination adjustments. This will enable XXXX’s University to make appropriate adjustments to support his/her and for XXXX
+            {{this.data.name}} came forward for this assessment to gain an understanding of his/her learning differences together with indicators of his/her areas of strength. Additionally, {{this.data.name}} wished to better understand his/her profile of learning differences so that he/she could develop more effective study strategies and access reasonable examination adjustments. This will enable {{this.data.name}}’s University to make appropriate adjustments to support his/her and for {{this.data.name}}
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             to explore areas of support for identified specific learning differences that are provided by their university.
@@ -282,7 +281,7 @@
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX should consider sharing elements of this report in order that future potential employers can make appropriate adjustments to support him/her. XXXX may also consider applying for relevant funding for additional support in any future employment. 
+            {{this.data.name}} should consider sharing elements of this report in order that future potential employers can make appropriate adjustments to support him/her. {{this.data.name}} may also consider applying for relevant funding for additional support in any future employment. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             <a href="https://www.gov.uk/access-to-work" style="text-decoration:none"><u><span style="color:#0000ff">https://www.gov.uk/access-to-work</span></u></a><u><span style="color:#0000ff">&#xa0;&#xa0;&#xa0;&#xa0; </span></u>
@@ -291,7 +290,7 @@
             <span style="color:#0000ff">&#xa0;</span>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <u><span style="color:#0000ff">XXXX is nearing the end of her studies so referral for DSA support is not relevant here.</span></u>
+            <u><span style="color:#0000ff">{{this.data.name}} is nearing the end of her studies so referral for DSA support is not relevant here.</span></u>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -300,13 +299,13 @@
             Diagnostic Outcome
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The reported background history together with the comprehensive interview and detailed exploration provides the evidence that XXXX <span style="color:#808080">Choose an item.</span> This correlates with the full definition of <span style="color:#808080">Choose an item.</span> provided in Appendix 3 of the main body of the report.
+            The reported background history together with the comprehensive interview and detailed exploration provides the evidence that {{this.data.name}} <span style="color:#808080">Choose an item.</span> This correlates with the full definition of <span style="color:#808080">Choose an item.</span> provided in Appendix 3 of the main body of the report.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX already has a diagnosis of <span style="color:#808080">Choose an item.</span> XXXX is <span style="color:#808080">Choose an item.</span> 
+            {{this.data.name}} already has a diagnosis of <span style="color:#808080">Choose an item.</span> {{this.data.name}} is <span style="color:#808080">Choose an item.</span> 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
@@ -321,70 +320,58 @@
             Profile
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            There is developmental history that is consistent with the findings of this assessment. XXXX gave her strengths as: <span style="color:#0070c0">(See BIQ)</span>
+            There is developmental history that is consistent with the findings of this assessment. {{this.data.name}} gave her strengths as: <span style="color:#0070c0">(See BIQ)</span>
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            Characteristic of <span style="font-family:Arial; color:#808080">Choose an item.</span>alongside the reported background history together with the comprehensive interview and detailed exploration conclude that XXXX showed <span style="font-family:Arial; color:#808080">Choose an item.</span> <span style="font-family:Arial; color:#808080">Choose an item.</span>as well as slower speeds of processing when recalling information. XXXX has both reported and demonstrated difficulty with the fluent application of literacy skills, an experience common to those with <strong>Dyslexia</strong>.
+            Characteristic of <span style="font-family:Arial; color:#808080">Choose an item.</span>alongside the reported background history together with the comprehensive interview and detailed exploration conclude that {{this.data.name}} showed <span style="font-family:Arial; color:#808080">Choose an item.</span> <span style="font-family:Arial; color:#808080">Choose an item.</span>as well as slower speeds of processing when recalling information. {{this.data.name}} has both reported and demonstrated difficulty with the fluent application of literacy skills, an experience common to those with <strong>Dyslexia</strong>.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s responses from both the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC) </em>and the <em>Diagnostic Interview</em> <em>for DCD in Adults </em>identified<em> </em>organisation and coordination difficulties characteristic of DCD as occurring throughout childhood and in adulthood.&#xa0; XXXX has difficulties with her gross and fine motor skills. This affects him/her in a number of significant ways including his/her writing and typing accuracy and speed, which is indicative of <strong>DCD (dyspraxia.)</strong> This correlates with the full definition of DCD provided in Appendix 3 of the main body of the report.
+            {{this.data.name}}’s responses from both the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC) </em>and the <em>Diagnostic Interview</em> <em>for DCD in Adults </em>identified<em> </em>organisation and coordination difficulties characteristic of DCD as occurring throughout childhood and in adulthood.&#xa0; {{this.data.name}} has difficulties with her gross and fine motor skills. This affects him/her in a number of significant ways including his/her writing and typing accuracy and speed, which is indicative of <strong>DCD (dyspraxia.)</strong> This correlates with the full definition of DCD provided in Appendix 3 of the main body of the report.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The reported background history together with the comprehensive interview and XXXX’s responses to the <em>Diagnostic and Statistical Manual of Mental Disorders (DSM–5)</em> rating scale of ADHD items (using the <em>Diagnostic Interview for ADHD in Adults, DIVA5</em>), resulted in him/her identifying <span style="color:#808080">Choose an item.</span> of the nine attention deficit and <span style="color:#808080">Choose an item.</span> of the nine hyperactive-impulsive characteristics as occurring both in childhood and as an adult. The reported symptoms are characteristic of <span style="color:#808080">Choose an item.</span> This correlates with the full definition of ADHD provided in Appendix 3 of the main body of the report.
+            The reported background history together with the comprehensive interview and {{this.data.name}}’s responses to the <em>Diagnostic and Statistical Manual of Mental Disorders (DSM–5)</em> rating scale of ADHD items (using the <em>Diagnostic Interview for ADHD in Adults, DIVA5</em>), resulted in him/her identifying <span style="color:#808080">Choose an item.</span> of the nine attention deficit and <span style="color:#808080">Choose an item.</span> of the nine hyperactive-impulsive characteristics as occurring both in childhood and as an adult. The reported symptoms are characteristic of <span style="color:#808080">Choose an item.</span> This correlates with the full definition of ADHD provided in Appendix 3 of the main body of the report.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <a name="_Hlk143621911">The reported background history together with the comprehensive interview and detailed exploration conclude that </a>XXXX does not have a specific learning difficulty such as dyslexia. He/She does, however, have some challenges that fit within the profile of social communication difficulties that may benefit from further exploration and support may be needed. 
+            <a name="_Hlk143621911">The reported background history together with the comprehensive interview and detailed exploration conclude that </a>{{this.data.name}} does not have a specific learning difficulty such as dyslexia. He/She does, however, have some challenges that fit within the profile of social communication difficulties that may benefit from further exploration and support may be needed. 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The reported background history together with the comprehensive interview and detailed exploration conclude that XXXX does not have a specific learning difficulty such as dyslexia. He/She does, however, have some challenges can be attributed to English being an additional language for XXXX.
+            The reported background history together with the comprehensive interview and detailed exploration conclude that {{this.data.name}} does not have a specific learning difficulty such as dyslexia. He/She does, however, have some challenges can be attributed to English being an additional language for {{this.data.name}}.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The reported background history together with the comprehensive interview and detailed exploration conclude that XXXX has a specific learning difficulty-speed of processing. 
+            The reported background history together with the comprehensive interview and detailed exploration conclude that {{this.data.name}} has a specific learning difficulty-speed of processing. 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s <strong>knowledge of words</strong> (vocabulary) lays within the <span style="color:#808080">Choose an item.</span> range. XXXX reported that they struggle with wordfinding difficulties in their current studies when expressing their thoughts and knowledge <span style="color:#808080">Choose an item.</span>
+            {{this.data.name}}’s <strong>knowledge of words</strong> (vocabulary) lays within the <span style="color:#808080">Choose an item.</span> range. {{this.data.name}} reported that they struggle with wordfinding difficulties in their current studies when expressing their thoughts and knowledge <span style="color:#808080">Choose an item.</span>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            When making connections between words and concepts (verbal reasoning) XXXX scored in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>). 
+            When making connections between words and concepts (verbal reasoning) {{this.data.name}} scored in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>). 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="background-color:#c0c0c0">When </span><strong><span style="background-color:#c0c0c0">making connections between words and concepts</span></strong><span style="background-color:#c0c0c0"> (verbal reasoning) XXXX scored in the </span><span style="color:#808080">Choose an item.</span><span style="background-color:#c0c0c0">. However, this lower score is likely due to XXXX’s linguistic history and the fact that XXXX grew up in a population other than that of the population used in the standardised norms of this test. XXXX often ruminated on answers and reasoned that there could be many different answers to the stimuli provided. XXXX clearly has strong verbal abilities, and this was demonstrated in a test of vocabulary where XXXX gained a </span><strong><span style="background-color:#808000">-</span></strong> <span style="color:#808080">Choose an item.</span><span style="background-color:#c0c0c0"> score </span>(<span style="color:#808080">Choose an item.</span>)<span style="background-color:#c0c0c0">.</span> 
-        </p>
-        <p style="margin-top:0pt; margin-bottom:0pt">
-            &#xa0;
-        </p>
-        <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
-            <span style="font-weight:normal">&#xa0;</span>
-        </h5>
-        <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s <strong>visual ability</strong> (using logic, problem-solving and deduction to make connections between pictures and visual patterns) was within the <span style="color:#808080">Choose an item.</span>. 
-        </p>
-        <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s <strong>working memory</strong> (ability to maintain and manipulate information in active attention) was in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>). XXXX’s difficulties with working memory were evident when <strong>Processing</strong> (ability to control attention to perform, automatically, quickly and fluently, relatively simple repetitive cognitive tasks) in which their performance fell in the <span style="color:#808080">Choose an item.</span>.
+            <span style="background-color:#c0c0c0">When </span><strong><span style="background-color:#c0c0c0">making connections between words and concepts</span></strong><span style="background-color:#c0c0c0"> (verbal reasoning) {{this.data.name}} scored in the </span><span style="color:#808080">Choose an item.</span><span style="background-color:#c0c0c0">. However, this lower score is likely due to {{this.data.name}}’s linguistic history and the fact that {{this.data.name}} grew up in a population other than that of the population used in the standardised norms of this test. {{this.data.name}} often ruminated on answers and reasoned that there could be many different answers to the stimuli provided. {{this.data.name}} clearly has strong verbal abilities, and this was demonstrated in a test of vocabulary where {{this.data.name}} gained a </span><strong><span style="background-color:#808000">-</span></strong> <span style="color:#808080">Choose an item.</span><span style="background-color:#c0c0c0"> score </span>(<span style="color:#808080">Choose an item.</span>)<span style="background-color:#c0c0c0">.</span> 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -393,13 +380,25 @@
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            A subset of working memory, XXXX’s <strong>phonological memory</strong> (ability to accurately identify, retain briefly, and repeat sequences of sound) was in the <span style="color:#808080">Choose an item.</span>.
+            {{this.data.name}}’s <strong>visual ability</strong> (using logic, problem-solving and deduction to make connections between pictures and visual patterns) was within the <span style="color:#808080">Choose an item.</span>. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s <strong>phonological awareness</strong> (ability to accurately identify, discriminate between and manipulate the separate units of sounds in words, known as ‘phonemes’) was in the <span style="color:#808080">Choose an item.</span>.
+            {{this.data.name}}’s <strong>working memory</strong> (ability to maintain and manipulate information in active attention) was in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>). {{this.data.name}}’s difficulties with working memory were evident when <strong>Processing</strong> (ability to control attention to perform, automatically, quickly and fluently, relatively simple repetitive cognitive tasks) in which their performance fell in the <span style="color:#808080">Choose an item.</span>.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s reading efficiency fell in the <span style="color:#808080">Choose an item.</span>., indicating that XXXX <span style="color:#808080">Choose an item.</span> read words efficiently in a timed setting. This was reflected in XXXX’s <span style="color:#808080">Choose an item.</span>
+            &#xa0;
+        </p>
+        <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
+            <span style="font-weight:normal">&#xa0;</span>
+        </h5>
+        <p style="margin-top:0pt; margin-bottom:0pt">
+            A subset of working memory, {{this.data.name}}’s <strong>phonological memory</strong> (ability to accurately identify, retain briefly, and repeat sequences of sound) was in the <span style="color:#808080">Choose an item.</span>.
+        </p>
+        <p style="margin-top:0pt; margin-bottom:0pt">
+            {{this.data.name}}’s <strong>phonological awareness</strong> (ability to accurately identify, discriminate between and manipulate the separate units of sounds in words, known as ‘phonemes’) was in the <span style="color:#808080">Choose an item.</span>.
+        </p>
+        <p style="margin-top:0pt; margin-bottom:0pt">
+            {{this.data.name}}’s reading efficiency fell in the <span style="color:#808080">Choose an item.</span>., indicating that {{this.data.name}} <span style="color:#808080">Choose an item.</span> read words efficiently in a timed setting. This was reflected in {{this.data.name}}’s <span style="color:#808080">Choose an item.</span>
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
@@ -411,7 +410,7 @@
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX was very articulate throughout the assessment demonstrating strong general knowledge and critical thinking skills. XXXX found it challenging to link language and information (verbal reasoning) which was seen in her performance during the <span style="color:#808080">Choose an item.</span> reading tasks. XXXX found it challenging to comprehend text that was read aloud/ and silently.
+            {{this.data.name}} was very articulate throughout the assessment demonstrating strong general knowledge and critical thinking skills. {{this.data.name}} found it challenging to link language and information (verbal reasoning) which was seen in her performance during the <span style="color:#808080">Choose an item.</span> reading tasks. {{this.data.name}} found it challenging to comprehend text that was read aloud/ and silently.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
@@ -420,31 +419,31 @@
             Impact
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s performance in some tests also showed that she has vulnerabilities with <span style="background-color:#ffff00">verbal short-term memory, working memory, isolating sounds in words, putting sounds together to make a whole word and spelling. She also displayed challenges with recalling everyday words from memory at speed and with accuracy. This is likely to impact her literacy skills, and particularly with reading and writing in her academic studies.</span>
+            {{this.data.name}}’s performance in some tests also showed that she has vulnerabilities with <span style="background-color:#ffff00">verbal short-term memory, working memory, isolating sounds in words, putting sounds together to make a whole word and spelling. She also displayed challenges with recalling everyday words from memory at speed and with accuracy. This is likely to impact her literacy skills, and particularly with reading and writing in her academic studies.</span>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="background-color:#ffff00">XXXX read lists of words and passages of text accurately.</span><span style="background-color:#ffff00">&#xa0; </span><span style="background-color:#ffff00">However, she struggled to recall facts which, when combined with her attentional difficulties, meant that she found it hard to draw accurate, complete inferences from text.</span><span style="background-color:#ffff00">&#xa0; </span><span style="background-color:#ffff00">This mirrors XXXX’s comments about needing to re-read to absorb information from text; reading for meaning will be a demanding, time-consuming process for her.</span>&#xa0; 
+            <span style="background-color:#ffff00">{{this.data.name}} read lists of words and passages of text accurately.</span><span style="background-color:#ffff00">&#xa0; </span><span style="background-color:#ffff00">However, she struggled to recall facts which, when combined with her attentional difficulties, meant that she found it hard to draw accurate, complete inferences from text.</span><span style="background-color:#ffff00">&#xa0; </span><span style="background-color:#ffff00">This mirrors {{this.data.name}}’s comments about needing to re-read to absorb information from text; reading for meaning will be a demanding, time-consuming process for her.</span>&#xa0; 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="background-color:#008080">XXXX also reported difficulties with time management and organisation, in line with her reported experiences of DCD.</span> 
+            <span style="background-color:#008080">{{this.data.name}} also reported difficulties with time management and organisation, in line with her reported experiences of DCD.</span> 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="background-color:#ffff00">XXXX’s written work had a pleasing tone; however, both her handwritten and typed work were produced rather slowly, and her ideas were not always presented in a logical order. This shows that her concern about producing timely, legible work and being able to synthesise her knowledge into succinct answers was well-founded and that academic writing will, at times, be frustrating for her.</span><span style="background-color:#ffff00">&#xa0; </span>
+            <span style="background-color:#ffff00">{{this.data.name}}’s written work had a pleasing tone; however, both her handwritten and typed work were produced rather slowly, and her ideas were not always presented in a logical order. This shows that her concern about producing timely, legible work and being able to synthesise her knowledge into succinct answers was well-founded and that academic writing will, at times, be frustrating for her.</span><span style="background-color:#ffff00">&#xa0; </span>
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="color:#808080">Choose an item.</span>. It can be hard for tutors and peers to understand and appreciate how demanding, time-consuming, and tiring it is for a person with specific learning differences to work as expected unless there are appropriate adjustments in place.&#xa0; Learning differences can cause challenges with managing memory and organisational tasks which affects performance in the workplace, in examinations and everyday activities.&#xa0; However, whilst they are lifelong conditions, effective strategies can be put in place to support or help resolve areas of difficulty.&#xa0; XXXX’s specific learning differences have a long-term impact on her ability to carry out normal day-to-day work and study activities.&#xa0; 
+            <span style="color:#808080">Choose an item.</span>. It can be hard for tutors and peers to understand and appreciate how demanding, time-consuming, and tiring it is for a person with specific learning differences to work as expected unless there are appropriate adjustments in place.&#xa0; Learning differences can cause challenges with managing memory and organisational tasks which affects performance in the workplace, in examinations and everyday activities.&#xa0; However, whilst they are lifelong conditions, effective strategies can be put in place to support or help resolve areas of difficulty.&#xa0; {{this.data.name}}’s specific learning differences have a long-term impact on her ability to carry out normal day-to-day work and study activities.&#xa0; 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
@@ -476,14 +475,14 @@
             <span style="font-family:Wingdings"></span><span style="width:8.57pt; font:7pt 'Times New Roman'; display:inline-block">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>Use of a separate room if practicable, or a smaller room with others.
         </p>
         <p style="margin-top:0pt; margin-left:72pt; margin-bottom:6pt; text-indent:-18pt">
-            <span style="font-family:Wingdings"></span><span style="width:8.57pt; font:7pt 'Times New Roman'; display:inline-block">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>As XXXX needs to make corrections to her work as she is writing, it is recommended that she is allowed to type when the format of the examination makes this appropriate in addition to her extra time allowance. <strong><span style="color:#9900cc">(MAKE SURE THESE MATCH WITH FULLER RECOMMENDATIONS-Delete as appropriate)</span></strong>
+            <span style="font-family:Wingdings"></span><span style="width:8.57pt; font:7pt 'Times New Roman'; display:inline-block">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>As {{this.data.name}} needs to make corrections to her work as she is writing, it is recommended that she is allowed to type when the format of the examination makes this appropriate in addition to her extra time allowance. <strong><span style="color:#9900cc">(MAKE SURE THESE MATCH WITH FULLER RECOMMENDATIONS-Delete as appropriate)</span></strong>
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri">XXXX should have access to </span><span style="font-family:Calibri; color:#808080">Choose an item.</span><span style="font-family:Calibri"> </span><strong><span style="font-family:Calibri; color:#9900cc">(MAKE SURE THESE MATCH WITH FULLER RECOMMS)</span></strong>
+                <span style="font-family:Calibri">{{this.data.name}} should have access to </span><span style="font-family:Calibri; color:#808080">Choose an item.</span><span style="font-family:Calibri"> </span><strong><span style="font-family:Calibri; color:#9900cc">(MAKE SURE THESE MATCH WITH FULLER RECOMMS)</span></strong>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -491,7 +490,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#ff00ff">Specialist teachers and psychologists can assess for ADHD for the purpose of identification of specific learning difficulties and educational needs as advised by SASC.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">To be seen by a medical practitioner, XXXX would need a referral from their GP into the specialist medical services; alternatively, they would need to be seen in a private clinic where there are specialists in ADHD.</span>
+                <span style="font-family:Calibri; background-color:#ff00ff">Specialist teachers and psychologists can assess for ADHD for the purpose of identification of specific learning difficulties and educational needs as advised by SASC.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">To be seen by a medical practitioner, {{this.data.name}} would need a referral from their GP into the specialist medical services; alternatively, they would need to be seen in a private clinic where there are specialists in ADHD.</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -499,7 +498,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri">It is recommended that XXXX seeks a visual assessment from a suitably qualified optometrist offering comprehensive assessment and management of problems involving binocular vision (accommodation and convergence) disorders, and visual stress, in addition to the standard sight test comprising refraction and ocular health assessment.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">More information can be found through the Institute of Optometry www.ioo.org.uk or the British Association of Behavioral Optometrists www.babo.co.uk.</span>
+                <span style="font-family:Calibri">It is recommended that {{this.data.name}} seeks a visual assessment from a suitably qualified optometrist offering comprehensive assessment and management of problems involving binocular vision (accommodation and convergence) disorders, and visual stress, in addition to the standard sight test comprising refraction and ocular health assessment.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">More information can be found through the Institute of Optometry www.ioo.org.uk or the British Association of Behavioral Optometrists www.babo.co.uk.</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -507,7 +506,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri">XXXX should use the read aloud function in MS word as this is an effective proofreading tool for her.</span>
+                <span style="font-family:Calibri">{{this.data.name}} should use the read aloud function in MS word as this is an effective proofreading tool for her.</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -515,7 +514,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri">XXXX should explore the Government’s Access To Work gateway to look at possible sources of funding for workplace adjustments and support with gaining employment.</span>
+                <span style="font-family:Calibri">{{this.data.name}} should explore the Government’s Access To Work gateway to look at possible sources of funding for workplace adjustments and support with gaining employment.</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -531,7 +530,7 @@
         </p>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#00ff00">XXXX should have access to specialist support in study for developing writing skills and helping her to manage aspects of her social communication difficulties that may be impacting on her studies. </span>
+                <span style="font-family:Calibri; background-color:#00ff00">{{this.data.name}} should have access to specialist support in study for developing writing skills and helping her to manage aspects of her social communication difficulties that may be impacting on her studies. </span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -547,7 +546,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri">It is recommended that XXXX applies for the Disabled Students’ Allowance (DSA) to support these further study needs.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">For details of DSA see </span><u><span style="font-family:Calibri; ">www.gov.uk/disabled-students-allowances-dsas</span></u><span style="font-family:Calibri">.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">The Disability Advisor at XXXX’s university will be able to advise about this process. </span>
+                <span style="font-family:Calibri">It is recommended that {{this.data.name}} applies for the Disabled Students’ Allowance (DSA) to support these further study needs.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">For details of DSA see </span><u><span style="font-family:Calibri; ">www.gov.uk/disabled-students-allowances-dsas</span></u><span style="font-family:Calibri">.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">The Disability Advisor at {{this.data.name}}’s university will be able to advise about this process. </span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -555,7 +554,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#c0c0c0">It is recommended that XXXX explore study skills and academic writing support provided by their university.</span>
+                <span style="font-family:Calibri; background-color:#c0c0c0">It is recommended that {{this.data.name}} explore study skills and academic writing support provided by their university.</span>
             </li>
         </ul>
         <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; line-height:normal; widows:0; orphans:0">
@@ -563,7 +562,7 @@
         </p>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:28.49pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#c0c0c0">It is advised that XXXX shares the report with their Disability Advisor an</span>
+                <span style="font-family:Calibri; background-color:#c0c0c0">It is advised that {{this.data.name}} shares the report with their Disability Advisor an</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -576,7 +575,7 @@
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            Please note that any recommendations implemented for XXXX’s degree course will be at the discretion of the Higher Education Institution and Needs Assessor, working within the framework of the Equality Act 2010.
+            Please note that any recommendations implemented for {{this.data.name}}’s degree course will be at the discretion of the Higher Education Institution and Needs Assessor, working within the framework of the Equality Act 2010.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; line-height:normal; widows:0; orphans:0">
             &#xa0;
@@ -597,7 +596,7 @@
             <a name="_Background_Information"></a><a name="_Toc115779168"></a><a href="#_Background_Information" style="text-decoration:none"><u><span style="color:#000000">Background Information</span></u></a><a name="_Toc149733079"></a>
         </h1>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            <a href="#_Background_Information" style="text-decoration:none"></a>A detailed background history was gathered to provide evidence of XXXX’s strengths as well as her previous and current needs.
+            <a href="#_Background_Information" style="text-decoration:none"></a>A detailed background history was gathered to provide evidence of {{this.data.name}}’s strengths as well as her previous and current needs.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -606,49 +605,49 @@
             Health and Developmental History
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The Visual Difficulties Screening Protocol was implemented and XXXX displayed difficulties in this area. This is further explored in the ‘Additional Diagnostic Evidence and Information’ section of this report.
+            The Visual Difficulties Screening Protocol was implemented and {{this.data.name}} displayed difficulties in this area. This is further explored in the ‘Additional Diagnostic Evidence and Information’ section of this report.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The Visual Difficulties Screening Protocol was implemented and XXXX did not show significant difficulties with visual disturbance were found on this occasion.
+            The Visual Difficulties Screening Protocol was implemented and {{this.data.name}} did not show significant difficulties with visual disturbance were found on this occasion.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX explained that her last sight test was in January 2021 and that she wears glasses for distance/close work.
+            {{this.data.name}} explained that her last sight test was in January 2021 and that she wears glasses for distance/close work.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX explained that she experiences difficulties with eye health (state condition) which affects her ability to 
+            {{this.data.name}} explained that she experiences difficulties with eye health (state condition) which affects her ability to 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX reported that she has experienced physical developmental difficulties in childhood.
+            {{this.data.name}} reported that she has experienced physical developmental difficulties in childhood.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX did not report any significant issues with physical development as a child.
+            {{this.data.name}} did not report any significant issues with physical development as a child.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX explained that they struggled with attention and concentration issues in childhood.
+            {{this.data.name}} explained that they struggled with attention and concentration issues in childhood.
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX reported speech and language difficulties in childhood
+            {{this.data.name}} reported speech and language difficulties in childhood
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -657,7 +656,7 @@
             Familial History of SpLD or other developmental conditions 
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX reported that <span style="color:#808080">Choose an item.</span> This is of interest to the assessor as SpLDs can be genetic in origin. It was reported that immediate family members have experienced difficulties in developing literacy or numeracy skills or have found formal learning challenging.
+            {{this.data.name}} reported that <span style="color:#808080">Choose an item.</span> This is of interest to the assessor as SpLDs can be genetic in origin. It was reported that immediate family members have experienced difficulties in developing literacy or numeracy skills or have found formal learning challenging.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             <strong>&#xa0;</strong>
@@ -666,13 +665,13 @@
             Linguistic History
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            English is XXXX’s first language. 
+            English is {{this.data.name}}’s first language. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             <strong>&#xa0;</strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX has lived in the United Kingdom since…. years old.&#xa0; English is her main language.&#xa0; She can also speak …. and responds in English in conversation.
+            {{this.data.name}} has lived in the United Kingdom since…. years old.&#xa0; English is her main language.&#xa0; She can also speak …. and responds in English in conversation.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             <strong>&#xa0;</strong>
@@ -726,13 +725,13 @@
             <a name="_Test_Conditions"></a><a name="_Toc115779169"></a><a href="#_Test_Conditions" style="text-decoration:none"><u><span style="color:#000000">Test Conditions</span></u></a>
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <a href="#_Test_Conditions" style="text-decoration:none"></a>The assessment took place online using a remote video platform; the internet connection was stable.&#xa0; Screen sharing was used to show some assessment tasks to XXXX; this meant that all the tasks could be undertaken with no substantial variation to the standardisation instructions.&#xa0; Both the assessor and XXXX worked in quiet, private rooms, ensuring that they would not be interrupted, and written work was photographed and sent electronically to the assessor upon completion. They wore their glasses during the assessment.
+            <a href="#_Test_Conditions" style="text-decoration:none"></a>The assessment took place online using a remote video platform; the internet connection was stable.&#xa0; Screen sharing was used to show some assessment tasks to {{this.data.name}}; this meant that all the tasks could be undertaken with no substantial variation to the standardisation instructions.&#xa0; Both the assessor and {{this.data.name}} worked in quiet, private rooms, ensuring that they would not be interrupted, and written work was photographed and sent electronically to the assessor upon completion. They wore their glasses during the assessment.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The meeting took around <span style="color:#808080">Choose an item.</span>hours, &#xa0;which allowed time to investigate XXXX’s learning differences, as well as to discuss the findings and recommendations that could be made.&#xa0; XXXX contributed willingly to the discussions and worked with determination throughout the assessment. The results of this assessment are considered to be a true and balanced reflection of her abilities and challenges.
+            The meeting took around <span style="color:#808080">Choose an item.</span>hours, &#xa0;which allowed time to investigate {{this.data.name}}’s learning differences, as well as to discuss the findings and recommendations that could be made.&#xa0; {{this.data.name}} contributed willingly to the discussions and worked with determination throughout the assessment. The results of this assessment are considered to be a true and balanced reflection of her abilities and challenges.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -759,37 +758,37 @@
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            As XXXX’s two verbal scores were similar, it was possible to calculate a combined <em>Verbal Ability </em>score that fell in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>).
+            As {{this.data.name}}’s two verbal scores were similar, it was possible to calculate a combined <em>Verbal Ability </em>score that fell in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>).
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            As XXXX’s verbal scores had a significant discrepancy, it was not possible to calculate a combined <em>Verbal Ability </em>score on this occasion.
+            As {{this.data.name}}’s verbal scores had a significant discrepancy, it was not possible to calculate a combined <em>Verbal Ability </em>score on this occasion.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            First, XXXX was asked to complete sentences by making connections and links between words and concepts. XXXX’s score was within the <span style="color:#808080">Choose an item.</span>(<span style="color:#808080">Choose an item.</span>)
+            First, {{this.data.name}} was asked to complete sentences by making connections and links between words and concepts. {{this.data.name}}’s score was within the <span style="color:#808080">Choose an item.</span>(<span style="color:#808080">Choose an item.</span>)
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX was asked to verbally define a word to measure her knowledge of words. She scored (<span style="color:#808080">Choose an item.</span>), falling in the <span style="color:#808080">Choose an item.</span>. 
+            {{this.data.name}} was asked to verbally define a word to measure her knowledge of words. She scored (<span style="color:#808080">Choose an item.</span>), falling in the <span style="color:#808080">Choose an item.</span>. 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The results of these tasks would indicate that XXXX finds it challenging to link language and information despite having access to a competent/exemplary vocabulary knowledge. 
+            The results of these tasks would indicate that {{this.data.name}} finds it challenging to link language and information despite having access to a competent/exemplary vocabulary knowledge. 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <em>Given XXXX’s previous academic performance, it is important to consider her scores on these tasks carefully.</em><em>&#xa0; </em><em>In both cases, her scores may well have been reduced by her difficulty in giving succinct explanations, which has been given in background information.</em>
+            <em>Given {{this.data.name}}’s previous academic performance, it is important to consider her scores on these tasks carefully.</em><em>&#xa0; </em><em>In both cases, her scores may well have been reduced by her difficulty in giving succinct explanations, which has been given in background information.</em>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             <em>&#xa0;</em>
@@ -798,10 +797,10 @@
             Visual/non-verbal ability 
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            This timed task assesses the ability to scan and analyse visual information as well as to apply logic and reasoning when solving nonverbal problems by selecting a visual item to continue the presented sequence or pattern. His/Her score fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). This would indicate that XXXX is competent/highly able when completing visual sequential problem-solving tasks. <strong><span style="color:#9900cc">(ASSESSOR TO ADD OWN COMMENTS AS REQUIRED)</span></strong>
+            This timed task assesses the ability to scan and analyse visual information as well as to apply logic and reasoning when solving nonverbal problems by selecting a visual item to continue the presented sequence or pattern. His/Her score fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). This would indicate that {{this.data.name}} is competent/highly able when completing visual sequential problem-solving tasks. <strong><span style="color:#9900cc">(ASSESSOR TO ADD OWN COMMENTS AS REQUIRED)</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            This would indicate that XXXX struggles to complete visual-sequential problem solving tasks. <strong><span style="color:#9900cc">(ASSESSOR TO ADD OWN COMMENTS AS REQUIRED)</span></strong>
+            This would indicate that {{this.data.name}} struggles to complete visual-sequential problem solving tasks. <strong><span style="color:#9900cc">(ASSESSOR TO ADD OWN COMMENTS AS REQUIRED)</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
             &#xa0;
@@ -810,19 +809,19 @@
             Working Memory
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            Working memory (the ability to maintain and manipulate information in active attention) was assessed using a series of subtests.&#xa0; A pro-rated composite score was calculated because it was not possible to complete one of the subtests when assessing virtually. XXXX scored in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). XXXX was asked to listen to, remember and repeat verbal sequences of digits and letters.&#xa0; XXXX was also required to hold onto sequences of digits or letters in order to say them in reverse order. XXXX <span style="font-family:Arial; color:#808080">Choose an item.</span> XXXX applied great effort to the tasks presented in this battery of assessment. <strong><span style="color:#9900cc">(PLEASE ADD OTHER OBSERVATIONS FOR EXAMPLE, TIREDNESS/FATIGUE, STUDENT FEELING UNWELL).</span></strong>
+            Working memory (the ability to maintain and manipulate information in active attention) was assessed using a series of subtests.&#xa0; A pro-rated composite score was calculated because it was not possible to complete one of the subtests when assessing virtually. {{this.data.name}} scored in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). {{this.data.name}} was asked to listen to, remember and repeat verbal sequences of digits and letters.&#xa0; {{this.data.name}} was also required to hold onto sequences of digits or letters in order to say them in reverse order. {{this.data.name}} <span style="font-family:Arial; color:#808080">Choose an item.</span> {{this.data.name}} applied great effort to the tasks presented in this battery of assessment. <strong><span style="color:#9900cc">(PLEASE ADD OTHER OBSERVATIONS FOR EXAMPLE, TIREDNESS/FATIGUE, STUDENT FEELING UNWELL).</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            XXXX also completed some tasks that assessed her phonological memory (the ability to accurately identify, retain briefly, and repeat sequences of sound). The first test was on the ability to repeat numbers and she performed in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). The second task was on the ability to repeat sequences of sounds and XXXX performed in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>).
+            {{this.data.name}} also completed some tasks that assessed her phonological memory (the ability to accurately identify, retain briefly, and repeat sequences of sound). The first test was on the ability to repeat numbers and she performed in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). The second task was on the ability to repeat sequences of sounds and {{this.data.name}} performed in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>).
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            The two tests were combined to give a XXXX composite score of <span style="font-family:Arial; color:#808080">Choose an item.</span>, falling in the <span style="font-family:Arial; color:#808080">Choose an item.</span>. XXXX may have difficulty following instructions and what is being taught if there is a reliance on verbal information.&#xa0; When XXXX can only hear information, learning becomes challenging as she has to rely upon her short-term auditory memory.&#xa0; This will be tiring and so using visualisation strategies and her strengths will greatly support her.&#xa0; 
+            The two tests were combined to give a {{this.data.name}} composite score of <span style="font-family:Arial; color:#808080">Choose an item.</span>, falling in the <span style="font-family:Arial; color:#808080">Choose an item.</span>. {{this.data.name}} may have difficulty following instructions and what is being taught if there is a reliance on verbal information.&#xa0; When {{this.data.name}} can only hear information, learning becomes challenging as she has to rely upon her short-term auditory memory.&#xa0; This will be tiring and so using visualisation strategies and her strengths will greatly support her.&#xa0; 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
             &#xa0;
@@ -837,19 +836,19 @@
             Phonological Awareness
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            XXXX was asked to complete three phonological awareness tasks to assess her ability to accurately identify, discriminate between and manipulate the separate units of sounds in words, known as ‘phonemes’. These included segmenting and removing sounds from words, putting together spoken sounds to make words and identifying individual sounds within a word. XXXX performed well in tasks that <span style="font-family:Arial; color:#808080">Choose an item.</span> XXXX’s overall phonological awareness score fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> ( <span style="font-family:Arial; color:#808080">Choose an item.</span>). XXXX found it most difficult to <span style="font-family:Arial; color:#808080">Choose an item.</span> 
+            {{this.data.name}} was asked to complete three phonological awareness tasks to assess her ability to accurately identify, discriminate between and manipulate the separate units of sounds in words, known as ‘phonemes’. These included segmenting and removing sounds from words, putting together spoken sounds to make words and identifying individual sounds within a word. {{this.data.name}} performed well in tasks that <span style="font-family:Arial; color:#808080">Choose an item.</span> {{this.data.name}}’s overall phonological awareness score fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> ( <span style="font-family:Arial; color:#808080">Choose an item.</span>). {{this.data.name}} found it most difficult to <span style="font-family:Arial; color:#808080">Choose an item.</span> 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <a name="_cmntref2"><span style="background-color:#c0c0c0">A further </span></a><a href="#_cmnt2" style="text-decoration:none"><span style="font-size:8pt">[EP2]</span></a><span style="background-color:#c0c0c0">two subtests were administered to explore XXXX’s ability further. The additional two subtests look at the ability to blend sounds to make a made up word. The second test is on the ability to separate sounds within made up words. XXXX’s overall alternate phonological awareness score fell in the </span><span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>). <span style="background-color:#c0c0c0">XXXX performed better in the tasks that required her </span><span style="color:#808080">Choose an item.</span>
+            <a name="_cmntref2"><span style="background-color:#c0c0c0">A further </span></a><a href="#_cmnt2" style="text-decoration:none"><span style="font-size:8pt">[EP2]</span></a><span style="background-color:#c0c0c0">two subtests were administered to explore {{this.data.name}}’s ability further. The additional two subtests look at the ability to blend sounds to make a made up word. The second test is on the ability to separate sounds within made up words. {{this.data.name}}’s overall alternate phonological awareness score fell in the </span><span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>). <span style="background-color:#c0c0c0">{{this.data.name}} performed better in the tasks that required her </span><span style="color:#808080">Choose an item.</span>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The composite score from the phonological awareness and alternate phonological awareness tasks would indicate that whilst XXXX is able to segment, blend and identify sounds in whole words, they struggle to recognise sounds when the target word is not familiar to them. This would suggest that XXXX uses their visual strengths to support phonological processing. 
+            The composite score from the phonological awareness and alternate phonological awareness tasks would indicate that whilst {{this.data.name}} is able to segment, blend and identify sounds in whole words, they struggle to recognise sounds when the target word is not familiar to them. This would suggest that {{this.data.name}} uses their visual strengths to support phonological processing. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
             &#xa0;
@@ -858,13 +857,13 @@
             Processing Speed
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            <span style="letter-spacing:0.05pt">Processing</span><strong><span style="letter-spacing:0.05pt"> </span></strong><span style="letter-spacing:-0.15pt">s</span><span style="letter-spacing:0.05pt">p</span>e<span style="letter-spacing:0.05pt">ed</span> (<span style="letter-spacing:0.05pt">th</span>e<span style="letter-spacing:-0.05pt"> </span>a<span style="letter-spacing:0.05pt">b</span>il<span style="letter-spacing:-0.1pt">i</span><span style="letter-spacing:0.05pt">t</span>y <span style="letter-spacing:-0.05pt">t</span>o<span style="letter-spacing:0.05pt"> </span><span style="letter-spacing:-0.15pt">c</span>o<span style="letter-spacing:0.1pt">n</span><span style="letter-spacing:0.05pt">t</span><span style="letter-spacing:-0.1pt">r</span>ol<span style="letter-spacing:0.05pt"> </span><span style="letter-spacing:-0.1pt">a</span><span style="letter-spacing:0.05pt">tt</span><span style="letter-spacing:-0.1pt">e</span><span style="letter-spacing:0.05pt">nt</span><span style="letter-spacing:-0.1pt">i</span>on <span style="letter-spacing:0.05pt">t</span>o<span style="letter-spacing:-0.05pt"> </span><span style="letter-spacing:0.05pt">p</span>e<span style="letter-spacing:-0.05pt">r</span><span style="letter-spacing:0.05pt">f</span><span style="letter-spacing:-0.1pt">o</span>rm,<span style="letter-spacing:0.5pt"> </span>a<span style="letter-spacing:-0.05pt">u</span><span style="letter-spacing:0.05pt">t</span>o<span style="letter-spacing:0.05pt">m</span><span style="letter-spacing:-0.1pt">a</span><span style="letter-spacing:0.05pt">t</span>i<span style="letter-spacing:-0.05pt">c</span>ally, <span style="letter-spacing:-0.05pt">q</span><span style="letter-spacing:0.05pt">u</span>i<span style="letter-spacing:-0.05pt">ck</span>ly a<span style="letter-spacing:0.05pt">n</span>d<span style="letter-spacing:-0.05pt"> </span><span style="letter-spacing:0.05pt">f</span><span style="letter-spacing:-0.1pt">l</span><span style="letter-spacing:0.05pt">u</span>e<span style="letter-spacing:-0.05pt">n</span><span style="letter-spacing:0.05pt">t</span>l<span style="letter-spacing:-0.05pt">y</span>, r<span style="letter-spacing:0.05pt">e</span>la<span style="letter-spacing:0.05pt">t</span>ively si<span style="letter-spacing:-0.1pt">m</span><span style="letter-spacing:0.05pt">p</span>le<span style="letter-spacing:-0.05pt"> </span>r<span style="letter-spacing:0.05pt">e</span><span style="letter-spacing:-0.05pt">p</span>e<span style="letter-spacing:0.1pt">t</span><span style="letter-spacing:-0.1pt">i</span><span style="letter-spacing:0.05pt">t</span><span style="letter-spacing:-0.1pt">i</span>ve<span style="letter-spacing:0.05pt"> </span><span style="letter-spacing:-0.05pt">c</span>og<span style="letter-spacing:0.05pt">n</span>i<span style="letter-spacing:0.05pt">t</span>ive<span style="letter-spacing:-0.05pt"> </span><span style="letter-spacing:0.05pt">t</span>as<span style="letter-spacing:-0.05pt">k</span>s) was assessed by determining XXXX’s rapid symbolic naming (the ability to retrieve well-known phonological responses fluently from long-term memory in response to a visual stimulus). XXXX was asked to retrieve the ‘name’ of a number or letter and translate them into spoken word under timed conditions. XXXX’s overall rapid symbolic naming performance fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). XXXX’s performance in this task would indicate that they find it challenging to recall over learnt information at speed. 
+            <span style="letter-spacing:0.05pt">Processing</span><strong><span style="letter-spacing:0.05pt"> </span></strong><span style="letter-spacing:-0.15pt">s</span><span style="letter-spacing:0.05pt">p</span>e<span style="letter-spacing:0.05pt">ed</span> (<span style="letter-spacing:0.05pt">th</span>e<span style="letter-spacing:-0.05pt"> </span>a<span style="letter-spacing:0.05pt">b</span>il<span style="letter-spacing:-0.1pt">i</span><span style="letter-spacing:0.05pt">t</span>y <span style="letter-spacing:-0.05pt">t</span>o<span style="letter-spacing:0.05pt"> </span><span style="letter-spacing:-0.15pt">c</span>o<span style="letter-spacing:0.1pt">n</span><span style="letter-spacing:0.05pt">t</span><span style="letter-spacing:-0.1pt">r</span>ol<span style="letter-spacing:0.05pt"> </span><span style="letter-spacing:-0.1pt">a</span><span style="letter-spacing:0.05pt">tt</span><span style="letter-spacing:-0.1pt">e</span><span style="letter-spacing:0.05pt">nt</span><span style="letter-spacing:-0.1pt">i</span>on <span style="letter-spacing:0.05pt">t</span>o<span style="letter-spacing:-0.05pt"> </span><span style="letter-spacing:0.05pt">p</span>e<span style="letter-spacing:-0.05pt">r</span><span style="letter-spacing:0.05pt">f</span><span style="letter-spacing:-0.1pt">o</span>rm,<span style="letter-spacing:0.5pt"> </span>a<span style="letter-spacing:-0.05pt">u</span><span style="letter-spacing:0.05pt">t</span>o<span style="letter-spacing:0.05pt">m</span><span style="letter-spacing:-0.1pt">a</span><span style="letter-spacing:0.05pt">t</span>i<span style="letter-spacing:-0.05pt">c</span>ally, <span style="letter-spacing:-0.05pt">q</span><span style="letter-spacing:0.05pt">u</span>i<span style="letter-spacing:-0.05pt">ck</span>ly a<span style="letter-spacing:0.05pt">n</span>d<span style="letter-spacing:-0.05pt"> </span><span style="letter-spacing:0.05pt">f</span><span style="letter-spacing:-0.1pt">l</span><span style="letter-spacing:0.05pt">u</span>e<span style="letter-spacing:-0.05pt">n</span><span style="letter-spacing:0.05pt">t</span>l<span style="letter-spacing:-0.05pt">y</span>, r<span style="letter-spacing:0.05pt">e</span>la<span style="letter-spacing:0.05pt">t</span>ively si<span style="letter-spacing:-0.1pt">m</span><span style="letter-spacing:0.05pt">p</span>le<span style="letter-spacing:-0.05pt"> </span>r<span style="letter-spacing:0.05pt">e</span><span style="letter-spacing:-0.05pt">p</span>e<span style="letter-spacing:0.1pt">t</span><span style="letter-spacing:-0.1pt">i</span><span style="letter-spacing:0.05pt">t</span><span style="letter-spacing:-0.1pt">i</span>ve<span style="letter-spacing:0.05pt"> </span><span style="letter-spacing:-0.05pt">c</span>og<span style="letter-spacing:0.05pt">n</span>i<span style="letter-spacing:0.05pt">t</span>ive<span style="letter-spacing:-0.05pt"> </span><span style="letter-spacing:0.05pt">t</span>as<span style="letter-spacing:-0.05pt">k</span>s) was assessed by determining {{this.data.name}}’s rapid symbolic naming (the ability to retrieve well-known phonological responses fluently from long-term memory in response to a visual stimulus). {{this.data.name}} was asked to retrieve the ‘name’ of a number or letter and translate them into spoken word under timed conditions. {{this.data.name}}’s overall rapid symbolic naming performance fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). {{this.data.name}}’s performance in this task would indicate that they find it challenging to recall over learnt information at speed. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            The efficient processing of small units of sound and the recall of information are recognised as being important for the development of fluent reading and spelling skills. <span style="background-color:#ffff00">XXXX’s difficulties in these areas, particularly with her visual short-term memory, are characteristic of </span><span style="font-family:Arial; color:#808080">Choose an item.</span>
+            The efficient processing of small units of sound and the recall of information are recognised as being important for the development of fluent reading and spelling skills. <span style="background-color:#ffff00">{{this.data.name}}’s difficulties in these areas, particularly with her visual short-term memory, are characteristic of </span><span style="font-family:Arial; color:#808080">Choose an item.</span>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
             &#xa0;
@@ -900,43 +899,43 @@
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            DCD/Dyspraxia affects fine and/or gross motor coordination and individuals will vary in how their difficulties present.&#xa0; The difficulties may change over time dependent on lifestyle and experiences.&#xa0; To obtain an understanding of how XXXX’s reported coordination and organisational problems affected her, she was asked questions from both the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC) </em>and the <em>Diagnostic Interview</em> <em>for DCD in Adults</em>.&#xa0; 
+            DCD/Dyspraxia affects fine and/or gross motor coordination and individuals will vary in how their difficulties present.&#xa0; The difficulties may change over time dependent on lifestyle and experiences.&#xa0; To obtain an understanding of how {{this.data.name}}’s reported coordination and organisational problems affected her, she was asked questions from both the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC) </em>and the <em>Diagnostic Interview</em> <em>for DCD in Adults</em>.&#xa0; 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            From the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC)</em>, XXXX’s total score on the Adult Checklist was 1. XXXX scored <span style="color:#808080">Choose an item.</span> in childhood and &#xa0;<span style="color:#808080">Choose an item.</span> in adulthood. The reported difficulties are clear indications of DCD.
+            From the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC)</em>, {{this.data.name}}’s total score on the Adult Checklist was 1. {{this.data.name}} scored <span style="color:#808080">Choose an item.</span> in childhood and &#xa0;<span style="color:#808080">Choose an item.</span> in adulthood. The reported difficulties are clear indications of DCD.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            For the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC) </em>and the <em>Diagnostic Interview</em> <em>for DCD in Adults</em>. XXXX reported the following:
+            For the <em>Adult Developmental Coordination Disorder/ Dyspraxia Checklist (ADC) </em>and the <em>Diagnostic Interview</em> <em>for DCD in Adults</em>. {{this.data.name}} reported the following:
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX noted that in childhood, she had difficulties developing fine motor tasks such as 
+            {{this.data.name}} noted that in childhood, she had difficulties developing fine motor tasks such as 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            When reviewing her gross motor skills development, XXXX explained that she struggled with 
+            When reviewing her gross motor skills development, {{this.data.name}} explained that she struggled with 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            As an adult, XXXX explained that she 
+            As an adult, {{this.data.name}} explained that she 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The assessment evidence shows that XXXX’s DCD affects her motor skills as well as the organisation and coordination of information.
+            The assessment evidence shows that {{this.data.name}}’s DCD affects her motor skills as well as the organisation and coordination of information.
         </p>
         <h1 style="margin-top:0pt; margin-bottom:12pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:14pt">
             &#xa0;
@@ -963,19 +962,19 @@
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX explained that she has difficulties with concentration and with attention. As a result, She was screened for characteristics of ADHD using the <em>DIVA-5</em> (Diagnostic Interview for ADHD in Adults). This explores each of the diagnostic criteria identified by the <em>DSM-5 </em>that characterise the inattentive, hyperactive and impulsive behaviours that can be seen in people with ADHD; these are looked at in terms of how the person may be affected both in childhood and at present and across a wide range of life experiences. 
+            {{this.data.name}} explained that she has difficulties with concentration and with attention. As a result, She was screened for characteristics of ADHD using the <em>DIVA-5</em> (Diagnostic Interview for ADHD in Adults). This explores each of the diagnostic criteria identified by the <em>DSM-5 </em>that characterise the inattentive, hyperactive and impulsive behaviours that can be seen in people with ADHD; these are looked at in terms of how the person may be affected both in childhood and at present and across a wide range of life experiences. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX recognised that she experienced <span style="color:#808080">Choose an item.</span> out of nine characteristics related to inattention, both as a child and as an adult; she was able to explain how these behaviours impacted her life in education, at work and her leisure time. She also reported <span style="color:#808080">Choose an item.</span> out of nine characteristics related to hyperactivity and impulsivity, both as a child and as an adult with examples of how these impacted her. This shows XXXX has experienced <span style="color:#808080">Choose an item.</span> throughout her lifespan. 
+            {{this.data.name}} recognised that she experienced <span style="color:#808080">Choose an item.</span> out of nine characteristics related to inattention, both as a child and as an adult; she was able to explain how these behaviours impacted her life in education, at work and her leisure time. She also reported <span style="color:#808080">Choose an item.</span> out of nine characteristics related to hyperactivity and impulsivity, both as a child and as an adult with examples of how these impacted her. This shows {{this.data.name}} has experienced <span style="color:#808080">Choose an item.</span> throughout her lifespan. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            It should be noted that specialist teachers and psychologists can screen for ADHD to identify specific learning difficulties and educational needs as advised by SASC.&#xa0; However, this process does not provide a medical diagnosis; for this, XXXX would need to be seen by a specialist medical practitioner.&#xa0; Further information about this as well as suggestions for living with and studying more effectively with ADHD are given in the Recommendations section.
+            It should be noted that specialist teachers and psychologists can screen for ADHD to identify specific learning difficulties and educational needs as advised by SASC.&#xa0; However, this process does not provide a medical diagnosis; for this, {{this.data.name}} would need to be seen by a specialist medical practitioner.&#xa0; Further information about this as well as suggestions for living with and studying more effectively with ADHD are given in the Recommendations section.
         </p>
         <h1 style="margin-top:0pt; margin-bottom:12pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:14pt">
             <a name="_Social_Interaction_and"></a><a name="_Hlk89690433">&#xa0;</a>
@@ -984,7 +983,7 @@
             <a name="_Visual_Disturbance"></a><a href="#_Visual_Disturbance" style="text-decoration:none"><span style="color:#000000">Visual Disturbance </span></a><a name="_Toc149733084"></a>
         </h3>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <a href="#_Visual_Disturbance" style="text-decoration:none"></a>Visual disturbance is a condition that is not often identified in standard eye tests, but it can cause physical discomfort when reading and can result in skipping words. XXXX completed the <em>Visual Difficulties Screening Protocol; </em>she <span style="color:#808080">Choose an item.</span> <strong><span style="color:#9900cc">(Please delete as per responses from the background information questionnaire)</span></strong>
+            <a href="#_Visual_Disturbance" style="text-decoration:none"></a>Visual disturbance is a condition that is not often identified in standard eye tests, but it can cause physical discomfort when reading and can result in skipping words. {{this.data.name}} completed the <em>Visual Difficulties Screening Protocol; </em>she <span style="color:#808080">Choose an item.</span> <strong><span style="color:#9900cc">(Please delete as per responses from the background information questionnaire)</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1055,7 +1054,7 @@
             <em><span style="color:#272727">&#xa0;</span></em>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            Due to her reported difficulties, it is recommended that XXXX seeks a visual assessment from a suitably qualified optometrist offering comprehensive assessment and management of problems involving binocular vision (accommodation and convergence) disorders, and visual stress, in addition to the standard sight test comprising refraction and ocular health assessment.&#xa0; More information can be found through the Institute of Optometry www.ioo.org.uk or the British Association of Behavioural Optometrists www.babo.co.uk. (<strong><span style="color:#9900cc">Delete if very few symptoms)</span></strong>
+            Due to her reported difficulties, it is recommended that {{this.data.name}} seeks a visual assessment from a suitably qualified optometrist offering comprehensive assessment and management of problems involving binocular vision (accommodation and convergence) disorders, and visual stress, in addition to the standard sight test comprising refraction and ocular health assessment.&#xa0; More information can be found through the Institute of Optometry www.ioo.org.uk or the British Association of Behavioural Optometrists www.babo.co.uk. (<strong><span style="color:#9900cc">Delete if very few symptoms)</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1070,7 +1069,7 @@
             Reading Accuracy
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            XXXX read words that were part of her vocabulary from a list of words that became increasingly more complex. XXXX’s performance in this task fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). XXXX approached the task&#xa0; . This would indicate that&#xa0; .
+            {{this.data.name}} read words that were part of her vocabulary from a list of words that became increasingly more complex. {{this.data.name}}’s performance in this task fell in the <span style="font-family:Arial; color:#808080">Choose an item.</span> (<span style="font-family:Arial; color:#808080">Choose an item.</span>). {{this.data.name}} approached the task&#xa0; . This would indicate that&#xa0; .
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
@@ -1085,19 +1084,19 @@
             Reading Efficiency
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            XXXX was then administered two further tests to assess her reading abilities: a test of sight word and nonword reading. Both types of word reading skills are required for efficient text reading.
+            {{this.data.name}} was then administered two further tests to assess her reading abilities: a test of sight word and nonword reading. Both types of word reading skills are required for efficient text reading.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The first test involved reading a list of common words under time pressure and assessed the speed and fluency (efficiency) of reading everyday vocabulary. XXXX’S score was <span style="color:#808080">Choose an item.</span>, falling in the <span style="color:#808080">Choose an item.</span>. This would indicate that <strong><span style="color:#9900cc">(ADD COMMENT). </span></strong>XXXX approached the task. 
+            The first test involved reading a list of common words under time pressure and assessed the speed and fluency (efficiency) of reading everyday vocabulary. {{this.data.name}}’S score was <span style="color:#808080">Choose an item.</span>, falling in the <span style="color:#808080">Choose an item.</span>. This would indicate that <strong><span style="color:#9900cc">(ADD COMMENT). </span></strong>{{this.data.name}} approached the task. 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            The second test involved the timed reading of nonwords, which requires the use of phonemic decoding strategies (such as, using the sounds of letters and spelling patterns to identify unfamiliar words). XXXX’s score fell in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>), indicating that <strong><span style="color:#9900cc">(ADD COMMENT).</span></strong>
+            The second test involved the timed reading of nonwords, which requires the use of phonemic decoding strategies (such as, using the sounds of letters and spelling patterns to identify unfamiliar words). {{this.data.name}}’s score fell in the <span style="color:#808080">Choose an item.</span> (<span style="color:#808080">Choose an item.</span>), indicating that <strong><span style="color:#9900cc">(ADD COMMENT).</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1106,31 +1105,31 @@
             Reading Comprehension
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            XXXX read a passage of continuous text aloud at an oral reading speed of&#xa0;&#xa0;&#xa0; words per minute. When asked to summarise the passage from memory, XXXX <span style="font-family:Arial; color:#808080">Choose an item.</span>. Their reading pace was <span style="font-family:Arial; color:#808080">Choose an item.</span>and they read with <span style="font-family:Arial; color:#808080">Choose an item.</span>. XXXX approached the task with <span style="font-family:Arial; color:#808080">Choose an item.</span>. This reflective of XXXX’s self-reported experiences with reading comprehension in their background information.
+            {{this.data.name}} read a passage of continuous text aloud at an oral reading speed of&#xa0;&#xa0;&#xa0; words per minute. When asked to summarise the passage from memory, {{this.data.name}} <span style="font-family:Arial; color:#808080">Choose an item.</span>. Their reading pace was <span style="font-family:Arial; color:#808080">Choose an item.</span>and they read with <span style="font-family:Arial; color:#808080">Choose an item.</span>. {{this.data.name}} approached the task with <span style="font-family:Arial; color:#808080">Choose an item.</span>. This reflective of {{this.data.name}}’s self-reported experiences with reading comprehension in their background information.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            When reading other passages silently, XXXX read at a <span style="color:#808080">Choose an item.</span> silent reading speed of --- words per minute. As XXXX progressed through the silent reading comprehension task, XXXX <span style="color:#808080">Choose an item.</span> recall <span style="color:#808080">Choose an item.</span>information from the text. This would indicate that XXXX <strong><span style="color:#9900cc">(Please comment)</span></strong>
+            When reading other passages silently, {{this.data.name}} read at a <span style="color:#808080">Choose an item.</span> silent reading speed of --- words per minute. As {{this.data.name}} progressed through the silent reading comprehension task, {{this.data.name}} <span style="color:#808080">Choose an item.</span> recall <span style="color:#808080">Choose an item.</span>information from the text. This would indicate that {{this.data.name}} <strong><span style="color:#9900cc">(Please comment)</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s silent reading comprehension was in the <span style="color:#808080">Choose an item.</span>.
+            {{this.data.name}}’s silent reading comprehension was in the <span style="color:#808080">Choose an item.</span>.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            Both reading comprehension tasks showed the <span style="color:#808080">Choose an item.</span> XXXX had in gaining a full appreciation of the material that she read, <span style="color:#808080">Choose an item.</span> 
+            Both reading comprehension tasks showed the <span style="color:#808080">Choose an item.</span> {{this.data.name}} had in gaining a full appreciation of the material that she read, <span style="color:#808080">Choose an item.</span> 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            The impact of her working memory vulnerability was evident. This will mean that when XXXX has to read and remember material, she will find it hard to gain a full understanding within a reasonable time frame. <span style="background-color:#ffff00">These barriers to efficient reading are commonly experienced by people who have dyslexia.</span> 
+            The impact of her working memory vulnerability was evident. This will mean that when {{this.data.name}} has to read and remember material, she will find it hard to gain a full understanding within a reasonable time frame. <span style="background-color:#ffff00">These barriers to efficient reading are commonly experienced by people who have dyslexia.</span> 
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1139,7 +1138,7 @@
             Spelling
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            XXXX was also asked to write a list of words that were more simple, everyday words and then progressed to more complex, less familiar words. XXXX’s performance fell in the <a name="_Hlk145419747"><span style="font-family:Arial; color:#808080">Choose an item.</span></a> range (<span style="font-family:Arial; color:#808080">Choose an item.</span>). This would suggest that XXXX <strong><span style="color:#9900cc">(NOTE to assessor: Please comment on candidate performance in this task)</span></strong>
+            {{this.data.name}} was also asked to write a list of words that were more simple, everyday words and then progressed to more complex, less familiar words. {{this.data.name}}’s performance fell in the <a name="_Hlk145419747"><span style="font-family:Arial; color:#808080">Choose an item.</span></a> range (<span style="font-family:Arial; color:#808080">Choose an item.</span>). This would suggest that {{this.data.name}} <strong><span style="color:#9900cc">(NOTE to assessor: Please comment on candidate performance in this task)</span></strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1148,7 +1147,7 @@
             Writing and Typing
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
-            XXXX was asked to choose a topic to handwrite and type about for fifteen minutes; she chose to write about her course. 
+            {{this.data.name}} was asked to choose a topic to handwrite and type about for fifteen minutes; she chose to write about her course. 
         </p>
         <p style="margin-top:12pt; margin-bottom:3pt; line-height:normal; widows:0; orphans:0">
             <em>&#xa0;</em>
@@ -1178,7 +1177,7 @@
             <a href="#_Confirmation_of_Diagnostic" style="text-decoration:none"></a><strong>&#xa0;</strong>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            XXXX’s performance across the range of testing activities reveals that she has relative strengths in <a name="_Hlk143619421">underlying ability, word reading, spelling, speed of processing information, reading comprehension, speed of writing, speed of reading, grammatical accuracy, legibility, reading speed and fluidity, phonological processing, working memory, short term working memory </a><strong><span style="color:#9900cc">(PLEASE DELETE AS NECESSARY AND ADD TO THIS LIST-NOT EXHAUSTIVE).</span></strong> XXXX displayed vulnerabilities with underlying ability, word reading, spelling, speed of processing information, reading comprehension, speed of writing, speed of reading, grammatical accuracy, legibility, reading speed and fluidity, phonological processing, working memory, short term working memory <strong><span style="color:#9900cc">(PLEASE DELETE AS NECESSARY AND ADD TO THIS LIST-NOT EXHAUSTIVE) </span></strong>She also displayed challenges with <strong><span style="color:#9900cc">(PLEASE REPORT)</span></strong>. <span style="background-color:#ffff00">The reported background history and the findings of the assessment also reveal a clear profile of dyslexia. </span><span style="background-color:#ff00ff">&#xa0;</span><span style="background-color:#ff00ff">She showed characteristics of combined ADHD/ADHD Inattentive symptoms throughout her lifespan</span>. <span style="background-color:#008080">XXXX reported and displayed coordination and organisation challenges throughout her lifetime in relation to DCD.</span> It is common for these conditions to co-exist and in some areas to overlap in their manifestations. Please see Appendix 3 for the definition of <span style="color:#808080">Choose an item.</span>.
+            {{this.data.name}}’s performance across the range of testing activities reveals that she has relative strengths in <a name="_Hlk143619421">underlying ability, word reading, spelling, speed of processing information, reading comprehension, speed of writing, speed of reading, grammatical accuracy, legibility, reading speed and fluidity, phonological processing, working memory, short term working memory </a><strong><span style="color:#9900cc">(PLEASE DELETE AS NECESSARY AND ADD TO THIS LIST-NOT EXHAUSTIVE).</span></strong> {{this.data.name}} displayed vulnerabilities with underlying ability, word reading, spelling, speed of processing information, reading comprehension, speed of writing, speed of reading, grammatical accuracy, legibility, reading speed and fluidity, phonological processing, working memory, short term working memory <strong><span style="color:#9900cc">(PLEASE DELETE AS NECESSARY AND ADD TO THIS LIST-NOT EXHAUSTIVE) </span></strong>She also displayed challenges with <strong><span style="color:#9900cc">(PLEASE REPORT)</span></strong>. <span style="background-color:#ffff00">The reported background history and the findings of the assessment also reveal a clear profile of dyslexia. </span><span style="background-color:#ff00ff">&#xa0;</span><span style="background-color:#ff00ff">She showed characteristics of combined ADHD/ADHD Inattentive symptoms throughout her lifespan</span>. <span style="background-color:#008080">{{this.data.name}} reported and displayed coordination and organisation challenges throughout her lifetime in relation to DCD.</span> It is common for these conditions to co-exist and in some areas to overlap in their manifestations. Please see Appendix 3 for the definition of <span style="color:#808080">Choose an item.</span>.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1187,13 +1186,13 @@
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="background-color:#ffff00">The combination of these weaknesses had a notable impact on her performance. When XXXX had to use these skills in a multitasking activity, such as reading and remembering what she read or writing her ideas down in writing, her difficulties in sustaining these areas of processing simultaneously were evident.</span><span style="background-color:#ffff00">&#xa0; </span>
+            <span style="background-color:#ffff00">The combination of these weaknesses had a notable impact on her performance. When {{this.data.name}} had to use these skills in a multitasking activity, such as reading and remembering what she read or writing her ideas down in writing, her difficulties in sustaining these areas of processing simultaneously were evident.</span><span style="background-color:#ffff00">&#xa0; </span>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="background-color:#ffff00">However, XXXX should take encouragement from the fact that despite her challenges, she has strengths and tackled each task with her best efforts. I hope that this assessment will help her gain the adjustments and support she needs for her studies to take her forward with success.</span>
+            <span style="background-color:#ffff00">However, {{this.data.name}} should take encouragement from the fact that despite her challenges, she has strengths and tackled each task with her best efforts. I hope that this assessment will help her gain the adjustments and support she needs for her studies to take her forward with success.</span>
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             <strong>&#xa0;</strong>
@@ -1217,13 +1216,13 @@
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            <span style="background-color:#00ff00">An onward referral is recommended to XXXX’s General Practitioner to further discuss social &amp; communication difficulties observed and information gathered during this assessment process.</span><span style="background-color:#00ff00">&#xa0; </span>
+            <span style="background-color:#00ff00">An onward referral is recommended to {{this.data.name}}’s General Practitioner to further discuss social &amp; communication difficulties observed and information gathered during this assessment process.</span><span style="background-color:#00ff00">&#xa0; </span>
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
         </h5>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            It is recommended that XXXX seeks a visual assessment from a suitably qualified optometrist offering comprehensive assessment and management of problems involving binocular vision (accommodation and convergence) disorders, and visual stress, in addition to the standard sight test comprising refraction and ocular health assessment.&#xa0; More information can be found through the Institute of Optometry www.ioo.org.uk or the British Association of Behavioural Optometrists www.babo.co.uk.
+            It is recommended that {{this.data.name}} seeks a visual assessment from a suitably qualified optometrist offering comprehensive assessment and management of problems involving binocular vision (accommodation and convergence) disorders, and visual stress, in addition to the standard sight test comprising refraction and ocular health assessment.&#xa0; More information can be found through the Institute of Optometry www.ioo.org.uk or the British Association of Behavioural Optometrists www.babo.co.uk.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1232,7 +1231,7 @@
             Higher Education
         </h2>
         <p style="margin-top:0pt; margin-bottom:0pt">
-            Please bear in mind that final decisions about examination arrangements lie with the institution.&#xa0; XXXX should contact her <strong>the Disability Advisor</strong> at their University to discuss this report and the recommendations made.
+            Please bear in mind that final decisions about examination arrangements lie with the institution.&#xa0; {{this.data.name}} should contact her <strong>the Disability Advisor</strong> at their University to discuss this report and the recommendations made.
         </p>
         <p style="margin-top:0pt; margin-bottom:0pt">
             &#xa0;
@@ -1270,7 +1269,7 @@
             <span style="font-family:Wingdings"></span><span style="width:8.57pt; font:7pt 'Times New Roman'; display:inline-block">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>Use of a separate room if practicable, or a smaller room with others.
         </p>
         <p style="margin-top:0pt; margin-left:72pt; margin-bottom:6pt; text-indent:-18pt">
-            <span style="font-family:Wingdings"></span><span style="width:8.57pt; font:7pt 'Times New Roman'; display:inline-block">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>As XXXX needs to make corrections to her work as she is writing, it is recommended that she is allowed to type when the format of the examination makes this appropriate in addition to her extra time allowance.&#xa0; 
+            <span style="font-family:Wingdings"></span><span style="width:8.57pt; font:7pt 'Times New Roman'; display:inline-block">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span>As {{this.data.name}} needs to make corrections to her work as she is writing, it is recommended that she is allowed to type when the format of the examination makes this appropriate in addition to her extra time allowance.&#xa0; 
         </p>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
             <span style="font-weight:normal">&#xa0;</span>
@@ -1283,10 +1282,10 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.89pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">Despite taking time to proofread her work carefully, XXXX is aware that small errors can remain.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">Therefore, in all assessed work, examinations and coursework, it is recommended that XXXX is not penalised for errors in spelling and writing where these do not interfere with the communication or the assessment criteria.</span>
+                <span style="font-family:Calibri">Despite taking time to proofread her work carefully, {{this.data.name}} is aware that small errors can remain.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">Therefore, in all assessed work, examinations and coursework, it is recommended that {{this.data.name}} is not penalised for errors in spelling and writing where these do not interfere with the communication or the assessment criteria.</span>
             </li>
             <li style="margin-left:13.89pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">XXXX should make an application for the Disabled Students’ Allowance (DSA) to fund some of her study support needs</span><a name="_Hlk91776107"><span style="font-family:Calibri">&#xa0;</span><span style="font-family:Calibri">such as individual specialist tutor support as well as items of equipment and software or consumables. </span></a><span style="font-family:Calibri">His/Her Disability Advisor will be able to guide her in making this application.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">The DSA would also fund the Needs Assessment where her specific requirements will be discussed.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">Further details about the DSA are available at </span><a href="http://www.gov.uk/disabled-students-allowances-dsas" style="text-decoration:none"><u><span style="font-family:Calibri; color:#000000">www.gov.uk/disabled-students-allowances-dsas</span></u></a><u><span style="font-family:Calibri; ">.</span></u><u><span style="font-family:Calibri; ">&#xa0;&#xa0;&#xa0; </span></u>
+                <span style="font-family:Calibri">{{this.data.name}} should make an application for the Disabled Students’ Allowance (DSA) to fund some of her study support needs</span><a name="_Hlk91776107"><span style="font-family:Calibri">&#xa0;</span><span style="font-family:Calibri">such as individual specialist tutor support as well as items of equipment and software or consumables. </span></a><span style="font-family:Calibri">His/Her Disability Advisor will be able to guide her in making this application.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">The DSA would also fund the Needs Assessment where her specific requirements will be discussed.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">Further details about the DSA are available at </span><a href="http://www.gov.uk/disabled-students-allowances-dsas" style="text-decoration:none"><u><span style="font-family:Calibri; color:#000000">www.gov.uk/disabled-students-allowances-dsas</span></u></a><u><span style="font-family:Calibri; ">.</span></u><u><span style="font-family:Calibri; ">&#xa0;&#xa0;&#xa0; </span></u>
             </li>
         </ul>
         <p style="margin-top:0pt; margin-bottom:6pt; widows:0; orphans:0">
@@ -1297,7 +1296,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.89pt; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">XXXX would benefit from sessions with a </span><span style="font-family:Calibri; color:#808080">Choose an item.</span><span style="font-family:Calibri">. The content of these sessions would be negotiated but the focus could usefully be on the following:</span>
+                <span style="font-family:Calibri">{{this.data.name}} would benefit from sessions with a </span><span style="font-family:Calibri; color:#808080">Choose an item.</span><span style="font-family:Calibri">. The content of these sessions would be negotiated but the focus could usefully be on the following:</span>
             </li>
         </ul>
         <p style="margin-top:0pt; margin-left:21.25pt; margin-bottom:0pt">
@@ -1326,18 +1325,18 @@
         </p>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.89pt; widows:0; orphans:0; padding-left:7.51pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#c0c0c0">It is recommended that XXXX explore study skills and academic writing support provided by XXXX’s university.</span>
+                <span style="font-family:Calibri; background-color:#c0c0c0">It is recommended that {{this.data.name}} explore study skills and academic writing support provided by {{this.data.name}}’s university.</span>
             </li>
         </ul>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.89pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">Being provided with reading lists and lecture notes in advance would give XXXX more time to read and assimilate information as well as to prepare for and to focus in lectures. </span>
+                <span style="font-family:Calibri">Being provided with reading lists and lecture notes in advance would give {{this.data.name}} more time to read and assimilate information as well as to prepare for and to focus in lectures. </span>
             </li>
             <li style="margin-left:13.89pt; margin-bottom:6pt; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">As far as possible, XXXX should be permitted to record spoken information for her personal use, such as in tutorials, seminars and lectures not recorded by the University.</span><span style="font-family:Calibri">&#xa0;&#xa0; </span>
+                <span style="font-family:Calibri">As far as possible, {{this.data.name}} should be permitted to record spoken information for her personal use, such as in tutorials, seminars and lectures not recorded by the University.</span><span style="font-family:Calibri">&#xa0;&#xa0; </span>
             </li>
             <li style="margin-left:13.89pt; padding-left:7.36pt; font-family:serif">
-                <a name="_Hlk89691602"><span style="font-family:Calibri">XXXX would find it helpful to share the results of this assessment with her tutors as they would then be in a better position to support her needs. </span></a>
+                <a name="_Hlk89691602"><span style="font-family:Calibri">{{this.data.name}} would find it helpful to share the results of this assessment with her tutors as they would then be in a better position to support her needs. </span></a>
             </li>
         </ul>
         <p style="margin-top:0pt; margin-bottom:0pt; widows:0; orphans:0">
@@ -1351,7 +1350,7 @@
         </p>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.89pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">Speech to text software could help XXXX draft written work </span><a href="https://www.youtube.com/watch?v=2zfnWTSObfc" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0563c1">How to use Dictation &amp; voice commands in Microsoft Word</span></u></a><span style="font-family:Calibri"> </span>
+                <span style="font-family:Calibri">Speech to text software could help {{this.data.name}} draft written work </span><a href="https://www.youtube.com/watch?v=2zfnWTSObfc" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0563c1">How to use Dictation &amp; voice commands in Microsoft Word</span></u></a><span style="font-family:Calibri"> </span>
             </li>
             <li style="margin-left:13.89pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
                 <em><span style="font-family:Calibri; ">Microsoft Immersive Reader</span></em><span style="font-family:Calibri"> is a free interactive reading tool designed to help students improve their reading, comprehension, and grammar skills </span><a href="https://www.youtube.com/watch?v=wHJJCLV-DNg&amp;t=32s" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0563c1">What is Immersive Reader?</span></u></a><span style="font-family:Calibri"> </span>
@@ -1375,7 +1374,7 @@
                 <a href="https://www.microsoft.com/en-gb/microsoft-365/onenote/digital-note-taking-app" style="text-decoration:none"><em><u><span style="font-family:Calibri; color:#0563c1">OneNote</span></u></em></a><em><span style="font-family:Calibri; "> i</span></em><span style="font-family:Calibri">s an app to capture notes, lists, photos and audio.</span>
             </li>
             <li style="margin-left:13.89pt; margin-bottom:6pt; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">A digital voice recorder would allow XXXX to record and listen back to information. There are many free or affordable audio notes apps available on iPhone or Android mobiles such as </span><a href="https://play.google.com/store/apps/details?id=com.coffeebeanventures.easyvoicerecorder&amp;hl=en_GB&amp;gl=US" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0563c1">EasyVoiceRecorder</span></u></a><span style="font-family:Calibri"> or </span><a href="https://notability.com/" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0563c1">Notability</span></u></a><span style="font-family:Calibri">.</span><span style="font-family:Calibri">&#xa0;</span><span style="font-family:Calibri">Otter is also popular to transcribe lectures or meetings. </span><a href="https://www.appconner.com/app-otter-transcribe-meeting-note?utm_source=bing&amp;utm_medium=cpc&amp;utm_campaign=211b_afcapp_uk_jay%209.20&amp;utm_term=otter%20app&amp;utm_content=1659_Otter" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4">Otter: Transcribe Meeting Note App | Android, iOS &amp; Windows Phone Download (appconner.com)</span></u></a><u><span style="font-family:Calibri; color:#4472c4"> </span></u><em><span style="font-family:Calibri; ">Glean</span></em><span style="font-family:Calibri"> is a useful piece of software allowing systematic reviewing and annotation of audio recordings and online lectures/meetings.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">More information, free trial downloads and demonstration videos are available on </span><a href="http://www." style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4">www.</span></u></a><u><span style="font-family:Calibri; color:#4472c4">glean.co</span></u><span style="font-family:Calibri; color:#4472c4">.</span>
+                <span style="font-family:Calibri">A digital voice recorder would allow {{this.data.name}} to record and listen back to information. There are many free or affordable audio notes apps available on iPhone or Android mobiles such as </span><a href="https://play.google.com/store/apps/details?id=com.coffeebeanventures.easyvoicerecorder&amp;hl=en_GB&amp;gl=US" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0563c1">EasyVoiceRecorder</span></u></a><span style="font-family:Calibri"> or </span><a href="https://notability.com/" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0563c1">Notability</span></u></a><span style="font-family:Calibri">.</span><span style="font-family:Calibri">&#xa0;</span><span style="font-family:Calibri">Otter is also popular to transcribe lectures or meetings. </span><a href="https://www.appconner.com/app-otter-transcribe-meeting-note?utm_source=bing&amp;utm_medium=cpc&amp;utm_campaign=211b_afcapp_uk_jay%209.20&amp;utm_term=otter%20app&amp;utm_content=1659_Otter" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4">Otter: Transcribe Meeting Note App | Android, iOS &amp; Windows Phone Download (appconner.com)</span></u></a><u><span style="font-family:Calibri; color:#4472c4"> </span></u><em><span style="font-family:Calibri; ">Glean</span></em><span style="font-family:Calibri"> is a useful piece of software allowing systematic reviewing and annotation of audio recordings and online lectures/meetings.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">More information, free trial downloads and demonstration videos are available on </span><a href="http://www." style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4">www.</span></u></a><u><span style="font-family:Calibri; color:#4472c4">glean.co</span></u><span style="font-family:Calibri; color:#4472c4">.</span>
             </li>
             <li style="margin-left:13.89pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
                 <em><span style="font-family:Calibri; ">Zotero</span></em><span style="font-family:Calibri"> is a research referencing tool that helps to gather, organise and analyse sources </span><a href="http://www.zotero.org/" style="text-decoration:none"><u><span style="font-family:Calibri; color:#2f5496">www.zotero.org/</span></u></a><span style="font-family:Calibri; color:#2f5496">.</span>
@@ -1398,7 +1397,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.94pt; margin-bottom:6pt; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#ffff00">XXXX seemed keen to understand Herself better and to find new ways of supporting Herself.</span><span style="font-family:Calibri; background-color:#ffff00">&#xa0; </span><span style="font-family:Calibri; background-color:#ffff00">She may like to start with </span><a href="https://www.madebydyslexia.org/" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4; background-color:#ffff00">Made By Dyslexia – Redefining Dyslexia</span></u></a>
+                <span style="font-family:Calibri; background-color:#ffff00">{{this.data.name}} seemed keen to understand Herself better and to find new ways of supporting Herself.</span><span style="font-family:Calibri; background-color:#ffff00">&#xa0; </span><span style="font-family:Calibri; background-color:#ffff00">She may like to start with </span><a href="https://www.madebydyslexia.org/" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4; background-color:#ffff00">Made By Dyslexia – Redefining Dyslexia</span></u></a>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -1406,7 +1405,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.94pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#ff00ff">XXXX should plan to tackle tasks in stages, dividing them up into small sections so there is variety in the activity, and she can introduce natural breaks as needed.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">A useful website for supporting timed breaks in study is </span><a href="http://www.francescocirillo.com/pages/pomodoro-technique" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4; background-color:#ff00ff">www.francescocirillo.com/pages/pomodoro-technique</span></u></a><span style="font-family:Calibri; color:#4472c4; background-color:#ff00ff">.</span>
+                <span style="font-family:Calibri; background-color:#ff00ff">{{this.data.name}} should plan to tackle tasks in stages, dividing them up into small sections so there is variety in the activity, and she can introduce natural breaks as needed.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">A useful website for supporting timed breaks in study is </span><a href="http://www.francescocirillo.com/pages/pomodoro-technique" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4; background-color:#ff00ff">www.francescocirillo.com/pages/pomodoro-technique</span></u></a><span style="font-family:Calibri; color:#4472c4; background-color:#ff00ff">.</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -1414,7 +1413,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.94pt; margin-bottom:6pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri">XXXX may like to explore the Accessibility features on her smart phone or iPad.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">These can be found under Settings &gt; Accessibility.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">She could explore altering the display, text size and spoken content to assist her during her studies and everyday life.</span>
+                <span style="font-family:Calibri">{{this.data.name}} may like to explore the Accessibility features on her smart phone or iPad.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">These can be found under Settings &gt; Accessibility.</span><span style="font-family:Calibri">&#xa0; </span><span style="font-family:Calibri">She could explore altering the display, text size and spoken content to assist her during her studies and everyday life.</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -1422,7 +1421,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.94pt; margin-bottom:6pt; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#ff00ff">XXXX seemed keen to understand Herself better and to find new ways of supporting Herself ; she might find some organisation applications useful.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">The following link has an article that lists the top 11 apps for ADHD.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">They include organisation apps that help to create detailed to-do lists and apps to help to reduce the use of your phone, which can be a distraction or timewaster.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">See </span><a href="https://www.healthline.com/health/adhd/top-iphone-android-apps" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0000ff; background-color:#ff00ff">The 11 Best ADHD Apps for 2022 (healthline.com)</span></u></a>
+                <span style="font-family:Calibri; background-color:#ff00ff">{{this.data.name}} seemed keen to understand Herself better and to find new ways of supporting Herself ; she might find some organisation applications useful.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">The following link has an article that lists the top 11 apps for ADHD.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">They include organisation apps that help to create detailed to-do lists and apps to help to reduce the use of your phone, which can be a distraction or timewaster.</span><span style="font-family:Calibri; background-color:#ff00ff">&#xa0; </span><span style="font-family:Calibri; background-color:#ff00ff">See </span><a href="https://www.healthline.com/health/adhd/top-iphone-android-apps" style="text-decoration:none"><u><span style="font-family:Calibri; color:#0000ff; background-color:#ff00ff">The 11 Best ADHD Apps for 2022 (healthline.com)</span></u></a>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -1430,7 +1429,7 @@
         </h5>
         <ul type="square" style="margin:0pt; padding-left:0pt">
             <li style="margin-left:13.94pt; widows:0; orphans:0; padding-left:7.36pt; font-family:serif">
-                <span style="font-family:Calibri; background-color:#ffff00">XXXX might like to investigate the </span><em><span style="font-family:Calibri; background-color:#ffff00">Medincle</span></em><span style="font-family:Calibri; background-color:#ffff00"> range of software; her university may have a site license available for students to use.</span><span style="font-family:Calibri; background-color:#ffff00">&#xa0; </span><em><span style="font-family:Calibri; background-color:#ffff00">Medincle</span></em><span style="font-family:Calibri; background-color:#ffff00"> includes a medical spellchecker and a medical term supplement to the </span><em><span style="font-family:Calibri; background-color:#ffff00">Dragon</span></em><span style="font-family:Calibri; background-color:#ffff00"> software and more.</span><span style="font-family:Calibri; background-color:#ffff00">&#xa0; </span><span style="font-family:Calibri; background-color:#ffff00">More information can be found at </span><a href="https://www.medincle.com/" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4; background-color:#ffff00">www.medincle.com/</span></u></a><span style="font-family:Calibri; color:#4472c4; background-color:#ffff00">.</span>
+                <span style="font-family:Calibri; background-color:#ffff00">{{this.data.name}} might like to investigate the </span><em><span style="font-family:Calibri; background-color:#ffff00">Medincle</span></em><span style="font-family:Calibri; background-color:#ffff00"> range of software; her university may have a site license available for students to use.</span><span style="font-family:Calibri; background-color:#ffff00">&#xa0; </span><em><span style="font-family:Calibri; background-color:#ffff00">Medincle</span></em><span style="font-family:Calibri; background-color:#ffff00"> includes a medical spellchecker and a medical term supplement to the </span><em><span style="font-family:Calibri; background-color:#ffff00">Dragon</span></em><span style="font-family:Calibri; background-color:#ffff00"> software and more.</span><span style="font-family:Calibri; background-color:#ffff00">&#xa0; </span><span style="font-family:Calibri; background-color:#ffff00">More information can be found at </span><a href="https://www.medincle.com/" style="text-decoration:none"><u><span style="font-family:Calibri; color:#4472c4; background-color:#ffff00">www.medincle.com/</span></u></a><span style="font-family:Calibri; color:#4472c4; background-color:#ffff00">.</span>
             </li>
         </ul>
         <h5 style="margin-top:0pt; margin-bottom:0pt; page-break-after:avoid; line-height:normal; widows:0; orphans:0; font-size:12pt">
@@ -1538,7 +1537,7 @@
             <a name="_Hlk91776263">Workplace</a>
         </h2>
         <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-indent:-36pt">
-            XXXX might wish to have a Workplace Needs Assessment at her place of
+            {{this.data.name}} might wish to have a Workplace Needs Assessment at her place of
         </p>
         <p style="margin-top:0pt; margin-left:36pt; margin-bottom:0pt; text-indent:-36pt">
             employment in the UK.&#xa0; Specific recommendations would then be made accordingly. 
@@ -4078,5 +4077,5 @@
             <a href="#_cmntref2" style="text-decoration:none"><span style="font-size:8pt">[EP2]</span></a>This is an additional test that is administered at the discretion of the assessor. 
         </p>
     </div>
-        
 </div>
+

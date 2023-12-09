@@ -1,7 +1,8 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TowreTest } from 'src/app/models/common/towre-test';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
@@ -25,7 +26,18 @@ export class TowreComponent implements OnInit {
   hidden : boolean = true
 
   sweRawScore: string = ''
+  sweAgeEqui: string = ''
+  sweGradeEqui: string = ''
+  sweRank: string = ''
+  sweScale: string = ''
+  sweDesc: string = ''
+
   pdeRawScore: string = ''
+  pdeAgeEqui: string = ''
+  pdeGradeEqui: string = ''
+  pdeRank: string = ''
+  pdeScale: string = ''
+  pdeDesc: string = ''
 
   descriptiveTerm: string = ''
   descriptiveTerms: Array<any> = [
@@ -40,10 +52,79 @@ export class TowreComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) { }
 
-  getScore(a : string){
+  getScore(type : string){
 
+    let year = this.form.get('ageYear')?.value;
+    let month = this.form.get('ageMonth')?.value;
+
+    if(type == 'swe')
+    {
+      this.http.get<TowreTest>(this.baseUrl + 'assessor/towre?type='+ type +'&score='+ this.sweRawScore + '&year='+ year + '&month='+ month + '', this.setHeader()).subscribe({
+        next: (x) =>{
+          if(x.ageEqui){
+            this.sweAgeEqui = x.ageEqui.toString();
+          }
+          if(x.gradeEqui){
+            this.sweGradeEqui = x.gradeEqui.toString();
+          }
+          if(x.percentageRank){
+            this.sweRank = x.percentageRank.toString();
+          }
+          if(x.scale){
+            this.sweScale = x.scale.toString();
+          }
+          if(x.descriptive){
+            this.sweDesc = x.descriptive.toString();
+          }
+
+          this.notificationService.success('swe RawScore Updated Successfully');
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+    }
+    if(type == 'pde')
+    {
+      this.http.get<TowreTest>(this.baseUrl + 'assessor/towre?type='+ type +'&score='+ this.pdeRawScore + '&year='+ year + '&month='+ month + '', this.setHeader()).subscribe({
+        next: (x) =>{
+          if(x.ageEqui){
+            this.pdeAgeEqui = x.ageEqui.toString();
+          }
+          if(x.gradeEqui){
+            this.pdeGradeEqui = x.gradeEqui.toString();
+          }
+          if(x.percentageRank){
+            this.pdeRank = x.percentageRank.toString();
+          }
+          if(x.scale){
+            this.pdeScale = x.scale.toString();
+          }
+          if(x.descriptive){
+            this.pdeDesc = x.descriptive.toString();
+          }
+
+          this.notificationService.success('pde RawScore Updated Successfully');
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+    }
   }
   
+  setHeader() {
+    var userId = localStorage.getItem('userId');
+    var token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+      UserId : userId || ''
+    });
+    return {
+      headers: headers
+   };
+  }
+
   onDOBChange() {
     if (this.form.get('dob')?.value)
     {

@@ -51,7 +51,7 @@
             <mat-grid-tile colspan="5" >Sigbt Word Efficiency (SWE)</mat-grid-tile>
             <mat-grid-tile colspan="3" >
                 <input matInput [(ngModel)]="this.sweRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
-                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.sweRawScore">Check</button>
+                <button (click)="getScore('swe')" [disabled]="form.invalid || !this.sweRawScore">Check</button>
             </mat-grid-tile>
             <mat-grid-tile >{{0}}</mat-grid-tile>
             <mat-grid-tile >{{0}}</mat-grid-tile>
@@ -65,7 +65,7 @@
             <mat-grid-tile colspan="5" >Phonemic Decoding Efficiency (PDE)</mat-grid-tile>
             <mat-grid-tile colspan="3" >
                 <input matInput [(ngModel)]="this.pdeRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
-                <button (click)="getScore('verbal')" [disabled]="form.invalid || !this.pdeRawScore">Check</button>
+                <button (click)="getScore('pde')" [disabled]="form.invalid || !this.pdeRawScore">Check</button>
             </mat-grid-tile>
             <mat-grid-tile >{{0}}</mat-grid-tile>
             <mat-grid-tile >{{0}}</mat-grid-tile>
