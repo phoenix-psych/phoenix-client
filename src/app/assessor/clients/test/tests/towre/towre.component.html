@@ -53,12 +53,12 @@
                 <input matInput [(ngModel)]="this.sweRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
                 <button (click)="getScore('swe')" [disabled]="form.invalid || !this.sweRawScore">Check</button>
             </mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{sweAgeEqui}}</mat-grid-tile>
+            <mat-grid-tile >{{sweGradeEqui}}</mat-grid-tile>
+            <mat-grid-tile >{{sweRank}}</mat-grid-tile>
+            <mat-grid-tile >{{sweScale}}</mat-grid-tile>
             <mat-grid-tile ><b>(5)</b></mat-grid-tile>
-            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{sweDesc}}</mat-grid-tile>
         </div>
 
         <div class="2"> 
@@ -67,17 +67,17 @@
                 <input matInput [(ngModel)]="this.pdeRawScore" [ngModelOptions]="{standalone: true}" placeholder="Score" width="50px">
                 <button (click)="getScore('pde')" [disabled]="form.invalid || !this.pdeRawScore">Check</button>
             </mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{pdeAgeEqui}}</mat-grid-tile>
+            <mat-grid-tile >{{pdeGradeEqui}}</mat-grid-tile>
+            <mat-grid-tile >{{pdeRank}}</mat-grid-tile>
+            <mat-grid-tile >{{pdeScale}}</mat-grid-tile>
             <mat-grid-tile ><b>(4)</b></mat-grid-tile>
-            <mat-grid-tile colspan="3" >{{0}}</mat-grid-tile>
+            <mat-grid-tile colspan="3" >{{pdeDesc}}</mat-grid-tile>
         </div>
 
         <div class="3"> 
             <mat-grid-tile colspan="11" text-align="right">Sum of Scaled Scores =</mat-grid-tile>
-            <mat-grid-tile >{{0}}</mat-grid-tile>
+            <mat-grid-tile >{{pdeSum}}</mat-grid-tile>
             <mat-grid-tile colspan="4" ></mat-grid-tile>
         </div>
 

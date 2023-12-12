@@ -7,6 +7,70 @@ import { ArtTest } from 'src/app/models/common/art-subtest';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
+interface Art {
+
+  second1 : number;
+  second2 : number;
+  second3 : number;
+  second4 : number;
+  second5 : number;
+  second6 : number;
+  second7 : number;
+  second8 : number;
+
+  prErr1 : string;
+  prAcc1 : string;
+  prCom1 : string;
+  prSpd1 : string;
+
+  prErr2 : string;
+  prAcc2 : string;
+  prCom2 : string;
+  prSpd2 : string;
+
+  prErr3 : string;
+  prAcc3 : string;
+  prCom3 : string;
+  prSpd3 : string;
+
+  prErr4 : string;
+  prAcc4 : string;
+  prCom4 : string;
+  prSpd4 : string;
+
+  prComp5 : string;
+  prSpd5 : string;
+
+  prComp6 : string;
+  prSpd6 : string;
+
+  prComp7 : string;
+  prSpd7 : string;
+
+  prComp8 : string;
+  prSpd8 : string;
+
+  smAccuracy : string;
+  smCompreAloud : string;
+  smSpeedAloud : string;
+  smCompreSilent : string;
+  smSpeedSilent : string;
+  smWritingSpeed : string;
+
+  smAccuracyCentile : string;
+  smAccuracyStd : string;
+  smCompreAloudCentile : string;
+  smCompreAloudStd : string;
+  smSpeedAloudCentile : string;
+  smSpeedAloudStd : string;
+  smCompreSilentCentile : string;
+  smCompreSilentStd : string;
+  smSpeedSilentCentile : string;
+  smSpeedSilentStd : string;
+  smWritingSpeedCentile : string;
+  smWritingSpeedStd : string;
+}
+
 @Component({
   selector: 'app-art',
   templateUrl: './art.component.html',
@@ -26,7 +90,6 @@ export class ArtComponent implements OnInit {
   selected : string = ''
   hidden : boolean = true
 
-  
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) { }
 
   second1 = 0;
@@ -185,6 +248,7 @@ export class ArtComponent implements OnInit {
   smWritingSpeedCentile:string='0';
   smWritingSpeedStd:string='0';
 
+  @Input() clientId = '';
   @Input() name = '';
   @Input() dob = new Date();
 
@@ -250,6 +314,7 @@ export class ArtComponent implements OnInit {
       }
     });
   
+    this.LoadClientArt(this.clientId);
   }
 
   Populate()
@@ -259,6 +324,81 @@ export class ArtComponent implements OnInit {
     this.Generate('spdA');
     this.Generate('compS');
     this.Generate('spdS');
+  }
+
+  LoadClientArt(clientId : string)
+  {
+    this.http.get<Art>(this.baseUrl + 'client/art/'+ clientId + '', 
+    this.setHeader()).subscribe({
+      next: (x) =>{
+
+        this.second1 = x.second1,
+        this.second2 = x.second2,
+        this.second3 = x.second3,
+        this.second4 = x.second4,
+        this.second5 = x.second5,
+        this.second6 = x.second6,
+        this.second7 = x.second7,
+        this.second8 = x.second8,
+    
+        this.prErr1= x.prErr1,
+        this.prAcc1= x.prAcc1,
+        this.prCom1= x.prCom1,
+        this.prSpd1= x.prSpd1,
+
+        this.prErr2= x.prErr2,
+        this.prAcc2= x.prAcc2,
+        this.prCom2= x.prCom2,
+        this.prSpd2= x.prSpd2,
+
+        this.prErr3= x.prErr3,
+        this.prAcc3= x.prAcc3,
+        this.prCom3= x.prCom3,
+        this.prSpd3= x.prSpd3,
+
+        this.prErr4= x.prErr4,
+        this.prAcc4= x.prAcc4,
+        this.prCom4= x.prCom4,
+        this.prSpd4= x.prSpd4,
+
+        this.prComp5= x.prComp5,
+        this.prSpd5= x.prSpd5,
+
+        this.prComp6= x.prComp6,
+        this.prSpd6= x.prSpd6,
+
+        this.prComp7= x.prComp7,
+        this.prSpd7= x.prSpd7,
+
+        this.prComp8= x.prComp8,
+        this.prSpd8= x.prSpd8,
+
+        this.smAccuracy= x.smAccuracy,
+        this.smCompreAloud= x.smCompreAloud,
+        this.smSpeedAloud= x.smSpeedAloud,
+        this.smCompreSilent= x.smCompreSilent,
+        this.smSpeedSilent= x.smSpeedSilent,
+        this.smWritingSpeed= x.smWritingSpeed,
+
+        this.smAccuracyCentile= x.smAccuracyCentile,
+        this.smAccuracyStd= x.smAccuracyStd,
+        this.smCompreAloudCentile= x.smCompreAloudCentile,
+        this.smCompreAloudStd= x.smCompreAloudStd,
+        this.smSpeedAloudCentile= x.smSpeedAloudCentile,
+        this.smSpeedAloudStd= x.smSpeedAloudStd,
+        this.smCompreSilentCentile= x.smCompreSilentCentile,
+        this.smCompreSilentStd= x.smCompreSilentStd,
+        this.smSpeedSilentCentile= x.smSpeedSilentCentile,
+        this.smSpeedSilentStd= x.smSpeedSilentStd,
+        this.smWritingSpeedCentile= x.smWritingSpeedCentile,
+        this.smWritingSpeedStd= x.smWritingSpeedStd,
+
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
   }
 
   Generate(type : string){
@@ -371,10 +511,6 @@ export class ArtComponent implements OnInit {
     }
   }
 
-  onSave(){
-    
-  }
-
   getWritingSpeedScore(){
     this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type=wSpd&score='+ this.smWritingSpeed + '', this.setHeader()).subscribe({
       next: (x) =>{
@@ -406,4 +542,145 @@ export class ArtComponent implements OnInit {
     this.smSpeedSilent = Math.round(Number((Number(this.prSpd5) + Number(this.prSpd6) + Number(this.prSpd7) + Number(this.prSpd8)).toFixed(2))).toString();
   }
   
+  onSave()
+  {
+    
+    const body = {
+      second1 : this.second1,
+      second2 : this.second2,
+      second3 : this.second3,
+      second4 : this.second4,
+      second5 : this.second5,
+      second6 : this.second6,
+      second7 : this.second7,
+      second8 : this.second8,
+    
+      prErr1: this.prErr1,
+      prAcc1: this.prAcc1,
+      prCom1: this.prCom1,
+      prSpd1: this.prSpd1,
+    
+      prErr2: this.prErr2,
+      prAcc2: this.prAcc2,
+      prCom2: this.prCom2,
+      prSpd2: this.prSpd2,
+    
+      prErr3: this.prErr3,
+      prAcc3: this.prAcc3,
+      prCom3: this.prCom3,
+      prSpd3: this.prSpd3,
+    
+      prErr4: this.prErr4,
+      prAcc4: this.prAcc4,
+      prCom4: this.prCom4,
+      prSpd4: this.prSpd4,
+    
+      prComp5: this.prComp5,
+      prSpd5: this.prSpd5,
+    
+      prComp6: this.prComp6,
+      prSpd6: this.prSpd6,
+    
+      prComp7: this.prComp7,
+      prSpd7: this.prSpd7,
+    
+      prComp8: this.prComp8,
+      prSpd8: this.prSpd8,
+    
+      smAccuracy: this.smAccuracy,
+      smCompreAloud: this.smCompreAloud,
+      smSpeedAloud: this.smSpeedAloud,
+      smCompreSilent: this.smCompreSilent,
+      smSpeedSilent: this.smSpeedSilent,
+      smWritingSpeed: this.smWritingSpeed,
+    
+      smAccuracyCentile: this.smAccuracyCentile,
+      smAccuracyStd: this.smAccuracyStd,
+      smCompreAloudCentile: this.smCompreAloudCentile,
+      smCompreAloudStd: this.smCompreAloudStd,
+      smSpeedAloudCentile: this.smSpeedAloudCentile,
+      smSpeedAloudStd: this.smSpeedAloudStd,
+      smCompreSilentCentile: this.smCompreSilentCentile,
+      smCompreSilentStd: this.smCompreSilentStd,
+      smSpeedSilentCentile: this.smSpeedSilentCentile,
+      smSpeedSilentStd: this.smSpeedSilentStd,
+      smWritingSpeedCentile: this.smWritingSpeedCentile,
+      smWritingSpeedStd: this.smWritingSpeedStd,
+      
+      clientId : this.clientId
+    };
+
+    this.http.post<Art>(this.baseUrl + 'client/art', 
+    body
+    , this.setHeader()).subscribe({
+      next: (x) =>{
+
+        // this.second1 = x.second1,
+        // this.second2 = x.second2,
+        // this.second3 = x.second3,
+        // this.second4 = x.second4,
+        // this.second5 = x.second5,
+        // this.second6 = x.second6,
+        // this.second7 = x.second7,
+        // this.second8 = x.second8,
+    
+        // this.prErr1= x.prErr1,
+        // this.prAcc1= x.prAcc1,
+        // this.prCom1= x.prCom1,
+        // this.prSpd1= x.prSpd1,
+
+        // this.prErr2= x.prErr2,
+        // this.prAcc2= x.prAcc2,
+        // this.prCom2= x.prCom2,
+        // this.prSpd2= x.prSpd2,
+
+        // this.prErr3= x.prErr3,
+        // this.prAcc3= x.prAcc3,
+        // this.prCom3= x.prCom3,
+        // this.prSpd3= x.prSpd3,
+
+        // this.prErr4= x.prErr4,
+        // this.prAcc4= x.prAcc4,
+        // this.prCom4= x.prCom4,
+        // this.prSpd4= x.prSpd4,
+
+        // this.prComp5= x.prComp5,
+        // this.prSpd5= x.prSpd5,
+
+        // this.prComp6= x.prComp6,
+        // this.prSpd6= x.prSpd6,
+
+        // this.prComp7= x.prComp7,
+        // this.prSpd7= x.prSpd7,
+
+        // this.prComp8= x.prComp8,
+        // this.prSpd8= x.prSpd8,
+
+        // this.smAccuracy= x.smAccuracy,
+        // this.smCompreAloud= x.smCompreAloud,
+        // this.smSpeedAloud= x.smSpeedAloud,
+        // this.smCompreSilent= x.smCompreSilent,
+        // this.smSpeedSilent= x.smSpeedSilent,
+        // this.smWritingSpeed= x.smWritingSpeed,
+
+        // this.smAccuracyCentile= x.smAccuracyCentile,
+        // this.smAccuracyStd= x.smAccuracyStd,
+        // this.smCompreAloudCentile= x.smCompreAloudCentile,
+        // this.smCompreAloudStd= x.smCompreAloudStd,
+        // this.smSpeedAloudCentile= x.smSpeedAloudCentile,
+        // this.smSpeedAloudStd= x.smSpeedAloudStd,
+        // this.smCompreSilentCentile= x.smCompreSilentCentile,
+        // this.smCompreSilentStd= x.smCompreSilentStd,
+        // this.smSpeedSilentCentile= x.smSpeedSilentCentile,
+        // this.smSpeedSilentStd= x.smSpeedSilentStd,
+        // this.smWritingSpeedCentile= x.smWritingSpeedCentile,
+        // this.smWritingSpeedStd= x.smWritingSpeedStd,
+
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
 }

@@ -39,6 +39,8 @@ export class TowreComponent implements OnInit {
   pdeScale: string = ''
   pdeDesc: string = ''
 
+  pdeSum: string = ''
+
   descriptiveTerm: string = ''
   descriptiveTerms: Array<any> = [
     { Name:"Very Poor",From:"1",To:"69" },
@@ -77,6 +79,7 @@ export class TowreComponent implements OnInit {
             this.sweDesc = x.descriptive.toString();
           }
 
+          this.pdeSum = (Number(this.pdeScale) + Number(this.sweScale)).toString();
           this.notificationService.success('swe RawScore Updated Successfully');
         },
         error: (msg)=> {
@@ -104,6 +107,7 @@ export class TowreComponent implements OnInit {
             this.pdeDesc = x.descriptive.toString();
           }
 
+          this.pdeSum = (Number(this.pdeScale) + Number(this.sweScale)).toString();
           this.notificationService.success('pde RawScore Updated Successfully');
         },
         error: (msg)=> {
