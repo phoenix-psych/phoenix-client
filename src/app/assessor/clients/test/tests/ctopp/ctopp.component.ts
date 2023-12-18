@@ -9,6 +9,73 @@ import { CTOPPSubTest } from 'src/app/models/common/ctopp-subtest';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
+interface CTopp 
+{
+  elRawScore :string
+  elScaleScore :string
+  elPercentageRank :string
+
+  bwRawScore :string
+  bwScaleScore :string
+  bwPercentageRank :string
+
+  plRawScore :string
+  plScaleScore :string
+  plPercentageRank :string
+
+  mdRawScore :string
+  mdScaleScore :string
+  mdPercentageRank :string
+
+  nrRawScore :string
+  nrScaleScore :string
+  nrPercentageRank :string
+
+  rdRawScore :string
+  rdScaleScore :string
+  rdPercentageRank :string
+
+  rlRawScore :string
+  rlScaleScore :string
+  rlPercentageRank :string
+
+  bnRawScore :string
+  bnScaleScore :string
+  bnPercentageRank :string
+
+  snRawScore :string
+  snScaleScore :string
+  snPercentageRank :string
+
+  selected : string
+  hidden : boolean
+
+  paSum :string
+  pmSum :string
+  rsnSum :string
+  apaSum :string
+
+  pAScore  : number
+  pACI: string;
+  pADesc: string;
+  pARank: string;
+    
+  pMScore  : number
+  pMCI: string;
+  pMDesc: string;
+  pMRank: string;
+    
+  rSNScore  : number
+  rSNCI: string;
+  rSNDesc: string;
+  rSNRank: string;
+    
+  aPAScore  : number
+  aPACI: string;
+  aPADesc: string;
+  aPARank: string;
+
+}
 
 @Component({
   selector: 'app-ctopp',
@@ -92,6 +159,7 @@ export class CtoppComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) { }
 
+  @Input() clientId = '';
   @Input() name = '';
   @Input() dob = new Date();
 
@@ -110,6 +178,8 @@ export class CtoppComponent implements OnInit {
     });
 
     this.onDOBChange();
+
+    this.LoadClientArt(this.clientId);
   }
   
   onDOBChange() {
@@ -430,7 +500,163 @@ export class CtoppComponent implements OnInit {
   }
   
   onSave(){
-    
+    const body = {
+
+      elRawScore : this.elRawScore,
+      elScaleScore : this.elScaleScore,
+      elPercentageRank : this.elPercentageRank,
+
+      bwRawScore : this.bwRawScore,
+      bwScaleScore : this.bwScaleScore,
+      bwPercentageRank : this.bwPercentageRank,
+
+      plRawScore : this.plRawScore,
+      plScaleScore : this.plScaleScore,
+      plPercentageRank : this.plPercentageRank,
+
+      mdRawScore : this.mdRawScore,
+      mdScaleScore : this.mdScaleScore,
+      mdPercentageRank : this.mdPercentageRank,
+
+      nrRawScore : this.nrRawScore,
+      nrScaleScore : this.nrScaleScore,
+      nrPercentageRank : this.nrPercentageRank,
+
+      rdRawScore : this.rdRawScore,
+      rdScaleScore : this.rdScaleScore,
+      rdPercentageRank : this.rdPercentageRank,
+
+      rlRawScore : this.rlRawScore,
+      rlScaleScore : this.rlScaleScore,
+      rlPercentageRank : this.rlPercentageRank,
+
+      bnRawScore : this.bnRawScore,
+      bnScaleScore : this.bnScaleScore,
+      bnPercentageRank : this.bnPercentageRank,
+
+      snRawScore : this.snRawScore,
+      snScaleScore : this.snScaleScore,
+      snPercentageRank : this.snPercentageRank,
+
+      selected : this.selected,
+
+      paSum : this.paSum,
+      pmSum : this.pmSum,
+      rsnSum : this.rsnSum,
+      apaSum : this.apaSum,
+
+      pAScore : this.pAScore,
+      pACI : this.pACI,
+      pADesc : this.pADesc,
+      pARank : this.pARank,
+        
+      pMScore : this.pMScore,
+      pMCI : this.pMCI,
+      pMDesc : this.pMDesc,
+      pMRank : this.pMRank,
+        
+      rSNScore : this.rSNScore,
+      rSNCI : this.rSNCI,
+      rSNDesc : this.rSNDesc,
+      rSNRank : this.rSNRank,
+        
+      aPAScore : this.aPAScore,
+      aPACI : this.aPACI,
+      aPADesc : this.aPADesc,
+      aPARank : this.aPARank,
+      
+      clientId : this.clientId
+    };
+
+    this.http.post<CTopp>(this.baseUrl + 'client/ctopp', 
+    body
+    , this.setHeader()).subscribe({
+      next: (x) =>{
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
   }
+
+  
+  LoadClientArt(clientId : string)
+  {
+    this.http.get<CTopp>(this.baseUrl + 'client/ctopp/'+ clientId + '', 
+    this.setHeader()).subscribe({
+      next: (x) =>{
+
+        this.elRawScore = x.elRawScore,
+        this.elScaleScore = x.elScaleScore,
+        this.elPercentageRank = x.elPercentageRank,
+
+        this.bwRawScore = x.bwRawScore,
+        this.bwScaleScore = x.bwScaleScore,
+        this.bwPercentageRank = x.bwPercentageRank,
+
+        this.plRawScore = x.plRawScore,
+        this.plScaleScore = x.plScaleScore,
+        this.plPercentageRank = x.plPercentageRank,
+
+        this.mdRawScore = x.mdRawScore,
+        this.mdScaleScore = x.mdScaleScore,
+        this.mdPercentageRank = x.mdPercentageRank,
+
+        this.nrRawScore = x.nrRawScore,
+        this.nrScaleScore = x.nrScaleScore,
+        this.nrPercentageRank = x.nrPercentageRank,
+
+        this.rdRawScore = x.rdRawScore,
+        this.rdScaleScore = x.rdScaleScore,
+        this.rdPercentageRank = x.rdPercentageRank,
+
+        this.rlRawScore = x.rlRawScore,
+        this.rlScaleScore = x.rlScaleScore,
+        this.rlPercentageRank = x.rlPercentageRank,
+
+        this.bnRawScore = x.bnRawScore,
+        this.bnScaleScore = x.bnScaleScore,
+        this.bnPercentageRank = x.bnPercentageRank,
+
+        this.snRawScore = x.snRawScore,
+        this.snScaleScore = x.snScaleScore,
+        this.snPercentageRank = x.snPercentageRank,
+
+        this.selected = x.selected,
+
+        this.paSum = x.paSum,
+        this.pmSum = x.pmSum,
+        this.rsnSum = x.rsnSum,
+        this.apaSum = x.apaSum,
+
+        this.pAScore = x.pAScore,
+        this.pACI = x.pACI,
+        this.pADesc = x.pADesc,
+        this.pARank = x.pARank,
+          
+        this.pMScore = x.pMScore,
+        this.pMCI = x.pMCI,
+        this.pMDesc = x.pMDesc,
+        this.pMRank = x.pMRank,
+          
+        this.rSNScore = x.rSNScore,
+        this.rSNCI = x.rSNCI,
+        this.rSNDesc = x.rSNDesc,
+        this.rSNRank = x.rSNRank,
+          
+        this.aPAScore = x.aPAScore,
+        this.aPACI = x.aPACI,
+        this.aPADesc = x.aPADesc,
+        this.aPARank = x.aPARank,
+        
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
+
 
 }

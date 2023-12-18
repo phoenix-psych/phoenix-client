@@ -795,7 +795,7 @@ export class TomalComponent implements OnInit {
     this.li11 = c;
   }
 
-  
+  @Input() clientId = '';
   @Input() name = '';
   @Input() dob = new Date();
 

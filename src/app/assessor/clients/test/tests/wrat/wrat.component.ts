@@ -112,6 +112,7 @@ export class WratComponent implements OnInit {
     this.getScore('rc', this.rcRawScore);
   }
 
+  @Input() clientId = '';
   @Input() name = '';
   @Input() dob = new Date();
 

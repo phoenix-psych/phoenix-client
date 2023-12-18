@@ -146,6 +146,7 @@ export class TowreComponent implements OnInit {
     this.hidden = false;
   }
 
+  @Input() clientId = '';
   @Input() name = '';
   @Input() dob = new Date();
 
