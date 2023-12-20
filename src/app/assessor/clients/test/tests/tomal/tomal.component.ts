@@ -816,6 +816,10 @@ export class TomalComponent implements OnInit {
     this.onDOBChange();
   }
 
+  onLoad(){
+    //this.LoadClient(this.clientId);
+  }
+
   getRawScore(type : string) {
 
     if(type == 'mfs')

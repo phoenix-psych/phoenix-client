@@ -98,6 +98,10 @@ export class WritComponent implements OnInit {
     this.onDOBChange();
   }
 
+  onLoad(){
+    //this.LoadClient(this.clientId);
+  }
+
   Generate(hide : boolean = true){
     this.hidden = hide;
     this.vaSum = (Number(this.vaStandardScore) + Number(this.vcStandardScore)).toString();

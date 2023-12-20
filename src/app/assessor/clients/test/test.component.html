@@ -6,30 +6,30 @@
   </button>
 </mat-toolbar>
 
-<mat-tab-group  animationDuration="1000ms">
+<mat-tab-group  animationDuration="1000ms" (selectedTabChange)="onTabSelectionChanged($event)">
     <mat-tab label="ART">
-      <app-art [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-art>
+      <app-art #artRef [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-art>
     </mat-tab>
     <mat-tab label="CTOPP">
-      <app-ctopp [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-ctopp>
+      <app-ctopp #ctoppRef [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-ctopp>
     </mat-tab>
     <!-- <mat-tab label="DASH">
       <app-dash [name]="data.name" [dob]="data.dob"></app-dash>
     </mat-tab> -->
     <mat-tab label="GOART">
-      <app-goart [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-goart>
+      <app-goart #goartRef [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-goart>
     </mat-tab>
     <mat-tab label="TOMAL">
-      <app-tomal [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-tomal>
+      <app-tomal #tomalRef [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-tomal>
     </mat-tab>
     <mat-tab label="TOWRE">
-      <app-towre [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-towre>
+      <app-towre #towreRef [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-towre>
     </mat-tab>
     <mat-tab label="WRAT">
-      <app-wrat [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-wrat>
+      <app-wrat #wratRef [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-wrat>
     </mat-tab>
     <mat-tab label="WRIT">
-      <app-writ [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-writ>
+      <app-writ #writRef [clientId]="data.id" [name]="data.name" [dob]="data.dob"></app-writ>
     </mat-tab>
     
 </mat-tab-group>

@@ -313,8 +313,12 @@ export class ArtComponent implements OnInit {
         this.second8++;
       }
     });
-  
-    this.LoadClientArt(this.clientId);
+    
+    this.LoadClient(this.clientId);
+  }
+
+  onLoad(){
+    this.LoadClient(this.clientId);
   }
 
   Populate()
@@ -326,7 +330,7 @@ export class ArtComponent implements OnInit {
     this.Generate('spdS');
   }
 
-  LoadClientArt(clientId : string)
+  LoadClient(clientId : string)
   {
     this.http.get<Art>(this.baseUrl + 'client/art/'+ clientId + '', 
     this.setHeader()).subscribe({

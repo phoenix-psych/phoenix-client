@@ -135,6 +135,10 @@ export class WratComponent implements OnInit {
     this.onDOBChange();
   }
 
+  onLoad(){
+    //this.LoadClient(this.clientId);
+  }
+
   Generate(hide : boolean = true){
 
     for (let i = 0; i < this.rows; i++) {

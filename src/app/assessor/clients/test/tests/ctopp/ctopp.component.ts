@@ -11,69 +11,68 @@ import { environment } from 'src/environments/environment';
 
 interface CTopp 
 {
-  elRawScore :string
-  elScaleScore :string
+  elRawScore :number
+  elScaleScore :number
   elPercentageRank :string
 
-  bwRawScore :string
-  bwScaleScore :string
+  bwRawScore :number
+  bwScaleScore :number
   bwPercentageRank :string
 
-  plRawScore :string
-  plScaleScore :string
+  plRawScore :number
+  plScaleScore :number
   plPercentageRank :string
 
-  mdRawScore :string
-  mdScaleScore :string
+  mdRawScore :number
+  mdScaleScore :number
   mdPercentageRank :string
 
-  nrRawScore :string
-  nrScaleScore :string
+  nrRawScore :number
+  nrScaleScore :number
   nrPercentageRank :string
 
-  rdRawScore :string
-  rdScaleScore :string
+  rdRawScore :number
+  rdScaleScore :number
   rdPercentageRank :string
 
-  rlRawScore :string
-  rlScaleScore :string
+  rlRawScore :number
+  rlScaleScore :number
   rlPercentageRank :string
 
-  bnRawScore :string
-  bnScaleScore :string
+  bnRawScore :number
+  bnScaleScore :number
   bnPercentageRank :string
 
-  snRawScore :string
-  snScaleScore :string
+  snRawScore :number
+  snScaleScore :number
   snPercentageRank :string
 
   selected : string
-  hidden : boolean
 
-  paSum :string
-  pmSum :string
-  rsnSum :string
-  apaSum :string
+  paSum :number
+  pmSum :number
+  rsnSum :number
+  apaSum :number
 
-  pAScore  : number
-  pACI: string;
-  pADesc: string;
-  pARank: string;
+  paScore  : number
+  paCI: string;
+  paDesc: string;
+  paRank: string;
     
-  pMScore  : number
-  pMCI: string;
-  pMDesc: string;
-  pMRank: string;
+  pmScore  : number
+  pmCI: string;
+  pmDesc: string;
+  pmRank: string;
     
-  rSNScore  : number
-  rSNCI: string;
-  rSNDesc: string;
-  rSNRank: string;
+  rsnScore  : number
+  rsnCI: string;
+  rsnDesc: string;
+  rsnRank: string;
     
-  aPAScore  : number
-  aPACI: string;
-  aPADesc: string;
-  aPARank: string;
+  apaScore  : number
+  apaCI: string;
+  apaDesc: string;
+  apaRank: string;
 
 }
 
@@ -137,25 +136,25 @@ export class CtoppComponent implements OnInit {
   rsnSum !:string
   apaSum !:string
 
-  pAScore!: number;
-  pACI!: string;
-  pADesc!: string;
-  pARank!: string;
+  paScore!: number;
+  paCI!: string;
+  paDesc!: string;
+  paRank!: string;
     
-  pMScore!: number;
-  pMCI!: string;
-  pMDesc!: string;
-  pMRank!: string;
+  pmScore!: number;
+  pmCI!: string;
+  pmDesc!: string;
+  pmRank!: string;
     
-  rSNScore!: number;
-  rSNCI!: string;
-  rSNDesc!: string;
-  rSNRank!: string;
+  rsnScore!: number;
+  rsnCI!: string;
+  rsnDesc!: string;
+  rsnRank!: string;
     
-  aPAScore!: number;
-  aPACI!: string;
-  aPADesc!: string;
-  aPARank!: string;
+  apaScore!: number;
+  apaCI!: string;
+  apaDesc!: string;
+  apaRank!: string;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) { }
 
@@ -178,10 +177,12 @@ export class CtoppComponent implements OnInit {
     });
 
     this.onDOBChange();
-
-    this.LoadClientArt(this.clientId);
   }
-  
+
+  onLoad(){
+    this.LoadClient(this.clientId);
+  }
+
   onDOBChange() {
     if (this.form.get('dob')?.value)
     {
@@ -439,38 +440,42 @@ export class CtoppComponent implements OnInit {
     return Math.floor(Number(no) / div);
   }
 
-  onSelectionchanged() {
+  onSelectionchanged(flag : string = 'N') {
     this.hidden = false;
-    this.http.get<CToppComposite>(this.baseUrl + 'assessor/misc/cmp?ci='+ this.selected + '&paSum='+ this.paSum + '&pmSum='+ this.pmSum + '&rsnSum='+ this.rsnSum + '&apaSum='+ this.apaSum + '', this.setHeader()).subscribe({
-      next: (x) =>{
-
-        this.pAScore = x.paScore;
-        this.pACI = x.paci;
-        this.pADesc = x.paDesc;
-        this.pARank = x.paRank;
-          
-        this.pMScore = x.pmScore;
-        this.pMCI = x.pmci;
-        this.pMDesc = x.pmDesc;
-        this.pMRank = x.pmRank;
-          
-        this.rSNScore = x.rsnScore;
-        this.rSNCI = x.rsnci;
-        this.rSNDesc = x.rsnDesc;
-        this.rSNRank = x.rsnRank;
-          
-        this.aPAScore = x.apaScore;
-        this.aPACI = x.apaci;
-        this.aPADesc = x.apaDesc;
-        this.aPARank = x.apaRank;
-
-        this.notificationService.success(`Confidence Interval( ${this.selected} ) Populated Successfully`);
-      },
-      error: (msg)=> {
-        console.log(msg);
-      }
-    });
-
+    if(flag == 'N')
+    {
+      this.http.get<CToppComposite>(this.baseUrl + 'assessor/misc/cmp?ci='+ this.selected + '&paSum='+ this.paSum + '&pmSum='+ this.pmSum + '&rsnSum='+ this.rsnSum + '&apaSum='+ this.apaSum + '', this.setHeader()).subscribe({
+        next: (x) =>{
+  
+          this.paScore = x.paScore;
+          this.paCI = x.paci;
+          this.paDesc = x.paDesc;
+          this.paRank = x.paRank;
+            
+          this.pmScore = x.pmScore;
+          this.pmCI = x.pmci;
+          this.pmDesc = x.pmDesc;
+          this.pmRank = x.pmRank;
+            
+          this.rsnScore = x.rsnScore;
+          this.rsnCI = x.rsnci;
+          this.rsnDesc = x.rsnDesc;
+          this.rsnRank = x.rsnRank;
+            
+          this.apaScore = x.apaScore;
+          this.apaCI = x.apaci;
+          this.apaDesc = x.apaDesc;
+          this.apaRank = x.apaRank;
+  
+          this.notificationService.success(`Confidence Interval( ${this.selected} ) Populated Successfully`);
+        },
+        error: (msg)=> {
+          console.log(msg);
+        }
+      });
+  
+    }
+    
     // alert(this.selected);
   }
 
@@ -545,25 +550,25 @@ export class CtoppComponent implements OnInit {
       rsnSum : this.rsnSum,
       apaSum : this.apaSum,
 
-      pAScore : this.pAScore,
-      pACI : this.pACI,
-      pADesc : this.pADesc,
-      pARank : this.pARank,
+      paScore : this.paScore,
+      paCI : this.paCI,
+      paDesc : this.paDesc,
+      paRank : this.paRank,
         
-      pMScore : this.pMScore,
-      pMCI : this.pMCI,
-      pMDesc : this.pMDesc,
-      pMRank : this.pMRank,
+      pmScore : this.pmScore,
+      pmCI : this.pmCI,
+      pmDesc : this.pmDesc,
+      pmRank : this.pmRank,
         
-      rSNScore : this.rSNScore,
-      rSNCI : this.rSNCI,
-      rSNDesc : this.rSNDesc,
-      rSNRank : this.rSNRank,
+      rsnScore : this.rsnScore,
+      rsnCI : this.rsnCI,
+      rsnDesc : this.rsnDesc,
+      rsnRank : this.rsnRank,
         
-      aPAScore : this.aPAScore,
-      aPACI : this.aPACI,
-      aPADesc : this.aPADesc,
-      aPARank : this.aPARank,
+      apaScore : this.apaScore,
+      apaCI : this.apaCI,
+      apaDesc : this.apaDesc,
+      apaRank : this.apaRank,
       
       clientId : this.clientId
     };
@@ -581,76 +586,77 @@ export class CtoppComponent implements OnInit {
   }
 
   
-  LoadClientArt(clientId : string)
+  LoadClient(clientId : string)
   {
     this.http.get<CTopp>(this.baseUrl + 'client/ctopp/'+ clientId + '', 
     this.setHeader()).subscribe({
       next: (x) =>{
 
-        this.elRawScore = x.elRawScore,
-        this.elScaleScore = x.elScaleScore,
+        this.elRawScore = x.elRawScore.toString(),
+        this.elScaleScore = x.elScaleScore.toString(),
         this.elPercentageRank = x.elPercentageRank,
 
-        this.bwRawScore = x.bwRawScore,
-        this.bwScaleScore = x.bwScaleScore,
+        this.bwRawScore = x.bwRawScore.toString(),
+        this.bwScaleScore = x.bwScaleScore.toString(),
         this.bwPercentageRank = x.bwPercentageRank,
 
-        this.plRawScore = x.plRawScore,
-        this.plScaleScore = x.plScaleScore,
+        this.plRawScore = x.plRawScore.toString(),
+        this.plScaleScore = x.plScaleScore.toString(),
         this.plPercentageRank = x.plPercentageRank,
 
-        this.mdRawScore = x.mdRawScore,
-        this.mdScaleScore = x.mdScaleScore,
+        this.mdRawScore = x.mdRawScore.toString(),
+        this.mdScaleScore = x.mdScaleScore.toString(),
         this.mdPercentageRank = x.mdPercentageRank,
 
-        this.nrRawScore = x.nrRawScore,
-        this.nrScaleScore = x.nrScaleScore,
+        this.nrRawScore = x.nrRawScore.toString(),
+        this.nrScaleScore = x.nrScaleScore.toString(),
         this.nrPercentageRank = x.nrPercentageRank,
 
-        this.rdRawScore = x.rdRawScore,
-        this.rdScaleScore = x.rdScaleScore,
+        this.rdRawScore = x.rdRawScore.toString(),
+        this.rdScaleScore = x.rdScaleScore.toString(),
         this.rdPercentageRank = x.rdPercentageRank,
 
-        this.rlRawScore = x.rlRawScore,
-        this.rlScaleScore = x.rlScaleScore,
+        this.rlRawScore = x.rlRawScore.toString(),
+        this.rlScaleScore = x.rlScaleScore.toString(),
         this.rlPercentageRank = x.rlPercentageRank,
 
-        this.bnRawScore = x.bnRawScore,
-        this.bnScaleScore = x.bnScaleScore,
+        this.bnRawScore = x.bnRawScore.toString(),
+        this.bnScaleScore = x.bnScaleScore.toString(),
         this.bnPercentageRank = x.bnPercentageRank,
 
-        this.snRawScore = x.snRawScore,
-        this.snScaleScore = x.snScaleScore,
+        this.snRawScore = x.snRawScore.toString(),
+        this.snScaleScore = x.snScaleScore.toString(),
         this.snPercentageRank = x.snPercentageRank,
 
         this.selected = x.selected,
 
-        this.paSum = x.paSum,
-        this.pmSum = x.pmSum,
-        this.rsnSum = x.rsnSum,
-        this.apaSum = x.apaSum,
+        this.paSum = x.paSum.toString(),
+        this.pmSum = x.pmSum.toString(),
+        this.rsnSum = x.rsnSum.toString(),
+        this.apaSum = x.apaSum.toString(),
 
-        this.pAScore = x.pAScore,
-        this.pACI = x.pACI,
-        this.pADesc = x.pADesc,
-        this.pARank = x.pARank,
+        this.paScore = x.paScore,
+        this.paCI = x.paCI,
+        this.paDesc = x.paDesc,
+        this.paRank = x.paRank,
           
-        this.pMScore = x.pMScore,
-        this.pMCI = x.pMCI,
-        this.pMDesc = x.pMDesc,
-        this.pMRank = x.pMRank,
+        this.pmScore = x.pmScore,
+        this.pmCI = x.pmCI,
+        this.pmDesc = x.pmDesc,
+        this.pmRank = x.pmRank,
           
-        this.rSNScore = x.rSNScore,
-        this.rSNCI = x.rSNCI,
-        this.rSNDesc = x.rSNDesc,
-        this.rSNRank = x.rSNRank,
+        this.rsnScore = x.rsnScore,
+        this.rsnCI = x.rsnCI,
+        this.rsnDesc = x.rsnDesc,
+        this.rsnRank = x.rsnRank,
           
-        this.aPAScore = x.aPAScore,
-        this.aPACI = x.aPACI,
-        this.aPADesc = x.aPADesc,
-        this.aPARank = x.aPARank,
+        this.apaScore = x.apaScore,
+        this.apaCI = x.apaCI,
+        this.apaDesc = x.apaDesc,
+        this.apaRank = x.apaRank,
         
         console.log(x);
+        this.onSelectionchanged('Y');
       },
       error: (msg)=> {
         console.log(msg);
