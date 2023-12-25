@@ -54,68 +54,68 @@ export class Report1Component implements OnInit {
 
   //tiles: string[] = ['Tile 1', 'Tile 2', 'Tile 3'];
 
-  generatePDF1() {
-    const pdfDoc = new jsPDF({
-      orientation: 'l',
-      unit: 'pt',
-      format: [612, 792],
-    });
+  // generatePDF1() {
+  //   const pdfDoc = new jsPDF({
+  //     orientation: 'l',
+  //     unit: 'pt',
+  //     format: [612, 792],
+  //   });
 
-    const margins = {
-      top: 36,
-      bottom: 36,
-      left: 36,
-      width: 720,
-      height: 540,
-    };
+  //   const margins = {
+  //     top: 36,
+  //     bottom: 36,
+  //     left: 36,
+  //     width: 720,
+  //     height: 540,
+  //   };
 
-    const pageLength = this.invoiceElement.nativeElement.children.length;
-    const pageCanvases = new Array(pageLength);
-    const canvasOperations: Promise<HTMLCanvasElement>[] = [];
+  //   const pageLength = this.invoiceElement.nativeElement.children.length;
+  //   const pageCanvases = new Array(pageLength);
+  //   const canvasOperations: Promise<HTMLCanvasElement>[] = [];
 
-    for (let i = 0; i < pageLength; i++) {
-      const pdfHTML = this.invoiceElement.nativeElement.children[i];
-      canvasOperations.push(html2canvas(pdfHTML));
-    }
+  //   for (let i = 0; i < pageLength; i++) {
+  //     const pdfHTML = this.invoiceElement.nativeElement.children[i];
+  //     canvasOperations.push(html2canvas(pdfHTML));
+  //   }
 
-    Promise.all(canvasOperations).then((canvases) => {
-      canvases.forEach((canvas, idx) => {
-        if (idx > 0) {
-          pdfDoc.addPage();
-        }
+  //   Promise.all(canvasOperations).then((canvases) => {
+  //     canvases.forEach((canvas, idx) => {
+  //       if (idx > 0) {
+  //         pdfDoc.addPage();
+  //       }
 
-        const imgData = canvas.toDataURL('image/jpeg');
-        pdfDoc.addImage(imgData, 'JPEG', margins.left, margins.top, margins.width, margins.height);
-      });
+  //       const imgData = canvas.toDataURL('image/jpeg');
+  //       pdfDoc.addImage(imgData, 'JPEG', margins.left, margins.top, margins.width, margins.height);
+  //     });
 
-      pdfDoc.save('file2.pdf');
-    });
-  }
+  //     pdfDoc.save('file2.pdf');
+  //   });
+  // }
 
-  generatePDF2(): void {
+  // generatePDF2(): void {
     
-    const pdfDoc = new jsPDF({
-      orientation: 'l',
-      unit: 'pt',
-      format: [612, 792] // 72pts per inch
-    });
+  //   const pdfDoc = new jsPDF({
+  //     orientation: 'l',
+  //     unit: 'pt',
+  //     format: [612, 792] // 72pts per inch
+  //   });
 
-    const margins = {
-      top: 36,
-      bottom: 36,
-      left: 36,
-      width: 720,
-      height: 540
-    };
+  //   const margins = {
+  //     top: 36,
+  //     bottom: 36,
+  //     left: 36,
+  //     width: 720,
+  //     height: 540
+  //   };
 
-    const pdfHTML = this.invoiceElement.nativeElement;
+  //   const pdfHTML = this.invoiceElement.nativeElement;
 
-    html2canvas(pdfHTML).then((canvas) => {
-      const img = canvas.toDataURL();
-      pdfDoc.addImage(img, 'jpg', margins.left, margins.top, margins.width, margins.height);
-      pdfDoc.save(`Report:${this.data.name}(${this.data.email}).pdf`);
-    });
-  }
+  //   html2canvas(pdfHTML).then((canvas) => {
+  //     const img = canvas.toDataURL();
+  //     pdfDoc.addImage(img, 'jpg', margins.left, margins.top, margins.width, margins.height);
+  //     pdfDoc.save(`Report:${this.data.name}(${this.data.email}).pdf`);
+  //   });
+  // }
 
   generatePDF3(){
     const data = this.invoiceElement.nativeElement;
@@ -123,10 +123,12 @@ export class Report1Component implements OnInit {
       const imgWidth = 208;
       const pageHeight = 295;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      console.log(`imgHeight - ${imgHeight}`);
       let heightLeft = imgHeight;
       let position = 0;
+      let pageNo = 0;
       heightLeft -= pageHeight;
-      const doc = new jsPDF('p', 'mm');
+      const doc = new jsPDF('p', 'mm', 'a4');
       doc.addImage(canvas, 'PNG', 0, position, imgWidth, imgHeight, '', 'FAST');
       while (heightLeft >= 0) {
         position = heightLeft - imgHeight;
