@@ -85,7 +85,7 @@ export class Report1Component implements OnInit {
 
   generatePDF5() {
     const pages = document.querySelectorAll('.page');
-    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdf = new jsPDF('p', 'mm', [100, 80]); // [297, 210]
   
     function generatePage(index:number) {
       if (index < pages.length) {
