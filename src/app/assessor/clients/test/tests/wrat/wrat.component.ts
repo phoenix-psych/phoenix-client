@@ -6,6 +6,36 @@ import { WratTest } from 'src/app/models/common/wrat-score';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
+interface Wrat 
+{
+  selected : string;
+  wrRawScore : string;
+  wrStandardScore : string;
+  wrCI : string;
+  wrPer : string;
+  wrGrade : string;
+  spRawScore : string;
+  spStandardScore : string;
+  spCI : string;
+  spPer : string;
+  spGrade : string;
+  mcRawScore : string;
+  mcStandardScore : string;
+  mcCI : string;
+  mcPer : string;
+  mcGrade : string;
+  scRawScore : string;
+  scStandardScore : string;
+  scCI : string;
+  scPer : string;
+  scGrade : string;
+  rcRawScore : string;
+  rcStandardScore : string;
+  rcCI : string;
+  rcPer : string;
+  rcGrade : string;
+}
+
 @Component({
   selector: 'app-wrat',
   templateUrl: './wrat.component.html',
@@ -136,7 +166,7 @@ export class WratComponent implements OnInit {
   }
 
   onLoad(){
-    //this.LoadClient(this.clientId);
+    this.LoadClient(this.clientId);
   }
 
   Generate(hide : boolean = true){
@@ -278,7 +308,90 @@ export class WratComponent implements OnInit {
   }
   
   onSave(){
-    
+    const body = {
+
+      selected : this.selected,
+      wrRawScore : this.wrRawScore,
+      wrStandardScore : this.wrStandardScore,
+      wrCI : this.wrCI,
+      wrPer : this.wrPer,
+      wrGrade : this.wrGrade,
+      spRawScore : this.spRawScore,
+      spStandardScore : this.spStandardScore,
+      spCI : this.spCI,
+      spPer : this.spPer,
+      spGrade : this.spGrade,
+      mcRawScore : this.mcRawScore,
+      mcStandardScore : this.mcStandardScore,
+      mcCI : this.mcCI,
+      mcPer : this.mcPer,
+      mcGrade : this.mcGrade,
+      scRawScore : this.scRawScore,
+      scStandardScore : this.scStandardScore,
+      scCI : this.scCI,
+      scPer : this.scPer,
+      scGrade : this.scGrade,
+      rcRawScore : this.rcRawScore,
+      rcStandardScore : this.rcStandardScore,
+      rcCI : this.rcCI,
+      rcPer : this.rcPer,
+      rcGrade : this.rcGrade,
+
+      clientId : this.clientId
+    };
+
+    this.http.post<Wrat>(this.baseUrl + 'client/wrat', 
+    body
+    , this.setHeader()).subscribe({
+      next: (x) =>{
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
+
+
+  LoadClient(clientId : string)
+  {
+    this.http.get<Wrat>(this.baseUrl + 'client/wrat/'+ clientId + '', 
+    this.setHeader()).subscribe({
+      next: (x) =>{
+        
+        this.selected = x.selected,
+        this.wrRawScore = x.wrRawScore,
+        this.wrStandardScore = x.wrStandardScore,
+        this.wrCI = x.wrCI,
+        this.wrPer = x.wrPer,
+        this.wrGrade = x.wrGrade,
+        this.spRawScore = x.spRawScore,
+        this.spStandardScore = x.spStandardScore,
+        this.spCI = x.spCI,
+        this.spPer = x.spPer,
+        this.spGrade = x.spGrade,
+        this.mcRawScore = x.mcRawScore,
+        this.mcStandardScore = x.mcStandardScore,
+        this.mcCI = x.mcCI,
+        this.mcPer = x.mcPer,
+        this.mcGrade = x.mcGrade,
+        this.scRawScore = x.scRawScore,
+        this.scStandardScore = x.scStandardScore,
+        this.scCI = x.scCI,
+        this.scPer = x.scPer,
+        this.scGrade = x.scGrade,
+        this.rcRawScore = x.rcRawScore,
+        this.rcStandardScore = x.rcStandardScore,
+        this.rcCI = x.rcCI,
+        this.rcPer = x.rcPer,
+        this.rcGrade = x.rcGrade,
+
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
   }
 
 

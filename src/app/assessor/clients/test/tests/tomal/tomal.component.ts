@@ -8,6 +8,128 @@ import { TomalSubTest } from 'src/app/models/common/tomal-subtest';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
+interface Tomal 
+{
+  selected : string;
+
+  mfsVerbalRawScore :number;
+  mfsVerbalScaleScore :number;
+  mfsVerbalPercentageRank :number;
+  fmNonVerbalRawScore :number;
+  fmNonVerbalScaleScore :number;
+  fmNonVerbalPercentageRank :number;
+  wsrVerbalRawScore :number;
+  wsrVerbalScaleScore :number;
+  wsrVerbalPercentageRank :number;
+  avmNonVerbalRawScore :number;
+  avmNonVerbalScaleScore :number;
+  avmNonVerbalPercentageRank :number;
+  orVerbalRawScore :number;
+  orVerbalScaleScore :number;
+  orVerbalPercentageRank :number;
+  vsmNonVerbalRawScore :number;
+  vsmNonVerbalScaleScore :number;
+  vsmNonVerbalPercentageRank :number;
+  prVerbalRawScore :number;
+  prVerbalScaleScore :number;
+  prVerbalPercentageRank :number;
+  mflNonVerbalRawScore :number;
+  mflNonVerbalScaleScore :number;
+  mflNonVerbalPercentageRank :number;
+  ofVerbalRawScore :number;
+  ofVerbalScaleScore :number;
+  ofVerbalPercentageRank :number;
+  vsrNonVerbalRawScore :number;
+  vsrNonVerbalScaleScore :number;
+  vsrNonVerbalPercentageRank :number;
+  lfVerbalRawScore :number;
+  lfVerbalScaleScore :number;
+  lfVerbalPercentageRank :number;
+  mlNonVerbalRawScore :number;
+  mlNonVerbalScaleScore :number;
+  mlNonVerbalPercentageRank :number;
+  dbVerbalRawScore :number;
+  dbVerbalScaleScore :number;
+  dbVerbalPercentageRank :number;
+  lbVerbalRawScore :number;
+  lbVerbalScaleScore :number;
+  lbVerbalPercentageRank :number;
+  mfsdVerbalRawScore :number;
+  mfsdVerbalScaleScore :number;
+  mfsdVerbalPercentageRank :number;
+  wsrdVerbalRawScore :number;
+  wsrdVerbalScaleScore :number;
+  wsrdVerbalPercentageRank :number;
+
+  mfsVmi :number;
+  mfsCmi :number;
+  mfsAri :number;
+  fmNmi :number;
+  fmCmi :number;
+  fmFri :number;
+  wsrVmi :number;
+  wsrCmi :number;
+  wsrLi :number;
+  avmNmi :number;
+  avmCmi :number;
+  avmFri :number;
+  orVmi :number;
+  orCmi :number;
+  orLi :number;
+  vsmNmi :number;
+  vsmCmi :number;
+  vsmSri :number;
+  prVmi :number;
+  prCmi :number;
+  prAri :number;
+  prLi :number;
+  mflNmi :number;
+  mflCmi :number;
+  mflFri :number;
+  dfAci :number;
+  dfSri :number;
+  vsrLi :number;
+  lfAci :number;
+  lfSri :number;
+  miAci :number;
+  miSri :number;
+  dbAci :number;
+  lbAci :number;
+  mfsdVdri :number;
+  wsrdVdri :number;
+  
+  smVmi :number;
+  smNmi :number;
+  smCmi :number;
+  smVdri :number;
+  smAci :number;
+  smSri :number;
+  smFri :number;
+  smAri :number;
+  smli :number;
+
+  indVmi :number;
+  indNmi :number;
+  indCmi :number;
+  indVdri :number;
+  indAci :number;
+  indSri :number;
+  indFri :number;
+  indAri :number;
+  indli :number;
+
+  perVmi :string;
+  perNmi :string;
+  perCmi :string;
+  perVdri :string;
+  perAci :string;
+  perSri :string;
+  perFri :string;
+  perAri :string;
+  perli :string;
+
+}
+
 @Component({
   selector: 'app-tomal',
   templateUrl: './tomal.component.html',
@@ -817,7 +939,7 @@ export class TomalComponent implements OnInit {
   }
 
   onLoad(){
-    //this.LoadClient(this.clientId);
+    this.LoadClient(this.clientId);
   }
 
   getRawScore(type : string) {
@@ -1947,8 +2069,269 @@ export class TomalComponent implements OnInit {
     Reflect.set(this, dynamicKey, this.colorGreen);
   }
   
+  LoadClient(clientId : string)
+  {
+    this.http.get<Tomal>(this.baseUrl + 'client/tomal/'+ clientId + '', 
+    this.setHeader()).subscribe({
+      next: (x) =>{
+
+        this.selected = x.selected,
+        this.mfsVerbalRawScore = x.mfsVerbalRawScore.toString(),
+        this.mfsVerbalScaleScore = x.mfsVerbalScaleScore.toString(),
+        this.mfsVerbalPercentageRank = x.mfsVerbalPercentageRank.toString(),
+        this.fmNonVerbalRawScore = x.fmNonVerbalRawScore.toString(),
+        this.fmNonVerbalScaleScore = x.fmNonVerbalScaleScore.toString(),
+        this.fmNonVerbalPercentageRank = x.fmNonVerbalPercentageRank.toString(),
+        this.wsrVerbalRawScore = x.wsrVerbalRawScore.toString(),
+        this.wsrVerbalScaleScore = x.wsrVerbalScaleScore.toString(),
+        this.wsrVerbalPercentageRank = x.wsrVerbalPercentageRank.toString(),
+        this.avmNonVerbalRawScore = x.avmNonVerbalRawScore.toString(),
+        this.avmNonVerbalScaleScore = x.avmNonVerbalScaleScore.toString(),
+        this.avmNonVerbalPercentageRank = x.avmNonVerbalPercentageRank.toString(),
+        this.orVerbalRawScore = x.orVerbalRawScore.toString(),
+        this.orVerbalScaleScore = x.orVerbalScaleScore.toString(),
+        this.orVerbalPercentageRank = x.orVerbalPercentageRank.toString(),
+        this.vsmNonVerbalRawScore = x.vsmNonVerbalRawScore.toString(),
+        this.vsmNonVerbalScaleScore = x.vsmNonVerbalScaleScore.toString(),
+        this.vsmNonVerbalPercentageRank = x.vsmNonVerbalPercentageRank.toString(),
+        this.prVerbalRawScore = x.prVerbalRawScore.toString(),
+        this.prVerbalScaleScore = x.prVerbalScaleScore.toString(),
+        this.prVerbalPercentageRank = x.prVerbalPercentageRank.toString(),
+        this.mflNonVerbalRawScore = x.mflNonVerbalRawScore.toString(),
+        this.mflNonVerbalScaleScore = x.mflNonVerbalScaleScore.toString(),
+        this.mflNonVerbalPercentageRank = x.mflNonVerbalPercentageRank.toString(),
+        this.ofVerbalRawScore = x.ofVerbalRawScore.toString(),
+        this.ofVerbalScaleScore = x.ofVerbalScaleScore.toString(),
+        this.ofVerbalPercentageRank = x.ofVerbalPercentageRank.toString(),
+        this.vsrNonVerbalRawScore = x.vsrNonVerbalRawScore.toString(),
+        this.vsrNonVerbalScaleScore = x.vsrNonVerbalScaleScore.toString(),
+        this.vsrNonVerbalPercentageRank = x.vsrNonVerbalPercentageRank.toString(),
+        this.lfVerbalRawScore = x.lfVerbalRawScore.toString(),
+        this.lfVerbalScaleScore = x.lfVerbalScaleScore.toString(),
+        this.lfVerbalPercentageRank = x.lfVerbalPercentageRank.toString(),
+        this.mlNonVerbalRawScore = x.mlNonVerbalRawScore.toString(),
+        this.mlNonVerbalScaleScore = x.mlNonVerbalScaleScore.toString(),
+        this.mlNonVerbalPercentageRank = x.mlNonVerbalPercentageRank.toString(),
+        this.dbVerbalRawScore = x.dbVerbalRawScore.toString(),
+        this.dbVerbalScaleScore = x.dbVerbalScaleScore.toString(),
+        this.dbVerbalPercentageRank = x.dbVerbalPercentageRank.toString(),
+        this.lbVerbalRawScore = x.lbVerbalRawScore.toString(),
+        this.lbVerbalScaleScore = x.lbVerbalScaleScore.toString(),
+        this.lbVerbalPercentageRank = x.lbVerbalPercentageRank.toString(),
+        this.mfsdVerbalRawScore = x.mfsdVerbalRawScore.toString(),
+        this.mfsdVerbalScaleScore = x.mfsdVerbalScaleScore.toString(),
+        this.mfsdVerbalPercentageRank = x.mfsdVerbalPercentageRank.toString(),
+        this.wsrdVerbalRawScore = x.mfsdVerbalPercentageRank.toString(),
+        this.wsrdVerbalScaleScore = x.wsrdVerbalScaleScore.toString(),
+        this.wsrdVerbalPercentageRank = x.wsrdVerbalPercentageRank.toString(),
+
+        this.mfsVmi = x.mfsVmi.toString(),
+        this.mfsCmi = x.mfsCmi.toString(),
+        this.mfsAri = x.mfsAri.toString(),
+        this.fmNmi = x.fmNmi.toString(),
+        this.fmCmi = x.fmCmi.toString(),
+        this.fmFri = x.fmFri.toString(),
+        this.wsrVmi = x.wsrVmi.toString(),
+        this.wsrCmi = x.wsrCmi.toString(),
+        this.wsrLi = x.wsrLi.toString(),
+        this.avmNmi = x.avmNmi.toString(),
+        this.avmCmi = x.avmCmi.toString(),
+        this.avmFri = x.avmFri.toString(),
+        this.orVmi = x.orVmi.toString(),
+        this.orCmi = x.orCmi.toString(),
+        this.orLi = x.orLi.toString(),
+        this.vsmNmi = x.vsmNmi.toString(),
+        this.vsmCmi = x.vsmCmi.toString(),
+        this.vsmSri = x.vsmSri.toString(),
+        this.prVmi = x.prVmi.toString(),
+        this.prCmi = x.prCmi.toString(),
+        this.prAri = x.prAri.toString(),
+        this.prLi = x.prLi.toString(),
+        this.mflNmi = x.mflNmi.toString(),
+        this.mflCmi = x.mflCmi.toString(),
+        this.mflFri = x.mflFri.toString(),
+        this.dfAci = x.dfAci.toString(),
+        this.dfSri = x.dfSri.toString(),
+        this.vsrLi = x.vsrLi.toString(),
+        this.lfAci = x.lfAci.toString(),
+        this.lfSri = x.lfSri.toString(),
+        this.miAci = x.miAci.toString(),
+        this.miSri = x.miSri.toString(),
+        this.dbAci = x.dbAci.toString(),
+        this.lbAci = x.lbAci.toString(),
+        this.mfsdVdri = x.mfsdVdri.toString(),
+        this.wsrdVdri = x.wsrdVdri.toString(),
+        this.smVmi = x.smVmi.toString(),
+        this.smNmi = x.smNmi.toString(),
+        this.smCmi = x.smCmi.toString(),
+        this.smVdri = x.smVdri.toString(),
+        this.smAci = x.smAci.toString(),
+        this.smSri = x.smSri.toString(),
+        this.smFri = x.smFri.toString(),
+        this.smAri = x.smAri.toString(),
+        this.smli = x.smli.toString(),
+
+        this.indVmi = x.indVmi.toString(),
+        this.indNmi = x.indNmi.toString(),
+        this.indCmi = x.indCmi.toString(),
+        this.indVdri = x.indVdri.toString(),
+        this.indAci = x.indAci.toString(),
+        this.indSri = x.indSri.toString(),
+        this.indFri = x.indFri.toString(),
+        this.indAri = x.indAri.toString(),
+        this.indli = x.indli.toString(),
+
+        this.perVmi = x.perVmi,
+        this.perNmi = x.perNmi,
+        this.perCmi = x.perCmi,
+        this.perVdri = x.perVdri,
+        this.perAci = x.perAci,
+        this.perSri = x.perSri,
+        this.perFri = x.perFri,
+        this.perAri = x.perAri,
+        this.perli = x.perli,
+                
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
+
   onSave(){
-    
+    const body = {
+
+      selected : this.selected,
+      mfsVerbalRawScore : this.mfsVerbalRawScore,
+      mfsVerbalScaleScore : this.mfsVerbalScaleScore,
+      mfsVerbalPercentageRank : this.mfsVerbalPercentageRank,
+      fmNonVerbalRawScore : this.fmNonVerbalRawScore,
+      fmNonVerbalScaleScore : this.fmNonVerbalScaleScore,
+      fmNonVerbalPercentageRank : this.fmNonVerbalPercentageRank,
+      wsrVerbalRawScore : this.wsrVerbalRawScore,
+      wsrVerbalScaleScore : this.wsrVerbalScaleScore,
+      wsrVerbalPercentageRank : this.wsrVerbalPercentageRank,
+      avmNonVerbalRawScore : this.avmNonVerbalRawScore,
+      avmNonVerbalScaleScore : this.avmNonVerbalScaleScore,
+      avmNonVerbalPercentageRank : this.avmNonVerbalPercentageRank,
+      orVerbalRawScore : this.orVerbalRawScore,
+      orVerbalScaleScore : this.orVerbalScaleScore,
+      orVerbalPercentageRank : this.orVerbalPercentageRank,
+      vsmNonVerbalRawScore : this.vsmNonVerbalRawScore,
+      vsmNonVerbalScaleScore : this.vsmNonVerbalScaleScore,
+      vsmNonVerbalPercentageRank : this.vsmNonVerbalPercentageRank,
+      prVerbalRawScore : this.prVerbalRawScore,
+      prVerbalScaleScore : this.prVerbalScaleScore,
+      prVerbalPercentageRank : this.prVerbalPercentageRank,
+      mflNonVerbalRawScore : this.mflNonVerbalRawScore,
+      mflNonVerbalScaleScore : this.mflNonVerbalScaleScore,
+      mflNonVerbalPercentageRank : this.mflNonVerbalPercentageRank,
+      ofVerbalRawScore : this.ofVerbalRawScore,
+      ofVerbalScaleScore : this.ofVerbalScaleScore,
+      ofVerbalPercentageRank : this.ofVerbalPercentageRank,
+      vsrNonVerbalRawScore : this.vsrNonVerbalRawScore,
+      vsrNonVerbalScaleScore : this.vsrNonVerbalScaleScore,
+      vsrNonVerbalPercentageRank : this.vsrNonVerbalPercentageRank,
+      lfVerbalRawScore : this.lfVerbalRawScore,
+      lfVerbalScaleScore : this.lfVerbalScaleScore,
+      lfVerbalPercentageRank : this.lfVerbalPercentageRank,
+      mlNonVerbalRawScore : this.mlNonVerbalRawScore,
+      mlNonVerbalScaleScore : this.mlNonVerbalScaleScore,
+      mlNonVerbalPercentageRank : this.mlNonVerbalPercentageRank,
+      dbVerbalRawScore : this.dbVerbalRawScore,
+      dbVerbalScaleScore : this.dbVerbalScaleScore,
+      dbVerbalPercentageRank : this.dbVerbalPercentageRank,
+      lbVerbalRawScore : this.lbVerbalRawScore,
+      lbVerbalScaleScore : this.lbVerbalScaleScore,
+      lbVerbalPercentageRank : this.lbVerbalPercentageRank,
+      mfsdVerbalRawScore : this.mfsdVerbalRawScore,
+      mfsdVerbalScaleScore : this.mfsdVerbalScaleScore,
+      mfsdVerbalPercentageRank : this.mfsdVerbalPercentageRank,
+      wsrdVerbalRawScore : this.mfsdVerbalPercentageRank,
+      wsrdVerbalScaleScore : this.wsrdVerbalScaleScore,
+      wsrdVerbalPercentageRank : this.wsrdVerbalPercentageRank,
+
+      mfsVmi : this.mfsVmi,
+      mfsCmi : this.mfsCmi,
+      mfsAri : this.mfsAri,
+      fmNmi : this.fmNmi,
+      fmCmi : this.fmCmi,
+      fmFri : this.fmFri,
+      wsrVmi : this.wsrVmi,
+      wsrCmi : this.wsrCmi,
+      wsrLi : this.wsrLi,
+      avmNmi : this.avmNmi,
+      avmCmi : this.avmCmi,
+      avmFri : this.avmFri,
+      orVmi : this.orVmi,
+      orCmi : this.orCmi,
+      orLi : this.orLi,
+      vsmNmi : this.vsmNmi,
+      vsmCmi : this.vsmCmi,
+      vsmSri : this.vsmSri,
+      prVmi : this.prVmi,
+      prCmi : this.prCmi,
+      prAri : this.prAri,
+      prLi : this.prLi,
+      mflNmi : this.mflNmi,
+      mflCmi : this.mflCmi,
+      mflFri : this.mflFri,
+      dfAci : this.dfAci,
+      dfSri : this.dfSri,
+      vsrLi : this.vsrLi,
+      lfAci : this.lfAci,
+      lfSri : this.lfSri,
+      miAci : this.miAci,
+      miSri : this.miSri,
+      dbAci : this.dbAci,
+      lbAci : this.lbAci,
+      mfsdVdri : this.mfsdVdri,
+      wsrdVdri : this.wsrdVdri,
+      
+      smVmi : this.smVmi,
+      smNmi : this.smNmi,
+      smCmi : this.smCmi,
+      smVdri : this.smVdri,
+      smAci : this.smAci,
+      smSri : this.smSri,
+      smFri : this.smFri,
+      smAri : this.smAri,
+      smli : this.smli,
+
+      indVmi : this.indVmi,
+      indNmi : this.indNmi,
+      indCmi : this.indCmi,
+      indVdri : this.indVdri,
+      indAci : this.indAci,
+      indSri : this.indSri,
+      indFri : this.indFri,
+      indAri : this.indAri,
+      indli : this.indli,
+
+      perVmi : this.perVmi,
+      perNmi : this.perNmi,
+      perCmi : this.perCmi,
+      perVdri : this.perVdri,
+      perAci : this.perAci,
+      perSri : this.perSri,
+      perFri : this.perFri,
+      perAri : this.perAri,
+      perli : this.perli,
+      
+      clientId : this.clientId
+    };
+
+    this.http.post<Tomal>(this.baseUrl + 'client/tomal', 
+    body
+    , this.setHeader()).subscribe({
+      next: (x) =>{
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
   }
 
 }

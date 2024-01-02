@@ -55,6 +55,7 @@ import { ArtComponent } from './clients/test/tests/art/art.component';
 import { WritComponent } from './clients/test/tests/writ/writ.component';
 import { DashComponent } from './clients/test/tests/dash/dash.component';
 import { GoartComponent } from './clients/test/tests/goart/goart.component';
+import { FormComponent } from './clients/form/form.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { GoartComponent } from './clients/test/tests/goart/goart.component';
     WritComponent,
     DashComponent,
     GoartComponent,
-    AddComponent
+    AddComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,

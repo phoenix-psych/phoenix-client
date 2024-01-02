@@ -12,6 +12,7 @@ import { ClientDto } from 'src/app/models/common/client.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AddComponent } from './add/add.component';
+import { FormComponent } from './form/form.component';
 
 @Component({
   selector: 'app-clients',
@@ -93,6 +94,17 @@ export class ClientsComponent implements OnInit {
     dialogConfig.width = "100%";
     dialogConfig.data = row;
     this.dialog.open(TestComponent,dialogConfig);
+  }
+
+  onForm(row: any){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.autoFocus= false,
+    dialogConfig.height= '100%' 
+    dialogConfig.width = "100%";
+    dialogConfig.data = row;
+    this.dialog.open(FormComponent,dialogConfig);
   }
 
   onEdit(row: any){

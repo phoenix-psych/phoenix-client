@@ -44,6 +44,7 @@
       <mat-cell *matCellDef="let row">
         <button mat-icon-button (click)="onTest(row)"><mat-icon>launch</mat-icon></button>
         <button mat-icon-button (click)="onReport(row)"><mat-icon>print</mat-icon></button>
+        <button mat-icon-button (click)="onForm(row)"><mat-icon>assignment</mat-icon></button>
         <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
       </mat-cell>
     </ng-container>

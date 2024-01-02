@@ -7,6 +7,37 @@ import { WritSubTest } from 'src/app/models/common/writ-subtest';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
+interface Writ 
+{
+  selected : string;
+  vaRawScore : string;
+  vaStandardScore : string;
+  vaPercentile : string;
+  vcRawScore : string;
+  vcStandardScore : string;
+  vcPercentile : string;
+  vaSum : string;
+  maRawScore : string;
+  maStandardScore : string;
+  maPercentile : string;
+  diRawScore : string;
+  diStandardScore : string;
+  diPercentile : string;
+  dSum : string;
+  vbSumScore : string;
+  vbIQ : string;
+  vbPer : string;
+  vbCI : string;
+  viSumScore : string;
+  viIQ : string;
+  viPer : string;
+  viCI : string;
+  iqSumScore : string;
+  iqIQ : string;
+  iqPer : string;
+  iqCI : string;
+}
+
 @Component({
   selector: 'app-writ',
   templateUrl: './writ.component.html',
@@ -99,7 +130,7 @@ export class WritComponent implements OnInit {
   }
 
   onLoad(){
-    //this.LoadClient(this.clientId);
+    this.LoadClient(this.clientId);
   }
 
   Generate(hide : boolean = true){
@@ -303,7 +334,92 @@ export class WritComponent implements OnInit {
   }
 
   onSave(){
-    
+    const body = {
+
+      selected : this.selected,
+      vaRawScore : this.vaRawScore,
+      vaStandardScore : this.vaStandardScore,
+      vaPercentile : this.vaPercentile,
+      vcRawScore : this.vcRawScore,
+      vcStandardScore : this.vcStandardScore,
+      vcPercentile : this.vcPercentile,
+      vaSum : this.vaSum,
+      maRawScore : this.maRawScore,
+      maStandardScore : this.maStandardScore,
+      maPercentile : this.maPercentile,
+      diRawScore : this.diRawScore,
+      diStandardScore : this.diStandardScore,
+      diPercentile : this.diPercentile,
+      dSum : this.dSum,
+      vbSumScore : this.vbSumScore,
+      vbIQ : this.vbIQ,
+      vbPer : this.vbPer,
+      vbCI : this.vbCI,
+      viSumScore : this.viSumScore,
+      viIQ : this.viIQ,
+      viPer : this.viPer,
+      viCI : this.viCI,
+      iqSumScore : this.iqSumScore,
+      iqIQ : this.iqIQ,
+      iqPer : this.iqPer,
+      iqCI : this.iqCI,
+     
+      clientId : this.clientId
+    };
+
+    this.http.post<Writ>(this.baseUrl + 'client/writ', 
+    body
+    , this.setHeader()).subscribe({
+      next: (x) =>{
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
+
+
+  LoadClient(clientId : string)
+  {
+    this.http.get<Writ>(this.baseUrl + 'client/writ/'+ clientId + '', 
+    this.setHeader()).subscribe({
+      next: (x) =>{
+        
+        this.selected = x.selected,
+        this.vaRawScore = x.vaRawScore,
+        this.vaStandardScore = x.vaStandardScore,
+        this.vaPercentile = x.vaPercentile,
+        this.vcRawScore = x.vcRawScore,
+        this.vcStandardScore = x.vcStandardScore,
+        this.vcPercentile = x.vcPercentile,
+        this.vaSum = x.vaSum,
+        this.maRawScore = x.maRawScore,
+        this.maStandardScore = x.maStandardScore,
+        this.maPercentile = x.maPercentile,
+        this.diRawScore = x.diRawScore,
+        this.diStandardScore = x.diStandardScore,
+        this.diPercentile = x.diPercentile,
+        this.dSum = x.dSum,
+        this.vbSumScore = x.vbSumScore,
+        this.vbIQ = x.vbIQ,
+        this.vbPer = x.vbPer,
+        this.vbCI = x.vbCI,
+        this.viSumScore = x.viSumScore,
+        this.viIQ = x.viIQ,
+        this.viPer = x.viPer,
+        this.viCI = x.viCI,
+        this.iqSumScore = x.iqSumScore,
+        this.iqIQ = x.iqIQ,
+        this.iqPer = x.iqPer,
+        this.iqCI = x.iqCI,
+
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
   }
 
 }

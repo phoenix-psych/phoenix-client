@@ -6,6 +6,25 @@ import { TowreTest } from 'src/app/models/common/towre-test';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
 
+interface Towre 
+{
+  selected : string
+  sweRawScore: string;
+  sweAgeEqui: string;
+  sweGradeEqui: string;
+  sweRank: string;
+  sweScale: string;
+  sweDesc: string;
+  pdeRawScore: string;
+  pdeAgeEqui: string;
+  pdeGradeEqui: string;
+  pdeRank: string;
+  pdeScale: string;
+  pdeDesc: string;
+  pdeSum: string;
+  descriptiveTerm: string;
+}
+
 @Component({
   selector: 'app-towre',
   templateUrl: './towre.component.html',
@@ -170,11 +189,71 @@ export class TowreComponent implements OnInit {
   }
 
   onLoad(){
-    //this.LoadClient(this.clientId);
+    this.LoadClient(this.clientId);
   }
 
   onSave(){
-    
+    const body = {
+
+      selected : this.selected,
+      sweRawScore: this.sweRawScore,
+      sweAgeEqui: this.sweAgeEqui,
+      sweGradeEqui: this.sweGradeEqui,
+      sweRank: this.sweRank,
+      sweScale: this.sweScale,
+      sweDesc: this.sweDesc,
+      pdeRawScore: this.pdeRawScore,
+      pdeAgeEqui: this.pdeAgeEqui,
+      pdeGradeEqui: this.pdeGradeEqui,
+      pdeRank: this.pdeRank,
+      pdeScale: this.pdeScale,
+      pdeDesc: this.pdeDesc,
+      pdeSum: this.pdeSum,
+      descriptiveTerm: this.descriptiveTerm,
+      
+      clientId : this.clientId
+    };
+
+    this.http.post<Towre>(this.baseUrl + 'client/towre', 
+    body
+    , this.setHeader()).subscribe({
+      next: (x) =>{
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
+
+
+  LoadClient(clientId : string)
+  {
+    this.http.get<Towre>(this.baseUrl + 'client/towre/'+ clientId + '', 
+    this.setHeader()).subscribe({
+      next: (x) =>{
+        this.selected = x.selected,
+        this.sweRawScore= x.sweRawScore,
+        this.sweAgeEqui= x.sweAgeEqui,
+        this.sweGradeEqui= x.sweGradeEqui,
+        this.sweRank= x.sweRank,
+        this.sweScale= x.sweScale,
+        this.sweDesc= x.sweDesc,
+        this.pdeRawScore= x.pdeRawScore,
+        this.pdeAgeEqui= x.pdeAgeEqui,
+        this.pdeGradeEqui= x.pdeGradeEqui,
+        this.pdeRank= x.pdeRank,
+        this.pdeScale= x.pdeScale,
+        this.pdeDesc= x.pdeDesc,
+        this.pdeSum= x.pdeSum,
+        this.descriptiveTerm= x.descriptiveTerm,
+        
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
   }
 
 }

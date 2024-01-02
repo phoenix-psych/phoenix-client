@@ -42,6 +42,10 @@ export class AddComponent implements OnInit {
       email: ['', Validators.required],
       service: [0, Validators.required],
       phone: [''],
+      address: [''],
+      university: [''],
+      course: [''],
+      courseYear: [''],
       status: [''],
     });
 
