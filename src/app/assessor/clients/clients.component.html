@@ -35,6 +35,22 @@
       <mat-header-cell *matHeaderCellDef  mat-sort-header>Phone</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.phone}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>Address</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.address}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="university">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>University</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.university}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="course">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>Course</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.course}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="courseYear">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>CourseYear</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.courseYear}}</mat-cell>
+    </ng-container>
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef  mat-sort-header>Status</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.status}}</mat-cell>

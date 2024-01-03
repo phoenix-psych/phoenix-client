@@ -30,7 +30,7 @@ export class ClientsComponent implements OnInit {
     private dialogService: DialogService) { }
 
   listData: MatTableDataSource<ClientDto> = new MatTableDataSource<ClientDto>;
-  displayedColumns: string[] = ['name','dob','serviceName','email','phone', 'status', 'actions']; // 'id',
+  displayedColumns: string[] = ['name','dob','serviceName','email','phone', 'address', 'university', 'course', 'courseYear', 'status', 'actions']; // 'id',
   @ViewChild(MatSort) sort = new MatSort ;
   @ViewChild(MatPaginator) paginator = MatPaginator;
   searchKey: string = "";
@@ -74,8 +74,8 @@ export class ClientsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "40%";
-    // dialogConfig.height = "75%";
+    dialogConfig.width = "60%";
+    dialogConfig.height = "80%";
     this.dialog
       .open(AddComponent, dialogConfig)
       .afterClosed()
@@ -111,7 +111,8 @@ export class ClientsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
+    dialogConfig.width = "80%";
+    dialogConfig.height= '60%' 
     dialogConfig.data = row;
     this.dialog.open(AddComponent,dialogConfig);
   }

@@ -8,4 +8,11 @@ export interface ClientDto
   status: string,
   service: number,
   serviceName: string,
+
+  address: string,
+  university: string,
+  course: string,
+  courseYear: string,
+
+
 }

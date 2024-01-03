@@ -1,12 +1,13 @@
 <mat-toolbar>
     <span>Report</span>
     <span class="fill-remaining-space"></span>
+    <button class ="btn-dialog-close" mat-stroked-button (click)="OnEdit()">{{editText}}</button>
     <button class ="btn-dialog-close" mat-stroked-button (click)="generatePDF()">Generate</button>
     <button (click)="this.dialogRef.close()" mat-stroked-button >Close</button>
 </mat-toolbar>
 
 <!-- Your HTML content for each page -->
-<div class="page"  style="padding: 5%;"  id="page1">
+<div class="page" style="padding: 5%;" id="page1">
     <table style="width:100%;">
         <tr style="width:50%;">
             <td style="width:70%; padding-right:10pt; padding-left:10pt; vertical-align:top;">
@@ -99,7 +100,7 @@
                 <p ><b>Address:</b></p>
              </td>
              <td>
-                <p ><b></b>&nbsp;</p>
+                <p><b>{{this.data.address}}</b>&nbsp;</p>
              </td>
             </tr>
             <tr>
@@ -107,7 +108,7 @@
                 <p ><b>University:</b></p>
              </td>
              <td>
-                <p ><b></b>&nbsp;</p>
+                <p ><b>{{this.data.university}}</b>&nbsp;</p>
              </td>
             </tr>
             <tr>
@@ -115,7 +116,7 @@
                 <p ><b>Course:</b></p>
              </td>
              <td>
-                <p ><b></b>&nbsp;</p>
+                <p ><b>{{this.data.course}}</b>&nbsp;</p>
              </td>
             </tr>
             <tr>
@@ -123,7 +124,7 @@
                 <p ><b>Course Year:</b></p>
              </td>
              <td>
-                <p ><b></b>&nbsp;</p>
+                <p ><b>{{this.data.courseYear}}</b>&nbsp;</p>
              </td>
             </tr>
            </table>
@@ -194,7 +195,7 @@
                         
     </div>
 
-    <div style="margin-top: 45%;">
+    <div style="margin-top: 75%;">
         <p align=center style='text-align:center'><b>1</b></p>
     </div>
 
@@ -304,7 +305,7 @@
         <p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-GB
         style='line-height:150%'>&nbsp;</span></b></p>
 
-        <div style="margin-top: 75%;">
+        <div style="margin-top: 45%;">
             <p align=center style='text-align:center'><b>2</b></p>
         </div>
     
@@ -389,29 +390,42 @@
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>The reported
     background history together with the comprehensive interview and detailed
-    exploration provides the evidence that {{this.data.name}}</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>This correlates
-    with the full definition of </span><span class=MsoPlaceholderText><span
-    lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+    exploration provides the evidence that {{this.data.name}} </span>{{updatedTextSPLDDesc}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeSPLDDesc($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownSPLDDesc" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span lang=EN-GB style='line-height:150%'>This correlates
+    with the full definition of </span>{{updatedTextSPLDSDesc}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeSPLDSDesc($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsSPLDSDesc" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span
     lang=EN-GB style='line-height:150%'>provided in Appendix 3 of the main body of
     the report.</span></p>
 
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}} already has a
-    diagnosis of</span><span class=MsoPlaceholderText><span lang=EN-GB
-    style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-    lang=EN-GB style='line-height:150%'>{{this.data.name}} is </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span></p>
+    diagnosis of</span>{{updatedTextSPLDMental}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeSPLDMental($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsSPLDMental" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span
+    lang=EN-GB style='line-height:150%'>{{this.data.name}} is </span>
+    {{updatedTextOnWaitingList}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeOnWaitingList($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsOnWaitingList" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    </p>
 
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>Onward referrals <a
-    name="_Hlk142579789">to explore difficulties with </a></span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>are</span><span
+    name="_Hlk142579789">to explore difficulties with </a></span>{{updatedTextCondition}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeCondition($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsCondition" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span lang=EN-GB style='line-height:150%'>are</span><span
     lang=EN-GB style='line-height:150%'>recommended.</span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
@@ -423,29 +437,31 @@
     developmental history that is consistent with the findings of this assessment. {{this.data.name}}
     gave her strengths as:<span style='color:#0070C0'>(See BIQ)</span></span></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>3</b></p>
-    </div>
-
     
-</div>
-
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>3</b></p>
-</div>
-
-<div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page4"> -->
+<!-- <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page4"> -->
+    
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
 
     <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
-    style='font-family:"Calibri","sans-serif"'>Characteristic of </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
+    style='font-family:"Calibri","sans-serif"'>Characteristic of </span>{{updatedTextSPLDOutcome}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeSPLDOutcome($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsSPLDOutcome" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span lang=EN-GB style='line-height:150%;font-family:
     "Calibri","sans-serif"'>alongside the reported background history together with
     the comprehensive interview and detailed exploration conclude that</span><span
     lang=EN-GB style='font-family:"Calibri","sans-serif"'>{{this.data.name}} showed </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-    an item.Choose an item.</span></span><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>as
+    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>
+        {{updatedTextMemory}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeMemory($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsMemory" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    
+    {{updatedTextMemoryPP}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeMemoryPP($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsMemoryPP" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    </span></span><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>as
     well as slower speeds of processing when recalling </span><span
     lang=EN-GB style='font-family:"Calibri","sans-serif"'>information.</span><span
     lang=EN-GB style='font-family:"Calibri","sans-serif"'>{{this.data.name}} has both reported
@@ -473,15 +489,22 @@
     lang=EN-GB style='line-height:150%'>{{this.data.name}}’s responses to the <i>Diagnostic and
     Statistical Manual of Mental Disorders (DSM–5)</i> rating scale of ADHD items
     (using the <i>Diagnostic Interview for ADHD in Adults, DIVA5</i>), resulted in him/her
-    identifying </span><span class=MsoPlaceholderText><span lang=EN-GB
-    style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-    lang=EN-GB style='line-height:150%'> of the nine attention deficit and </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'> of the nine
+    identifying </span>{{updatedTextNumbers}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeNumbers($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsNumbers" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span
+    lang=EN-GB style='line-height:150%'> of the nine attention deficit and </span>{{updatedTextNumber2}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeNumber2($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsNumbers" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'> of the nine
     hyperactive-impulsive characteristics as occurring both in childhood and as an
-    adult. The reported symptoms are characteristic of </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB>This correlates with the full definition
+    adult. The reported symptoms are characteristic of </span>{{updatedTextADHD}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeADHD($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsADHD" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span lang=EN-GB>This correlates with the full definition
     of ADHD provided in Appendix 3 of the main body of the report.</span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
@@ -525,20 +548,29 @@
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}}’s</span><b><span
     lang=EN-GB style='line-height:150%'>knowledge of words</span></b><span
-    lang=EN-GB style='line-height:150%'>(vocabulary) lays within the </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>range.{{this.data.name}}
+    lang=EN-GB style='line-height:150%'>(vocabulary) lays within the </span> {{updatedTextRangeCategory}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeRangeCategory($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsRangeCategory" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>range.{{this.data.name}}
     reported that they struggle with wordfinding difficulties in their current
-    studies when expressing their thoughts and knowledge </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span></p>
+    studies when expressing their thoughts and knowledge </span>{{updatedTextWordFinding}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeWordFinding($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsWordFinding" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    </p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>When making
-    connections between words and concepts (verbal reasoning){{this.data.name}} scored in the</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>(</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>). </span></p>
+    connections between words and concepts (verbal reasoning){{this.data.name}} scored in the</span>
+    {{updatedTextRange2}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeRange2($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsRangeCategory" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span lang=EN-GB style='line-height:150%'>(</span>{{updatedTextStdScore}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChangeStdScore($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptionsStdScore" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    <span lang=EN-GB style='line-height:150%'>). </span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
 
@@ -546,20 +578,28 @@
     lang=EN-GB style='line-height:150%;background:silver'>When</span><b><span
     lang=EN-GB style='line-height:150%;background:silver'>making connections
     between words and concepts</span></b><span lang=EN-GB style='line-height:150%;
-    background:silver'> (verbal reasoning) {{this.data.name}} scored in the</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%;background:silver'>.
+    background:silver'> (verbal reasoning) {{this.data.name}} scored in the</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;background:silver'>.
     However, this lower score is likely due to {{this.data.name}}’s linguistic history and the
     fact that {{this.data.name}} grew up in a population other than that of the population used
     in the standardised norms of this test. {{this.data.name}} often ruminated on answers and
     reasoned that there could be many different answers to the stimuli provided. {{this.data.name}}
     clearly has strong verbal abilities, and this was demonstrated in a test of
     vocabulary where {{this.data.name}} gained a </span><b><span lang=EN-GB style='line-height:
-    150%;background:olive'>-</span></b><span class=MsoPlaceholderText><span
-    lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+    150%;background:olive'>-</span></b><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
     lang=EN-GB style='line-height:150%;background:silver'> score </span><span
-    lang=EN-GB style='line-height:150%'>(</span><span class=MsoPlaceholderText><span
-    lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+    lang=EN-GB style='line-height:150%'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
     lang=EN-GB style='line-height:150%'>)<span style='background:silver'>.</span></span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
@@ -569,23 +609,33 @@
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}}’s </span><b><span
     lang=EN-GB style='line-height:150%'>visual ability</span></b><span lang=EN-GB
     style='line-height:150%'>(using logic, problem-solving and deduction to make
-    connections between pictures and visual patterns) was within the </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>. </span></p>
+    connections between pictures and visual patterns) was within the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>. </span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}}’s </span><b><span
     lang=EN-GB style='line-height:150%'>working memory</span></b><span lang=EN-GB
     style='line-height:150%'>(ability to maintain and manipulate information in
-    active attention) was in the </span><span class=MsoPlaceholderText><span
-    lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-    lang=EN-GB style='line-height:150%'>(</span><span class=MsoPlaceholderText><span
-    lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+    active attention) was in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
+    lang=EN-GB style='line-height:150%'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
     lang=EN-GB style='line-height:150%'>).{{this.data.name}}’s difficulties with working memory
     were evident when <b>Processing</b>(ability to control attention to perform,
     automatically, quickly and fluently, relatively simple repetitive cognitive
-    tasks) in which their performance fell in the </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>.</span></p>
+    tasks) in which their performance fell in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>.</span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
 
@@ -593,40 +643,42 @@
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>A subset of
     working memory, {{this.data.name}}’s <b>phonological memory</b> (ability to accurately
-    identify, retain briefly, and repeat sequences of sound) was in the</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>.</span></p>
+    identify, retain briefly, and repeat sequences of sound) was in the</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>.</span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}}’s </span><b><span
     lang=EN-GB style='line-height:150%'>phonological awareness</span></b><span
     lang=EN-GB style='line-height:150%'>(ability to accurately identify,
     discriminate between and manipulate the separate units of sounds in words,
-    known as ‘phonemes’) was in the </span><span class=MsoPlaceholderText><span
-    lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+    known as ‘phonemes’) was in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
     lang=EN-GB style='line-height:150%'>.</span></p>
 
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}}’s reading
-    efficiency fell in the </span><span class=MsoPlaceholderText><span lang=EN-GB
-    style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-    lang=EN-GB style='line-height:150%'>., indicating that {{this.data.name}}</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>read words
-    efficiently in a timed setting. This was reflected in {{this.data.name}}’s </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span></p>
+    efficiency fell in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
+    lang=EN-GB style='line-height:150%'>., indicating that {{this.data.name}}</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>read words
+    efficiently in a timed setting. This was reflected in {{this.data.name}}’s </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></p>
 
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>5</b></p>
-    </div>
-
-</div>
-
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>5</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page6"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page6"> -->
     
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
 
@@ -637,9 +689,11 @@
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}} was very
     articulate throughout the assessment demonstrating strong general knowledge and
     critical thinking skills. {{this.data.name}} found it challenging to link language and
-    information (verbal reasoning) which was seen in her performance during the </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>reading tasks. {{this.data.name}}
+    information (verbal reasoning) which was seen in her performance during the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>reading tasks. {{this.data.name}}
     found it challenging to comprehend text that was read aloud/ and </span><span
     lang=EN-GB style='line-height:150%'>silently.</span></p>
 
@@ -683,8 +737,11 @@
 
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
 
-    <p class=MsoNormal><span class=MsoPlaceholderText><span lang=EN-GB
-    style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+    <p class=MsoNormal><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
     lang=EN-GB style='line-height:150%'>. It can be hard for tutors and peers to
     understand and appreciate how demanding, time-consuming, and tiring it is for a
     person with specific learning differences to work as expected unless there are
@@ -762,9 +819,11 @@
     <p class=MsoListParagraph style='text-indent:-18.0pt;line-height:150%'><span
     lang=EN-GB style='line-height:150%;font-family:Wingdings;color:black'>§<span
     style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span lang=EN-GB
-    style='line-height:150%'>{{this.data.name}} should have access to</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><b><span lang=EN-GB style='line-height:150%;color:#9900CC'>(MAKE
+    style='line-height:150%'>{{this.data.name}} should have access to</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><b><span lang=EN-GB style='line-height:150%;color:#9900CC'>(MAKE
     SURE THESE MATCH WITH FULLER RECOMMS)</span></b></p>
 
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
@@ -795,16 +854,7 @@
     the British Association of Behavioral Optometrists www.babo.co.uk.</span></p>
 
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>7</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>7</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;" id="page8"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;" id="page8"> -->
     
     <h5><span style='text-decoration:none'>&nbsp;</span></h5>
 
@@ -829,7 +879,11 @@
     style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;
     margin-bottom:.0001pt;text-indent:-18.0pt;line-height:150%'><span lang=EN-GB
     style='font-family:Wingdings;color:black'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;
-    </span></span><span class=MsoPlaceholderText><span lang=EN-GB>Choose an item.</span></span></p>
+    </span></span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></p>
 
     <p class=gmail-m-6463120223477186795gmail-msolistparagraphCxSpLast
     style='margin:0cm;margin-bottom:.0001pt;line-height:150%'><span lang=EN-GB>&nbsp;</span></p>
@@ -986,8 +1040,11 @@
     </span></h2>
     
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>{{this.data.name}} reported that
-    </span><span class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>This is of
+    </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>This is of
     interest to the assessor as SpLDs can be genetic in origin.It was reported that
     immediate family members have experienced difficulties in developing literacy
     or numeracy skills or have found formal learning challenging.</span></p>
@@ -1001,16 +1058,7 @@
     
     <p class=MsoNormal><b><span lang=EN-GB style='line-height:150%'>&nbsp;</span></b></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>9</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>9</b></p>
-</div>
-
-<div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page10"> -->
+    <!-- <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page10"> -->
     <p class=MsoNormal style='margin-right:-2.0pt'><span lang=EN-GB
         style='color:black'>{{this.data.name}} has lived in the United Kingdom since…. years old. 
         English is her main language.  She can also speak …. and responds in English in
@@ -1071,8 +1119,11 @@
         color:black'>&nbsp;</span></p>
         
         <p class=MsoNormal><span lang=EN-GB style='line-height:150%;color:black'>The
-        meeting took around </span><span class=MsoPlaceholderText><span lang=EN-GB
-        style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+        meeting took around </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;color:black'>hours,which allowed time to
         investigate {{this.data.name}}’s learning differences, as well as to discuss the findings and
         recommendations that could be made.  {{this.data.name}} contributed willingly to the
@@ -1120,10 +1171,16 @@
         <p class=MsoNormal style='margin-right:-2.0pt'><span lang=EN-GB
         style='line-height:150%;color:black'>As {{this.data.name}}’s two verbal scores were similar,
         it was possible to calculate a combined <i>Verbal Ability </i>score that fell
-        in the </span><span class=MsoPlaceholderText><span lang=EN-GB style='font-family:
-        "Calibri","sans-serif"'>Choose an item.</span></span><span lang=EN-GB
-        style='line-height:150%;color:black'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+        in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB
+        style='line-height:150%;color:black'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;color:black'>).</span></p>
         
         <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
@@ -1138,20 +1195,31 @@
         
         <p class=MsoNormalCxSpMiddle><span lang=EN-GB style='line-height:150%'>First, {{this.data.name}}
         was asked to complete sentences by making connections and links between words
-        and concepts. {{this.data.name}}’s score was within the</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-        lang=EN-GB style='line-height:150%'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+        and concepts. {{this.data.name}}’s score was within the</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
+        lang=EN-GB style='line-height:150%'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%'>)</span></p>
         
         <p class=MsoNormalCxSpMiddle><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
         
         <p class=MsoNormalCxSpLast><span lang=EN-GB style='line-height:150%'>{{this.data.name}} was
-        asked to verbally define a word to measure herknowledge of words. She scored (</span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%'>), falling in
-        the </span><span class=MsoPlaceholderText><span lang=EN-GB style='font-family:
-        "Calibri","sans-serif"'>Choose an item.</span></span><span lang=EN-GB
+        asked to verbally define a word to measure herknowledge of words. She scored (</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>), falling in
+        the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB
         style='line-height:150%'>. </span></p>
         
         <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
@@ -1178,11 +1246,16 @@
         assesses the ability to scan and analyse visual information as well as to apply
         </span><span lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>logic
         and reasoning when solving nonverbal problems by selecting a visual item to
-        continue the presented sequence or pattern. His/Her score fell in the </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-        "Calibri","sans-serif"'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        continue the presented sequence or pattern. His/Her score fell in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+        "Calibri","sans-serif"'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>). This
         would indicate that {{this.data.name}} is competent/highly able when completing visual
         sequential problem-solving tasks. <b><span style='color:#9900CC'>(ASSESSOR TO
@@ -1196,18 +1269,9 @@
         <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
         style='line-height:150%;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
 
-        <!-- <div style="margin-top: 2%;">
-            <p align=center style='text-align:center'><b>11</b></p>
-        </div>
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;" id="page12"> -->
     
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>11</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;" id="page12"> -->
-    
-    <h2 style='line-height:150%'><span lang=EN-GB style='line-height:150%'>Working
+        <h2 style='line-height:150%'><span lang=EN-GB style='line-height:150%'>Working
         Memory</span></h2>
         
         <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
@@ -1217,16 +1281,24 @@
         150%;font-family:"Calibri","sans-serif";color:black'>A pro-rated composite
         score was calculated because it was not possible to complete one of the
         subtests when assessing virtually. </span><span lang=EN-GB style='line-height:
-        150%;font-family:"Calibri","sans-serif"'>{{this.data.name}} scored in the </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-        "Calibri","sans-serif"'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        150%;font-family:"Calibri","sans-serif"'>{{this.data.name}} scored in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+        "Calibri","sans-serif"'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>).{{this.data.name}}
         was asked to listen to, remember and repeat verbal sequences of digits and
         letters.  {{this.data.name}} was also required to hold onto sequences of digits or letters in
-        order to say them in reverse order.{{this.data.name}}</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        order to say them in reverse order.{{this.data.name}}</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>{{this.data.name}}
         applied great effort to the tasks presented in this battery of assessment. <b><span
         style='color:#9900CC'>(PLEASE ADD OTHER OBSERVATIONS FOR EXAMPLE, TIREDNESS/FATIGUE,
@@ -1239,18 +1311,29 @@
         style='line-height:150%;font-family:"Calibri","sans-serif";color:black'>{{this.data.name}}
         also completed some tasks that assessed her phonological memory (the ability to
         accurately identify, retain briefly, and repeat sequences of sound). The first
-        test was on the ability to repeat numbers and she performed in the </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-        "Calibri","sans-serif";color:black'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        test was on the ability to repeat numbers and she performed in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+        "Calibri","sans-serif";color:black'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif";
         color:black'>). The second task was on the ability to repeat sequences of
-        sounds and {{this.data.name}} performed in the </span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        sounds and {{this.data.name}} performed in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif";
-        color:black'>(</span><span class=MsoPlaceholderText><span lang=EN-GB
-        style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        color:black'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif";
         color:black'>).</span></p>
         
@@ -1259,12 +1342,16 @@
         
         <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
         style='line-height:150%;font-family:"Calibri","sans-serif";color:black'>The two
-        tests were combined to give a {{this.data.name}} composite score of </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-        "Calibri","sans-serif";color:black'>, falling in the</span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
+        tests were combined to give a {{this.data.name}} composite score of </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+        "Calibri","sans-serif";color:black'>, falling in the</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
         "Calibri","sans-serif";color:black'>. {{this.data.name}} may have difficulty following
         instructions and what is being taught if there is a reliance on verbal
         information.  When {{this.data.name}} can only hear information, learning becomes challenging
@@ -1281,9 +1368,11 @@
         such as reading comprehension, note-taking, structuring ideas in written
         composition, recalling information from presentations or contributing quickly
         to discussion.Vulnerabilities in working memory are a common characteristic
-        seen in people with specific learning differences such as </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span></p>
+        seen in people with specific learning differences such as </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></p>
         
         <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
         style='line-height:150%;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
@@ -1308,17 +1397,28 @@
         identify, discriminate between and manipulate the separate units of sounds in
         words, known as ‘phonemes’. These included segmenting and removing sounds from
         words, putting together spoken sounds to make words and identifying individual
-        sounds within a word. {{this.data.name}} performed well in tasks that </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
+        sounds within a word. {{this.data.name}} performed well in tasks that </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
         "Calibri","sans-serif"'>{{this.data.name}}’s overall phonological awareness score fell in the
-        </span><span class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-        "Calibri","sans-serif"'>( </span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+        "Calibri","sans-serif"'>( </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>). {{this.data.name}}
-        found it most difficult to </span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span></p>
+        found it most difficult to </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></p>
         
         <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
         
@@ -1327,13 +1427,22 @@
         lang=EN-GB style='background:silver'>The additional two subtests look at the
         ability to blend sounds to make a made up word. The second test is on the
         ability to separate sounds within made up words. {{this.data.name}}’s overall alternate
-        phonological awareness score fell in the </span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-        lang=EN-GB>(</span><span class=MsoPlaceholderText><span lang=EN-GB
-        style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+        phonological awareness score fell in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
+        lang=EN-GB>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB>). <span style='background:silver'>{{this.data.name}} performed better in the
-        tasks that required her</span></span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span></p>
+        tasks that required her</span></span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></p>
         
         <p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
         
@@ -1388,11 +1497,16 @@
         responses fluently from long-term memory in response to a visual stimulus). {{this.data.name}}
         was asked to retrieve the ‘name’ of a number or letter and translate them into
         spoken word</span><span lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>under
-        timed conditions. {{this.data.name}}’s overall rapid symbolic naming performance fell in the </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-        "Calibri","sans-serif"'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        timed conditions. {{this.data.name}}’s overall rapid symbolic naming performance fell in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+        "Calibri","sans-serif"'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>). {{this.data.name}}’s
         performance in this task would indicate that they find it challenging to recall
         overlearnt information at speed. </span></p>
@@ -1405,9 +1519,11 @@
         processing of small units of sound and the recall of information are recognised
         as being important for the development of fluent reading and spelling skills. <span
         style='background:yellow'>{{this.data.name}}’s difficulties in these areas, particularly with
-        her visual short-term memory, are characteristic of </span></span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span></p>
+        her visual short-term memory, are characteristic of </span></span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></p>
         
         <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
         style='line-height:150%;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
@@ -1415,17 +1531,8 @@
         <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
         style='line-height:150%;font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
 
-        <!-- <div style="margin-top: 2%;">
-            <p align=center style='text-align:center'><b>13</b></p>
-        </div>
-    
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>13</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page14"> -->
-    <h1 align=center style='text-align:center'><a name="_Toc149733081"></a><a
+        <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page14"> -->
+        <h1 align=center style='text-align:center'><a name="_Toc149733081"></a><a
         name="_Toc115779171"></a><a name="_Additional_Diagnostic_Evidence"></a><u><span
         lang=EN-GB style='font-size:12.0pt'>Additional Diagnostic Evidence and
         Information</span></u></h1>
@@ -1472,11 +1579,16 @@
         Developmental Coordination Disorder/ Dyspraxia Checklist (ADC)</i>, {{this.data.name}}’s
         total score on the Adult Checklist was </span><span class=Style3><span
         lang=EN-GB>1</span></span><span lang=EN-GB style='line-height:150%'>. {{this.data.name}}
-        scored </span><span class=MsoPlaceholderText><span lang=EN-GB style='font-family:
-        "Calibri","sans-serif"'>Choose an item.</span></span><span lang=EN-GB
-        style='line-height:150%'> in childhood and </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%'>in adulthood.
+        scored </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB
+        style='line-height:150%'> in childhood and </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>in adulthood.
         The reported difficulties are clear indications of DCD.</span></p>
         
         <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
@@ -1563,18 +1675,25 @@
         color:black'>&nbsp;</span></p>
         
         <p class=MsoNormalCxSpMiddle><span lang=EN-GB style='line-height:150%;
-        color:black'>{{this.data.name}} recognised that she experienced </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;color:black'>
+        color:black'>{{this.data.name}} recognised that she experienced </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;color:black'>
         out of nine characteristics related to inattention, both as a child and as an
         adult; she was able to explain how these behaviours impacted her life in
-        education, at work and her leisure time. She also reported </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;color:black'>out
+        education, at work and her leisure time. She also reported </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;color:black'>out
         of nine characteristics related to hyperactivity and impulsivity, both as a
         child and as an adult with examples of how these impacted her. This shows {{this.data.name}}
-        has experienced </span><span class=MsoPlaceholderText><span lang=EN-GB
-        style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+        has experienced </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;color:black'>throughouther lifespan.</span></p>
         
         <p class=MsoNormal style='margin-right:-2.0pt'><span lang=EN-GB
@@ -1589,18 +1708,9 @@
         suggestions for living with and studying more effectively with ADHD are given
         in the Recommendations section.</span></p>
 
-        <!-- <div style="margin-top: 2%;">
-            <p align=center style='text-align:center'><b>15</b></p>
-        </div>
+        <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page16"> -->
     
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>15</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page16"> -->
-    
-    <h1><a name="_Hlk89690433"></a><a name="_Social_Interaction_and"></a><span
+        <h1><a name="_Hlk89690433"></a><a name="_Social_Interaction_and"></a><span
         lang=EN-GB>&nbsp;</span></h1>
         
         <h3><a name="_Visual_Disturbance"></a><a href="#_Visual_Disturbance"><span
@@ -1611,9 +1721,11 @@
         style='line-height:150%'><span style='color:black'>Visual disturbance is a
         condition that is not often identified in standard eye tests, but it can cause
         physical discomfort when reading and can result in skipping words. {{this.data.name}}
-        completed the <i>Visual Difficulties Screening Protocol; </i>she</span></span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-        an item.</span></span><b><span style='line-height:150%;color:#9900CC'>(Please
+        completed the <i>Visual Difficulties Screening Protocol; </i>she</span></span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><b><span style='line-height:150%;color:#9900CC'>(Please
         delete as per responses from the background information questionnaire)</span></b></p>
         
         <p class=MsoNormalCxSpMiddle style='margin-right:-2.0pt'><span
@@ -1777,11 +1889,16 @@
         <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
         style='line-height:150%;font-family:"Calibri","sans-serif"'>{{this.data.name}} read words
         that were part of her vocabulary from a list of words that became increasingly
-        more complex. {{this.data.name}}’s performance in this task fell in the </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-        "Calibri","sans-serif"'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose an item.</span></span><span
+        more complex. {{this.data.name}}’s performance in this task fell in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+        "Calibri","sans-serif"'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>). {{this.data.name}}
         approached the task  . This would indicate that  .</span></p>
         
@@ -1807,11 +1924,16 @@
         <p class=MsoNormalCxSpMiddle><span lang=EN-GB style='line-height:150%'>The
         first test involved reading a list of common words under time pressure and
         assessed the speed and fluency (efficiency) of reading everyday vocabulary. {{this.data.name}}’S
-        score was </span><span class=MsoPlaceholderText><span lang=EN-GB
-        style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-        lang=EN-GB style='line-height:150%'>, falling in the </span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB style='line-height:150%'>. This would
+        score was </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
+        lang=EN-GB style='line-height:150%'>, falling in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>. This would
         indicate that <b><span style='color:#9900CC'>(ADD COMMENT).</span></b><span
         style='color:black'>{{this.data.name}} approached the task.</span></span></p>
         
@@ -1821,44 +1943,49 @@
         style='line-height:150%'>The second test involved the timed reading of
         nonwords, which requires the use of phonemic decoding strategies (such as,
         using the sounds of letters and spelling patterns to identify unfamiliar
-        words). {{this.data.name}}’s score fell in the </span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-        lang=EN-GB style='line-height:150%'>(</span><span class=MsoPlaceholderText><span
-        lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
+        words). {{this.data.name}}’s score fell in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
+        lang=EN-GB style='line-height:150%'>(</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
         lang=EN-GB style='line-height:150%'>), indicating that <b><span
         style='color:#9900CC'>(ADD COMMENT).</span></b></span></p>
         
         <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
         
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>17</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>17</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page18"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page18"> -->
     
     <h2><span lang=EN-GB>Reading Comprehension</span></h2>
     
     <p class=MsoNoSpacing style='line-height:150%'><span lang=EN-GB
     style='line-height:150%;font-family:"Calibri","sans-serif"'>{{this.data.name}} read a passage
     of continuous text aloud at an oral reading speed of    words per minute. When
-    asked to summarise the passage from memory, {{this.data.name}}</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-    "Calibri","sans-serif"'>. Their reading pace was </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-    "Calibri","sans-serif"'>and they read with </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
-    "Calibri","sans-serif"'>. {{this.data.name}} approached the task with </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
+    asked to summarise the passage from memory, {{this.data.name}}</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+    "Calibri","sans-serif"'>. Their reading pace was </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+    "Calibri","sans-serif"'>and they read with </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
+    "Calibri","sans-serif"'>. {{this.data.name}} approached the task with </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
     "Calibri","sans-serif"'>. This reflective of {{this.data.name}}’s self-reported experiences
     with reading comprehension in their background information.</span></p>
     
@@ -1866,15 +1993,22 @@
     background:yellow'>&nbsp;</span></p>
     
     <p class=MsoNormalCxSpMiddle style='margin-right:-7.7pt'><span lang=EN-GB
-    style='line-height:150%'>When reading other passages silently, {{this.data.name}} read at a </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'> silent reading
+    style='line-height:150%'>When reading other passages silently, {{this.data.name}} read at a </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'> silent reading
     speed of ---words per minute.As {{this.data.name}} progressed through the silent reading
-    comprehension task, {{this.data.name}}</span><span class=MsoPlaceholderText><span lang=EN-GB
-    style='font-family:"Calibri","sans-serif"'>Choose an item.</span></span><span
-    lang=EN-GB style='line-height:150%'> recall </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>information
+    comprehension task, {{this.data.name}}</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span
+    lang=EN-GB style='line-height:150%'> recall </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>information
     from the text. This would indicate that {{this.data.name}}</span><b><span lang=EN-GB
     style='line-height:150%;color:#9900CC'>(Please comment)</span></b></p>
     
@@ -1882,20 +2016,26 @@
     style='line-height:150%'>&nbsp;</span></p>
     
     <p class=MsoNormalCxSpMiddle style='margin-right:-7.7pt'><span lang=EN-GB
-    style='line-height:150%'>{{this.data.name}}’s silent reading comprehension was in the </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>.</span></p>
+    style='line-height:150%'>{{this.data.name}}’s silent reading comprehension was in the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>.</span></p>
     
     <p class=MsoNormal style='margin-right:-7.7pt'><span lang=EN-GB
     style='line-height:150%;background:yellow'>&nbsp;</span></p>
     
     <p class=MsoNormal style='margin-right:-7.7pt'><span lang=EN-GB
-    style='line-height:150%'>Both reading comprehension tasks showed the </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%'>{{this.data.name}} had in
-    gaining a full appreciation of the material that she read, </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span></p>
+    style='line-height:150%'>Both reading comprehension tasks showed the </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%'>{{this.data.name}} had in
+    gaining a full appreciation of the material that she read, </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></p>
     
     <p class=MsoNormal style='margin-right:-7.7pt'><span lang=EN-GB
     style='line-height:150%'>&nbsp;</span></p>
@@ -1915,11 +2055,16 @@
     style='line-height:150%;font-family:"Calibri","sans-serif"'>{{this.data.name}} was also asked
     to write a list of words that were more simple, everyday words and then
     progressed to more complex, less familiar words. {{this.data.name}}’s performance fell in the
-    </span><a name="_Hlk145419747"><span class=MsoPlaceholderText><span lang=EN-GB
-    style='font-family:"Arial","sans-serif"'>Choose an item.</span></span></a><span
-    lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>range (</span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Arial","sans-serif"'>Choose
-    an item.</span></span><span lang=EN-GB style='line-height:150%;font-family:
+    </span><a name="_Hlk145419747"><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --></a><span
+    lang=EN-GB style='line-height:150%;font-family:"Calibri","sans-serif"'>range (</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB style='line-height:150%;font-family:
     "Calibri","sans-serif"'>). This would suggest that {{this.data.name}}<b><span
     style='color:#9900CC'>(NOTE to assessor: Please comment on candidate
     performance in this task)</span></b></span></p>
@@ -2000,9 +2145,11 @@
         lifespan</span>. <span style='background:teal'>{{this.data.name}} reported and displayed
         coordination and organisation challenges throughout her lifetime in relation to
         DCD.</span> It is common for these conditions to co-exist and in some areas to
-        overlap in their manifestations. Please see Appendix 3 for the definition of</span><span
-        class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-        an item.</span></span><span lang=EN-GB>.</span></p>
+        overlap in their manifestations. Please see Appendix 3 for the definition of</span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span lang=EN-GB>.</span></p>
         
         <p class=MsoNormalCxSpMiddle><span lang=EN-GB>&nbsp;</span></p>
         
@@ -2028,16 +2175,7 @@
         
         <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
 
-        <!-- <div style="margin-top: 2%;">
-            <p align=center style='text-align:center'><b>19</b></p>
-        </div>
-    
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>19</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page20"> -->
+        <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page20"> -->
     
     <h1 align=center style='text-align:center'><a name="_Toc115779174"></a><a
         name="_Recommendations"></a><a href="#_Recommendations"><span lang=EN-GB
@@ -2213,9 +2351,11 @@
     margin-bottom:6.0pt;margin-left:21.25pt;text-indent:-17.85pt;line-height:150%'><span
     style='line-height:150%;font-family:Wingdings;color:black'>§<span
     style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
-    style='line-height:150%'>{{this.data.name}} would benefit from sessions with a </span><span
-    class=MsoPlaceholderText><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>Choose
-    an item.</span></span><span style='line-height:150%'>. The content of these
+    style='line-height:150%'>{{this.data.name}} would benefit from sessions with a </span><!-- {{updatedText0}}
+    <select style="width: 5%;background-color: red;" (change)="onDropdownChange0($event)" [hidden]="!isEdit">
+        <option *ngFor="let option of dropdownOptions0" value="{{option.Value}}">{{option.Name}}</option>
+    </select>
+    --><span style='line-height:150%'>. The content of these
     sessions would be negotiated but the focus could usefully be on the following:</span></p>
     
     <p class=MsoListParagraphCxSpMiddle style='margin-top:0cm;margin-right:-2.0pt;
@@ -2268,16 +2408,7 @@
     
     <p class=MsoNormal><span lang=EN-GB style='background:fuchsia'>&nbsp;</span></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>21</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>21</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page22"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page22"> -->
     
     <p class=MsoListParagraph style='margin-left:21.4pt;text-indent:-18.0pt;
     line-height:150%'><span lang=EN-GB style='line-height:150%;font-family:Wingdings;
@@ -2514,16 +2645,7 @@
     lang=EN-GB style='line-height:150%;color:#4472C4'>www.francescocirillo.com/pages/pomodoro-technique</span></a><span
     lang=EN-GB style='line-height:150%;color:#4472C4;background:fuchsia'>.</span></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>23</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>23</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page24"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page24"> -->
     <h5><span style='background:fuchsia'><span style='text-decoration:none'>&nbsp;</span></span></h5>
     
     <p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
@@ -2796,16 +2918,7 @@
     
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>25</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>25</b></p>
-</div>
-
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page26"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page26"> -->
     
     <h1><a name="_Toc115779175"></a><a name="_Appendices"></a><a href="#_Appendices"><span
     lang=EN-GB style='font-size:12.0pt;color:windowtext'>Appendices</span></a><a
@@ -5236,15 +5349,7 @@
     Disorder/Dyspraxia March 2021</span></i></p>
         
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>29</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>29</b></p>
-</div> 
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page30"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page30"> -->
     
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
     
@@ -5341,15 +5446,7 @@
     style='line-height:150%;font-family:"Calibri","sans-serif";background:fuchsia'>BDA
     (2022)</span></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>30</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>30</b></p>
-</div> 
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page31"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page31"> -->
     
     <h5><span lang=EN-GB>&nbsp;</span></h5>
     
@@ -5577,15 +5674,7 @@
     
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>32</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>32</b></p>
-</div> 
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page33"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page33"> -->
     
     <h2 style='margin-bottom:0cm;margin-bottom:.0001pt'><u>Reading</u></h2>
     
@@ -5766,15 +5855,7 @@
     A. and Kindersley, K. (2013) <i>Dyslexia Assessing and Reporting. The Patoss
     Guide. </i>London UK: Hodder Education.</span></p>
 
-    <!-- <div style="margin-top: 2%;">
-        <p align=center style='text-align:center'><b>34</b></p>
-    </div>
-
-</div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <p align=center style='text-align:center'><b>34</b></p>
-</div> 
-<div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page35"> -->
+    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page35"> -->
     
     <h1><a name="_Toc115094672"></a><a name="_Toc115094291"><span lang=EN-GB>&nbsp;</span></a></h1>
     
