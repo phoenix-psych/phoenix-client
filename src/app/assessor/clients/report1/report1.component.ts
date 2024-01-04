@@ -553,29 +553,287 @@ export class Report1Component implements OnInit {
     this.updatedTextStdScore = selectedValue;
   }
 
+  selectedOptionRange3 = '';
+  updatedTextRange3 = '';
+  onDropdownChangeRange3(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange3 = selectedValue;
+    this.updatedTextRange3 = selectedValue;
+  }
 
-  // selectedOption00 = '';
-  // updatedText00 = '';
-  // dropdownOptions00: Array<any> = [
-  //   { Name:"00",Value:"00"},
-  // ];
+  selectedOptionRange4 = '';
+  updatedTextRange4 = '';
+  onDropdownChangeRange4(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange4 = selectedValue;
+    this.updatedTextRange4 = selectedValue;
+  }
 
-  // onDropdownChange00(event: Event) {
+  selectedOptionStdScore2 = '';
+  updatedTextStdScore2 = '';
+  onDropdownChangeStdScore2(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionStdScore2 = selectedValue;
+    this.updatedTextStdScore2 = selectedValue;
+  }
+
+  selectedOptionRange5 = '';
+  updatedTextRange5 = '';
+  onDropdownChangeRange5(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange5 = selectedValue;
+    this.updatedTextRange5 = selectedValue;
+  }
+
+  selectedOptionRange6 = '';
+  updatedTextRange6 = '';
+  onDropdownChangeRange6(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange6 = selectedValue;
+    this.updatedTextRange6 = selectedValue;
+  }
+
+  selectedOptionStdScore3 = '';
+  updatedTextStdScore3 = '';
+  onDropdownChangeStdScore3(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionStdScore3 = selectedValue;
+    this.updatedTextStdScore3 = selectedValue;
+  }
+
+  selectedOptionRange7 = '';
+  updatedTextRange7 = '';
+  onDropdownChangeRange7(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange7 = selectedValue;
+    this.updatedTextRange7 = selectedValue;
+  }
+
+  selectedOptionRange8 = '';
+  updatedTextRange8 = '';
+  onDropdownChangeRange8(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange8 = selectedValue;
+    this.updatedTextRange8 = selectedValue;
+  }
+
+  selectedOptionRange9 = '';
+  updatedTextRange9 = '';
+  onDropdownChangeRange9(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange9 = selectedValue;
+    this.updatedTextRange9 = selectedValue;
+  }
+
+  selectedOptionRange10 = '';
+  updatedTextRange10 = '';
+  onDropdownChangeRange10(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionRange10 = selectedValue;
+    this.updatedTextRange10 = selectedValue;
+  }
+
+  selectedOptionTOWRE2 = '';
+  updatedTextTOWRE2 = '';
+  dropdownOptionsTOWRE2 : Array<any> = [
+    { Name:"Choose an item.",Value:" " },
+    { Name:"struggeld to",Value:"struggeld to" },
+	  { Name:"was able to ",Value:"was able to " },
+
+  ];
+  onDropdownChangeTOWRE2(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionTOWRE2 = selectedValue;
+    this.updatedTextTOWRE2 = selectedValue;
+  }
+
+  selectedOptionReadingComp = '';
+  updatedTextReadingComp = '';
+  dropdownOptionsReadingComp : Array<any> = [
+    { Name:"Choose an item.",Value:" " },
+    { Name:"oral reaidng speed.",Value:"oral reaidng speed." },
+    { Name:"silent reading speed.",Value:"silent reading speed." },
+    { Name:"oral and silent reading speed.",Value:"oral and silent reading speed." },
+
+  ];
+  onDropdownChangeReadingComp(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionReadingComp = selectedValue;
+    this.updatedTextReadingComp = selectedValue;
+  }
+
+  selectedOptionReadingSpeed = '';
+  updatedTextReadingSpeed = '';
+  dropdownOptionsReadingSpeed : Array<any> = [
+    
+    { Name:"Choose an item.",Value:" " },
+    { Name:"oral reading ",Value:"oral reading " },
+    { Name:"silent reading ",Value:"silent reading " },
+    { Name:"oral and silent ",Value:"oral and silent " },
+
+  ];
+  onDropdownChangeReadingSpeed(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionReadingSpeed = selectedValue;
+    this.updatedTextReadingSpeed = selectedValue;
+  }
+
+  selectedOptionSPLDComp = '';
+  updatedTextSPLDComp = '';
+  dropdownOptionsSPLDComp : Array<any> = [
+    { Name:"Choose an item.",Value:" " },
+    { Name:"Dyslexia is a hidden difference.",Value:"Dyslexia is a hidden difference." },
+    { Name:"ADHD is a hidden difference.",Value:"ADHD is a hidden difference." },
+    { Name:"Developmental Coordination Disorder is a hidden difference.",Value:"Developmental Coordination Disorder is a hidden difference." },
+    { Name:"Social &amp; Communication Difficulties are hidden differences.",Value:"Social &amp; Communication Difficulties are hidden differences." },
+    { Name:"Dyslexia and ADHD are hidden Differences.",Value:"Dyslexia and ADHD are hidden Differences." },
+    { Name:"Dyslexia, ADHD and Developmetnal Coordination Difficulties are hidden differences.",Value:"Dyslexia, ADHD and Developmetnal Coordination Difficulties are hidden differences." },
+  ];
+  onDropdownChangeSPLDComp(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOptionSPLDComp = selectedValue;
+    this.updatedTextSPLDComp = selectedValue;
+  }
+
+  // selectedOption11 = '';
+  // updatedText11 = '';
+  // onDropdownChange11(event: Event) {
   //   const selectedValue = (event.target as HTMLSelectElement).value;
-  //   this.selectedOption00 = selectedValue;
-  //   this.updatedText00 = selectedValue;
+  //   this.selectedOption11 = selectedValue;
+  //   this.updatedText11 = selectedValue;
   // }
 
-  // selectedOption00 = '';
-  // updatedText00 = '';
-  // dropdownOptions00: Array<any> = [
-  //   { Name:"00",Value:"00"},
-  // ];
-
-  // onDropdownChange00(event: Event) {
+  // selectedOption11 = '';
+  // updatedText11 = '';
+  // onDropdownChange11(event: Event) {
   //   const selectedValue = (event.target as HTMLSelectElement).value;
-  //   this.selectedOption00 = selectedValue;
-  //   this.updatedText00 = selectedValue;
+  //   this.selectedOption11 = selectedValue;
+  //   this.updatedText11 = selectedValue;
   // }
+
+  WRITVA69 = '1'
+  WRITVA70to79 = '2'
+  WRITVA80to84 = '3'
+  WRITVA85to89 = '4'
+  WRITVA90to109 = '5'
+  WRITVA110to115 = '6'
+  WRITVA116to120 = '7'
+  WRITVA121to130 = '8'
+  WRITVA130 = '9'
+  // WRITVA95CI = '10'
+  WRITVC69 = '1'
+  WRITVC70to79 = '2'
+  WRITVC80to84 = '3'
+  WRITVC85to89 = '4'
+  WRITVC90to109 = '5'
+  WRITVC110to115 = '6'
+  WRITVC116to120 = '7'
+  WRITVC121to130 = '8'
+  WRITVC130 = '9'
+  // WRITVC95CI = '10'
+  WRITVB69 = '1'
+  WRITVB70to79 = '2'
+  WRITVB80to84 = '3'
+  WRITVB85to89 = '4'
+  WRITVB90to109 = '5'
+  WRITVB110to115 = '6'
+  WRITVB116to120 = '7'
+  WRITVB121to130 = '8'
+  WRITVB130 = '9'
+  WRITVB95CI = '10'
+  
+  WRITMT69 = '1'
+  WRITMT70to79 = '2'
+  WRITMT80to84 = '3'
+  WRITMT85to89 = '4'
+  WRITMT90to109 = '5'
+  WRITMT110to115 = '6'
+  WRITMT116to120 = '7'
+  WRITMT121to130 = '8'
+  WRITMT130 = '9'
+  // WRITMT95CI = '10'
+
+  TOMAL2DF69 = '1'
+  TOMAL2DF70to79 = '2'
+  TOMAL2DF80to84 = '3'
+  TOMAL2DF85to89 = '4'
+  TOMAL2DF90to109 = '5'
+  TOMAL2DF110to115 = '6'
+  TOMAL2DF116to120 = '7'
+  TOMAL2DF121to130 = '8'
+  TOMAL2DF130 = '9'
+  // TOMAL2DF95CI = '10'
+  TOMAL2LF69 = '1'
+  TOMAL2LF70to79 = '2'
+  TOMAL2LF80to84 = '3'
+  TOMAL2LF85to89 = '4'
+  TOMAL2LF90to109 = '5'
+  TOMAL2LF110to115 = '6'
+  TOMAL2LF116to120 = '7'
+  TOMAL2LF121to130 = '8'
+  TOMAL2LF130 = '9'
+  // TOMAL2LF95CI = '10'
+  TOMAL2DB69 = '1'
+  TOMAL2DB70to79 = '2'
+  TOMAL2DB80to84 = '3'
+  TOMAL2DB85to89 = '4'
+  TOMAL2DB90to109 = '5'
+  TOMAL2DB110to115 = '6'
+  TOMAL2DB116to120 = '7'
+  TOMAL2DB121to130 = '8'
+  TOMAL2DB130 = '9'
+  // TOMAL2DB95CI = '10'
+  TOMAL2LB69 = '1'
+  TOMAL2LB70to79 = '2'
+  TOMAL2LB80to84 = '3'
+  TOMAL2LB85to89 = '4'
+  TOMAL2LB90to109 = '5'
+  TOMAL2LB110to115 = '6'
+  TOMAL2LB116to120 = '7'
+  TOMAL2LB121to130 = '8'
+  TOMAL2LB130 = '9'
+  // TOMAL2LB95CI = '10'
+  TOMAL2ACI69 = '1'
+  TOMAL2ACI70to79 = '2'
+  TOMAL2ACI80to84 = '3'
+  TOMAL2ACI85to89 = '4'
+  TOMAL2ACI90to109 = '5'
+  TOMAL2ACI110to115 = '6'
+  TOMAL2ACI116to120 = '7'
+  TOMAL2ACI121to130 = '8'
+  TOMAL2ACI130 = '9'
+  TOMAL2ACI95CI = '10'
+
+
+  CTOPP2MDB69 = '1'
+  CTOPP2MDB70to79 = '2'
+  CTOPP2MDB80to84 = '3'
+  CTOPP2MDB85to89 = '4'
+  CTOPP2MDB90to109 = '5'
+  CTOPP2MDB110to115 = '6'
+  CTOPP2MDB116to120 = '7'
+  CTOPP2MDB121to130 = '8'
+  CTOPP2MDB130 = '9'
+  // CTOPP2MDB95CI = '10'
+  CTOPP2NWRB69 = '1'
+  CTOPP2NWRB70to79 = '2'
+  CTOPP2NWRB80to84 = '3'
+  CTOPP2NWRB85to89 = '4'
+  CTOPP2NWRB90to109 = '5'
+  CTOPP2NWRB110to115 = '6'
+  CTOPP2NWRB116to120 = '7'
+  CTOPP2NWRB121to130 = '8'
+  CTOPP2NWRB130 = '9'
+  // CTOPP2NWRB95CI = '10'
+  CTOPP2PMB69 = '1'
+  CTOPP2PMB70to79 = '2'
+  CTOPP2PMB80to84 = '3'
+  CTOPP2PMB85to89 = '4'
+  CTOPP2PMB90to109 = '5'
+  CTOPP2PMB110to115 = '6'
+  CTOPP2PMB116to120 = '7'
+  CTOPP2PMB121to130 = '8'
+  CTOPP2PMB130 = '9'
+  CTOPP2PMB95CI = '10'
 }
 
