@@ -58,6 +58,8 @@ export class TowreComponent implements OnInit {
   pdeScale: string = ''
   pdeDesc: string = ''
 
+  twreScale: string = ''
+
   pdeSum: string = ''
 
   descriptiveTerm: string = ''

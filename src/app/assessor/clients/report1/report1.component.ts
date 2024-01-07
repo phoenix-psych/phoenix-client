@@ -4,6 +4,50 @@ import html2canvas from 'html2canvas';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ClientDto } from 'src/app/models/common/client.model';
 import { DatePipe } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+interface ClientTestsDto 
+{
+  clientId : string,
+
+  writva : string,
+  writvc : string,
+  writvb : string,
+  writmat : string,
+
+  tomaL2DF : string,
+  tomaL2LF : string,
+  tomaL2DB : string,
+  tomaL2LB : string,
+  tomaL2ACI : string,
+
+  ctopP2MD : string,
+  ctopP2NWR : string,
+  ctopP2PM : string,
+  ctopP2EL : string,
+  ctopP2BW : string,
+  ctopP2PI : string,
+  ctopP2PAC : string,
+  ctopP2RDN : string,
+  ctopP2RLN : string,
+  ctopP2RSN : string,
+
+  wraT5WR : string,
+  wraT5SP : string,
+
+  towrE2SWE : string,
+  towrE2PDE : string,
+  towrE2IND : string,
+
+  arT2SC : string,
+  arT2RA : string,
+  arT2SR : string,
+
+  handWriting : string,
+  typing : string,
+
+}
 
 @Component({
   selector: 'app-report1',
@@ -12,26 +56,1282 @@ import { DatePipe } from '@angular/common';
 })
 export class Report1Component implements OnInit {
 
+  private baseUrl:string = environment.baseApiUrl;
   isEdit = false;
   editText = 'Edit'
   myDate = new Date();
   today : string | null;
   dobStr : string | null;
   age : number = 0;
+  clientId : string = '';
 
   @ViewChild('invoice') invoiceElement!: ElementRef;
 
 
   constructor(public dialogRef: MatDialogRef<Report1Component>,
     @Inject(MAT_DIALOG_DATA) public data: ClientDto,
-    private datePipe: DatePipe) 
+    private datePipe: DatePipe, private http: HttpClient) 
     {
       this.today = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
       this.dobStr = this.datePipe.transform(data.dob, 'yyyy-MM-dd');
     }
 
   ngOnInit(): void {
+    this.LoadClientTests(this.data.id);
     this.getAge();
+  }
+
+  LoadClientTests(id: string) {
+    this.LoadClient(id);
+  }
+
+  LoadClient(clientId : string)
+  {
+    this.http.get<ClientTestsDto>(this.baseUrl + 'client/tests/'+ clientId + '', 
+    this.setHeader()).subscribe({
+      next: (x) =>{
+        
+        // WRITVA
+        if(x.writva != '')
+        {
+          this.WRITVA69 = ' '
+          this.WRITVA70to79 = ' '
+          this.WRITVA80to84 = ' '
+          this.WRITVA85to89 = ' '
+          this.WRITVA90to109 = ' '
+          this.WRITVA110to115 = ' '
+          this.WRITVA116to120 = ' '
+          this.WRITVA121to130 = ' '
+          this.WRITVA130 = ' '
+
+            if(Number(x.writva) < 70){
+              this.WRITVA69 = x.writva;
+            }
+            else if(Number(x.writva) >= 70 && Number(x.writva) <= 79)
+            {
+              this.WRITVA70to79 = x.writva;
+            }
+            else if(Number(x.writva) >= 80 && Number(x.writva) <= 84)
+            {
+              this.WRITVA80to84 = x.writva;
+            }
+            else if(Number(x.writva) >= 85 && Number(x.writva) <= 89)
+            {
+              this.WRITVA85to89 = x.writva;
+            }
+            else if(Number(x.writva) >= 90 && Number(x.writva) <= 109)
+            {
+              this.WRITVA90to109 = x.writva;
+            }
+            else if(Number(x.writva) >= 110 && Number(x.writva) <= 115)
+            {
+              this.WRITVA110to115 = x.writva;
+            }
+            else if(Number(x.writva) >= 116 && Number(x.writva) <= 120)
+            {
+              this.WRITVA116to120 = x.writva;
+            }
+            else if(Number(x.writva) >= 121 && Number(x.writva) <= 130)
+            {
+              this.WRITVA121to130 = x.writva;
+            }
+            if(Number(x.writva) > 130){
+              this.WRITVA130 = x.writva;
+            }
+        }
+
+
+        //x.writvc,
+        if(x.writvc != '')
+        {
+          this.WRITVC69 = ' '
+          this.WRITVC70to79 = ' '
+          this.WRITVC80to84 = ' '
+          this.WRITVC85to89 = ' '
+          this.WRITVC90to109 = ' '
+          this.WRITVC110to115 = ' '
+          this.WRITVC116to120 = ' '
+          this.WRITVC121to130 = ' '
+          this.WRITVC130 = ' '
+            if(Number(x.writvc) < 70){
+              this.WRITVC69 = x.writvc;
+            }
+            else if(Number(x.writvc) >= 70 && Number(x.writvc) <= 79)
+            {
+              this.WRITVC70to79 = x.writvc;
+            }
+            else if(Number(x.writvc) >= 80 && Number(x.writvc) <= 84)
+            {
+              this.WRITVC80to84 = x.writvc;
+            }
+            else if(Number(x.writvc) >= 85 && Number(x.writvc) <= 89)
+            {
+              this.WRITVC85to89 = x.writvc;
+            }
+            else if(Number(x.writvc) >= 90 && Number(x.writvc) <= 109)
+            {
+              this.WRITVC90to109 = x.writvc;
+            }
+            else if(Number(x.writvc) >= 110 && Number(x.writvc) <= 115)
+            {
+              this.WRITVC110to115 = x.writvc;
+            }
+            else if(Number(x.writvc) >= 116 && Number(x.writvc) <= 120)
+            {
+              this.WRITVC116to120 = x.writvc;
+            }
+            else if(Number(x.writvc) >= 121 && Number(x.writvc) <= 130)
+            {
+              this.WRITVC121to130 = x.writvc;
+            }
+            if(Number(x.writvc) > 130){
+              this.WRITVC130 = x.writvc;
+            }
+        }
+        
+        //x.writvb,
+        if(x.writvb != '')
+        {
+          this.WRITVB69 = ' '
+          this.WRITVB70to79 = ' '
+          this.WRITVB80to84 = ' '
+          this.WRITVB85to89 = ' '
+          this.WRITVB90to109 = ' '
+          this.WRITVB110to115 = ' '
+          this.WRITVB116to120 = ' '
+          this.WRITVB121to130 = ' '
+          this.WRITVB130 = ' '
+          this.WRITVB95CI = ' '
+            if(Number(x.writvb) < 70){
+              this.WRITVB69 = x.writvb;
+            }
+            else if(Number(x.writvb) >= 70 && Number(x.writvb) <= 79)
+            {
+              this.WRITVB70to79 = x.writvb;
+            }
+            else if(Number(x.writvb) >= 80 && Number(x.writvb) <= 84)
+            {
+              this.WRITVB80to84 = x.writvb;
+            }
+            else if(Number(x.writvb) >= 85 && Number(x.writvb) <= 89)
+            {
+              this.WRITVB85to89 = x.writvb;
+            }
+            else if(Number(x.writvb) >= 90 && Number(x.writvb) <= 109)
+            {
+              this.WRITVB90to109 = x.writvb;
+            }
+            else if(Number(x.writvb) >= 110 && Number(x.writvb) <= 115)
+            {
+              this.WRITVB110to115 = x.writvb;
+            }
+            else if(Number(x.writvb) >= 116 && Number(x.writvb) <= 120)
+            {
+              this.WRITVB116to120 = x.writvb;
+            }
+            else if(Number(x.writvb) >= 121 && Number(x.writvb) <= 130)
+            {
+              this.WRITVB121to130 = x.writvb;
+            }
+            if(Number(x.writvb) > 130){
+              this.WRITVB130 = x.writvb;
+            }
+        }
+
+        //x.writmat,
+        if(x.writmat != '')
+        {
+          this.WRITMT69 = ' '
+          this.WRITMT70to79 = ' '
+          this.WRITMT80to84 = ' '
+          this.WRITMT85to89 = ' '
+          this.WRITMT90to109 = ' '
+          this.WRITMT110to115 = ' '
+          this.WRITMT116to120 = ' '
+          this.WRITMT121to130 = ' '
+          this.WRITMT130 = ' '
+            if(Number(x.writmat) < 70){
+              this.WRITMT69 = x.writmat;
+            }
+            else if(Number(x.writmat) >= 70 && Number(x.writmat) <= 79)
+            {
+              this.WRITMT70to79 = x.writmat;
+            }
+            else if(Number(x.writmat) >= 80 && Number(x.writmat) <= 84)
+            {
+              this.WRITMT80to84 = x.writmat;
+            }
+            else if(Number(x.writmat) >= 85 && Number(x.writmat) <= 89)
+            {
+              this.WRITMT85to89 = x.writmat;
+            }
+            else if(Number(x.writmat) >= 90 && Number(x.writmat) <= 109)
+            {
+              this.WRITMT90to109 = x.writmat;
+            }
+            else if(Number(x.writmat) >= 110 && Number(x.writmat) <= 115)
+            {
+              this.WRITMT110to115 = x.writmat;
+            }
+            else if(Number(x.writmat) >= 116 && Number(x.writmat) <= 120)
+            {
+              this.WRITMT116to120 = x.writmat;
+            }
+            else if(Number(x.writmat) >= 121 && Number(x.writmat) <= 130)
+            {
+              this.WRITMT121to130 = x.writmat;
+            }
+            if(Number(x.writmat) > 130){
+              this.WRITMT130 = x.writmat;
+            }
+        }
+
+        //x.tomaL2DF,
+        if(x.tomaL2DF != '')
+        {
+          this.TOMAL2DF69 = ' '
+          this.TOMAL2DF70to79 = ' '
+          this.TOMAL2DF80to84 = ' '
+          this.TOMAL2DF85to89 = ' '
+          this.TOMAL2DF90to109 = ' '
+          this.TOMAL2DF110to115 = ' '
+          this.TOMAL2DF116to120 = ' '
+          this.TOMAL2DF121to130 = ' '
+          this.TOMAL2DF130 = ' '
+            if(Number(x.tomaL2DF) < 70){
+              this.TOMAL2DF69 = x.tomaL2DF;
+            }
+            else if(Number(x.tomaL2DF) >= 70 && Number(x.tomaL2DF) <= 79)
+            {
+              this.TOMAL2DF70to79 = x.tomaL2DF;
+            }
+            else if(Number(x.tomaL2DF) >= 80 && Number(x.tomaL2DF) <= 84)
+            {
+              this.TOMAL2DF80to84 = x.tomaL2DF;
+            }
+            else if(Number(x.tomaL2DF) >= 85 && Number(x.tomaL2DF) <= 89)
+            {
+              this.TOMAL2DF85to89 = x.tomaL2DF;
+            }
+            else if(Number(x.tomaL2DF) >= 90 && Number(x.tomaL2DF) <= 109)
+            {
+              this.TOMAL2DF90to109 = x.tomaL2DF;
+            }
+            else if(Number(x.tomaL2DF) >= 110 && Number(x.tomaL2DF) <= 115)
+            {
+              this.TOMAL2DF110to115 = x.tomaL2DF;
+            }
+            else if(Number(x.tomaL2DF) >= 116 && Number(x.tomaL2DF) <= 120)
+            {
+              this.TOMAL2DF116to120 = x.tomaL2DF;
+            }
+            else if(Number(x.tomaL2DF) >= 121 && Number(x.tomaL2DF) <= 130)
+            {
+              this.TOMAL2DF121to130 = x.tomaL2DF;
+            }
+            if(Number(x.tomaL2DF) > 130){
+              this.TOMAL2DF130 = x.tomaL2DF;
+            }
+        }
+
+        //x.tomaL2LF,
+        if(x.tomaL2LF != '')
+        {
+          this.TOMAL2LF69 = ' '
+          this.TOMAL2LF70to79 = ' '
+          this.TOMAL2LF80to84 = ' '
+          this.TOMAL2LF85to89 = ' '
+          this.TOMAL2LF90to109 = ' '
+          this.TOMAL2LF110to115 = ' '
+          this.TOMAL2LF116to120 = ' '
+          this.TOMAL2LF121to130 = ' '
+          this.TOMAL2LF130 = ' '
+            if(Number(x.tomaL2LF) < 70){
+              this.TOMAL2LF69 = x.tomaL2LF;
+            }
+            else if(Number(x.tomaL2LF) >= 70 && Number(x.tomaL2LF) <= 79)
+            {
+              this.TOMAL2LF70to79 = x.tomaL2LF;
+            }
+            else if(Number(x.tomaL2LF) >= 80 && Number(x.tomaL2LF) <= 84)
+            {
+              this.TOMAL2LF80to84 = x.tomaL2LF;
+            }
+            else if(Number(x.tomaL2LF) >= 85 && Number(x.tomaL2LF) <= 89)
+            {
+              this.TOMAL2LF85to89 = x.tomaL2LF;
+            }
+            else if(Number(x.tomaL2LF) >= 90 && Number(x.tomaL2LF) <= 109)
+            {
+              this.TOMAL2LF90to109 = x.tomaL2LF;
+            }
+            else if(Number(x.tomaL2LF) >= 110 && Number(x.tomaL2LF) <= 115)
+            {
+              this.TOMAL2LF110to115 = x.tomaL2LF;
+            }
+            else if(Number(x.tomaL2LF) >= 116 && Number(x.tomaL2LF) <= 120)
+            {
+              this.TOMAL2LF116to120 = x.tomaL2LF;
+            }
+            else if(Number(x.tomaL2LF) >= 121 && Number(x.tomaL2LF) <= 130)
+            {
+              this.TOMAL2LF121to130 = x.tomaL2LF;
+            }
+            if(Number(x.tomaL2LF) > 130){
+              this.TOMAL2LF130 = x.tomaL2LF;
+            }
+        }
+
+        //x.tomaL2DB,
+        if(x.tomaL2DB != '')
+        {
+          this.TOMAL2DB69 = ' '
+          this.TOMAL2DB70to79 = ' '
+          this.TOMAL2DB80to84 = ' '
+          this.TOMAL2DB85to89 = ' '
+          this.TOMAL2DB90to109 = ' '
+          this.TOMAL2DB110to115 = ' '
+          this.TOMAL2DB116to120 = ' '
+          this.TOMAL2DB121to130 = ' '
+          this.TOMAL2DB130 = ' '
+            if(Number(x.tomaL2DB) < 70){
+              this.TOMAL2DB69 = x.tomaL2DB;
+            }
+            else if(Number(x.tomaL2DB) >= 70 && Number(x.tomaL2DB) <= 79)
+            {
+              this.TOMAL2DB70to79 = x.tomaL2DB;
+            }
+            else if(Number(x.tomaL2DB) >= 80 && Number(x.tomaL2DB) <= 84)
+            {
+              this.TOMAL2DB80to84 = x.tomaL2DB;
+            }
+            else if(Number(x.tomaL2DB) >= 85 && Number(x.tomaL2DB) <= 89)
+            {
+              this.TOMAL2DB85to89 = x.tomaL2DB;
+            }
+            else if(Number(x.tomaL2DB) >= 90 && Number(x.tomaL2DB) <= 109)
+            {
+              this.TOMAL2DB90to109 = x.tomaL2DB;
+            }
+            else if(Number(x.tomaL2DB) >= 110 && Number(x.tomaL2DB) <= 115)
+            {
+              this.TOMAL2DB110to115 = x.tomaL2DB;
+            }
+            else if(Number(x.tomaL2DB) >= 116 && Number(x.tomaL2DB) <= 120)
+            {
+              this.TOMAL2DB116to120 = x.tomaL2DB;
+            }
+            else if(Number(x.tomaL2DB) >= 121 && Number(x.tomaL2DB) <= 130)
+            {
+              this.TOMAL2DB121to130 = x.tomaL2DB;
+            }
+            if(Number(x.tomaL2DB) > 130){
+              this.TOMAL2DB130 = x.tomaL2DB;
+            }
+        }
+
+        //x.tomaL2LB,
+        if(x.tomaL2LB != '')
+        {
+          this.TOMAL2LB69 = ' '
+          this.TOMAL2LB70to79 = ' '
+          this.TOMAL2LB80to84 = ' '
+          this.TOMAL2LB85to89 = ' '
+          this.TOMAL2LB90to109 = ' '
+          this.TOMAL2LB110to115 = ' '
+          this.TOMAL2LB116to120 = ' '
+          this.TOMAL2LB121to130 = ' '
+          this.TOMAL2LB130 = ' '
+            if(Number(x.tomaL2LB) < 70){
+              this.TOMAL2LB69 = x.tomaL2LB;
+            }
+            else if(Number(x.tomaL2LB) >= 70 && Number(x.tomaL2LB) <= 79)
+            {
+              this.TOMAL2LB70to79 = x.tomaL2LB;
+            }
+            else if(Number(x.tomaL2LB) >= 80 && Number(x.tomaL2LB) <= 84)
+            {
+              this.TOMAL2LB80to84 = x.tomaL2LB;
+            }
+            else if(Number(x.tomaL2LB) >= 85 && Number(x.tomaL2LB) <= 89)
+            {
+              this.TOMAL2LB85to89 = x.tomaL2LB;
+            }
+            else if(Number(x.tomaL2LB) >= 90 && Number(x.tomaL2LB) <= 109)
+            {
+              this.TOMAL2LB90to109 = x.tomaL2LB;
+            }
+            else if(Number(x.tomaL2LB) >= 110 && Number(x.tomaL2LB) <= 115)
+            {
+              this.TOMAL2LB110to115 = x.tomaL2LB;
+            }
+            else if(Number(x.tomaL2LB) >= 116 && Number(x.tomaL2LB) <= 120)
+            {
+              this.TOMAL2LB116to120 = x.tomaL2LB;
+            }
+            else if(Number(x.tomaL2LB) >= 121 && Number(x.tomaL2LB) <= 130)
+            {
+              this.TOMAL2LB121to130 = x.tomaL2LB;
+            }
+            if(Number(x.tomaL2LB) > 130){
+              this.TOMAL2LB130 = x.tomaL2LB;
+            }
+        }
+
+        //x.tomaL2ACI,
+        if(x.tomaL2ACI != '')
+        {
+          this.TOMAL2ACI69 = ' '
+          this.TOMAL2ACI70to79 = ' '
+          this.TOMAL2ACI80to84 = ' '
+          this.TOMAL2ACI85to89 = ' '
+          this.TOMAL2ACI90to109 = ' '
+          this.TOMAL2ACI110to115 = ' '
+          this.TOMAL2ACI116to120 = ' '
+          this.TOMAL2ACI121to130 = ' '
+          this.TOMAL2ACI130 = ' '
+          this.TOMAL2ACI95CI = ' '
+            if(Number(x.tomaL2ACI) < 70){
+              this.TOMAL2ACI69 = x.tomaL2ACI;
+            }
+            else if(Number(x.tomaL2ACI) >= 70 && Number(x.tomaL2ACI) <= 79)
+            {
+              this.TOMAL2ACI70to79 = x.tomaL2ACI;
+            }
+            else if(Number(x.tomaL2ACI) >= 80 && Number(x.tomaL2ACI) <= 84)
+            {
+              this.TOMAL2ACI80to84 = x.tomaL2ACI;
+            }
+            else if(Number(x.tomaL2ACI) >= 85 && Number(x.tomaL2ACI) <= 89)
+            {
+              this.TOMAL2ACI85to89 = x.tomaL2ACI;
+            }
+            else if(Number(x.tomaL2ACI) >= 90 && Number(x.tomaL2ACI) <= 109)
+            {
+              this.TOMAL2ACI90to109 = x.tomaL2ACI;
+            }
+            else if(Number(x.tomaL2ACI) >= 110 && Number(x.tomaL2ACI) <= 115)
+            {
+              this.TOMAL2ACI110to115 = x.tomaL2ACI;
+            }
+            else if(Number(x.tomaL2ACI) >= 116 && Number(x.tomaL2ACI) <= 120)
+            {
+              this.TOMAL2ACI116to120 = x.tomaL2ACI;
+            }
+            else if(Number(x.tomaL2ACI) >= 121 && Number(x.tomaL2ACI) <= 130)
+            {
+              this.TOMAL2ACI121to130 = x.tomaL2ACI;
+            }
+            if(Number(x.tomaL2ACI) > 130){
+              this.TOMAL2ACI130 = x.tomaL2ACI;
+            }
+        }
+
+        // x.ctopP2MD,
+        if(x.ctopP2MD != '')
+        {
+          this.CTOPP2MD69 = ' '
+          this.CTOPP2MD70to79 = ' '
+          this.CTOPP2MD80to84 = ' '
+          this.CTOPP2MD85to89 = ' '
+          this.CTOPP2MD90to109 = ' '
+          this.CTOPP2MD110to115 = ' '
+          this.CTOPP2MD116to120 = ' '
+          this.CTOPP2MD121to130 = ' '
+          this.CTOPP2MD130 = ' '
+            if(Number(x.ctopP2MD) < 70){
+              this.CTOPP2MD69 = x.ctopP2MD;
+            }
+            else if(Number(x.ctopP2MD) >= 70 && Number(x.ctopP2MD) <= 79)
+            {
+              this.CTOPP2MD70to79 = x.ctopP2MD;
+            }
+            else if(Number(x.ctopP2MD) >= 80 && Number(x.ctopP2MD) <= 84)
+            {
+              this.CTOPP2MD80to84 = x.ctopP2MD;
+            }
+            else if(Number(x.ctopP2MD) >= 85 && Number(x.ctopP2MD) <= 89)
+            {
+              this.CTOPP2MD85to89 = x.ctopP2MD;
+            }
+            else if(Number(x.ctopP2MD) >= 90 && Number(x.ctopP2MD) <= 109)
+            {
+              this.CTOPP2MD90to109 = x.ctopP2MD;
+            }
+            else if(Number(x.ctopP2MD) >= 110 && Number(x.ctopP2MD) <= 115)
+            {
+              this.CTOPP2MD110to115 = x.ctopP2MD;
+            }
+            else if(Number(x.ctopP2MD) >= 116 && Number(x.ctopP2MD) <= 120)
+            {
+              this.CTOPP2MD116to120 = x.ctopP2MD;
+            }
+            else if(Number(x.ctopP2MD) >= 121 && Number(x.ctopP2MD) <= 130)
+            {
+              this.CTOPP2MD121to130 = x.ctopP2MD;
+            }
+            if(Number(x.ctopP2MD) > 130){
+              this.CTOPP2MD130 = x.ctopP2MD;
+            }
+        }
+
+        // x.ctopP2NWR,
+        if(x.ctopP2NWR != '')
+        {
+          this.CTOPP2NWR69 = ' '
+          this.CTOPP2NWR70to79 = ' '
+          this.CTOPP2NWR80to84 = ' '
+          this.CTOPP2NWR85to89 = ' '
+          this.CTOPP2NWR90to109 = ' '
+          this.CTOPP2NWR110to115 = ' '
+          this.CTOPP2NWR116to120 = ' '
+          this.CTOPP2NWR121to130 = ' '
+          this.CTOPP2NWR130 = ' '
+            if(Number(x.ctopP2NWR) < 70){
+              this.CTOPP2NWR69 = x.ctopP2NWR;
+            }
+            else if(Number(x.ctopP2NWR) >= 70 && Number(x.ctopP2NWR) <= 79)
+            {
+              this.CTOPP2NWR70to79 = x.ctopP2NWR;
+            }
+            else if(Number(x.ctopP2NWR) >= 80 && Number(x.ctopP2NWR) <= 84)
+            {
+              this.CTOPP2NWR80to84 = x.ctopP2NWR;
+            }
+            else if(Number(x.ctopP2NWR) >= 85 && Number(x.ctopP2NWR) <= 89)
+            {
+              this.CTOPP2NWR85to89 = x.ctopP2NWR;
+            }
+            else if(Number(x.ctopP2NWR) >= 90 && Number(x.ctopP2NWR) <= 109)
+            {
+              this.CTOPP2NWR90to109 = x.ctopP2NWR;
+            }
+            else if(Number(x.ctopP2NWR) >= 110 && Number(x.ctopP2NWR) <= 115)
+            {
+              this.CTOPP2NWR110to115 = x.ctopP2NWR;
+            }
+            else if(Number(x.ctopP2NWR) >= 116 && Number(x.ctopP2NWR) <= 120)
+            {
+              this.CTOPP2NWR116to120 = x.ctopP2NWR;
+            }
+            else if(Number(x.ctopP2NWR) >= 121 && Number(x.ctopP2NWR) <= 130)
+            {
+              this.CTOPP2NWR121to130 = x.ctopP2NWR;
+            }
+            if(Number(x.ctopP2NWR) > 130){
+              this.CTOPP2NWR130 = x.ctopP2NWR;
+            }
+        }
+
+        // x.ctopP2PM,
+        if(x.ctopP2PM != '')
+        {
+          this.CTOPP2PM69 = ' '
+          this.CTOPP2PM70to79 = ' '
+          this.CTOPP2PM80to84 = ' '
+          this.CTOPP2PM85to89 = ' '
+          this.CTOPP2PM90to109 = ' '
+          this.CTOPP2PM110to115 = ' '
+          this.CTOPP2PM116to120 = ' '
+          this.CTOPP2PM121to130 = ' '
+          this.CTOPP2PM130 = ' '
+          this.CTOPP2PM95CI = ' '
+            if(Number(x.ctopP2PM) < 70){
+              this.CTOPP2PM69 = x.ctopP2PM;
+            }
+            else if(Number(x.ctopP2PM) >= 70 && Number(x.ctopP2PM) <= 79)
+            {
+              this.CTOPP2PM70to79 = x.ctopP2PM;
+            }
+            else if(Number(x.ctopP2PM) >= 80 && Number(x.ctopP2PM) <= 84)
+            {
+              this.CTOPP2PM80to84 = x.ctopP2PM;
+            }
+            else if(Number(x.ctopP2PM) >= 85 && Number(x.ctopP2PM) <= 89)
+            {
+              this.CTOPP2PM85to89 = x.ctopP2PM;
+            }
+            else if(Number(x.ctopP2PM) >= 90 && Number(x.ctopP2PM) <= 109)
+            {
+              this.CTOPP2PM90to109 = x.ctopP2PM;
+            }
+            else if(Number(x.ctopP2PM) >= 110 && Number(x.ctopP2PM) <= 115)
+            {
+              this.CTOPP2PM110to115 = x.ctopP2PM;
+            }
+            else if(Number(x.ctopP2PM) >= 116 && Number(x.ctopP2PM) <= 120)
+            {
+              this.CTOPP2PM116to120 = x.ctopP2PM;
+            }
+            else if(Number(x.ctopP2PM) >= 121 && Number(x.ctopP2PM) <= 130)
+            {
+              this.CTOPP2PM121to130 = x.ctopP2PM;
+            }
+            if(Number(x.ctopP2PM) > 130){
+              this.CTOPP2PM130 = x.ctopP2PM;
+            }
+        }
+
+        // x.ctopP2EL,
+        if(x.ctopP2EL != '')
+        {
+          this.CTOPP2EL69 = ' '
+          this.CTOPP2EL70to79 = ' '
+          this.CTOPP2EL80to84 = ' '
+          this.CTOPP2EL85to89 = ' '
+          this.CTOPP2EL90to109 = ' '
+          this.CTOPP2EL110to115 = ' '
+          this.CTOPP2EL116to120 = ' '
+          this.CTOPP2EL121to130 = ' '
+          this.CTOPP2EL130 = ' '
+            if(Number(x.ctopP2EL) < 70){
+              this.CTOPP2EL69 = x.ctopP2EL;
+            }
+            else if(Number(x.ctopP2EL) >= 70 && Number(x.ctopP2EL) <= 79)
+            {
+              this.CTOPP2EL70to79 = x.ctopP2EL;
+            }
+            else if(Number(x.ctopP2EL) >= 80 && Number(x.ctopP2EL) <= 84)
+            {
+              this.CTOPP2EL80to84 = x.ctopP2EL;
+            }
+            else if(Number(x.ctopP2EL) >= 85 && Number(x.ctopP2EL) <= 89)
+            {
+              this.CTOPP2EL85to89 = x.ctopP2EL;
+            }
+            else if(Number(x.ctopP2EL) >= 90 && Number(x.ctopP2EL) <= 109)
+            {
+              this.CTOPP2EL90to109 = x.ctopP2EL;
+            }
+            else if(Number(x.ctopP2EL) >= 110 && Number(x.ctopP2EL) <= 115)
+            {
+              this.CTOPP2EL110to115 = x.ctopP2EL;
+            }
+            else if(Number(x.ctopP2EL) >= 116 && Number(x.ctopP2EL) <= 120)
+            {
+              this.CTOPP2EL116to120 = x.ctopP2EL;
+            }
+            else if(Number(x.ctopP2EL) >= 121 && Number(x.ctopP2EL) <= 130)
+            {
+              this.CTOPP2EL121to130 = x.ctopP2EL;
+            }
+            if(Number(x.ctopP2EL) > 130){
+              this.CTOPP2EL130 = x.ctopP2EL;
+            }
+        }
+
+        // x.ctopP2BW,
+        if(x.ctopP2BW != '')
+        {
+          this.CTOPP2BW69 = ' '
+          this.CTOPP2BW70to79 = ' '
+          this.CTOPP2BW80to84 = ' '
+          this.CTOPP2BW85to89 = ' '
+          this.CTOPP2BW90to109 = ' '
+          this.CTOPP2BW110to115 = ' '
+          this.CTOPP2BW116to120 = ' '
+          this.CTOPP2BW121to130 = ' '
+          this.CTOPP2BW130 = ' '
+            if(Number(x.ctopP2BW) < 70){
+              this.CTOPP2BW69 = x.ctopP2BW;
+            }
+            else if(Number(x.ctopP2BW) >= 70 && Number(x.ctopP2BW) <= 79)
+            {
+              this.CTOPP2BW70to79 = x.ctopP2BW;
+            }
+            else if(Number(x.ctopP2BW) >= 80 && Number(x.ctopP2BW) <= 84)
+            {
+              this.CTOPP2BW80to84 = x.ctopP2BW;
+            }
+            else if(Number(x.ctopP2BW) >= 85 && Number(x.ctopP2BW) <= 89)
+            {
+              this.CTOPP2BW85to89 = x.ctopP2BW;
+            }
+            else if(Number(x.ctopP2BW) >= 90 && Number(x.ctopP2BW) <= 109)
+            {
+              this.CTOPP2BW90to109 = x.ctopP2BW;
+            }
+            else if(Number(x.ctopP2BW) >= 110 && Number(x.ctopP2BW) <= 115)
+            {
+              this.CTOPP2BW110to115 = x.ctopP2BW;
+            }
+            else if(Number(x.ctopP2BW) >= 116 && Number(x.ctopP2BW) <= 120)
+            {
+              this.CTOPP2BW116to120 = x.ctopP2BW;
+            }
+            else if(Number(x.ctopP2BW) >= 121 && Number(x.ctopP2BW) <= 130)
+            {
+              this.CTOPP2BW121to130 = x.ctopP2BW;
+            }
+            if(Number(x.ctopP2BW) > 130){
+              this.CTOPP2BW130 = x.ctopP2BW;
+            }
+        }
+
+        // x.ctopP2PI,
+        if(x.ctopP2PI != '')
+        {
+          this.CTOPP2PI69 = ' '
+          this.CTOPP2PI70to79 = ' '
+          this.CTOPP2PI80to84 = ' '
+          this.CTOPP2PI85to89 = ' '
+          this.CTOPP2PI90to109 = ' '
+          this.CTOPP2PI110to115 = ' '
+          this.CTOPP2PI116to120 = ' '
+          this.CTOPP2PI121to130 = ' '
+          this.CTOPP2PI130 = ' '
+            if(Number(x.ctopP2PI) < 70){
+              this.CTOPP2PI69 = x.ctopP2PI;
+            }
+            else if(Number(x.ctopP2PI) >= 70 && Number(x.ctopP2PI) <= 79)
+            {
+              this.CTOPP2PI70to79 = x.ctopP2PI;
+            }
+            else if(Number(x.ctopP2PI) >= 80 && Number(x.ctopP2PI) <= 84)
+            {
+              this.CTOPP2PI80to84 = x.ctopP2PI;
+            }
+            else if(Number(x.ctopP2PI) >= 85 && Number(x.ctopP2PI) <= 89)
+            {
+              this.CTOPP2PI85to89 = x.ctopP2PI;
+            }
+            else if(Number(x.ctopP2PI) >= 90 && Number(x.ctopP2PI) <= 109)
+            {
+              this.CTOPP2PI90to109 = x.ctopP2PI;
+            }
+            else if(Number(x.ctopP2PI) >= 110 && Number(x.ctopP2PI) <= 115)
+            {
+              this.CTOPP2PI110to115 = x.ctopP2PI;
+            }
+            else if(Number(x.ctopP2PI) >= 116 && Number(x.ctopP2PI) <= 120)
+            {
+              this.CTOPP2PI116to120 = x.ctopP2PI;
+            }
+            else if(Number(x.ctopP2PI) >= 121 && Number(x.ctopP2PI) <= 130)
+            {
+              this.CTOPP2PI121to130 = x.ctopP2PI;
+            }
+            if(Number(x.ctopP2PI) > 130){
+              this.CTOPP2PI130 = x.ctopP2PI;
+            }
+        }
+
+        // x.ctopP2PAC,
+        if(x.ctopP2PAC != '')
+        {
+          this.CTOPP2PAC69 = ' '
+          this.CTOPP2PAC70to79 = ' '
+          this.CTOPP2PAC80to84 = ' '
+          this.CTOPP2PAC85to89 = ' '
+          this.CTOPP2PAC90to109 = ' '
+          this.CTOPP2PAC110to115 = ' '
+          this.CTOPP2PAC116to120 = ' '
+          this.CTOPP2PAC121to130 = ' '
+          this.CTOPP2PAC130 = ' '
+          this.CTOPP2PAC95CI = ' '
+            if(Number(x.ctopP2PAC) < 70){
+              this.CTOPP2PAC69 = x.ctopP2PAC;
+            }
+            else if(Number(x.ctopP2PAC) >= 70 && Number(x.ctopP2PAC) <= 79)
+            {
+              this.CTOPP2PAC70to79 = x.ctopP2PAC;
+            }
+            else if(Number(x.ctopP2PAC) >= 80 && Number(x.ctopP2PAC) <= 84)
+            {
+              this.CTOPP2PAC80to84 = x.ctopP2PAC;
+            }
+            else if(Number(x.ctopP2PAC) >= 85 && Number(x.ctopP2PAC) <= 89)
+            {
+              this.CTOPP2PAC85to89 = x.ctopP2PAC;
+            }
+            else if(Number(x.ctopP2PAC) >= 90 && Number(x.ctopP2PAC) <= 109)
+            {
+              this.CTOPP2PAC90to109 = x.ctopP2PAC;
+            }
+            else if(Number(x.ctopP2PAC) >= 110 && Number(x.ctopP2PAC) <= 115)
+            {
+              this.CTOPP2PAC110to115 = x.ctopP2PAC;
+            }
+            else if(Number(x.ctopP2PAC) >= 116 && Number(x.ctopP2PAC) <= 120)
+            {
+              this.CTOPP2PAC116to120 = x.ctopP2PAC;
+            }
+            else if(Number(x.ctopP2PAC) >= 121 && Number(x.ctopP2PAC) <= 130)
+            {
+              this.CTOPP2PAC121to130 = x.ctopP2PAC;
+            }
+            if(Number(x.ctopP2PAC) > 130){
+              this.CTOPP2PAC130 = x.ctopP2PAC;
+            }
+        }
+
+        // x.ctopP2RDN,
+        if(x.ctopP2RDN != '')
+        {
+          this.CTOPP2RDN69 = ' '
+          this.CTOPP2RDN70to79 = ' '
+          this.CTOPP2RDN80to84 = ' '
+          this.CTOPP2RDN85to89 = ' '
+          this.CTOPP2RDN90to109 = ' '
+          this.CTOPP2RDN110to115 = ' '
+          this.CTOPP2RDN116to120 = ' '
+          this.CTOPP2RDN121to130 = ' '
+          this.CTOPP2RDN130 = ' '
+            if(Number(x.ctopP2RDN) < 70){
+              this.CTOPP2RDN69 = x.ctopP2RDN;
+            }
+            else if(Number(x.ctopP2RDN) >= 70 && Number(x.ctopP2RDN) <= 79)
+            {
+              this.CTOPP2RDN70to79 = x.ctopP2RDN;
+            }
+            else if(Number(x.ctopP2RDN) >= 80 && Number(x.ctopP2RDN) <= 84)
+            {
+              this.CTOPP2RDN80to84 = x.ctopP2RDN;
+            }
+            else if(Number(x.ctopP2RDN) >= 85 && Number(x.ctopP2RDN) <= 89)
+            {
+              this.CTOPP2RDN85to89 = x.ctopP2RDN;
+            }
+            else if(Number(x.ctopP2RDN) >= 90 && Number(x.ctopP2RDN) <= 109)
+            {
+              this.CTOPP2RDN90to109 = x.ctopP2RDN;
+            }
+            else if(Number(x.ctopP2RDN) >= 110 && Number(x.ctopP2RDN) <= 115)
+            {
+              this.CTOPP2RDN110to115 = x.ctopP2RDN;
+            }
+            else if(Number(x.ctopP2RDN) >= 116 && Number(x.ctopP2RDN) <= 120)
+            {
+              this.CTOPP2RDN116to120 = x.ctopP2RDN;
+            }
+            else if(Number(x.ctopP2RDN) >= 121 && Number(x.ctopP2RDN) <= 130)
+            {
+              this.CTOPP2RDN121to130 = x.ctopP2RDN;
+            }
+            if(Number(x.ctopP2RDN) > 130){
+              this.CTOPP2RDN130 = x.ctopP2RDN;
+            }
+        }
+
+        // x.ctopP2RLN,
+        if(x.ctopP2RLN != '')
+        {
+          this.CTOPP2RLN69 = ' '
+          this.CTOPP2RLN70to79 = ' '
+          this.CTOPP2RLN80to84 = ' '
+          this.CTOPP2RLN85to89 = ' '
+          this.CTOPP2RLN90to109 = ' '
+          this.CTOPP2RLN110to115 = ' '
+          this.CTOPP2RLN116to120 = ' '
+          this.CTOPP2RLN121to130 = ' '
+          this.CTOPP2RLN130 = ' '
+            if(Number(x.ctopP2RLN) < 70){
+              this.CTOPP2RLN69 = x.ctopP2RLN;
+            }
+            else if(Number(x.ctopP2RLN) >= 70 && Number(x.ctopP2RLN) <= 79)
+            {
+              this.CTOPP2RLN70to79 = x.ctopP2RLN;
+            }
+            else if(Number(x.ctopP2RLN) >= 80 && Number(x.ctopP2RLN) <= 84)
+            {
+              this.CTOPP2RLN80to84 = x.ctopP2RLN;
+            }
+            else if(Number(x.ctopP2RLN) >= 85 && Number(x.ctopP2RLN) <= 89)
+            {
+              this.CTOPP2RLN85to89 = x.ctopP2RLN;
+            }
+            else if(Number(x.ctopP2RLN) >= 90 && Number(x.ctopP2RLN) <= 109)
+            {
+              this.CTOPP2RLN90to109 = x.ctopP2RLN;
+            }
+            else if(Number(x.ctopP2RLN) >= 110 && Number(x.ctopP2RLN) <= 115)
+            {
+              this.CTOPP2RLN110to115 = x.ctopP2RLN;
+            }
+            else if(Number(x.ctopP2RLN) >= 116 && Number(x.ctopP2RLN) <= 120)
+            {
+              this.CTOPP2RLN116to120 = x.ctopP2RLN;
+            }
+            else if(Number(x.ctopP2RLN) >= 121 && Number(x.ctopP2RLN) <= 130)
+            {
+              this.CTOPP2RLN121to130 = x.ctopP2RLN;
+            }
+            if(Number(x.ctopP2RLN) > 130){
+              this.CTOPP2RLN130 = x.ctopP2RLN;
+            }
+        }
+
+        // x.ctopP2RSN,
+        if(x.ctopP2RSN != '')
+        {
+          this.CTOPP2RSN69 = ' '
+          this.CTOPP2RSN70to79 = ' '
+          this.CTOPP2RSN80to84 = ' '
+          this.CTOPP2RSN85to89 = ' '
+          this.CTOPP2RSN90to109 = ' '
+          this.CTOPP2RSN110to115 = ' '
+          this.CTOPP2RSN116to120 = ' '
+          this.CTOPP2RSN121to130 = ' '
+          this.CTOPP2RSN130 = ' '
+          this.CTOPP2RSN95CI = ' '
+        
+            if(Number(x.ctopP2RSN) < 70){
+              this.CTOPP2RSN69 = x.ctopP2RSN;
+            }
+            else if(Number(x.ctopP2RSN) >= 70 && Number(x.ctopP2RSN) <= 79)
+            {
+              this.CTOPP2RSN70to79 = x.ctopP2RSN;
+            }
+            else if(Number(x.ctopP2RSN) >= 80 && Number(x.ctopP2RSN) <= 84)
+            {
+              this.CTOPP2RSN80to84 = x.ctopP2RSN;
+            }
+            else if(Number(x.ctopP2RSN) >= 85 && Number(x.ctopP2RSN) <= 89)
+            {
+              this.CTOPP2RSN85to89 = x.ctopP2RSN;
+            }
+            else if(Number(x.ctopP2RSN) >= 90 && Number(x.ctopP2RSN) <= 109)
+            {
+              this.CTOPP2RSN90to109 = x.ctopP2RSN;
+            }
+            else if(Number(x.ctopP2RSN) >= 110 && Number(x.ctopP2RSN) <= 115)
+            {
+              this.CTOPP2RSN110to115 = x.ctopP2RSN;
+            }
+            else if(Number(x.ctopP2RSN) >= 116 && Number(x.ctopP2RSN) <= 120)
+            {
+              this.CTOPP2RSN116to120 = x.ctopP2RSN;
+            }
+            else if(Number(x.ctopP2RSN) >= 121 && Number(x.ctopP2RSN) <= 130)
+            {
+              this.CTOPP2RSN121to130 = x.ctopP2RSN;
+            }
+            if(Number(x.ctopP2RSN) > 130){
+              this.CTOPP2RSN130 = x.ctopP2RSN;
+            }
+        }
+
+        // x.wraT5WR,
+        if(x.wraT5WR != '')
+        {
+          this.WRAT5WR69 = ' '
+          this.WRAT5WR70to79 = ' '
+          this.WRAT5WR80to84 = ' '
+          this.WRAT5WR85to89 = ' '
+          this.WRAT5WR90to109 = ' '
+          this.WRAT5WR110to115 = ' '
+          this.WRAT5WR116to120 = ' '
+          this.WRAT5WR121to130 = ' '
+          this.WRAT5WR130 = ' '
+          this.WRAT5WR95CI = ' '
+            if(Number(x.wraT5WR) < 70){
+              this.WRAT5WR69 = x.wraT5WR;
+            }
+            else if(Number(x.wraT5WR) >= 70 && Number(x.wraT5WR) <= 79)
+            {
+              this.WRAT5WR70to79 = x.wraT5WR;
+            }
+            else if(Number(x.wraT5WR) >= 80 && Number(x.wraT5WR) <= 84)
+            {
+              this.WRAT5WR80to84 = x.wraT5WR;
+            }
+            else if(Number(x.wraT5WR) >= 85 && Number(x.wraT5WR) <= 89)
+            {
+              this.WRAT5WR85to89 = x.wraT5WR;
+            }
+            else if(Number(x.wraT5WR) >= 90 && Number(x.wraT5WR) <= 109)
+            {
+              this.WRAT5WR90to109 = x.wraT5WR;
+            }
+            else if(Number(x.wraT5WR) >= 110 && Number(x.wraT5WR) <= 115)
+            {
+              this.WRAT5WR110to115 = x.wraT5WR;
+            }
+            else if(Number(x.wraT5WR) >= 116 && Number(x.wraT5WR) <= 120)
+            {
+              this.WRAT5WR116to120 = x.wraT5WR;
+            }
+            else if(Number(x.wraT5WR) >= 121 && Number(x.wraT5WR) <= 130)
+            {
+              this.WRAT5WR121to130 = x.wraT5WR;
+            }
+            if(Number(x.wraT5WR) > 130){
+              this.WRAT5WR130 = x.wraT5WR;
+            }
+        }
+
+        // x.wraT5SP,
+        if(x.wraT5SP != '')
+        {
+          this.WRAT5SP69 = ' '
+          this.WRAT5SP70to79 = ' '
+          this.WRAT5SP80to84 = ' '
+          this.WRAT5SP85to89 = ' '
+          this.WRAT5SP90to109 = ' '
+          this.WRAT5SP110to115 = ' '
+          this.WRAT5SP116to120 = ' '
+          this.WRAT5SP121to130 = ' '
+          this.WRAT5SP130 = ' '
+          this.WRAT5SP95CI = ' '
+            if(Number(x.wraT5SP) < 70){
+              this.WRAT5SP69 = x.wraT5SP;
+            }
+            else if(Number(x.wraT5SP) >= 70 && Number(x.wraT5SP) <= 79)
+            {
+              this.WRAT5SP70to79 = x.wraT5SP;
+            }
+            else if(Number(x.wraT5SP) >= 80 && Number(x.wraT5SP) <= 84)
+            {
+              this.WRAT5SP80to84 = x.wraT5SP;
+            }
+            else if(Number(x.wraT5SP) >= 85 && Number(x.wraT5SP) <= 89)
+            {
+              this.WRAT5SP85to89 = x.wraT5SP;
+            }
+            else if(Number(x.wraT5SP) >= 90 && Number(x.wraT5SP) <= 109)
+            {
+              this.WRAT5SP90to109 = x.wraT5SP;
+            }
+            else if(Number(x.wraT5SP) >= 110 && Number(x.wraT5SP) <= 115)
+            {
+              this.WRAT5SP110to115 = x.wraT5SP;
+            }
+            else if(Number(x.wraT5SP) >= 116 && Number(x.wraT5SP) <= 120)
+            {
+              this.WRAT5SP116to120 = x.wraT5SP;
+            }
+            else if(Number(x.wraT5SP) >= 121 && Number(x.wraT5SP) <= 130)
+            {
+              this.WRAT5SP121to130 = x.wraT5SP;
+            }
+            if(Number(x.wraT5SP) > 130){
+              this.WRAT5SP130 = x.wraT5SP;
+            }
+        }
+
+        // x.towrE2SWE,
+        if(x.towrE2SWE != '')
+        {
+          this.TOWRE2SWE69 = ' '
+          this.TOWRE2SWE70to79 = ' '
+          this.TOWRE2SWE80to84 = ' '
+          this.TOWRE2SWE85to89 = ' '
+          this.TOWRE2SWE90to109 = ' '
+          this.TOWRE2SWE110to115 = ' '
+          this.TOWRE2SWE116to120 = ' '
+          this.TOWRE2SWE121to130 = ' '
+          this.TOWRE2SWE130 = ' '
+            if(Number(x.towrE2SWE) < 70){
+              this.TOWRE2SWE69 = x.towrE2SWE;
+            }
+            else if(Number(x.towrE2SWE) >= 70 && Number(x.towrE2SWE) <= 79)
+            {
+              this.TOWRE2SWE70to79 = x.towrE2SWE;
+            }
+            else if(Number(x.towrE2SWE) >= 80 && Number(x.towrE2SWE) <= 84)
+            {
+              this.TOWRE2SWE80to84 = x.towrE2SWE;
+            }
+            else if(Number(x.towrE2SWE) >= 85 && Number(x.towrE2SWE) <= 89)
+            {
+              this.TOWRE2SWE85to89 = x.towrE2SWE;
+            }
+            else if(Number(x.towrE2SWE) >= 90 && Number(x.towrE2SWE) <= 109)
+            {
+              this.TOWRE2SWE90to109 = x.towrE2SWE;
+            }
+            else if(Number(x.towrE2SWE) >= 110 && Number(x.towrE2SWE) <= 115)
+            {
+              this.TOWRE2SWE110to115 = x.towrE2SWE;
+            }
+            else if(Number(x.towrE2SWE) >= 116 && Number(x.towrE2SWE) <= 120)
+            {
+              this.TOWRE2SWE116to120 = x.towrE2SWE;
+            }
+            else if(Number(x.towrE2SWE) >= 121 && Number(x.towrE2SWE) <= 130)
+            {
+              this.TOWRE2SWE121to130 = x.towrE2SWE;
+            }
+            if(Number(x.towrE2SWE) > 130){
+              this.TOWRE2SWE130 = x.towrE2SWE;
+            }
+        }
+
+        // x.towrE2PDE,
+        if(x.towrE2PDE != '')
+        {
+          this.TOWRE2PDE69 = ' '
+          this.TOWRE2PDE70to79 = ' '
+          this.TOWRE2PDE80to84 = ' '
+          this.TOWRE2PDE85to89 = ' '
+          this.TOWRE2PDE90to109 = ' '
+          this.TOWRE2PDE110to115 = ' '
+          this.TOWRE2PDE116to120 = ' '
+          this.TOWRE2PDE121to130 = ' '
+          this.TOWRE2PDE130 = ' '
+            if(Number(x.towrE2PDE) < 70){
+              this.TOWRE2PDE69 = x.towrE2PDE;
+            }
+            else if(Number(x.towrE2PDE) >= 70 && Number(x.towrE2PDE) <= 79)
+            {
+              this.TOWRE2PDE70to79 = x.towrE2PDE;
+            }
+            else if(Number(x.towrE2PDE) >= 80 && Number(x.towrE2PDE) <= 84)
+            {
+              this.TOWRE2PDE80to84 = x.towrE2PDE;
+            }
+            else if(Number(x.towrE2PDE) >= 85 && Number(x.towrE2PDE) <= 89)
+            {
+              this.TOWRE2PDE85to89 = x.towrE2PDE;
+            }
+            else if(Number(x.towrE2PDE) >= 90 && Number(x.towrE2PDE) <= 109)
+            {
+              this.TOWRE2PDE90to109 = x.towrE2PDE;
+            }
+            else if(Number(x.towrE2PDE) >= 110 && Number(x.towrE2PDE) <= 115)
+            {
+              this.TOWRE2PDE110to115 = x.towrE2PDE;
+            }
+            else if(Number(x.towrE2PDE) >= 116 && Number(x.towrE2PDE) <= 120)
+            {
+              this.TOWRE2PDE116to120 = x.towrE2PDE;
+            }
+            else if(Number(x.towrE2PDE) >= 121 && Number(x.towrE2PDE) <= 130)
+            {
+              this.TOWRE2PDE121to130 = x.towrE2PDE;
+            }
+            if(Number(x.towrE2PDE) > 130){
+              this.TOWRE2PDE130 = x.towrE2PDE;
+            }
+        }
+
+        // x.towrE2IND,
+        if(x.towrE2IND != '')
+        {
+          this.TOWRE2IND69 = ' '
+          this.TOWRE2IND70to79 = ' '
+          this.TOWRE2IND80to84 = ' '
+          this.TOWRE2IND85to89 = ' '
+          this.TOWRE2IND90to109 = ' '
+          this.TOWRE2IND110to115 = ' '
+          this.TOWRE2IND116to120 = ' '
+          this.TOWRE2IND121to130 = ' '
+          this.TOWRE2IND130 = ' '
+          this.TOWRE2IND95CI = ' '
+        
+            if(Number(x.towrE2IND) < 70){
+              this.TOWRE2IND69 = x.towrE2IND;
+            }
+            else if(Number(x.towrE2IND) >= 70 && Number(x.towrE2IND) <= 79)
+            {
+              this.TOWRE2IND70to79 = x.towrE2IND;
+            }
+            else if(Number(x.towrE2IND) >= 80 && Number(x.towrE2IND) <= 84)
+            {
+              this.TOWRE2IND80to84 = x.towrE2IND;
+            }
+            else if(Number(x.towrE2IND) >= 85 && Number(x.towrE2IND) <= 89)
+            {
+              this.TOWRE2IND85to89 = x.towrE2IND;
+            }
+            else if(Number(x.towrE2IND) >= 90 && Number(x.towrE2IND) <= 109)
+            {
+              this.TOWRE2IND90to109 = x.towrE2IND;
+            }
+            else if(Number(x.towrE2IND) >= 110 && Number(x.towrE2IND) <= 115)
+            {
+              this.TOWRE2IND110to115 = x.towrE2IND;
+            }
+            else if(Number(x.towrE2IND) >= 116 && Number(x.towrE2IND) <= 120)
+            {
+              this.TOWRE2IND116to120 = x.towrE2IND;
+            }
+            else if(Number(x.towrE2IND) >= 121 && Number(x.towrE2IND) <= 130)
+            {
+              this.TOWRE2IND121to130 = x.towrE2IND;
+            }
+            if(Number(x.towrE2IND) > 130){
+              this.TOWRE2IND130 = x.towrE2IND;
+            }
+        }
+
+        // x.arT2SC,
+        if(x.arT2SC != '')
+        {
+          this.ART2SC69 = ' '
+          this.ART2SC70to79 = ' '
+          this.ART2SC80to84 = ' '
+          this.ART2SC85to89 = ' '
+          this.ART2SC90to109 = ' '
+          this.ART2SC110to115 = ' '
+          this.ART2SC116to120 = ' '
+          this.ART2SC121to130 = ' '
+          this.ART2SC130 = ' '
+            if(Number(x.arT2SC) < 70){
+              this.ART2SC69 = x.arT2SC;
+            }
+            else if(Number(x.arT2SC) >= 70 && Number(x.arT2SC) <= 79)
+            {
+              this.ART2SC70to79 = x.arT2SC;
+            }
+            else if(Number(x.arT2SC) >= 80 && Number(x.arT2SC) <= 84)
+            {
+              this.ART2SC80to84 = x.arT2SC;
+            }
+            else if(Number(x.arT2SC) >= 85 && Number(x.arT2SC) <= 89)
+            {
+              this.ART2SC85to89 = x.arT2SC;
+            }
+            else if(Number(x.arT2SC) >= 90 && Number(x.arT2SC) <= 109)
+            {
+              this.ART2SC90to109 = x.arT2SC;
+            }
+            else if(Number(x.arT2SC) >= 110 && Number(x.arT2SC) <= 115)
+            {
+              this.ART2SC110to115 = x.arT2SC;
+            }
+            else if(Number(x.arT2SC) >= 116 && Number(x.arT2SC) <= 120)
+            {
+              this.ART2SC116to120 = x.arT2SC;
+            }
+            else if(Number(x.arT2SC) >= 121 && Number(x.arT2SC) <= 130)
+            {
+              this.ART2SC121to130 = x.arT2SC;
+            }
+            if(Number(x.arT2SC) > 130){
+              this.ART2SC130 = x.arT2SC;
+            }
+        }
+
+        // x.ART2RA,
+        this.ART2RA = x.arT2RA;
+        // x.ART2SR,
+        this.ART2SR = x.arT2SR;
+        
+        // x.HandWriting,
+        this.ART2HW = x.handWriting;
+        
+        // x.Typing,
+        this.ART2TY = x.typing;
+
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
+  }
+
+  setHeader() {
+    var userId = localStorage.getItem('userId');
+    var token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+      UserId : userId || ''
+    });
+    return {
+      headers: headers
+   };
   }
 
   public generatePDF(): void {
@@ -711,318 +2011,318 @@ export class Report1Component implements OnInit {
   //   this.updatedText11 = selectedValue;
   // }
 
-  WRITVA69 = '1'
-  WRITVA70to79 = '2'
-  WRITVA80to84 = '3'
-  WRITVA85to89 = '4'
-  WRITVA90to109 = '5'
-  WRITVA110to115 = '6'
-  WRITVA116to120 = '7'
-  WRITVA121to130 = '8'
-  WRITVA130 = '9'
-  // WRITVA95CI = '10'
-  WRITVC69 = '1'
-  WRITVC70to79 = '2'
-  WRITVC80to84 = '3'
-  WRITVC85to89 = '4'
-  WRITVC90to109 = '5'
-  WRITVC110to115 = '6'
-  WRITVC116to120 = '7'
-  WRITVC121to130 = '8'
-  WRITVC130 = '9'
-  // WRITVC95CI = '10'
-  WRITVB69 = '1'
-  WRITVB70to79 = '2'
-  WRITVB80to84 = '3'
-  WRITVB85to89 = '4'
-  WRITVB90to109 = '5'
-  WRITVB110to115 = '6'
-  WRITVB116to120 = '7'
-  WRITVB121to130 = '8'
-  WRITVB130 = '9'
-  WRITVB95CI = '10'
+  WRITVA69 = ' '
+  WRITVA70to79 = ' '
+  WRITVA80to84 = ' '
+  WRITVA85to89 = ' '
+  WRITVA90to109 = ' '
+  WRITVA110to115 = ' '
+  WRITVA116to120 = ' '
+  WRITVA121to130 = ' '
+  WRITVA130 = ' '
+  // WRITVA95CI = ' '
+  WRITVC69 = ' '
+  WRITVC70to79 = ' '
+  WRITVC80to84 = ' '
+  WRITVC85to89 = ' '
+  WRITVC90to109 = ' '
+  WRITVC110to115 = ' '
+  WRITVC116to120 = ' '
+  WRITVC121to130 = ' '
+  WRITVC130 = ' '
+  // WRITVC95CI = ' '
+  WRITVB69 = ' '
+  WRITVB70to79 = ' '
+  WRITVB80to84 = ' '
+  WRITVB85to89 = ' '
+  WRITVB90to109 = ' '
+  WRITVB110to115 = ' '
+  WRITVB116to120 = ' '
+  WRITVB121to130 = ' '
+  WRITVB130 = ' '
+  WRITVB95CI = ' '
   
-  WRITMT69 = '1'
-  WRITMT70to79 = '2'
-  WRITMT80to84 = '3'
-  WRITMT85to89 = '4'
-  WRITMT90to109 = '5'
-  WRITMT110to115 = '6'
-  WRITMT116to120 = '7'
-  WRITMT121to130 = '8'
-  WRITMT130 = '9'
-  // WRITMT95CI = '10'
+  WRITMT69 = ' '
+  WRITMT70to79 = ' '
+  WRITMT80to84 = ' '
+  WRITMT85to89 = ' '
+  WRITMT90to109 = ' '
+  WRITMT110to115 = ' '
+  WRITMT116to120 = ' '
+  WRITMT121to130 = ' '
+  WRITMT130 = ' '
+  // WRITMT95CI = ' '
 
-  TOMAL2DF69 = '1'
-  TOMAL2DF70to79 = '2'
-  TOMAL2DF80to84 = '3'
-  TOMAL2DF85to89 = '4'
-  TOMAL2DF90to109 = '5'
-  TOMAL2DF110to115 = '6'
-  TOMAL2DF116to120 = '7'
-  TOMAL2DF121to130 = '8'
-  TOMAL2DF130 = '9'
-  // TOMAL2DF95CI = '10'
-  TOMAL2LF69 = '1'
-  TOMAL2LF70to79 = '2'
-  TOMAL2LF80to84 = '3'
-  TOMAL2LF85to89 = '4'
-  TOMAL2LF90to109 = '5'
-  TOMAL2LF110to115 = '6'
-  TOMAL2LF116to120 = '7'
-  TOMAL2LF121to130 = '8'
-  TOMAL2LF130 = '9'
-  // TOMAL2LF95CI = '10'
-  TOMAL2DB69 = '1'
-  TOMAL2DB70to79 = '2'
-  TOMAL2DB80to84 = '3'
-  TOMAL2DB85to89 = '4'
-  TOMAL2DB90to109 = '5'
-  TOMAL2DB110to115 = '6'
-  TOMAL2DB116to120 = '7'
-  TOMAL2DB121to130 = '8'
-  TOMAL2DB130 = '9'
-  // TOMAL2DB95CI = '10'
-  TOMAL2LB69 = '1'
-  TOMAL2LB70to79 = '2'
-  TOMAL2LB80to84 = '3'
-  TOMAL2LB85to89 = '4'
-  TOMAL2LB90to109 = '5'
-  TOMAL2LB110to115 = '6'
-  TOMAL2LB116to120 = '7'
-  TOMAL2LB121to130 = '8'
-  TOMAL2LB130 = '9'
-  // TOMAL2LB95CI = '10'
-  TOMAL2ACI69 = '1'
-  TOMAL2ACI70to79 = '2'
-  TOMAL2ACI80to84 = '3'
-  TOMAL2ACI85to89 = '4'
-  TOMAL2ACI90to109 = '5'
-  TOMAL2ACI110to115 = '6'
-  TOMAL2ACI116to120 = '7'
-  TOMAL2ACI121to130 = '8'
-  TOMAL2ACI130 = '9'
-  TOMAL2ACI95CI = '10'
-
-
-  CTOPP2MD69 = '1'
-  CTOPP2MD70to79 = '2'
-  CTOPP2MD80to84 = '3'
-  CTOPP2MD85to89 = '4'
-  CTOPP2MD90to109 = '5'
-  CTOPP2MD110to115 = '6'
-  CTOPP2MD116to120 = '7'
-  CTOPP2MD121to130 = '8'
-  CTOPP2MD130 = '9'
-  // CTOPP2MD95CI = '10'
-  CTOPP2NWR69 = '1'
-  CTOPP2NWR70to79 = '2'
-  CTOPP2NWR80to84 = '3'
-  CTOPP2NWR85to89 = '4'
-  CTOPP2NWR90to109 = '5'
-  CTOPP2NWR110to115 = '6'
-  CTOPP2NWR116to120 = '7'
-  CTOPP2NWR121to130 = '8'
-  CTOPP2NWR130 = '9'
-  // CTOPP2NWR95CI = '10'
-  CTOPP2PM69 = '1'
-  CTOPP2PM70to79 = '2'
-  CTOPP2PM80to84 = '3'
-  CTOPP2PM85to89 = '4'
-  CTOPP2PM90to109 = '5'
-  CTOPP2PM110to115 = '6'
-  CTOPP2PM116to120 = '7'
-  CTOPP2PM121to130 = '8'
-  CTOPP2PM130 = '9'
-  CTOPP2PM95CI = '10'
+  TOMAL2DF69 = ' '
+  TOMAL2DF70to79 = ' '
+  TOMAL2DF80to84 = ' '
+  TOMAL2DF85to89 = ' '
+  TOMAL2DF90to109 = ' '
+  TOMAL2DF110to115 = ' '
+  TOMAL2DF116to120 = ' '
+  TOMAL2DF121to130 = ' '
+  TOMAL2DF130 = ' '
+  // TOMAL2DF95CI = ' '
+  TOMAL2LF69 = ' '
+  TOMAL2LF70to79 = ' '
+  TOMAL2LF80to84 = ' '
+  TOMAL2LF85to89 = ' '
+  TOMAL2LF90to109 = ' '
+  TOMAL2LF110to115 = ' '
+  TOMAL2LF116to120 = ' '
+  TOMAL2LF121to130 = ' '
+  TOMAL2LF130 = ' '
+  // TOMAL2LF95CI = ' '
+  TOMAL2DB69 = ' '
+  TOMAL2DB70to79 = ' '
+  TOMAL2DB80to84 = ' '
+  TOMAL2DB85to89 = ' '
+  TOMAL2DB90to109 = ' '
+  TOMAL2DB110to115 = ' '
+  TOMAL2DB116to120 = ' '
+  TOMAL2DB121to130 = ' '
+  TOMAL2DB130 = ' '
+  // TOMAL2DB95CI = ' '
+  TOMAL2LB69 = ' '
+  TOMAL2LB70to79 = ' '
+  TOMAL2LB80to84 = ' '
+  TOMAL2LB85to89 = ' '
+  TOMAL2LB90to109 = ' '
+  TOMAL2LB110to115 = ' '
+  TOMAL2LB116to120 = ' '
+  TOMAL2LB121to130 = ' '
+  TOMAL2LB130 = ' '
+  // TOMAL2LB95CI = ' '
+  TOMAL2ACI69 = ' '
+  TOMAL2ACI70to79 = ' '
+  TOMAL2ACI80to84 = ' '
+  TOMAL2ACI85to89 = ' '
+  TOMAL2ACI90to109 = ' '
+  TOMAL2ACI110to115 = ' '
+  TOMAL2ACI116to120 = ' '
+  TOMAL2ACI121to130 = ' '
+  TOMAL2ACI130 = ' '
+  TOMAL2ACI95CI = ' '
 
 
-  
-  CTOPP2EL69 = '1'
-  CTOPP2EL70to79 = '2'
-  CTOPP2EL80to84 = '3'
-  CTOPP2EL85to89 = '4'
-  CTOPP2EL90to109 = '5'
-  CTOPP2EL110to115 = '6'
-  CTOPP2EL116to120 = '7'
-  CTOPP2EL121to130 = '8'
-  CTOPP2EL130 = '9'
-  // CTOPP2EL95CI = '10'
-  
-  CTOPP2BW69 = '1'
-  CTOPP2BW70to79 = '2'
-  CTOPP2BW80to84 = '3'
-  CTOPP2BW85to89 = '4'
-  CTOPP2BW90to109 = '5'
-  CTOPP2BW110to115 = '6'
-  CTOPP2BW116to120 = '7'
-  CTOPP2BW121to130 = '8'
-  CTOPP2BW130 = '9'
-  // CTOPP2BW95CI = '10'
-  
-  CTOPP2PI69 = '1'
-  CTOPP2PI70to79 = '2'
-  CTOPP2PI80to84 = '3'
-  CTOPP2PI85to89 = '4'
-  CTOPP2PI90to109 = '5'
-  CTOPP2PI110to115 = '6'
-  CTOPP2PI116to120 = '7'
-  CTOPP2PI121to130 = '8'
-  CTOPP2PI130 = '9'
-  // CTOPP2PI95CI = '10'
-  
-  CTOPP2PAC69 = '1'
-  CTOPP2PAC70to79 = '2'
-  CTOPP2PAC80to84 = '3'
-  CTOPP2PAC85to89 = '4'
-  CTOPP2PAC90to109 = '5'
-  CTOPP2PAC110to115 = '6'
-  CTOPP2PAC116to120 = '7'
-  CTOPP2PAC121to130 = '8'
-  CTOPP2PAC130 = '9'
-  CTOPP2PAC95CI = '10'
-  
-  CTOPP2BNW69 = '1'
-  CTOPP2BNW70to79 = '2'
-  CTOPP2BNW80to84 = '3'
-  CTOPP2BNW85to89 = '4'
-  CTOPP2BNW90to109 = '5'
-  CTOPP2BNW110to115 = '6'
-  CTOPP2BNW116to120 = '7'
-  CTOPP2BNW121to130 = '8'
-  CTOPP2BNW130 = '9'
-  // CTOPP2BNW95CI = '10'
-  
-  CTOPP2SNW69 = '1'
-  CTOPP2SNW70to79 = '2'
-  CTOPP2SNW80to84 = '3'
-  CTOPP2SNW85to89 = '4'
-  CTOPP2SNW90to109 = '5'
-  CTOPP2SNW110to115 = '6'
-  CTOPP2SNW116to120 = '7'
-  CTOPP2SNW121to130 = '8'
-  CTOPP2SNW130 = '9'
-  // CTOPP2SNW95CI = '10'
-  
-
-  CTOPP2APC69 = '1'
-  CTOPP2APC70to79 = '2'
-  CTOPP2APC80to84 = '3'
-  CTOPP2APC85to89 = '4'
-  CTOPP2APC90to109 = '5'
-  CTOPP2APC110to115 = '6'
-  CTOPP2APC116to120 = '7'
-  CTOPP2APC121to130 = '8'
-  CTOPP2APC130 = '9'
-  CTOPP2APC95CI = '10'
-  
-  CTOPP2RDN69 = '1'
-  CTOPP2RDN70to79 = '2'
-  CTOPP2RDN80to84 = '3'
-  CTOPP2RDN85to89 = '4'
-  CTOPP2RDN90to109 = '5'
-  CTOPP2RDN110to115 = '6'
-  CTOPP2RDN116to120 = '7'
-  CTOPP2RDN121to130 = '8'
-  CTOPP2RDN130 = '9'
-  // CTOPP2RDN95CI = '10'
-  
-  CTOPP2RLN69 = '1'
-  CTOPP2RLN70to79 = '2'
-  CTOPP2RLN80to84 = '3'
-  CTOPP2RLN85to89 = '4'
-  CTOPP2RLN90to109 = '5'
-  CTOPP2RLN110to115 = '6'
-  CTOPP2RLN116to120 = '7'
-  CTOPP2RLN121to130 = '8'
-  CTOPP2RLN130 = '9'
-  // CTOPP2RLN95CI = '10'
-  
-  CTOPP2RSN69 = '1'
-  CTOPP2RSN70to79 = '2'
-  CTOPP2RSN80to84 = '3'
-  CTOPP2RSN85to89 = '4'
-  CTOPP2RSN90to109 = '5'
-  CTOPP2RSN110to115 = '6'
-  CTOPP2RSN116to120 = '7'
-  CTOPP2RSN121to130 = '8'
-  CTOPP2RSN130 = '9'
-  CTOPP2RSN95CI = '10'
+  CTOPP2MD69 = ' '
+  CTOPP2MD70to79 = ' '
+  CTOPP2MD80to84 = ' '
+  CTOPP2MD85to89 = ' '
+  CTOPP2MD90to109 = ' '
+  CTOPP2MD110to115 = ' '
+  CTOPP2MD116to120 = ' '
+  CTOPP2MD121to130 = ' '
+  CTOPP2MD130 = ' '
+  // CTOPP2MD95CI = ' '
+  CTOPP2NWR69 = ' '
+  CTOPP2NWR70to79 = ' '
+  CTOPP2NWR80to84 = ' '
+  CTOPP2NWR85to89 = ' '
+  CTOPP2NWR90to109 = ' '
+  CTOPP2NWR110to115 = ' '
+  CTOPP2NWR116to120 = ' '
+  CTOPP2NWR121to130 = ' '
+  CTOPP2NWR130 = ' '
+  // CTOPP2NWR95CI = ' '
+  CTOPP2PM69 = ' '
+  CTOPP2PM70to79 = ' '
+  CTOPP2PM80to84 = ' '
+  CTOPP2PM85to89 = ' '
+  CTOPP2PM90to109 = ' '
+  CTOPP2PM110to115 = ' '
+  CTOPP2PM116to120 = ' '
+  CTOPP2PM121to130 = ' '
+  CTOPP2PM130 = ' '
+  CTOPP2PM95CI = ' '
 
 
   
-  WRAT5WR69 = '1'
-  WRAT5WR70to79 = '2'
-  WRAT5WR80to84 = '3'
-  WRAT5WR85to89 = '4'
-  WRAT5WR90to109 = '5'
-  WRAT5WR110to115 = '6'
-  WRAT5WR116to120 = '7'
-  WRAT5WR121to130 = '8'
-  WRAT5WR130 = '9'
-  WRAT5WR95CI = '10'
+  CTOPP2EL69 = ' '
+  CTOPP2EL70to79 = ' '
+  CTOPP2EL80to84 = ' '
+  CTOPP2EL85to89 = ' '
+  CTOPP2EL90to109 = ' '
+  CTOPP2EL110to115 = ' '
+  CTOPP2EL116to120 = ' '
+  CTOPP2EL121to130 = ' '
+  CTOPP2EL130 = ' '
+  // CTOPP2EL95CI = ' '
   
-  WRAT5SP69 = '1'
-  WRAT5SP70to79 = '2'
-  WRAT5SP80to84 = '3'
-  WRAT5SP85to89 = '4'
-  WRAT5SP90to109 = '5'
-  WRAT5SP110to115 = '6'
-  WRAT5SP116to120 = '7'
-  WRAT5SP121to130 = '8'
-  WRAT5SP130 = '9'
-  WRAT5SP95CI = '10'
+  CTOPP2BW69 = ' '
+  CTOPP2BW70to79 = ' '
+  CTOPP2BW80to84 = ' '
+  CTOPP2BW85to89 = ' '
+  CTOPP2BW90to109 = ' '
+  CTOPP2BW110to115 = ' '
+  CTOPP2BW116to120 = ' '
+  CTOPP2BW121to130 = ' '
+  CTOPP2BW130 = ' '
+  // CTOPP2BW95CI = ' '
+  
+  CTOPP2PI69 = ' '
+  CTOPP2PI70to79 = ' '
+  CTOPP2PI80to84 = ' '
+  CTOPP2PI85to89 = ' '
+  CTOPP2PI90to109 = ' '
+  CTOPP2PI110to115 = ' '
+  CTOPP2PI116to120 = ' '
+  CTOPP2PI121to130 = ' '
+  CTOPP2PI130 = ' '
+  // CTOPP2PI95CI = ' '
+  
+  CTOPP2PAC69 = ' '
+  CTOPP2PAC70to79 = ' '
+  CTOPP2PAC80to84 = ' '
+  CTOPP2PAC85to89 = ' '
+  CTOPP2PAC90to109 = ' '
+  CTOPP2PAC110to115 = ' '
+  CTOPP2PAC116to120 = ' '
+  CTOPP2PAC121to130 = ' '
+  CTOPP2PAC130 = ' '
+  CTOPP2PAC95CI = ' '
+  
+  CTOPP2BNW69 = ' '
+  CTOPP2BNW70to79 = ' '
+  CTOPP2BNW80to84 = ' '
+  CTOPP2BNW85to89 = ' '
+  CTOPP2BNW90to109 = ' '
+  CTOPP2BNW110to115 = ' '
+  CTOPP2BNW116to120 = ' '
+  CTOPP2BNW121to130 = ' '
+  CTOPP2BNW130 = ' '
+  // CTOPP2BNW95CI = ' '
+  
+  CTOPP2SNW69 = ' '
+  CTOPP2SNW70to79 = ' '
+  CTOPP2SNW80to84 = ' '
+  CTOPP2SNW85to89 = ' '
+  CTOPP2SNW90to109 = ' '
+  CTOPP2SNW110to115 = ' '
+  CTOPP2SNW116to120 = ' '
+  CTOPP2SNW121to130 = ' '
+  CTOPP2SNW130 = ' '
+  // CTOPP2SNW95CI = ' '
   
 
-  TOWRE2SWE69 = '1'
-  TOWRE2SWE70to79 = '2'
-  TOWRE2SWE80to84 = '3'
-  TOWRE2SWE85to89 = '4'
-  TOWRE2SWE90to109 = '5'
-  TOWRE2SWE110to115 = '6'
-  TOWRE2SWE116to120 = '7'
-  TOWRE2SWE121to130 = '8'
-  TOWRE2SWE130 = '9'
-  // TOWRE2SWE95CI = '10'
+  CTOPP2APC69 = ' '
+  CTOPP2APC70to79 = ' '
+  CTOPP2APC80to84 = ' '
+  CTOPP2APC85to89 = ' '
+  CTOPP2APC90to109 = ' '
+  CTOPP2APC110to115 = ' '
+  CTOPP2APC116to120 = ' '
+  CTOPP2APC121to130 = ' '
+  CTOPP2APC130 = ' '
+  CTOPP2APC95CI = ' '
   
-  TOWRE2PDE69 = '1'
-  TOWRE2PDE70to79 = '2'
-  TOWRE2PDE80to84 = '3'
-  TOWRE2PDE85to89 = '4'
-  TOWRE2PDE90to109 = '5'
-  TOWRE2PDE110to115 = '6'
-  TOWRE2PDE116to120 = '7'
-  TOWRE2PDE121to130 = '8'
-  TOWRE2PDE130 = '9'
-  // TOWRE2PDE95CI = '10'
+  CTOPP2RDN69 = ' '
+  CTOPP2RDN70to79 = ' '
+  CTOPP2RDN80to84 = ' '
+  CTOPP2RDN85to89 = ' '
+  CTOPP2RDN90to109 = ' '
+  CTOPP2RDN110to115 = ' '
+  CTOPP2RDN116to120 = ' '
+  CTOPP2RDN121to130 = ' '
+  CTOPP2RDN130 = ' '
+  // CTOPP2RDN95CI = ' '
+  
+  CTOPP2RLN69 = ' '
+  CTOPP2RLN70to79 = ' '
+  CTOPP2RLN80to84 = ' '
+  CTOPP2RLN85to89 = ' '
+  CTOPP2RLN90to109 = ' '
+  CTOPP2RLN110to115 = ' '
+  CTOPP2RLN116to120 = ' '
+  CTOPP2RLN121to130 = ' '
+  CTOPP2RLN130 = ' '
+  // CTOPP2RLN95CI = ' '
+  
+  CTOPP2RSN69 = ' '
+  CTOPP2RSN70to79 = ' '
+  CTOPP2RSN80to84 = ' '
+  CTOPP2RSN85to89 = ' '
+  CTOPP2RSN90to109 = ' '
+  CTOPP2RSN110to115 = ' '
+  CTOPP2RSN116to120 = ' '
+  CTOPP2RSN121to130 = ' '
+  CTOPP2RSN130 = ' '
+  CTOPP2RSN95CI = ' '
 
-  TOWRE2IND69 = '1'
-  TOWRE2IND70to79 = '2'
-  TOWRE2IND80to84 = '3'
-  TOWRE2IND85to89 = '4'
-  TOWRE2IND90to109 = '5'
-  TOWRE2IND110to115 = '6'
-  TOWRE2IND116to120 = '7'
-  TOWRE2IND121to130 = '8'
-  TOWRE2IND130 = '9'
-  TOWRE2IND95CI = '10'
 
   
-  ART2SC69 = '1'
-  ART2SC70to79 = '2'
-  ART2SC80to84 = '3'
-  ART2SC85to89 = '4'
-  ART2SC90to109 = '5'
-  ART2SC110to115 = '6'
-  ART2SC116to120 = '7'
-  ART2SC121to130 = '8'
-  ART2SC130 = '9'
-  // ART2SC95CI = '10'
+  WRAT5WR69 = ' '
+  WRAT5WR70to79 = ' '
+  WRAT5WR80to84 = ' '
+  WRAT5WR85to89 = ' '
+  WRAT5WR90to109 = ' '
+  WRAT5WR110to115 = ' '
+  WRAT5WR116to120 = ' '
+  WRAT5WR121to130 = ' '
+  WRAT5WR130 = ' '
+  WRAT5WR95CI = ' '
+  
+  WRAT5SP69 = ' '
+  WRAT5SP70to79 = ' '
+  WRAT5SP80to84 = ' '
+  WRAT5SP85to89 = ' '
+  WRAT5SP90to109 = ' '
+  WRAT5SP110to115 = ' '
+  WRAT5SP116to120 = ' '
+  WRAT5SP121to130 = ' '
+  WRAT5SP130 = ' '
+  WRAT5SP95CI = ' '
+  
 
-  ART2RA = '1'
-  ART2SR = '2'
-  ART2HW = '3'
-  ART2TY = '4'
+  TOWRE2SWE69 = ' '
+  TOWRE2SWE70to79 = ' '
+  TOWRE2SWE80to84 = ' '
+  TOWRE2SWE85to89 = ' '
+  TOWRE2SWE90to109 = ' '
+  TOWRE2SWE110to115 = ' '
+  TOWRE2SWE116to120 = ' '
+  TOWRE2SWE121to130 = ' '
+  TOWRE2SWE130 = ' '
+  // TOWRE2SWE95CI = ' '
+  
+  TOWRE2PDE69 = ' '
+  TOWRE2PDE70to79 = ' '
+  TOWRE2PDE80to84 = ' '
+  TOWRE2PDE85to89 = ' '
+  TOWRE2PDE90to109 = ' '
+  TOWRE2PDE110to115 = ' '
+  TOWRE2PDE116to120 = ' '
+  TOWRE2PDE121to130 = ' '
+  TOWRE2PDE130 = ' '
+  // TOWRE2PDE95CI = ' '
+
+  TOWRE2IND69 = ' '
+  TOWRE2IND70to79 = ' '
+  TOWRE2IND80to84 = ' '
+  TOWRE2IND85to89 = ' '
+  TOWRE2IND90to109 = ' '
+  TOWRE2IND110to115 = ' '
+  TOWRE2IND116to120 = ' '
+  TOWRE2IND121to130 = ' '
+  TOWRE2IND130 = ' '
+  TOWRE2IND95CI = ' '
+
+  
+  ART2SC69 = ' '
+  ART2SC70to79 = ' '
+  ART2SC80to84 = ' '
+  ART2SC85to89 = ' '
+  ART2SC90to109 = ' '
+  ART2SC110to115 = ' '
+  ART2SC116to120 = ' '
+  ART2SC121to130 = ' '
+  ART2SC130 = ' '
+  // ART2SC95CI = ' '
+
+  ART2RA = ' '
+  ART2SR = ' '
+  ART2HW = ' '
+  ART2TY = ' '
 
 }
 
