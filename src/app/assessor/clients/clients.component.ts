@@ -9,7 +9,7 @@ import { Report1Component } from './report1/report1.component';
 import { TestComponent } from './test/test.component';
 import { Observable } from 'rxjs';
 import { ClientDto } from 'src/app/models/common/client.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AddComponent } from './add/add.component';
 import { FormComponent } from './form/form.component';
@@ -133,9 +133,27 @@ export class ClientsComponent implements OnInit {
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
     .afterClosed().subscribe(res =>{
       if(res){
-        // this.service.deleteUser(id);
-        // this.notificationService.warn('! Deleted successfully');
+        this.deleteUser(id).subscribe((s) => {
+          this.ngOnInit();
+          this.notificationService.warn('! Deleted successfully');
+        });
       }
     });
+  }
+
+  deleteUser(clientId: any) {
+    //return this.http.delete<ClientDto>(this.baseUrl + 'client' , clientId);
+
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: {
+        id: clientId.toString(),
+      },
+    };
+    
+    return this.http
+      .delete(this.baseUrl + 'client', options);
   }
 }

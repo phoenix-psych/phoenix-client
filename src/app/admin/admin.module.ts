@@ -22,15 +22,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
-import { AdminQuestionsComponent } from './admin-questions/admin-questions.component';
-import { AddQuestionComponent } from './add-question/add-question.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    AdminQuestionsComponent,
-    AddQuestionComponent
   ],
   imports: [
     CommonModule,

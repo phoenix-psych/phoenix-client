@@ -9,40 +9,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CorporateComponent implements  OnInit {
 
-  constructor(private notificationService: NotifyService) 
-  {
+  opened=false;
+  constructor(){
   }
 
-  form: FormGroup = new FormGroup({
-    id: new FormControl(null),
-    name: new FormControl('', Validators.required),
-    comment: new FormControl('', Validators.required)
-  });
-
-  initializeFormGroup() {
-  }
-  
   ngOnInit() {
-  }
-
-  onClear() {
-    this.form.reset();
-    this.initializeFormGroup();
-    this.notificationService.success(':: Submitted successfully');
-  }
-
-  onSubmit() {
-      alert("submit : ");
-    
-      this.form.reset();
-      this.initializeFormGroup();
-      this.notificationService.success(':: Submitted successfully');
-      this.onClose();
-    }
-  
-  onClose() {
-    this.form.reset();
-    this.initializeFormGroup();
   }
 }
 

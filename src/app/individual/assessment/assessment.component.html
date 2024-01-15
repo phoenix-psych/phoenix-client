@@ -1,0 +1,116 @@
+
+<div>
+    <h1 style="margin: 5%;">HI, STUDENT’S AIMS PORTAL</h1>
+</div>
+<div class="span-table2" >
+    <p style="margin-left: 5%;margin-right: 5%;">
+        Please would you complete the Availability for Assessment form so that we can get you booked in for your assessment appointment with an assessor at Phoenix Psychology
+    </p>
+
+    <mat-grid-list  cols="10" style="margin-left: 5%;margin-right: 5%;margin-bottom: 5%;" rowHeight="50px">
+        <div class="Availability"> 
+            <mat-grid-tile colspan="5" style="background-color: grey;color: black;"><b>Availability for Assessment Appointment</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;">
+                <button (click)="getAvailabilityForm(template1)">Document</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3"></mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+<div class="span-table2" >
+    <p style="margin-left: 5%;margin-right: 5%;">
+        At Phoenix-Psych, we value your privacy and are committed to safeguarding your data. Before you proceed, take a moment to review our Data Consent Form. This document outlines how we collect, use, and protect your information throughout your experience on our website. Your trust is of utmost importance to us, and we want to ensure you feel secure every step of the way. Thank you for choosing Phoenix-Psych.    
+    </p>
+
+    <mat-grid-list  cols="10" style="margin-left: 5%;margin-right: 5%;margin-bottom: 5%;" rowHeight="50px">
+        <div class="Availability"> 
+            <mat-grid-tile colspan="5" style="background-color: grey;color: black;"><b>Data Consent Form</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;">
+                <button (click)="getDataConsentForm(template1)">Document</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3"></mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+<div class="span-table2" >
+    <p style="margin-left: 5%;margin-right: 5%;">
+        We ask you to complete this form prior to your assessment appointment. This is so that you and the assessor have all the correct information to be able to carry out appropriate diagnostic interviews and assessment during your appointment with Phoenix Psychology Practice. 
+    </p>
+
+    <mat-grid-list  cols="10" style="margin-left: 5%;margin-right: 5%;margin-bottom: 5%;" rowHeight="50px">
+        <div class="Availability"> 
+            <mat-grid-tile colspan="5" style="background-color: grey;color: black;"><b>Student Information Document</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;">
+                <button (click)="getStudentInformationForm(template1)">Document</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3"></mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+<div class="span-table2" >
+    <p style="margin-left: 5%;margin-right: 5%;">
+        Please fill in the form below with as much detail as possible. The information that you give in this form will help the assessor to see your areas of strength and those that you find challenging. Th information that you give in this form will be used by the assessor in helping them come to a decision about any Specific Learning Difference that you may be experiencing.
+    </p>
+
+    <mat-grid-list  cols="10" style="margin-left: 5%;margin-right: 5%;margin-bottom: 5%;" rowHeight="50px">
+        <div class="Availability"> 
+            <mat-grid-tile colspan="5" style="background-color: grey;color: black;"><b>Background Information Questionnaire (BIQ)</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;">
+                <button (click)="getBackgroundForm(template1)">Document</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3"></mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+<div class="span-table2" >
+    <p style="margin-left: 5%;margin-right: 5%;">
+        As we delve into the questionnaire, keep in mind that specific learning difficulties can affect reading and writing due to unique brain processing. Yet, challenges in eyesight and vision can also play a role. This survey focuses on capturing any problems you might face in these areas. Your responses will provide vital insights to comprehensively address your learning journey. Let’s explore the questions related to your experiences and needs – your input guides us in offering the right support.
+    </p>
+
+    <mat-grid-list  cols="10" style="margin-left: 5%;margin-right: 5%;margin-bottom: 5%;" rowHeight="50px">
+        <div class="Availability"> 
+            <mat-grid-tile colspan="5" style="background-color: grey;color: black;"><b>Visual Disturbance Questionnaire</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;">
+                <button (click)="getVisualDisturbanceForm(template1)">Document</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3"></mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+
+<div class="span-table2" >
+    <p style="margin-left: 5%;margin-right: 5%;">
+        Optional Documents
+    </p>
+
+    <mat-grid-list  cols="10" style="margin-left: 5%;margin-right: 5%;margin-bottom: 5%;" rowHeight="50px">
+        <div class="Availability"> 
+            <mat-grid-tile colspan="5" style="background-color: grey;color: black;"><b>Visual Disturbance Questionnaire</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;">
+                <button (click)="getADHDScreenerForm(template1)">ADHD screener</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;">
+                <button (click)="getDyspraxiaScreenerForm(template1)">Dyspraxia Screener</button>
+            </mat-grid-tile>
+            <mat-grid-tile></mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+
+
+<!-- <button (click)="openDialog(template)">Open my dialog</button> -->
+<ng-template #template1>
+    <mat-toolbar>
+        <span>Form</span>
+        <span class="fill-remaining-space"></span>
+        <button (click)="this.dialogRef.close()" mat-stroked-button >Close</button>
+    </mat-toolbar>
+    <div style="padding: 5%; height: 100%;">
+        <iframe 
+            [src]="docSrc1"
+            width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">
+            Loading…
+        </iframe>
+    </div>
+</ng-template>
+

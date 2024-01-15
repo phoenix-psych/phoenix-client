@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseApiUrl:'https://phoenix-psych-service.azurewebsites.net/api/'
+  baseApiUrl:'https://aims-portal-service.azurewebsites.net/api/'
 };

@@ -54,38 +54,6 @@ const routes: Routes = [
         path:'slots', 
         component:SlotsComponent
       },
-      // {
-      //   path:'misc', 
-      //   component:MiscellaneousComponent
-      // },
-      // {
-      //   path:'tomal', 
-      //   component:Tomal2Component
-      // },
-      // {
-      //   path:'towre', 
-      //   component:Towre2Component
-      // },
-      // {
-      //   path:'wrat', 
-      //   component:Wrat5Component
-      // },
-      // {
-      //   path:'writ', 
-      //   component:WritComponent
-      // },
-      // {
-      //   path:'art', 
-      //   component:ArtComponent
-      // },
-      // {
-      //   path:'dash', 
-      //   component:DashComponent
-      // },
-      // {
-      //   path:'goart', 
-      //   component:GoartComponent
-      // }
     ]
   }
 ];

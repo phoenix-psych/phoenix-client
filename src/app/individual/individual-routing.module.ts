@@ -1,12 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { IndividualComponent } from './individual.component';
+import { AssessmentComponent } from './assessment/assessment.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path:'', 
-    component:IndividualComponent
+    component:IndividualComponent,
+    children:[
+      {
+        path:'', 
+        component:DashboardComponent
+      },
+      {
+        path:'dashboard', 
+        component:DashboardComponent
+      },
+      {
+        path:'assessment', 
+        component:AssessmentComponent
+      },
+    ]
   }
 ];
 

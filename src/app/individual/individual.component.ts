@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ControlBase } from '../models/control-base';
-import { DataService } from './data.service';
 
 @Component({
   selector: 'app-individual',
@@ -9,16 +8,14 @@ import { DataService } from './data.service';
 })
 export class IndividualComponent implements OnInit {
 
-  meta!: ControlBase[];
-  data!: any;
-  constructor(private dataService : DataService) { }
+  opened=true;
+  constructor() { }
 
-  async ngOnInit() {
-    this.refresh();
+  ngOnInit() {
+
   }
 
-  async refresh() {
-    this.data = await this.dataService.getData();
-    this.meta = await this.dataService.getMeta();
+  logout(){
+    localStorage.clear();
   }
 }

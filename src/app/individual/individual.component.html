@@ -1,6 +1,34 @@
-<ng-container *ngIf="meta && data">
-    <app-questionnaire [meta]="meta" [data]="data"></app-questionnaire>
-  </ng-container>
+<div class="fill-remaining-space">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="opened = !opened">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Individual</span>
+    <span class="toolbar-spacer"></span>
+    <div class="badge-spacer">
+      <mat-icon matBadge="15" matBadgeColor="warn" class="icon-display">notifications</mat-icon>
+    </div>
+    <button mat-flat-button color="warn" routerLink="/login" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div>
+<div class="sidenav"> 
+  <mat-sidenav-container>
+    <mat-sidenav opened mode="side">
+      <mat-nav-list>
+          <a mat-list-item routerLink="/individual/dashboard">Home</a>
+          <a mat-list-item routerLink="/individual/assessment">Assessment</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<div class="footer">
+  <mat-toolbar>
+    <mat-icon>copyright</mat-icon>
+    <span>@ CopyRight JSJ</span>
+  </mat-toolbar>
+</div>
   
-  <button class="btn btn-primary mt-5" (click)="refresh()">Refresh</button>
-  
+    
