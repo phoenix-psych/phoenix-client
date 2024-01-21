@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../authservice.service';
 import { Router } from '@angular/router';
 import { NotifyService } from 'src/app/shared/notify.service';
+import { LoadingService } from 'src/app/loading.service';
 
 enum Answer {
   No = "No",
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
   types!: Array<string>
   selectedOption!: string;
 
-  constructor(private fb : FormBuilder, private auth:AuthService, private router:Router, private notificationService: NotifyService) { }
+  constructor(private fb : FormBuilder, private auth:AuthService, private router:Router, private notificationService: NotifyService, private loadingService:LoadingService) { }
 
   ngOnInit() {
     this.dob = new FormControl('1980-01-01');
@@ -131,7 +132,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registration() {
-    
+    this.loadingService.showLoading();
     if (this.registrationForm.valid) {
       this.auth.register(this.registrationForm.value)
       .subscribe({
@@ -148,6 +149,8 @@ export class RegisterComponent implements OnInit {
       this.validateAllFormFields(this.registrationForm);
       alert("Invalid Form");
     }
+
+    this.loadingService.hideLoading();
   }
 
   private updateUserType(formGroup : FormGroup){

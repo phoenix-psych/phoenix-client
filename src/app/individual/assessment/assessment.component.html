@@ -97,8 +97,6 @@
     </mat-grid-list>
 </div>
 
-
-<!-- <button (click)="openDialog(template)">Open my dialog</button> -->
 <ng-template #template1>
     <mat-toolbar>
         <span>Form</span>
@@ -112,5 +110,21 @@
             Loading…
         </iframe>
     </div>
-</ng-template>
+    <div>
+        Documents 
+        <ul>
+          <li *ngFor="let doc of docs; let i = index; trackBy: trackByGrocery;">
 
+            <div style="margin: 2%;">
+                <input type="file" id="fileInput" (change)="selectFile($event, doc)" name="fileInput" />
+                <button style="margin-left: 2%;" mat-flat-button color="primary" [disabled]="!doc.currentFile" (click)="upload(doc)" >Upload</button>
+            </div>
+
+          </li>
+        </ul>
+
+        <div style="margin: 2%;">
+            <button style="margin-left: 2%;" mat-flat-button color="primary" (click)="Save(docs)" >Save</button>
+        </div>
+      </div>
+</ng-template>
