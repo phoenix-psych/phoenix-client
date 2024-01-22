@@ -97,6 +97,39 @@
     </mat-grid-list>
 </div>
 
+<div class="span-table2" >
+    <p style="margin-left: 5%;margin-right: 5%;">
+        Other Documents
+    </p>
+
+    <mat-grid-list  cols="10" style="margin-left: 5%;margin-right: 5%;margin-bottom: 5%;" rowHeight="50px">
+        
+        <div>
+            <ul>
+              <li *ngFor="let doc of docs; let i = index; trackBy: trackByGrocery;">
+    
+                <div style="margin: 2%;">
+                    <input type="file" (change)="selectFile($event, doc)" id="file-input"/> 
+                    <p style="margin-left: 2%;display: flex;">{{doc.name}}</p>
+                    <button style="margin-left: 2%;" mat-flat-button color="primary" [disabled]="!doc.currentFile" (click)="upload(doc)" >Upload</button>
+                    <button style="margin-left: 2%;" mat-flat-button  (click)="removeCurrent(doc)">Remove</button>
+                </div>
+    
+              </li>
+            </ul>
+    
+            <div>
+                <button style="margin-left: 5%;" mat-flat-button (click)="AddNew()" >Add New File</button>
+            </div>
+
+            <div style="margin: 2%;">
+                <button style="margin-left: 5%;" mat-flat-button color="primary" (click)="Save(docs)" >Save</button>
+            </div>
+        </div>
+
+    </mat-grid-list>
+</div>
+
 <ng-template #template1>
     <mat-toolbar>
         <span>Form</span>
@@ -110,7 +143,7 @@
             Loading…
         </iframe>
     </div>
-    <div>
+    <!-- <div>
         Documents 
         <ul>
           <li *ngFor="let doc of docs; let i = index; trackBy: trackByGrocery;">
@@ -126,5 +159,5 @@
         <div style="margin: 2%;">
             <button style="margin-left: 2%;" mat-flat-button color="primary" (click)="Save(docs)" >Save</button>
         </div>
-      </div>
+      </div> -->
 </ng-template>

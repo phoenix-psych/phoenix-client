@@ -12,17 +12,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./assessment.component.scss']
 })
 export class AssessmentComponent implements OnInit {
-uploadDocuments(_t14: TemplateRef<any>) {
-    throw new Error('Method not implemented.');
-}
-    
+
   docSrc1!: SafeResourceUrl;
   dialogRef !: MatDialogRef<AssessmentComponent>
   docs !: ClientDocument[];
   selectedDoc !: ClientDocument;
   myfile!: File
 
-  fileName = 'Select File';
+  //fileName = 'Select File';
   private baseUrl:string = environment.baseApiUrl 
 
   constructor(private http: HttpClient,
@@ -41,10 +38,11 @@ uploadDocuments(_t14: TemplateRef<any>) {
     selectFile(event: any, doc: ClientDocument): void {
       if (event.target.files && event.target.files[0]) {
         const file: File = event.target.files[0];
-        doc.currentFile = file
-        this.fileName = file.name;
+        doc.currentFile = file;
+        doc.name = file.name;
+        //this.fileName = file.name;
       } else {
-        this.fileName = 'Select File';
+        //this.fileName = 'Select File';
       }
     }
 
@@ -80,20 +78,37 @@ uploadDocuments(_t14: TemplateRef<any>) {
     }
   
   ngOnInit(): void {
-    
+    this.docs = [{
+        id: '00000000-0000-0000-0000-000000000000', rawNumber : 1, name: '', url : '', changed:false, currentFile : this.myfile
+      }
+    ];
+    this.selectedDoc = this.docs[0];
+  }
+
+  AddNew() {
+  
+    var n = Math.max(...this.docs.map(o => o.rawNumber)) + 1;
+    if(n == undefined || n == -Infinity || n == Infinity)
+    {
+      n = 1;
+    }
+
+    this.docs = this.docs.concat([{
+      id: '00000000-0000-0000-0000-000000000000', rawNumber : n, name: '', url : '', changed:false, currentFile : this.myfile
+    }])
+  
+  }
+
+  removeCurrent(cd: ClientDocument) {
+    this.docs = this.docs.filter(x=> x.rawNumber != cd.rawNumber)
+  }
+        
+  uploadDocuments(_t14: TemplateRef<any>) {
+      throw new Error('Method not implemented.');
   }
 
   getDyspraxiaScreenerForm(templateRef : any) {
     
-
-    this.docs = [{
-      id: 'd986f9fb-2e97-43f7-b6a8-910b686dd659', name: 'DyspraxiaScreener', url : 'url1', changed:false, currentFile : this.myfile
-      }
-    ];
-    this.selectedDoc = this.docs[0];
-
-
-
     const url1 = `https://forms.office.com/pages/responsepage.aspx?id=iQpQ2_MW70CWPnEqvgNJgK0NaNAv-4dArQpbNCfBtjNUNVdLN0JCWktFRVVXRTNNVURGVkJSMzZEUC4u`;
       this.docSrc1 = this.sanitizer.bypassSecurityTrustResourceUrl(url1);
       this.dialogRef = this.dialog.open(templateRef, {
@@ -104,14 +119,6 @@ uploadDocuments(_t14: TemplateRef<any>) {
   }
 
   getADHDScreenerForm(templateRef : any) {
-    
-
-    this.docs = [{
-      id: 'd986f9fb-9d97-43f7-b6a8-910b686dd659', name: 'ADHDScreener', url : 'url1', changed:false, currentFile : this.myfile
-      }
-    ];
-    this.selectedDoc = this.docs[0];
-
 
     const url1 = `https://forms.office.com/pages/responsepage.aspx?id=iQpQ2_MW70CWPnEqvgNJgK0NaNAv-4dArQpbNCfBtjNUNU5QS0RXTUtRWDRUV0w4VUNQRzgyM1c4NS4u`;
       this.docSrc1 = this.sanitizer.bypassSecurityTrustResourceUrl(url1);
@@ -123,14 +130,6 @@ uploadDocuments(_t14: TemplateRef<any>) {
 
   getVisualDisturbanceForm(templateRef : any) {
     
-
-    this.docs = [{
-      id: 'd986f9fb-8d97-43f7-b6a8-910b686dd659', name: 'VisualDisturbance', url : 'url1', changed:false, currentFile : this.myfile
-      }
-    ];
-    this.selectedDoc = this.docs[0];
-
-
     const url1 = `https://forms.office.com/pages/responsepage.aspx?id=iQpQ2_MW70CWPnEqvgNJgK0NaNAv-4dArQpbNCfBtjNUOUFDTFFDSkxZVlg4Q1BTOUpWRFI0QTJOWS4u`;
       this.docSrc1 = this.sanitizer.bypassSecurityTrustResourceUrl(url1);
       this.dialogRef = this.dialog.open(templateRef, {
@@ -142,13 +141,6 @@ uploadDocuments(_t14: TemplateRef<any>) {
   getBackgroundForm(templateRef : any) {
     
 
-    this.docs = [{
-      id: 'd986f9fb-7d97-43f7-b6a8-910b686dd659', name: 'Background', url : 'url1', changed:false, currentFile : this.myfile
-      }
-    ];
-    this.selectedDoc = this.docs[0];
-
-
     const url1 = `https://forms.office.com/pages/responsepage.aspx?id=iQpQ2_MW70CWPnEqvgNJgK0NaNAv-4dArQpbNCfBtjNUNVc4REY4R09DNk1ITDIyMzRIWVpEU0I0RS4u`;
       this.docSrc1 = this.sanitizer.bypassSecurityTrustResourceUrl(url1);
       this.dialogRef = this.dialog.open(templateRef, {
@@ -159,14 +151,6 @@ uploadDocuments(_t14: TemplateRef<any>) {
 
   getStudentInformationForm(templateRef : any) {
     
-
-    this.docs = [{
-      id: 'd986f9fb-5d97-43f7-b6a8-910b686dd659', name: 'StudentInformation', url : 'url1', changed:false, currentFile : this.myfile
-      }
-    ];
-    this.selectedDoc = this.docs[0];
-
-
     const url1 = `https://forms.office.com/pages/responsepage.aspx?id=iQpQ2_MW70CWPnEqvgNJgK0NaNAv-4dArQpbNCfBtjNUM01ETlNYTzFSMDRGTFhQVlBNNlRYNlVMVi4u`;
       this.docSrc1 = this.sanitizer.bypassSecurityTrustResourceUrl(url1);
       this.dialogRef = this.dialog.open(templateRef, {
@@ -176,13 +160,6 @@ uploadDocuments(_t14: TemplateRef<any>) {
   }
 
   getDataConsentForm(templateRef : any) {
-
-    this.docs = [{
-      id: 'd986f9fb-4d97-43f7-b6a8-910b686dd659', name: 'DataConsent', url : 'url1', changed:false, currentFile : this.myfile
-      }
-    ];
-    this.selectedDoc = this.docs[0];
-
 
     const url1 = `https://forms.office.com/pages/responsepage.aspx?id=iQpQ2_MW70CWPnEqvgNJgK0NaNAv-4dArQpbNCfBtjNURTFVOUNVSFhVOFhBRVdHWUZRTFFLQzkzUC4u`;
       this.docSrc1 = this.sanitizer.bypassSecurityTrustResourceUrl(url1);
@@ -194,17 +171,17 @@ uploadDocuments(_t14: TemplateRef<any>) {
 
   getAvailabilityForm(templateRef : any) {
     
-    this.docs = [{
-      id: 'd986f9fb-1d97-43f7-b6a8-910b686dd659', name: 'AvailabilityDoc1', url : 'url1', changed:false, currentFile : this.myfile
-      },
-      {
-        id: 'd986f9fb-2d97-43f7-b6a8-910b686dd659', name: 'AvailabilityDoc2', url : 'url2', changed:false, currentFile : this.myfile
-      },
-      {
-        id: 'd986f9fb-3d97-43f7-b6a8-910b686dd659', name: 'AvailabilityDoc3', url : 'url3', changed:false, currentFile : this.myfile
-      }
-    ];
-    this.selectedDoc = this.docs[0];
+    // this.docs = [{
+    //   id: 'd986f9fb-1d97-43f7-b6a8-910b686dd659', name: 'AvailabilityDoc1', url : 'url1', changed:false, currentFile : this.myfile
+    //   },
+    //   {
+    //     id: 'd986f9fb-2d97-43f7-b6a8-910b686dd659', name: 'AvailabilityDoc2', url : 'url2', changed:false, currentFile : this.myfile
+    //   },
+    //   {
+    //     id: 'd986f9fb-3d97-43f7-b6a8-910b686dd659', name: 'AvailabilityDoc3', url : 'url3', changed:false, currentFile : this.myfile
+    //   }
+    // ];
+    // this.selectedDoc = this.docs[0];
 
       const url1 = `https://forms.office.com/Pages/ResponsePage.aspx?id=iQpQ2_MW70CWPnEqvgNJgK0NaNAv-4dArQpbNCfBtjNUQ0hLRlEzVzlNNkRFQkQ0MzFDMUU0OFRPQy4u`;
       this.docSrc1 = this.sanitizer.bypassSecurityTrustResourceUrl(url1);
@@ -216,8 +193,6 @@ uploadDocuments(_t14: TemplateRef<any>) {
   
   OnClick() {
 
-    
-      throw new Error('Method not implemented.');
   }
 
   Save(docs: ClientDocument[]): void {
