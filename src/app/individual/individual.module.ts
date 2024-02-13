@@ -32,6 +32,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Page2Component } from './screening/page2/page2.component';
+import { Page3Component } from './screening/page3/page3.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { Page2Component } from './screening/page2/page2.component';
     ScreeningComponent,
     Page1Component,
     Page2Component,
+    Page3Component,
   ],
   imports: [
 

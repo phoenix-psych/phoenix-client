@@ -1,0 +1,379 @@
+<form [formGroup]="form"  (submit)="onSubmit()">
+    <p>ADHD Adult Self-Report Scale V1.1</p>  
+    <div>
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+          <button mat-button color="primary" matStepperNext>Next</button>
+      </div>
+  
+      <p style="font-weight: bold; color: red;">
+        Please answer the questions below, rating yourself on each of the criteria shown using the scale below each question. Click on the response that best describes how you have felt and conducted yourself over the past 6 months. 
+    </p>
+
+    <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you have trouble wrapping up the final details of a project, 
+            once the challenging parts have been done?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <div class="padded-div">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you have difficulty getting things in order when you have to do a task that requires organization?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+
+      <p>Additional Questioning around ADHD symptoms.</p> 
+      <p style="font-weight: bold; color: red;">
+        This section allows you to explore potential symptoms of ADHD in more deepth. 
+    </p>
+
+
+
+    <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you have problems remembering appointments or obligations?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When you have a task that requires a lot of thought, how often do you avoid or delay getting started?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you feel overly active and compelled to do things, like you were driven by a motor?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you make careless mistakes when you have to work on a boring or difficult project?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you have difficulty keeping your attention when you are doing boring or repetitive work?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you misplace or have difficulty finding things at home or at work?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often are you distracted by activity or noise around you?
+            :</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you leave your seat in meetings or other situations in which you are expected to remain seated?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you feel restless or fidgety?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you have difficulty unwinding and relaxing when you have time to yourself?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you find yourself talking too much when you are in social situations?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When you’re in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you have difficulty waiting your turn in situations when turn taking is required?
+            :</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      <div class="padded-div ">
+        <div class="bold-label">
+        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How often do you interrupt others when they are busy?:</mat-label>
+      </div>
+        <div class="example-list-section">
+            <ul class="horizontal-list">
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [checked]="subtask.completed"
+                              [color]="subtask.color"
+                              (change)="updateTask2Node(subtask.name)">
+                  <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+                  
+                </mat-checkbox>
+              </li>
+            </ul>
+        </div>
+      </div>
+      
+
+
+      
+</form>

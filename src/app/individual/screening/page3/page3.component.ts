@@ -15,12 +15,12 @@ export interface Task {
 
 
 @Component({
-  selector: 'app-page2',
-  templateUrl: './page2.component.html',
-  styleUrls: ['./page2.component.scss']
+  selector: 'app-page3',
+  templateUrl: './page3.component.html',
+  styleUrls: ['./page3.component.scss']
 })
 
-export class Page2Component implements OnInit {
+export class Page3Component implements OnInit {
 
   private baseUrl:string = environment.baseApiUrl 
   form!:FormGroup

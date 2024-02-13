@@ -41,16 +41,13 @@ export class Page1Component implements OnInit {
     completed: false,
     color: 'primary',
     subtasks: [
-      {name: 'Specialist Assessor - Diagnostic Assessment (Education)', completed: false, color: 'accent'},
-      {name: 'Specialist Assessor - Diagnostic Assessment (Workplace)', completed: false, color: 'accent'},
-      {name: 'Specialist Assessor - EAA', completed: false, color: 'accent'},
-      {name: 'Specialist Tutoring - SpLD Post 16 and HE', completed: false, color: 'accent'},
-      {name: 'Specialist Tutoring - Pre-16', completed: false, color: 'accent'},
-      {name: 'SpLD Coach - Education', completed: false, color: 'accent'},
-      {name: 'SpLD Coach - Workplace', completed: false, color: 'accent'},
-      {name: 'Occupational Psychologist (chartered)', completed: false, color: 'accent'},
-      {name: 'Psychologist', completed: false, color: 'accent'},
-      {name: 'Counsellor', completed: false, color: 'accent'},
+      {name: 'ADHD', completed: false, color: 'accent'},
+      {name: 'Dyslexia', completed: false, color: 'accent'},
+      {name: 'Dyspraxia/Developmental Coordination Disorder', completed: false, color: 'accent'},
+      {name: 'Social and Communication', completed: false, color: 'accent'},
+      {name: 'Dyscalculia', completed: false, color: 'accent'},
+      {name: 'Other', completed: false, color: 'accent'},
+      
     ],
   };
 
@@ -59,12 +56,41 @@ export class Page1Component implements OnInit {
     completed: false,
     color: 'primary',
     subtasks: [
-      {name: 'PATOSS', completed: false, color: 'accent'},
-      {name: 'BDA', completed: false, color: 'accent'},
-      {name: 'Dyslexia Guild', completed: false, color: 'accent'},
-      {name: 'SASC', completed: false, color: 'accent'},
-      {name: 'British Psychological Society', completed: false, color: 'accent'},
+      {name: 'Yes', completed: false, color: 'accent'},
+      {name: 'No', completed: false, color: 'accent'},
+      {name: 'Sometimes', completed: false, color: 'accent'},
       {name: 'Other', completed: false, color: 'accent'},
+      
+    ],
+  };
+
+  task3: Task = {
+    name: 'All',
+    completed: false,
+    color: 'primary',
+    subtasks: [
+      {name: 'No(Go to Q36)', completed: false, color: 'accent'},
+      {name: 'Yes', completed: false, color: 'accent'},
+      {name: 'Reader', completed: false, color: 'accent'},
+      {name: 'Word Processor/Laptop', completed: false, color: 'accent'},
+      {name: 'Separate room', completed: false, color: 'accent'},
+      {name: 'Rest Breaks', completed: false, color: 'accent'},
+      {name: 'Extra time', completed: false, color: 'accent'},
+      {name: 'Other', completed: false, color: 'accent'},
+      
+    ],
+  };
+  task4: Task = {
+    name: 'All',
+    completed: false,
+    color: 'primary',
+    subtasks: [
+      {name: 'None of these responses apply to me (Go to Next Section- Current Situation)', completed: false, color: 'accent'},
+      {name: 'I had prolonged experiences of absence from school', completed: false, color: 'accent'},
+      {name: 'I had an Education Health Care Plan (EHCP)', completed: false, color: 'accent'},
+      {name: 'I did not attended school regularly', completed: false, color: 'accent'},
+      {name: 'I changed schools more than the expected times', completed: false, color: 'accent'},
+      
     ],
   };
 
