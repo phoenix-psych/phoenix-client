@@ -26,12 +26,21 @@ import { MatCardModule } from '@angular/material/card'
 import { MatTabsModule } from '@angular/material/tabs';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssessmentComponent } from './assessment/assessment.component';
+import { ScreeningComponent } from './screening/screening.component';
+import { Page1Component } from './screening/page1/page1.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { Page2Component } from './screening/page2/page2.component';
 
 @NgModule({
   declarations: [
     IndividualComponent,
     DashboardComponent,
     AssessmentComponent,
+    ScreeningComponent,
+    Page1Component,
+    Page2Component,
   ],
   imports: [
 
@@ -64,6 +73,9 @@ import { AssessmentComponent } from './assessment/assessment.component';
     MatTabsModule,
     MatCardModule ,
     MatToolbarModule,
+    MatStepperModule,
+    MatProgressBarModule,
+    MatExpansionModule,
 
   ]
 })
