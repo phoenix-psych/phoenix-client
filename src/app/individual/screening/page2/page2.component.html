@@ -1,9 +1,10 @@
 <form [formGroup]="form"  (submit)="onSubmit()">
   <p>Visual Disturbance Questionnaire</p>  
-  <div>
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
-        <button mat-button color="primary" matStepperNext>Next</button>
-    </div>
+  <div class="floating-buttons">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+    <button mat-button color="primary" matStepperNext>Next</button>
+</div>
+
 
     <p style="font-weight: bold; color: red;">
       Personal Information

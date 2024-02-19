@@ -1,16 +1,18 @@
 <form [formGroup]="form"  (submit)="onSubmit()">
   <p>Background Information Questionnaire</p>  
-  <div>
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
-        <button mat-button color="primary" matStepperNext>Next</button>
-    </div>
+  <div class="floating-buttons">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+    <button mat-button color="primary" matStepperNext>Next</button>
+</div>
+
 
     <p style="font-weight: bold; color: red;">
       Personal Information
       This section looks at your personal information for the purpose of the report that will be generated at the end of your appointment.
     </p>
        
-    <div class="padded-div">
+    <!-- <div class="padded-div padded-div-blue"> -->
+      <div class="padded-div">
         <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Course name and level (for example, BSc Psychology, MA Architecture). ?
         </mat-label>
@@ -19,7 +21,8 @@
             <mat-error>Full Name is mandatory.</mat-error>
         </mat-form-field>
     </div>
-    <div class="padded-div">
+    <!-- <div class="padded-div padded-div-green"> -->
+      <div class="padded-div">
         <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email Address (University and Personal)?
         </mat-label>

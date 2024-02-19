@@ -1,9 +1,10 @@
 <form [formGroup]="form"  (submit)="onSubmit()">
     <p>ADHD Adult Self-Report Scale V1.1</p>  
-    <div>
-          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
-          <button mat-button color="primary" matStepperNext>Next</button>
-      </div>
+    <div class="floating-buttons">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+      <button mat-button color="primary" matStepperNext>Next</button>
+  </div>
+  
   
       <p style="font-weight: bold; color: red;">
         Please answer the questions below, rating yourself on each of the criteria shown using the scale below each question. Click on the response that best describes how you have felt and conducted yourself over the past 6 months. 
