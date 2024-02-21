@@ -33,6 +33,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { Page2Component } from './screening/page2/page2.component';
 import { Page3Component } from './screening/page3/page3.component';
+import { Page4Component } from './screening/page4/page4.component';
+import { Page5Component } from './screening/page5/page5.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { Page3Component } from './screening/page3/page3.component';
     Page1Component,
     Page2Component,
     Page3Component,
+    Page4Component,
+    Page5Component,
   ],
   imports: [
 

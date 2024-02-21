@@ -1,0 +1,52 @@
+.padded-div {
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  .example-section {
+    margin: 12px 0;
+  }
+  
+  .example-margin {
+    margin: 0 12px;
+  }
+.padded-formcontrol {
+    padding: 5px;
+    display: block;
+  }
+
+  .padded-check {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  .padded-div {
+  margin-bottom: 20px; /* Adds space below the question */
+}
+
+.horizontal-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px; /* Adds space between the question and the answer options */
+}
+
+.horizontal-list li {
+  display: flex;
+  align-items: center; /* Aligns checkbox and text vertically */
+  margin-right: 20px; /* Adds some space between items */
+}
+
+mat-checkbox {
+  margin-right: 5px; /* Adds space between the checkbox and its label text */
+}
+.bold-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+.floating-buttons {
+  position: fixed;
+  bottom: 20px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
