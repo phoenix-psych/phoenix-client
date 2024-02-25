@@ -1397,19 +1397,22 @@ export class Report1Component implements OnInit {
   public generatePDF1() {
     // Get the container element that includes all the pages you want to export
     const element = document.getElementById('content-to-pdf');
-
+    const element1 = document.getElementById('content-to-pdf2');
     // Define options for html2pdf
     const options = {
         margin: 1,
         filename: 'document.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, letterRendering: true, useCORS: true },
+        image: { type: 'jpeg', quality: 1 },
+        // html2canvas: { scale: 2, letterRendering: true, useCORS: true },
+        html2canvas: { letterRendering: true, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
     // Use html2pdf to convert the entire container element
     html2pdf().set(options).from(element).save();
+    // html2pdf().set(options).from(element1).save();
 }
+
   selectedSPLDDesc = '';
   updatedTextSPLDDesc = '';
   dropdownSPLDDesc: Array<any> = [
