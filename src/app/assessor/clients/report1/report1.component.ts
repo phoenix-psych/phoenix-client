@@ -1403,8 +1403,8 @@ export class Report1Component implements OnInit {
         margin: 1,
         filename: 'document.pdf',
         image: { type: 'jpeg', quality: 1 },
-        // html2canvas: { scale: 2, letterRendering: true, useCORS: true },
-        html2canvas: { letterRendering: true, useCORS: true },
+         html2canvas: { scale: 1.8, letterRendering: true, useCORS: true },
+        //html2canvas: { letterRendering: true, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
