@@ -6,6 +6,7 @@ import { ClientDto } from 'src/app/models/common/client.model';
 import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+const html2pdf = require('html2pdf.js');
 
 interface ClientTestsDto 
 {
@@ -1393,7 +1394,22 @@ export class Report1Component implements OnInit {
   
     generatePage(name, 0);
   }
+  public generatePDF1() {
+    // Get the container element that includes all the pages you want to export
+    const element = document.getElementById('content-to-pdf');
 
+    // Define options for html2pdf
+    const options = {
+        margin: 1,
+        filename: 'document.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, letterRendering: true, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    // Use html2pdf to convert the entire container element
+    html2pdf().set(options).from(element).save();
+}
   selectedSPLDDesc = '';
   updatedTextSPLDDesc = '';
   dropdownSPLDDesc: Array<any> = [

@@ -2,10 +2,10 @@
     <span>Report</span>
     <span class="fill-remaining-space"></span>
     <button class ="btn-dialog-close" mat-stroked-button (click)="OnEdit()">{{editText}}</button>
-    <button class ="btn-dialog-close" mat-stroked-button (click)="generatePDF()">Generate PDF</button>
+    <button class ="btn-dialog-close" mat-stroked-button (click)="generatePDF1()">Generate PDF</button>
     <button (click)="this.dialogRef.close()" mat-stroked-button >Close</button>
 </mat-toolbar>
-
+<div id="content-to-pdf">
 <!-- Your HTML content for each page -->
 <div class="page" style="padding: 5%;" id="page1">
     <table style="width:100%;">
@@ -16,7 +16,7 @@
                     <img src="../../../../assets/report/logo1.jpeg" alt="A close up of a logo&#xA;&#xA;Description automatically generated" ></a>
                 </p>
             </td>
-            <td rowspan="2" style="width:30%; padding-right:10pt; padding-left:10pt; vertical-align:top;">
+            <td rowspan="2" style="width:30%; padding-right:10pt; padding-left:5pt; vertical-align:top;">
                 <p style="margin-top:0pt; margin-bottom:0pt; text-align:justify; font-size:12pt">
                     <span style="font-family:'Times New Roman'">Phoenix Psychology Practice Ltd.</span>
                 </p>
@@ -55,7 +55,7 @@
     <p class=MsoNormalCxSpMiddle style='margin-right:12.1pt'><b><span lang=EN-GB
     style='line-height:150%;'>&nbsp;</span></b></p> -->
     
-    <p class=MsoNormalCxSpMiddle align=center style='text-align:center'><b>CONFIDENTIALDIAGNOSTIC
+    <p class=MsoNormalCxSpMiddle align=center style='text-align:center;margin-top:10pt;' ><b>CONFIDENTIALDIAGNOSTIC
     ASSESSMENT REPORT</b></p>
     
     <p class=MsoNormalCxSpMiddle align=center style='margin-top:0cm;margin-right:
@@ -130,7 +130,7 @@
            </table>
     </div>
     
-    <div style="margin: 10%;padding: 10px;">
+    <div style="margin: 5%;padding: 0px;">
         <!-- <p class=MsoNormalCxSpMiddle><b><span lang=EN-GB style='line-height:150%;
             '>&nbsp;</span></b></p> -->
             
@@ -201,9 +201,7 @@
 
 </div>
 
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>1</b></p> -->
-</div>
+
 
 <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page2">
     <p class=MsoNormal style='margin-bottom:5.0pt;line-height:200%'><b><span
@@ -309,11 +307,9 @@
             <p align=center style='text-align:center'><b>2</b></p>
         </div>
     
+  
 </div>
 
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>2</b></p> -->
-</div>
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page3">
     
@@ -531,9 +527,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>4</b></p> -->
-</div>
+
 
 <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;" id="page5">
     
@@ -772,9 +766,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>6</b></p> -->
-</div>
+
 
 <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page7">
     
@@ -980,9 +972,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>8</b></p> -->
-</div>
+
 
 <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page9">
     <h1 align=center style='text-align:center'><a name="_Toc115779168"></a><a
@@ -1152,9 +1142,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>10</b></p> -->
-</div>
+
 
 <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page11">
     <p class=MsoNormal align=center style='text-align:center'><b><u><span
@@ -1395,9 +1383,7 @@
         </div>
     
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>12</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page13">
     
@@ -1638,9 +1624,7 @@
         </div>
     
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>14</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page15">
     
@@ -1884,9 +1868,7 @@
         </div>
     
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>16</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page17">
     
@@ -2124,9 +2106,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>18</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page19">
     
@@ -2268,9 +2248,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>20</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page21">
     
@@ -2534,9 +2512,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>22</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page23">
     
@@ -2771,9 +2747,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>24</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page25">
     
@@ -3128,9 +3102,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>26</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page27">
     
@@ -5190,9 +5162,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>27</b></p> -->
-</div>
+
 
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page28">
     <h3><a name="_Toc115779178"></a><a name="_Appendix_3:_Definitions"></a><span
@@ -5292,9 +5262,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>28</b></p> -->
-</div> 
+
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page29">
     
     <h3><a href="#_Appendix_3:_Definitions"><span lang=EN-GB style='line-height:
@@ -5574,16 +5542,19 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>31</b></p> -->
-</div> 
+
+</div> <!--******************************************************************** -->
+
+<!-- ==================================================================================================================================== -->
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page32">
-    
+    <div>
     <h3><a name="_Toc115779179"></a><a name="_Toc115094665"></a><a
     name="_Toc115094284"></a><a name="_Appendix_4:_"></a><a href="#_Appendix_4:_"><span
     lang=EN-GB style='line-height:150%;color:windowtext;text-decoration:none'>Appendix
     4: </span><span lang=EN-GB style='line-height:150%;color:windowtext;text-decoration:
     none'>Test References and Descriptors</span></a><a name="_Toc149733092"></a></h3>
+    
+
     
     <p class=MsoNoSpacing><span lang=EN-GB style='font-family:"Calibri","sans-serif"'>&nbsp;</span></p>
     
@@ -5612,6 +5583,7 @@
     <p class=MsoNormal style='line-height:normal'><b><span lang=EN-GB>The <i>Test
     of Memory and Learning-Second Edition (TOMAL-2) </i></span></b></p>
     
+
     <p class=MsoNormal style='line-height:normal'><span lang=EN-GB>Reynolds, C.R.,
     and Voress, J. K., (2007) Austin, Texas: Pro-ed Inc. Age range 5:00 – 59:11
     years.</span></p>
@@ -5652,7 +5624,8 @@
     lang=EN-GB>Phoneme Isolation</span></i></b><span lang=EN-GB>the individual is
     presented with a word and is required to isolate one sound or phoneme in the
     word.</span></p>
-    
+   
+   
     <h5><span lang=EN-GB><span style='text-decoration:none'>&nbsp;</span></span></h5>
     
     <p class=MsoNormal style='line-height:normal'><span lang=EN-GB
@@ -5679,22 +5652,52 @@
     <p class=MsoNormal style='line-height:normal'><b><i><span lang=EN-GB>Rapid
     Symbolic Naming </span></i></b></p>
     
+
     <p class=MsoNormal><i><span lang=EN-GB style='line-height:150%'>These </span></i><span
     lang=EN-GB style='line-height:150%'>tests assess the ability to retrieve known
     words from long term or permanent memory and articulate them fluently. There
     are two subtests, <i>Rapid Digit Naming </i>and <i>Rapid Letter Naming</i> both
     of which measure the ability to name random sequences of numbers and letters. </span></p>
-    
+
     <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
 
-    <!-- <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page33"> -->
-    
+   
     <h2 style='margin-bottom:0cm;margin-bottom:.0001pt'><u>Reading</u></h2>
     
     <p class=MsoNormal style='line-height:normal'><b><span lang=EN-GB>The <i>Word
     Reading</i> subtest from the <i>Wide Range Achievement Test, Fifth Edition
     (WRAT5)</i></span></b></p>
     
+    <p class=MsoNormal style='line-height:normal'><a name="_Hlk108092880"><span
+    lang=EN-GB>Wilkinson, G. S. and Robertson, G. J. (2017) Bloomington, Minnesota:
+    Wide Range, Inc. Age range 5:00 – 85+ years. Green form.</span></a></p>
+    
+    <p class=MsoNormal style='line-height:normal'><span lang=EN-GB>A standardised
+    test of single word reading out of context, which increases in difficulty as
+    the subtest progresses. It is </span>a test of accuracy in reading single
+    words, <span lang=EN-GB>measuring word recognition and also for most people,
+    includes an element of word decoding. </span></p>
+
+    <p class=MsoNormal><span lang=EN-GB style='line-height:150%'>&nbsp;</span></p>
+
+   
+    <h2 style='margin-bottom:0cm;margin-bottom:.0001pt'><u>Reading</u></h2>
+    
+    <p class=MsoNormal style='line-height:normal'><b><span lang=EN-GB>The <i>Word
+    Reading</i> subtest from the <i>Wide Range Achievement Test, Fifth Edition
+    (WRAT5)</i></span></b></p>
+
+
+
+
+
+
+
+
+
+
+<div>
+      
     <p class=MsoNormal style='line-height:normal'><a name="_Hlk108092880"><span
     lang=EN-GB>Wilkinson, G. S. and Robertson, G. J. (2017) Bloomington, Minnesota:
     Wide Range, Inc. Age range 5:00 – 85+ years. Green form.</span></a></p>
@@ -5776,10 +5779,15 @@
         <p align=center style='text-align:center'><b>18</b></p>
     </div>
 
+
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>33</b></p> -->
-</div> 
+
+
+</div>
+</div>
+
+
+
 <div class="page" style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page34">
     
     <p class=MsoNormal><b><span lang=EN-GB style='font-size:10.0pt;line-height:
@@ -5926,9 +5934,7 @@
     </div>
 
 </div>
-<div name="1" style="border-bottom:0.50pt solid red; padding-top: 10px;padding-bottom: 10px;">
-    <!-- <p align=center style='text-align:center'><b>35</b></p> -->
-</div> 
+ 
 
 <!-- <div  id="invoice" #invoice style="padding: 10px;">
     <div class=Section1>
