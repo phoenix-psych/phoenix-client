@@ -16,12 +16,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingService } from './loading.service';
 import { LoadingInterceptor } from './loading.interceptor';
 import { SpashScreenComponent } from './spash-screen/spash-screen.component';
+import { ChartComponentComponent } from './chart-component/chart-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfirmDialogComponent,
     SpashScreenComponent,
+    ChartComponentComponent,
   ],
   imports: [
     BrowserModule,
