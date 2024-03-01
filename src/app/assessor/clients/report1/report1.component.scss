@@ -8,4 +8,57 @@ div {
     flex: 1 1 auto;
     }
 
-    
+    .chart-container {
+      display: grid;
+      /* Increase the grid-template-columns size for the y-axis to better accommodate longer text */
+      grid-template-columns: auto auto; /* Adjust this value to fit the longest label */
+      gap: 20px; /* Increase gap for better separation */
+      width: 90%; /* Adjust width as needed */
+      margin: 30px auto;
+  }
+
+  .y-axis {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: right;
+      padding-right: 10px;
+  }
+
+  .x-axis {
+      grid-column: 2 / 3; /* Ensure x-axis only spans under the bars */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+  }
+
+  .bar-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+  }
+
+  .bar {
+      height: 20px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+  }
+
+  .bar:last-child {
+      margin-bottom: 0;
+  }
+
+  /* Unique colors for each bar */
+  .bar1 { background-color: #4CAF50; }
+  .bar2 { background-color: #FF5722; }
+  .bar3 { background-color: #2196F3; }
+  .bar4 { background-color: #9C27B0; }
+  .bar5 { background-color: #E91E63; }
+  .bar6 { background-color: #3F51B5; }
+  .bar7 { background-color: #00BCD4; }
+  .bar8 { background-color: #009688; }
+  .bar9 { background-color: #8BC34A; }
+  .bar10 { background-color: #FFEB3B; }
+  .bar11 { background-color: #FFC107; }
