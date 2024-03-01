@@ -1399,9 +1399,10 @@ export class Report1Component implements OnInit {
     const element = document.getElementById('content-to-pdf');
     const element1 = document.getElementById('content-to-pdf2');
     // Define options for html2pdf
+    const name = this.data.name;
     const options = {
         margin: 1,
-        filename: 'document.pdf',
+        filename: name+'.pdf',
         image: { type: 'jpeg', quality: 1 },
          html2canvas: { scale: 1.6, letterRendering: true, useCORS: true },
         //html2canvas: { letterRendering: true, useCORS: true },
