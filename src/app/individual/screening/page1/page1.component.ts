@@ -80,9 +80,10 @@ export class Page1Component implements OnInit {
   selectedValue4!: string;
   selectedValue5!: string;
   selectedValue6!: string;
-  other1!: string;
-  other6!: string;
 
+  other1!: string;
+  
+  other6!: string;
   other7!: string;
 
 
@@ -148,9 +149,6 @@ export class Page1Component implements OnInit {
   allComplete: boolean = false;
 
   ngOnInit() {
-
-    
-
     // this.http.get<AssessorAnswer>(this.baseUrl + 'assessor/answer?page='+ 1 + '', this.setHeader()).subscribe({
     //   next: (x) =>{
     //     this.form = this.formBuilder.group(x);
@@ -222,12 +220,7 @@ export class Page1Component implements OnInit {
   }
 
   updateTask2Node(type: string) {
-    //this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
-    if (this.task2.subtasks == null) {
-      return;
-    }
-    this.task2.subtasks.filter(x=>x.name == type).forEach(t => (t.completed = !t.completed));
-    this.patchAnswer3();
+    
   }
 
   // someComplete(): boolean {
@@ -245,24 +238,6 @@ export class Page1Component implements OnInit {
   //   }
   //   this.task.subtasks.forEach(t => (t.completed = completed));
   // }
-
-  patchAnswer1(){
-    // if(this.form)
-    // {
-    //   this.form.patchValue({
-    //     answer1: this.task.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')
-    //   });
-    // }
-  }
-
-  patchAnswer3(){
-    // if(this.form)
-    // {
-    //   this.form.patchValue({
-    //     answer3: this.task2.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')
-    //   });
-    // }
-  }
 
   onSubmit() {
     if (this.form.valid) {
