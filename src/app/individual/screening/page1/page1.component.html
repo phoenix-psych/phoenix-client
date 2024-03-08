@@ -1,148 +1,130 @@
 <form [formGroup]="form"  (submit)="onSubmit()">
   <p>Background Information Questionnaire</p>  
   <div class="floating-buttons">
-    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
     <button mat-button color="primary" matStepperNext>Next</button>
-</div>
+  </div>
 
-
-    <p style="font-weight: bold; color: red;">
-      Personal Information
-      This section looks at your personal information for the purpose of the report that will be generated at the end of your appointment.
-    </p>
+  <p style="font-weight: bold; color: red;">
+    Personal Information
+    This section looks at your personal information for the purpose of the report that will be generated at the end of your appointment.
+  </p>
        
-    <!-- <div class="padded-div padded-div-blue"> -->
-      <div class="padded-div">
-        <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q1: Course name and level (for example, BSc Psychology, MA Architecture). ?
-        </mat-label>
-        <mat-form-field class="padded-formcontrol" appearance="outline">
-            <input matInput formControlName="q1">
-            <mat-error>Course name and level is mandatory.</mat-error>
-        </mat-form-field>
-    </div>
-    <!-- <div class="padded-div padded-div-green"> -->
-      <div class="padded-div">
-        <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q2: Email Address (University and Personal)?
-        </mat-label>
-        <mat-form-field class="padded-formcontrol" appearance="outline">
-            <input matInput formControlName="q2">
-            <mat-error>Full Name is mandatory.</mat-error>
-        </mat-form-field>
-    </div>
-    <div class="padded-div" >
-      <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q3: Course start and end date (Month and Years to and from for example Sept 2023- Sept 2026)?
-      </mat-label>
-      <mat-form-field class="padded-formcontrol" appearance="outline">
-          <input matInput formControlName="q">
-          <mat-error>Full Name is mandatory.</mat-error>
-      </mat-form-field>
+  <div class="padded-div">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q1: Course name and level (for example, BSc Psychology, MA Architecture). ?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q1">
+        <mat-error>Course name and level is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q2: Email Address (University and Personal)?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q2">
+        <mat-error>Email Address (University and Personal) is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div" >
+    <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q3: Course start and end date (Month and Years to and from for example Sept 2023- Sept 2026)?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q3">
+        <mat-error>Course start and end date is mandatory.</mat-error>
+    </mat-form-field>
   </div>
   <div class="padded-div">
     <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q4: Are you a UK, EU or Overseas student?
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-        <input matInput formControlName="q">
+        <input matInput formControlName="q4">
+        <mat-error>Field is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q5: Please let us know why you have requested an assessment and 
+        what it is that you expect from having an assessment (for example have you or are you experiencing 
+        difficulties around attention, coordination that are impacting your studies and everyday life?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q5">
+        <mat-error>Field mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q6: Do you find that you procrastinate when needing to complete a task tht requires you to pay atttention for long periods (essay writing, reading journals and articles for example)?:</mat-label>
+    <span class="example-list-section">
+        <ul>
+          <li *ngFor="let subtask of task1.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask1Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              <mat-form-field *ngIf="subtask.name == 'Other'">
+                <input matInput placeholder="Other" [(ngModel)]="other1" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            </mat-checkbox>
+          </li>
+        </ul>
+    </span>
+  </div>
+    
+    
+  <p style="font-weight: bold; color: red;">
+    Developmental History - Speech and Language
+  </p>
+    
+  <p>This section asks questions about any speech and language difficulties experienced in childhood and adulthood.</p>
+
+  <div class="padded-div">
+    <mat-label matBadge="5" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q7: Were you late in learning to talk? (If 'Yes' please comment).
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q7">
         <mat-error>Full Name is mandatory.</mat-error>
     </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q5: Please let us know why you have requested an assessment and 
-      what it is that you expect from having an assessment (for example have you or are you experiencing 
-      difficulties around attention, coordination that are impacting your studies and everyday life?
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q6: Do you find that you procrastinate when needing to complete a task tht requires you to pay atttention for long periods (essay writing, reading journals and articles for example)?:</mat-label>
-  <span class="example-list-section">
-      <ul>
-        <li *ngFor="let subtask of task.subtasks">
-          <mat-checkbox [checked]="subtask.completed"
-                        [color]="subtask.color"
-                        (change)="updateTask2Node(subtask.name)">
-            <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-            <mat-form-field *ngIf="subtask.name == 'Other'">
-              <input matInput placeholder="Other">
-          </mat-form-field>
-          </mat-checkbox>
-        </li>
-      </ul>
-  </span>
-  <!-- <mat-checkbox-group [(ngModel)]="selectedValue4" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="6" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q8: Did you have speech therapy or help at school ro develop spoken language? (If 'Yes' please comment.
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q8">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="7" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9: Are you confident to express your ideas fluently now when speaking or giving presentations? Please comment.
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q9">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <p style="font-weight: bold; color: red;">
+    Physical development
+  </p>
+  
+  <p>This section looks at physical development in childhood and adulthood. If you have already completed a Developmental Coordination Disorder or Dyspraxia screener with your university please go to the next section </p>
 
-  </mat-checkbox-group>
-  <section>
-      <mat-checkbox value="PATOSS"  class="padded-check">PATOSS</mat-checkbox>
-      <mat-checkbox  value="BDA" class="padded-check">BDA</mat-checkbox>
-      <mat-checkbox  value="Dyslexia Guild" class="padded-check">Dyslexia Guild</mat-checkbox>
-      <mat-checkbox  value="SASC" class="padded-check">SASC</mat-checkbox>
-      <mat-checkbox  value="British Psychological Society" class="padded-check">British Psychological Society</mat-checkbox>
-      <mat-checkbox  value="Other" class="padded-check">
-          <mat-form-field>
-              <input matInput placeholder="Other">
-          </mat-form-field>
-      </mat-checkbox>
-  </section> -->
-</div>
-    
-    
-    <p style="font-weight: bold; color: red;">
-      Developmental History - Speech and Language
-    </p>
-   
-    <p>This section asks questions about any speech and language difficulties experienced in childhood and adulthood.</p>
-
-    <div class="padded-div">
-      <mat-label matBadge="5" matBadgePosition="before" matBadgeColor="accent">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q7: Were you late in learning to talk? (If 'Yes' please comment).
-      </mat-label>
-      <mat-form-field class="padded-formcontrol" appearance="outline">
-          <input matInput formControlName="q">
-          <mat-error>Full Name is mandatory.</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="padded-div">
-      <mat-label matBadge="6" matBadgePosition="before" matBadgeColor="accent">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q8: Did you have speech therapy or help at school ro develop spoken language? (If 'Yes' please comment.
-      </mat-label>
-      <mat-form-field class="padded-formcontrol" appearance="outline">
-          <input matInput formControlName="q">
-          <mat-error>Full Name is mandatory.</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="padded-div">
-      <mat-label matBadge="7" matBadgePosition="before" matBadgeColor="accent">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9: Are you confident to express your ideas fluently now when speaking or giving presentations? Please comment.
-      </mat-label>
-      <mat-form-field class="padded-formcontrol" appearance="outline">
-          <input matInput formControlName="q">
-          <mat-error>Full Name is mandatory.</mat-error>
-      </mat-form-field>
-    </div>
-    <p style="font-weight: bold; color: red;">
-      Physical development
-    </p>
-   
-    <p>This section looks at physical development in childhood and adulthood. If you have already completed a Developmental Coordination Disorder or Dyspraxia screener with your university please go to the next section </p>
-
-    <div class="padded-div">
-      <mat-label matBadge="8" matBadgePosition="before" matBadgeColor="accent">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q10: Have any of your family been diagnosed with a specific learning difference such as Dyslexia, Dyspraxia, ADHD or Autism?
-      </mat-label>
-      <section class="example-section">
-          <mat-radio-group formControlName="q10">
-            <mat-radio-button class="example-margin" value="True">True</mat-radio-button>
-            <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
-          </mat-radio-group>
-      </section>
+  <div class="padded-div">
+    <mat-label matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q10: Have any of your family been diagnosed with a specific learning difference such as Dyslexia, Dyspraxia, ADHD or Autism?
+    </mat-label>
+    <section class="example-section">
+        <mat-radio-group formControlName="q10">
+          <mat-radio-button class="example-margin" value="True">True</mat-radio-button>
+          <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
+        </mat-radio-group>
+    </section>
   </div>
   <div class="padded-div">
     <mat-label matBadge="9" matBadgePosition="before" matBadgeColor="accent">
@@ -154,39 +136,39 @@
           <mat-radio-button class="example-margin" value="False">False</mat-radio-button>
         </mat-radio-group>
     </section>
-</div>
-<p style="font-weight: bold; color: red;">
+  </div>
+  <p style="font-weight: bold; color: red;">
   Social and Communication difficulites
-</p>
+  </p>
 
-<p>In this section we explore any social and communication difficulites that you may have experienced as a child or in adulhood. If you have already completed a screener with your university looking at this then please move on to the next section.</p>
+  <p>In this section we explore any social and communication difficulites that you may have experienced as a child or in adulhood. If you have already completed a screener with your university looking at this then please move on to the next section.</p>
 
-<div class="padded-div">
-  <mat-label matBadge="10" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q12: Have you experienced social and communication difficulties as a child, for example, finding it difficult to make friends, not understanding social cues? If 'Yes' please comment.
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q12">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
+  <div class="padded-div">
+    <mat-label matBadge="10" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q12: Have you experienced social and communication difficulties as a child, for example, finding it difficult to make friends, not understanding social cues? If 'Yes' please comment.
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q12">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
 
-<div class="padded-div">
-  <mat-label matBadge="11" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q13: Do you find social interaction as an adult difficult or easy? (If 'Yes' Please comment)
+  <div class="padded-div">
+    <mat-label matBadge="11" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q13: Do you find social interaction as an adult difficult or easy? (If 'Yes' Please comment)
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q13">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q13">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
 
-<p style="font-weight: bold; color: red;">
+  <p style="font-weight: bold; color: red;">
   Attention and Memory
-</p>
+  </p>
 
-<p>In this section we will explore your experiences around attention and concentration in adulthood. 
+  <p>In this section we will explore your experiences around attention and concentration in adulthood. 
 
   If you have already completed an ADHD screener with your then please move on to the next section that applies to you.</p>
 
@@ -195,7 +177,7 @@
       Q14: How would you rate your ability to pay attention and focus in lectures in your current studies? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating"  formControlName="q14">
+      <mat-select matInput placeholder="Select your rating">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -210,7 +192,7 @@
       Q15: How would you rate your ability to stay focused when completing academic work ouside of lectures? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating"  formControlName="q15">
+      <mat-select matInput placeholder="Select your rating">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -237,391 +219,389 @@
         </ul>
     </span>
     
-</div>
+  </div>
 
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q17: How would you rate your ability to pay attention when people are speaking directly to you? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q17">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q18: Please give examples of challenges that you experience in your academic studies and everyday life related to attention and concentration.
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q17: How would you rate your ability to pay attention when people are speaking directly to you? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q18: Please give examples of challenges that you experience in your academic studies and everyday life related to attention and concentration.
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q18">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q18">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
 
 
-<p style="font-weight: bold; color: red;">
+  <p style="font-weight: bold; color: red;">
   Linguistic History - English as an Additional Language
-</p>
+  </p>
 
-<p>This section is specifically for individuals that have English as a second language and information given here will help the assessor to understand the impact of a second language on your current studies. </p>
+  <p>This section is specifically for individuals that have English as a second language and information given here will help the assessor to understand the impact of a second language on your current studies. </p>
 
 
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q19: Have you always lived in the United Kingdom?
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q19: Have you always lived in the United Kingdom?
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q19">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q20: If not which other countries have you lived in?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q19">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q20: If not which other countries have you lived in?
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q20">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q21: Is English the language that you speak everyday at home, with your family or at university with your friends?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q20">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q21: Is English the language that you speak everyday at home, with your family or at university with your friends?
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q21">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q22: Which language do you think of as your dominant language?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q21">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q22: Which language do you think of as your dominant language?
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q22">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q23: Which other language do you regulalry speak?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q22">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q23: Which other language do you regulalry speak?
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q23">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q23">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
 
-<p style="font-weight: bold; color: red;">
+  <p style="font-weight: bold; color: red;">
   Education History (Mandatory)
-</p>
+  </p>
 
-<p>In this section we explore your experiences and adademic strengths and strategies you used at school and college. </p>
+  <p>In this section we explore your experiences and adademic strengths and strategies you used at school and college. </p>
 
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q24: How would you rate your experience of school and college? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating" formControlName="q24">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q25: What were your favourite subjects at school and which did you like the least?
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q24: How would you rate your experience of school and college? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q25: What were your favourite subjects at school and which did you like the least?
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q25">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q26: Did you receive any learning support at school? If so for which areas?
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q25">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q26: Did you receive any learning support at school? If so for which areas?
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q26">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q27: How did you find learning to read  and understand what you were reading at school? 
-
-
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q27">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q28: How easy did you find it to handwrite at school? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q28">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q29: How did you find learning to spell? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q29">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q30: How easy did you find it to develop numeracy skills at shool? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q30">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q31: Please add any comments around strategies and difficulties around reading, writing, spelling and comprehension at school and college 
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q26">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q27: How did you find learning to read  and understand what you were reading at school? 
 
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q31">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="14" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q32: Do you find that you procrastinate when needing to complete a task tht requires you to pay atttention for long periods (essay writing, reading journals and articles for example)?:</mat-label>
-  <span class="example-list-section">
-      <ul>
-        <li *ngFor="let subtask of task3.subtasks">
-          <mat-checkbox [checked]="subtask.completed"
-                        [color]="subtask.color"
-                        (change)="updateTask2Node(subtask.name)">
-            <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-            <mat-form-field *ngIf="subtask.name == 'Other'">
-              <input matInput placeholder="Other">
-          </mat-form-field>
-          </mat-checkbox>
-        </li>
-      </ul>
-  </span>
-  
-</div>
-<div class="padded-div">
-  <mat-label matBadge="14" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q33: Do you find that you procrastinate when needing to complete a task tht requires you to pay atttention for long periods (essay writing, reading journals and articles for example)?:</mat-label>
-  <span class="example-list-section">
-      <ul>
-        <li *ngFor="let subtask of task4.subtasks">
-          <mat-checkbox [checked]="subtask.completed"
-                        [color]="subtask.color"
-                        (change)="updateTask2Node(subtask.name)">
-            <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-            <mat-form-field *ngIf="subtask.name == 'Other'">
-              <input matInput placeholder="Other">
-          </mat-form-field>
-          </mat-checkbox>
-        </li>
-      </ul>
-  </span>
-  
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q34: If you selected any of the responses to Question 35, were these arrangements useful to you? Please give details
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q27">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q28: How easy did you find it to handwrite at school? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q29: How did you find learning to spell? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q30: How easy did you find it to develop numeracy skills at shool? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q31: Please add any comments around strategies and difficulties around reading, writing, spelling and comprehension at school and college 
 
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q34">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q35: Please use this space to add any more information about school and college that may help the assessor to gain a full picture of your experiences, strengths and challenges. 
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q31">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="14" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q32: Do you find that you procrastinate when needing to complete a task tht requires you to pay atttention for long periods (essay writing, reading journals and articles for example)?:</mat-label>
+    <span class="example-list-section">
+        <ul>
+          <li *ngFor="let subtask of task3.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              <mat-form-field *ngIf="subtask.name == 'Other'">
+                <input matInput placeholder="Other">
+            </mat-form-field>
+            </mat-checkbox>
+          </li>
+        </ul>
+    </span>
+
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="14" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q33: Do you find that you procrastinate when needing to complete a task tht requires you to pay atttention for long periods (essay writing, reading journals and articles for example)?:</mat-label>
+    <span class="example-list-section">
+        <ul>
+          <li *ngFor="let subtask of task4.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              <mat-form-field *ngIf="subtask.name == 'Other'">
+                <input matInput placeholder="Other">
+            </mat-form-field>
+            </mat-checkbox>
+          </li>
+        </ul>
+    </span>
+
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q34: If you selected any of the responses to Question 35, were these arrangements useful to you? Please give details
 
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q35">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q34">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q35: Please use this space to add any more information about school and college that may help the assessor to gain a full picture of your experiences, strengths and challenges. 
 
-<p style="font-weight: bold; color: red;">
+
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q35">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+
+  <p style="font-weight: bold; color: red;">
   Current Situation (Mandatory)
-</p>
+  </p>
 
-<p>In this section we explore your experiences and adademic strengths and strategies you used at school and college. </p>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q36: How would you summarise your strengths both academically and personally? 
-
-
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q36">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
+  <p>In this section we explore your experiences and adademic strengths and strategies you used at school and college. </p>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q36: How would you summarise your strengths both academically and personally? 
 
 
-
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q37: How would you rate your effectiveness when reading and understanding text in your studies? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q37">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q38: How would you rate your effectiveness when spelling?  (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q38">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q39: How would you rate your effectiveness when writing essays and handwriting in your current studies? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q39">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q40: How would you rate your effectiveness with using a laptop to complete notes or essays in your current studies? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q40">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q41: Please add comments around your strengths, strategies and difficulites experienced with academic reading, writing and spelling/proofreading in your current studies. 
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q36">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
 
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q41">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q42: How would you rate your numeracy skills? (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q42">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
-    Q43: How would you rate your planning and organisational skills, both academically and personally. (1 being the lowest, 5 being the highest)
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-    <mat-select matInput placeholder="Select your rating"  formControlName="q43">
-      <mat-option value="1">1</mat-option>
-      <mat-option value="2">2</mat-option>
-      <mat-option value="3">3</mat-option>
-      <mat-option value="4">4</mat-option>
-      <mat-option value="5">5</mat-option>
-    </mat-select>
-    <mat-error>Rating is mandatory.</mat-error>
-  </mat-form-field>
-</div>
-<div class="padded-div">
-  <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q44: Please add comments around your strengths, strategies and difficulites with planning and organisation skills in your current studies and everyday life 
+
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q37: How would you rate your effectiveness when reading and understanding text in your studies? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q38: How would you rate your effectiveness when spelling?  (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q39: How would you rate your effectiveness when writing essays and handwriting in your current studies? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q40: How would you rate your effectiveness with using a laptop to complete notes or essays in your current studies? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q41: Please add comments around your strengths, strategies and difficulites experienced with academic reading, writing and spelling/proofreading in your current studies. 
 
 
-  </mat-label>
-  <mat-form-field class="padded-formcontrol" appearance="outline">
-      <input matInput formControlName="q44">
-      <mat-error>Full Name is mandatory.</mat-error>
-  </mat-form-field>
-</div>
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q41">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q42: How would you rate your numeracy skills? (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="15" matBadgePosition="before" matBadgeColor="accent">
+      Q43: How would you rate your planning and organisational skills, both academically and personally. (1 being the lowest, 5 being the highest)
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+      <mat-select matInput placeholder="Select your rating">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+        <mat-option value="4">4</mat-option>
+        <mat-option value="5">5</mat-option>
+      </mat-select>
+      <mat-error>Rating is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q44: Please add comments around your strengths, strategies and difficulites with planning and organisation skills in your current studies and everyday life 
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput formControlName="q44">
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
 
 
 </form>

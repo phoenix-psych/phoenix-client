@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { AssessorAnswer } from 'src/app/models/assessor-answer.model';
 import { NotifyService } from 'src/app/shared/notify.service';
@@ -23,20 +23,71 @@ export interface Task {
 export class Page1Component implements OnInit {
 
   private baseUrl:string = environment.baseApiUrl 
-  form!:FormGroup
+  form:FormGroup
   
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private notificationService: NotifyService) {
+
+    this.form = this.formBuilder.group({
+      q1: ['', Validators.required],
+      q2: ['', Validators.required],
+      q3: ['', Validators.required],
+      q4: ['', Validators.required],
+      q5: ['', Validators.required],
+      q6: ['', Validators.required],
+      q7: ['', Validators.required],
+      q8: ['', Validators.required],
+      q9: ['', Validators.required],
+      q10: ['', Validators.required],
+      q11: ['', Validators.required],
+      q12: ['', Validators.required],
+      q13: ['', Validators.required],
+      q14: ['', Validators.required],
+      q15: ['', Validators.required],
+      q16: ['', Validators.required],
+      q17: ['', Validators.required],
+      q18: ['', Validators.required],
+      q19: ['', Validators.required],
+      q20: ['', Validators.required],
+      q21: ['', Validators.required],
+      q22: ['', Validators.required],
+      q23: ['', Validators.required],
+      q24: ['', Validators.required],
+      q25: ['', Validators.required],
+      q26: ['', Validators.required],
+      q27: ['', Validators.required],
+      q28: ['', Validators.required],
+      q29: ['', Validators.required],
+      q30: ['', Validators.required],
+      q31: ['', Validators.required],
+      q32: ['', Validators.required],
+      q33: ['', Validators.required],
+      q34: ['', Validators.required],
+      q35: ['', Validators.required],
+      q36: ['', Validators.required],
+      q37: ['', Validators.required],
+      q38: ['', Validators.required],
+      q39: ['', Validators.required],
+      q40: ['', Validators.required],
+      q41: ['', Validators.required],
+      q42: ['', Validators.required],
+      q43: ['', Validators.required],
+      q44: ['', Validators.required],
+
+    });
   }
 
   selectedValue2!: string;
   selectedValue4!: string;
   selectedValue5!: string;
   selectedValue6!: string;
+  other1!: string;
   other6!: string;
+
   other7!: string;
 
+
   // multi select 
-  task: Task = {
+  task1: Task = {
     name: 'All',
     completed: false,
     color: 'primary',
@@ -98,121 +149,76 @@ export class Page1Component implements OnInit {
 
   ngOnInit() {
 
-    this.form = this.formBuilder.group({
-      q1: ['', Validators.required],
-      q2: ['', Validators.required],
-      q3: ['', Validators.required],
-      q4: ['', Validators.required],
-      q5: ['', Validators.required],
-      q6: ['', Validators.required],
-      q7: ['', Validators.required],
-      q8: ['', Validators.required],
-      q9: ['', Validators.required],
-      q10: ['', Validators.required],
-      q11: ['', Validators.required],
-      q12: ['', Validators.required],
-      q13: ['', Validators.required],
-      q14: ['', Validators.required],
-      q15: ['', Validators.required],
-      q16: ['', Validators.required],
-      q17: ['', Validators.required],
-      q18: ['', Validators.required],
-      q19: ['', Validators.required],
-      q20: ['', Validators.required],
-      q21: ['', Validators.required],
-      q22: ['', Validators.required],
-      q23: ['', Validators.required],
-      q24: ['', Validators.required],
-      q25: ['', Validators.required],
-      q26: ['', Validators.required],
-      q27: ['', Validators.required],
-      q28: ['', Validators.required],
-      q29: ['', Validators.required],
-      q30: ['', Validators.required],
-      q31: ['', Validators.required],
-      q32: ['', Validators.required],
-      q33: ['', Validators.required],
-      q34: ['', Validators.required],
-      q35: ['', Validators.required],
-      q36: ['', Validators.required],
-      q37: ['', Validators.required],
-      q38: ['', Validators.required],
-      q39: ['', Validators.required],
-      q40: ['', Validators.required],
-      q41: ['', Validators.required],
-      q42: ['', Validators.required],
-      q43: ['', Validators.required],
-      q44: ['', Validators.required],
+    
 
-    });
+    // this.http.get<AssessorAnswer>(this.baseUrl + 'assessor/answer?page='+ 1 + '', this.setHeader()).subscribe({
+    //   next: (x) =>{
+    //     this.form = this.formBuilder.group(x);
+    //     this.selectedValue2 = this.form.get('answer2')?.value;
+    //     let answer1  = this.form.get('answer1')?.value;
+    //     var splitted = answer1.split(","); 
+    //     if (this.task.subtasks != null) {
+    //       this.task.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+    //     }
 
-    this.http.get<AssessorAnswer>(this.baseUrl + 'assessor/answer?page='+ 1 + '', this.setHeader()).subscribe({
-      next: (x) =>{
-        this.form = this.formBuilder.group(x);
-        this.selectedValue2 = this.form.get('answer2')?.value;
-        let answer1  = this.form.get('answer1')?.value;
-        var splitted = answer1.split(","); 
-        if (this.task.subtasks != null) {
-          this.task.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
-        }
-
-        console.log(x);
-      },
-      error: (msg)=> {
-        console.log(msg);
-      }
-    });
+    //     console.log(x);
+    //   },
+    //   error: (msg)=> {
+    //     console.log(msg);
+    //   }
+    // });
   }
 
   onRadioChange2(event: string) {
-    if (this.form)
-    {
-      this.form.patchValue({
-        answer2:event
-      });
-    }
+    // if (this.form)
+    // {
+    //   this.form.patchValue({
+    //     answer2:event
+    //   });
+    // }
 
-    if(event == 'true'){
-      this.form.get('answer3')?.addValidators(Validators.required);               
-      this.form.get('answer3')?.updateValueAndValidity();              
-      this.form.get('answer4')?.addValidators(Validators.required);     
-      this.form.get('answer4')?.updateValueAndValidity();              
-      this.form.get('answer5')?.addValidators(Validators.required);           
-      this.form.get('answer5')?.updateValueAndValidity();                    
-      this.form.get('answer6')?.addValidators(Validators.required);           
-      this.form.get('answer6')?.updateValueAndValidity();                    
-      this.form.get('answer7')?.addValidators(Validators.required);          
-      this.form.get('answer7')?.updateValueAndValidity();                     
-    } else {                
-      this.form.get('answer3')?.clearValidators();        
-      this.form.get('answer3')?.updateValueAndValidity();              
-      this.form.get('answer4')?.clearValidators();             
-      this.form.get('answer4')?.updateValueAndValidity();            
-      this.form.get('answer5')?.clearValidators();             
-      this.form.get('answer5')?.updateValueAndValidity();            
-      this.form.get('answer6')?.clearValidators();              
-      this.form.get('answer6')?.updateValueAndValidity();           
-      this.form.get('answer7')?.clearValidators();               
-      this.form.get('answer7')?.updateValueAndValidity();          
-    }
+    // if(event == 'true'){
+    //   this.form.get('answer3')?.addValidators(Validators.required);               
+    //   this.form.get('answer3')?.updateValueAndValidity();              
+    //   this.form.get('answer4')?.addValidators(Validators.required);     
+    //   this.form.get('answer4')?.updateValueAndValidity();              
+    //   this.form.get('answer5')?.addValidators(Validators.required);           
+    //   this.form.get('answer5')?.updateValueAndValidity();                    
+    //   this.form.get('answer6')?.addValidators(Validators.required);           
+    //   this.form.get('answer6')?.updateValueAndValidity();                    
+    //   this.form.get('answer7')?.addValidators(Validators.required);          
+    //   this.form.get('answer7')?.updateValueAndValidity();                     
+    // } else {                
+    //   this.form.get('answer3')?.clearValidators();        
+    //   this.form.get('answer3')?.updateValueAndValidity();              
+    //   this.form.get('answer4')?.clearValidators();             
+    //   this.form.get('answer4')?.updateValueAndValidity();            
+    //   this.form.get('answer5')?.clearValidators();             
+    //   this.form.get('answer5')?.updateValueAndValidity();            
+    //   this.form.get('answer6')?.clearValidators();              
+    //   this.form.get('answer6')?.updateValueAndValidity();           
+    //   this.form.get('answer7')?.clearValidators();               
+    //   this.form.get('answer7')?.updateValueAndValidity();          
+    // }
   }
 
   onRadioChange6() {
-    if (this.form && this.selectedValue6)
-    {
-      this.form.patchValue({
-        answer6: this.selectedValue6 === "Other" ? this.other6 : this.selectedValue6
-      });
-    }
+    // if (this.form && this.selectedValue6)
+    // {
+    //   this.form.patchValue({
+    //     answer6: this.selectedValue6 === "Other" ? this.other6 : this.selectedValue6
+    //   });
+    // }
   }
 
   updateTask1Node(type: string) {
-    //this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
-    if (this.task.subtasks == null) {
+    if (this.task1.subtasks == null) {
       return;
     }
-    this.task.subtasks.filter(x=>x.name == type).forEach(t => (t.completed = !t.completed));
-    this.patchAnswer1();
+    this.task1.subtasks.filter(x=>x.name == type).forEach(t => (t.completed = !t.completed));
+    this.form.patchValue({
+      q6: `${this.task1.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')}:${this.other1}`
+    });
   }
 
   updateTask2Node(type: string) {
@@ -241,30 +247,29 @@ export class Page1Component implements OnInit {
   // }
 
   patchAnswer1(){
-    if(this.form)
-    {
-      this.form.patchValue({
-        answer1: this.task.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')
-      });
-    }
+    // if(this.form)
+    // {
+    //   this.form.patchValue({
+    //     answer1: this.task.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')
+    //   });
+    // }
   }
 
   patchAnswer3(){
-    if(this.form)
-    {
-      this.form.patchValue({
-        answer3: this.task2.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')
-      });
-    }
+    // if(this.form)
+    // {
+    //   this.form.patchValue({
+    //     answer3: this.task2.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')
+    //   });
+    // }
   }
 
   onSubmit() {
     if (this.form.valid) {
-      this.form.patchValue({
-      });
+      // this.form.patchValue({
+      // });
 
-      //var jsonString = JSON.parse( JSON.stringify(this.form.value));
-      this.http.post(this.baseUrl + 'assessor/answer?page='+ 1 + '', this.form.value, this.setHeader()).subscribe({
+      this.http.post(this.baseUrl + 'individual/{studentId}/form/'+ 1 + '', this.form.value, this.setHeader()).subscribe({
         next: (x) =>{
           console.log(x);
         },

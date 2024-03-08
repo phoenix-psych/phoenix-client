@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { IndividualRoutingModule } from './individual-routing.module';
 import { IndividualComponent } from './individual.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -53,6 +53,7 @@ import { Page5Component } from './screening/page5/page5.component';
     CommonModule,
     IndividualRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     
     MatToolbarModule,
     MatSidenavModule,
