@@ -13,8 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { LoadingService } from './loading.service';
-import { LoadingInterceptor } from './loading.interceptor';
+// import { LoadingService } from './loading.service';
+// import { LoadingInterceptor } from './loading.interceptor';
 import { SpashScreenComponent } from './spash-screen/spash-screen.component';
 
 @NgModule({
@@ -36,14 +36,14 @@ import { SpashScreenComponent } from './spash-screen/spash-screen.component';
     MatDialogModule,
     MatSnackBarModule
   ],
-  providers: [
-    LoadingService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptor,
-      multi: true,
-    },
-  ],
+  // providers: [
+  //   LoadingService,
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: LoadingInterceptor,
+  //     multi: true,
+  //   },
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

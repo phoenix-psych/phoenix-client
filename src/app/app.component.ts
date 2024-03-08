@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingService } from './loading.service';
+// import { LoadingService } from './loading.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,6 @@ import { LoadingService } from './loading.service';
 })
 export class AppComponent {
   title = 'WebClient';
-  isLoading$ = this.loadingService.isLoading$;
-  constructor(private loadingService: LoadingService) {}
+  //isLoading$ = this.loadingService.isLoading$;
+  // constructor(private loadingService: LoadingService) {}
 }

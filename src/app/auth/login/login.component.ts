@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/authservice.service';
-import { LoadingService } from 'src/app/loading.service';
 import { NotifyService } from 'src/app/shared/notify.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm!:FormGroup; 
 
 
-  constructor(private fb : FormBuilder, private auth:AuthService, private router:Router, private notificationService: NotifyService, private loadingService:LoadingService) { }
+  constructor(private fb : FormBuilder, private auth:AuthService, private router:Router, private notificationService: NotifyService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -36,7 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   OnSubmit(){
-    this.loadingService.showLoading();
     if(this.loginForm.valid){
       this.auth.login(this.loginForm.value)
       .subscribe({
@@ -55,18 +53,15 @@ export class LoginComponent implements OnInit {
             localStorage.clear();
           }
 
-          this.loadingService.hideLoading();
         },
         error:(err)=>{
           alert("Exception" + err?.message);
           localStorage.clear();
-          this.loadingService.hideLoading();
         }
       })
 
     }else{
       this.validateAllFormFields(this.loginForm);
-      this.loadingService.hideLoading();
     }
   }
 

@@ -66,8 +66,40 @@ export class Report1Component implements OnInit {
   age : number = 0;
   clientId : string = '';
 
-  @ViewChild('invoice') invoiceElement!: ElementRef;
+  art2Chart = '';
+  art2ChartVal = '';
 
+  towre2Chart = '';
+  towre2ChartVal = '';
+
+  wrat5SChart = '';
+  wrat5SChartVal = '';
+
+  wrat5RChart = '';
+  wrat5RChartVal = '';
+
+  ctopp2RSNChart = '';
+  ctopp2RSNChartVal = '';
+
+  ctopp2PAChart = '';
+  ctopp2PAChartVal = '';
+
+  ctopp2PMChart = '';
+  ctopp2PMChartVal = '';
+
+  wMChart = '';
+  wMChartVal = '';
+
+  nVRChart = '';
+  nVRChartVal = '';
+
+  vRVChart = '';
+  vRVChartVal = '';
+
+  vRVAChart = '';
+  vRVAChartVal = '';
+
+  @ViewChild('invoice') invoiceElement!: ElementRef;
 
   constructor(public dialogRef: MatDialogRef<Report1Component>,
     @Inject(MAT_DIALOG_DATA) public data: ClientDto,
@@ -1315,6 +1347,39 @@ export class Report1Component implements OnInit {
         // x.Typing,
         this.ART2TY = x.typing;
 
+        this.art2Chart = getPercentage(x.arT2SR);
+        this.art2ChartVal = x.arT2SR;
+
+        this.towre2Chart = getPercentage(x.towrE2SWE);
+        this.towre2ChartVal = x.towrE2SWE;
+
+        this.wrat5SChart = getPercentage(x.wraT5SP);
+        this.wrat5SChartVal = x.wraT5SP;
+
+        this.wrat5RChart = getPercentage(x.wraT5WR);
+        this.wrat5RChartVal = x.wraT5WR;
+
+        this.ctopp2RSNChart = getPercentage(x.ctopP2RSN);
+        this.ctopp2RSNChartVal = x.ctopP2RSN;
+
+        this.ctopp2PAChart = getPercentage(x.ctopP2PAC);
+        this.ctopp2PAChartVal = x.ctopP2PAC;
+
+        this.ctopp2PMChart = getPercentage(x.ctopP2PM);
+        this.ctopp2PMChartVal = x.ctopP2PM;
+
+        this.wMChart = getPercentage(x.writmat);
+        this.wMChartVal = x.writmat;
+
+        this.nVRChart = getPercentage(x.writvb);
+        this.nVRChartVal = x.writvb;
+
+        this.vRVChart = getPercentage(x.writvc);
+        this.vRVChartVal = x.writvc;
+
+        this.vRVAChart = getPercentage(x.writva);
+        this.vRVAChartVal = x.writva;
+
         console.log(x);
       },
       error: (msg)=> {
@@ -2306,6 +2371,12 @@ export class Report1Component implements OnInit {
   ART2SR = ' '
   ART2HW = ' '
   ART2TY = ' '
+
+}
+
+function getPercentage(val: string): string {
+  
+  return `${Math.round(Number(val)/140 * 100)}%`;
 
 }
 

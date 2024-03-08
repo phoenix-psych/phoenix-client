@@ -5621,27 +5621,30 @@
                     <div>Verbal Reasoning-Verbal Analogies</div>
                 </div>
                 <div class="bar-container">
-                    <div class="bar bar1" style="width: 10%;">140</div>
-                    <div class="bar bar2" style="width: 90%;">126</div>
-                    <div class="bar bar3" style="width: 80%;">112</div>
-                    <div class="bar bar4" style="width: 70%;">98</div>
-                    <div class="bar bar5" style="width: 60%;">84</div>
-                    <div class="bar bar6" style="width: 50%;">70</div>
-                    <div class="bar bar7" style="width: 40%;">56</div>
-                    <div class="bar bar8" style="width: 30%;">42</div>
-                    <div class="bar bar9" style="width: 20%;">28</div>
-                    <div class="bar bar10" style="width: 100%;">14</div>
-                    <div class="bar bar11" style="width: 5%;">7</div>
+                    <div class="bar bar1" [style.width]="art2Chart">{{art2ChartVal}}({{art2Chart}})</div>
+                    <div class="bar bar2" [style.width]="towre2Chart">{{towre2ChartVal}}({{towre2Chart}})</div>
+                    <div class="bar bar3" [style.width]="wrat5SChart">{{wrat5SChartVal}}({{wrat5SChart}})</div>
+                    <div class="bar bar4" [style.width]="wrat5RChart">{{wrat5RChartVal}}({{wrat5RChart}})</div>
+                    <div class="bar bar5" [style.width]="ctopp2RSNChart">{{ctopp2RSNChartVal}}({{ctopp2RSNChart}})</div>
+                    <div class="bar bar6" [style.width]="ctopp2PAChart">{{ctopp2PAChartVal}}({{ctopp2PAChart}})</div>
+                    <div class="bar bar7" [style.width]="ctopp2PMChart">{{ctopp2PMChartVal}}({{ctopp2PMChart}})</div>
+                    <div class="bar bar8" [style.width]="wMChart">{{wMChartVal}}({{wMChart}})</div>
+                    <div class="bar bar9" [style.width]="nVRChart">{{nVRChartVal}}({{nVRChart}})</div>
+                    <div class="bar bar10" [style.width]="vRVChart">{{vRVChartVal}}({{vRVChart}})</div>
+                    <div class="bar bar11" [style.width]="vRVAChart">{{vRVAChartVal}}({{vRVAChart}})</div>
                 </div>
                 <div class="x-axis">
                     <span>0</span>
+                    <span>10</span>
                     <span>20</span>
+                    <span>30</span>
                     <span>40</span>
+                    <span>50</span>
                     <span>60</span>
+                    <span>70</span>
                     <span>80</span>
+                    <span>90</span>
                     <span>100</span>
-                    <span>120</span>
-                    <span>140</span>
                 </div>
             </div>
         </div>

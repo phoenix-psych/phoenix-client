@@ -64,13 +64,27 @@ export class Page2Component implements OnInit {
   ngOnInit() {
 
     this.form = this.formBuilder.group({
-      answer1: ['', Validators.required],
-      answer2: ['', Validators.required],
-      answer3: [''],
-      answer4: [''],
-      answer5: [''],
-      answer6: [''],
-      answer7: [''],
+      q1: ['', Validators.required],
+      q2: ['', Validators.required],
+      q3: ['', Validators.required],
+      q4: ['', Validators.required],
+      q5: ['', Validators.required],
+      q6: ['', Validators.required],
+      q7: ['', Validators.required],
+      q8: ['', Validators.required],
+      q9: ['', Validators.required],
+      q10: ['', Validators.required],
+      q11: ['', Validators.required],
+      q12: ['', Validators.required],
+      q13: ['', Validators.required],
+      q14: ['', Validators.required],
+      q15: ['', Validators.required],
+      q16: ['', Validators.required],
+      q17: ['', Validators.required],
+      q18: ['', Validators.required],
+      q19: ['', Validators.required],
+      q20: ['', Validators.required],
+      q21: ['', Validators.required],
     });
 
     this.http.get<AssessorAnswer>(this.baseUrl + 'assessor/answer?page='+ 1 + '', this.setHeader()).subscribe({
@@ -92,36 +106,36 @@ export class Page2Component implements OnInit {
   }
 
   onRadioChange2(event: string) {
-    if (this.form)
-    {
-      this.form.patchValue({
-        answer2:event
-      });
-    }
+    // if (this.form)
+    // {
+    //   this.form.patchValue({
+    //     answer2:event
+    //   });
+    // }
 
-    if(event == 'true'){
-      this.form.get('answer3')?.addValidators(Validators.required);               
-      this.form.get('answer3')?.updateValueAndValidity();              
-      this.form.get('answer4')?.addValidators(Validators.required);     
-      this.form.get('answer4')?.updateValueAndValidity();              
-      this.form.get('answer5')?.addValidators(Validators.required);           
-      this.form.get('answer5')?.updateValueAndValidity();                    
-      this.form.get('answer6')?.addValidators(Validators.required);           
-      this.form.get('answer6')?.updateValueAndValidity();                    
-      this.form.get('answer7')?.addValidators(Validators.required);          
-      this.form.get('answer7')?.updateValueAndValidity();                     
-    } else {                
-      this.form.get('answer3')?.clearValidators();        
-      this.form.get('answer3')?.updateValueAndValidity();              
-      this.form.get('answer4')?.clearValidators();             
-      this.form.get('answer4')?.updateValueAndValidity();            
-      this.form.get('answer5')?.clearValidators();             
-      this.form.get('answer5')?.updateValueAndValidity();            
-      this.form.get('answer6')?.clearValidators();              
-      this.form.get('answer6')?.updateValueAndValidity();           
-      this.form.get('answer7')?.clearValidators();               
-      this.form.get('answer7')?.updateValueAndValidity();          
-    }
+    // if(event == 'true'){
+    //   this.form.get('answer3')?.addValidators(Validators.required);               
+    //   this.form.get('answer3')?.updateValueAndValidity();              
+    //   this.form.get('answer4')?.addValidators(Validators.required);     
+    //   this.form.get('answer4')?.updateValueAndValidity();              
+    //   this.form.get('answer5')?.addValidators(Validators.required);           
+    //   this.form.get('answer5')?.updateValueAndValidity();                    
+    //   this.form.get('answer6')?.addValidators(Validators.required);           
+    //   this.form.get('answer6')?.updateValueAndValidity();                    
+    //   this.form.get('answer7')?.addValidators(Validators.required);          
+    //   this.form.get('answer7')?.updateValueAndValidity();                     
+    // } else {                
+    //   this.form.get('answer3')?.clearValidators();        
+    //   this.form.get('answer3')?.updateValueAndValidity();              
+    //   this.form.get('answer4')?.clearValidators();             
+    //   this.form.get('answer4')?.updateValueAndValidity();            
+    //   this.form.get('answer5')?.clearValidators();             
+    //   this.form.get('answer5')?.updateValueAndValidity();            
+    //   this.form.get('answer6')?.clearValidators();              
+    //   this.form.get('answer6')?.updateValueAndValidity();           
+    //   this.form.get('answer7')?.clearValidators();               
+    //   this.form.get('answer7')?.updateValueAndValidity();          
+    // }
   }
 
   onRadioChange6() {

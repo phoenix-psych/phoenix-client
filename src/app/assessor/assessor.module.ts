@@ -30,7 +30,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PersonalVerificationComponent } from './personal-verification/personal-verification.component';
 import { ServiceLevelAgreementComponent } from './service-level-agreement/service-level-agreement.component';
 import { ClientsComponent } from './clients/clients.component';
-import { ReportComponent } from './report/report.component';
 import { SlotsComponent } from './slots/slots.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -65,7 +64,6 @@ import { FormComponent } from './clients/form/form.component';
     PersonalVerificationComponent,
     ServiceLevelAgreementComponent,
     ClientsComponent,
-    ReportComponent,
     SlotsComponent,
     ProfileComponent,
     Step1Component,

@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { LoadingService } from 'src/app/loading.service';
 import { ClientDocument } from 'src/app/models/utility/document.model';
 import { environment } from 'src/environments/environment';
 
@@ -24,7 +23,7 @@ export class AssessmentComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private dialog: MatDialog,
-              private sanitizer: DomSanitizer, private loadingService:LoadingService) {
+              private sanitizer: DomSanitizer) {
     
   }
 
@@ -47,7 +46,6 @@ export class AssessmentComponent implements OnInit {
     }
 
     upload(doc: ClientDocument): void {
-      this.loadingService.showLoading();
       if (true) {  
         const formData = new FormData();
         formData.append(doc.name, doc.currentFile);
@@ -55,11 +53,9 @@ export class AssessmentComponent implements OnInit {
           next: (x) =>{
             doc.url = x.toString();
             console.log(x);
-            this.loadingService.hideLoading();
           },
           error: (msg)=> {
             console.log(msg);
-            this.loadingService.hideLoading();
           }
         });
       }
@@ -196,18 +192,15 @@ export class AssessmentComponent implements OnInit {
   }
 
   Save(docs: ClientDocument[]): void {
-    this.loadingService.showLoading();
     var userId = localStorage.getItem('userId');
     var url = this.baseUrl + 'individual/'+userId+'/doc';
     this.http.post(url, docs, this.setHeader()).subscribe({
       next: (x) =>{
         console.log(x);
         //alert("Completed : " + x);
-        this.loadingService.hideLoading();
       },
       error: (msg)=> {
         console.log(msg);
-        this.loadingService.hideLoading();
       }
     });
   }

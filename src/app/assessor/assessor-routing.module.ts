@@ -5,7 +5,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PersonalVerificationComponent } from './personal-verification/personal-verification.component';
 import { ServiceLevelAgreementComponent } from './service-level-agreement/service-level-agreement.component';
 import { ClientsComponent } from './clients/clients.component';
-import { ReportComponent } from './report/report.component';
 import { SlotsComponent } from './slots/slots.component';
 import { ProfileComponent } from './profile/profile.component';
 // import { MiscellaneousComponent } from './miscellaneous/miscellaneous.component';
@@ -45,10 +44,6 @@ const routes: Routes = [
       {
         path:'clients', 
         component:ClientsComponent
-      },
-      {
-        path:'report', 
-        component:ReportComponent
       },
       {
         path:'slots', 
