@@ -1,7 +1,7 @@
 <form [formGroup]="form"  (submit)="onSubmit()">
   <p>Background Information Questionnaire</p>  
   <div class="floating-buttons">
-    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
     <button mat-button color="primary" matStepperNext>Next</button>
   </div>
 
@@ -177,7 +177,7 @@
       Q14: How would you rate your ability to pay attention and focus in lectures in your current studies? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q14">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -192,7 +192,7 @@
       Q15: How would you rate your ability to stay focused when completing academic work ouside of lectures? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q15">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -212,7 +212,7 @@
                           (change)="updateTask2Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
-                <input matInput placeholder="Other">
+                <input matInput placeholder="Other" [(ngModel)]="other2" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             </mat-checkbox>
           </li>
@@ -226,7 +226,7 @@
       Q17: How would you rate your ability to pay attention when people are speaking directly to you? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q17">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -317,7 +317,7 @@
       Q24: How would you rate your experience of school and college? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q24">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -351,7 +351,7 @@
     <mat-label matBadge="16" matBadgePosition="before" matBadgeColor="accent">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q27: How did you find learning to read  and understand what you were reading at school? 
 
-
+]
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
         <input matInput formControlName="q27">
@@ -363,7 +363,7 @@
       Q28: How easy did you find it to handwrite at school? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q28">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -378,7 +378,7 @@
       Q29: How did you find learning to spell? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q29">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -393,7 +393,7 @@
       Q30: How easy did you find it to develop numeracy skills at shool? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q30">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -421,10 +421,10 @@
           <li *ngFor="let subtask of task3.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask3Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
-                <input matInput placeholder="Other">
+                <input matInput placeholder="Other" [(ngModel)]="other3" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             </mat-checkbox>
           </li>
@@ -439,10 +439,10 @@
           <li *ngFor="let subtask of task4.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask4Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
-                <input matInput placeholder="Other">
+                <input matInput placeholder="Other" [(ngModel)]="other4" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             </mat-checkbox>
           </li>
@@ -497,7 +497,7 @@
       Q37: How would you rate your effectiveness when reading and understanding text in your studies? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q37">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -512,7 +512,7 @@
       Q38: How would you rate your effectiveness when spelling?  (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q38">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -527,7 +527,7 @@
       Q39: How would you rate your effectiveness when writing essays and handwriting in your current studies? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q39">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -542,7 +542,7 @@
       Q40: How would you rate your effectiveness with using a laptop to complete notes or essays in your current studies? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q40">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -568,7 +568,7 @@
       Q42: How would you rate your numeracy skills? (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q42">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>
@@ -583,7 +583,7 @@
       Q43: How would you rate your planning and organisational skills, both academically and personally. (1 being the lowest, 5 being the highest)
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-      <mat-select matInput placeholder="Select your rating">
+      <mat-select matInput placeholder="Select your rating" formControlName="q43">
         <mat-option value="1">1</mat-option>
         <mat-option value="2">2</mat-option>
         <mat-option value="3">3</mat-option>

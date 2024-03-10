@@ -2,9 +2,56 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
-import { AssessorAnswer } from 'src/app/models/assessor-answer.model';
 import { NotifyService } from 'src/app/shared/notify.service';
 import { environment } from 'src/environments/environment';
+
+interface Page1
+{
+  q1:string,
+  q2:string,
+  q3:string,
+  q4:string,
+  q5:string,
+  q6:string,
+  q7:string,
+  q8:string,
+  q9:string,
+  q10:string,
+  q11:string,
+  q12:string,
+  q13:string,
+  q14:string,
+  q15:string,
+  q16:string,
+  q17:string,
+  q18:string,
+  q19:string,
+  q20:string,
+  q21:string,
+  q22:string,
+  q23:string,
+  q24:string,
+  q25:string,
+  q26:string,
+  q27:string,
+  q28:string,
+  q29:string,
+  q30:string,
+  q31:string,
+  q32:string,
+  q33:string,
+  q34:string,
+  q35:string,
+  q36:string,
+  q37:string,
+  q38:string,
+  q39:string,
+  q40:string,
+  q41:string,
+  q42:string,
+  q43:string,
+  q44: string
+}
 
 export interface Task {
   name: string;
@@ -82,10 +129,9 @@ export class Page1Component implements OnInit {
   selectedValue6!: string;
 
   other1!: string;
-  
-  other6!: string;
-  other7!: string;
-
+  other2!: string;
+  other3!: string;
+  other4!: string;
 
   // multi select 
   task1: Task = {
@@ -132,6 +178,7 @@ export class Page1Component implements OnInit {
       
     ],
   };
+
   task4: Task = {
     name: 'All',
     completed: false,
@@ -149,22 +196,63 @@ export class Page1Component implements OnInit {
   allComplete: boolean = false;
 
   ngOnInit() {
-    // this.http.get<AssessorAnswer>(this.baseUrl + 'assessor/answer?page='+ 1 + '', this.setHeader()).subscribe({
-    //   next: (x) =>{
-    //     this.form = this.formBuilder.group(x);
-    //     this.selectedValue2 = this.form.get('answer2')?.value;
-    //     let answer1  = this.form.get('answer1')?.value;
-    //     var splitted = answer1.split(","); 
-    //     if (this.task.subtasks != null) {
-    //       this.task.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
-    //     }
 
-    //     console.log(x);
-    //   },
-    //   error: (msg)=> {
-    //     console.log(msg);
-    //   }
-    // });
+    var userId = localStorage.getItem('userId');
+    this.http.get<Page1>(this.baseUrl + 'individual/'+userId+'/page1', this.setHeader()).subscribe({
+      next: (x) =>{
+        this.form = this.formBuilder.group(x);
+        //q6
+        let q6  = this.form.get('q6')?.value;
+        var splitted = q6.split(","); 
+        if (this.task1.subtasks != null) {
+          this.task1.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+          const lastElement = splitted[splitted.length - 1];
+          this.other1 = lastElement.split(':')[1];
+          if(this.other1 != '')
+          {
+            this.task1.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+          }
+        }
+
+        //q16
+        let q16  = this.form.get('q16')?.value;
+        var splitted = q16.split(","); 
+        if (this.task2.subtasks != null) {
+          this.task2.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+          const lastElement = splitted[splitted.length - 1];
+          this.other2 = lastElement.split(':')[1];
+          if(this.other2 != '')
+          {
+            this.task2.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+          }
+        }
+
+        //q32
+        let q32  = this.form.get('q32')?.value;
+        var splitted = q32.split(","); 
+        if (this.task3.subtasks != null) {
+          this.task3.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+          const lastElement = splitted[splitted.length - 1];
+          this.other3 = lastElement.split(':')[1];
+          if(this.other3 != '')
+          {
+            this.task3.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+          }
+        }
+
+        //q33
+        let q33  = this.form.get('q33')?.value;
+        var splitted = q33.split(","); 
+        if (this.task1.subtasks != null) {
+          this.task1.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+        }
+
+        console.log(x);
+      },
+      error: (msg)=> {
+        console.log(msg);
+      }
+    });
   }
 
   onRadioChange2(event: string) {
@@ -220,42 +308,49 @@ export class Page1Component implements OnInit {
   }
 
   updateTask2Node(type: string) {
-    
+    if (this.task2.subtasks == null) {
+      return;
+    }
+    this.task2.subtasks.filter(x=>x.name == type).forEach(t => (t.completed = !t.completed));
+    this.form.patchValue({
+      q16: `${this.task2.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')}:${this.other2}`
+    });
   }
 
-  // someComplete(): boolean {
-  //   if (this.task.subtasks == null) {
-  //     return false;
-  //   }
+  updateTask3Node(type: string) {
+    if (this.task3.subtasks == null) {
+      return;
+    }
+    this.task3.subtasks.filter(x=>x.name == type).forEach(t => (t.completed = !t.completed));
+    this.form.patchValue({
+      q32: `${this.task3.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')}:${this.other3}`
+    });
+  }
 
-  //   return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
-  // }
-
-  // setAll(completed: boolean) {
-  //   this.allComplete = completed;
-  //   if (this.task.subtasks == null) {
-  //     return;
-  //   }
-  //   this.task.subtasks.forEach(t => (t.completed = completed));
-  // }
+  updateTask4Node(type: string) {
+    if (this.task4.subtasks == null) {
+      return;
+    }
+    this.task4.subtasks.filter(x=>x.name == type).forEach(t => (t.completed = !t.completed));
+    this.form.patchValue({
+      q33: `${this.task4.subtasks?.filter(x=>x.completed == true).map(x => x.name).join(',')}`
+    });
+  }
 
   onSubmit() {
+    var userId = localStorage.getItem('userId');
     if (this.form.valid) {
-      // this.form.patchValue({
-      // });
-
-      this.http.post(this.baseUrl + 'individual/{studentId}/form/'+ 1 + '', this.form.value, this.setHeader()).subscribe({
+      this.http.post(this.baseUrl + 'individual/'+userId+'/page1', this.form.value, this.setHeader()).subscribe({
         next: (x) =>{
           console.log(x);
+          //alert('Page1 Saved');
+          this.notificationService.success('Page1 Saved successfully');
+          //this.form.reset();
         },
         error: (msg)=> {
           console.log(msg);
         }
       });
-      //this.form.reset();
-      //this.initializeFormGroup();
-      this.notificationService.success(':: Submitted successfully');
-      //this.onClose();
     }
   }
   
