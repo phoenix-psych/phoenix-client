@@ -243,8 +243,8 @@ export class Page1Component implements OnInit {
         //q33
         let q33  = this.form.get('q33')?.value;
         var splitted = q33.split(","); 
-        if (this.task1.subtasks != null) {
-          this.task1.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+        if (this.task4.subtasks != null) {
+          this.task4.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
         }
 
         console.log(x);
