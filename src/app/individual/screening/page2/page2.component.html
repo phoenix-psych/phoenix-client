@@ -1,369 +1,369 @@
-<!-- <form [formGroup]="form"  (submit)="onSubmit()">
+<form [formGroup]="form"  (submit)="onSubmit()">
   <p>Visual Disturbance Questionnaire</p>  
   <div class="floating-buttons">
     <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
     <button mat-button color="primary" matStepperNext>Next</button>
-</div>
-
-
-    <p style="font-weight: bold; color: red;">
-      Personal Information
-      This section looks at your personal information for the purpose of the report that will be generated at the end of your appointment.
-    </p>
-    <ul>
-      <li>Always = every day</li>
-      <li>Often = several times a week but not necessarily every day.</li>
-      <li>Sometimes = 2-3 times a month.</li>
-      <li>Rarely = only once every few months / a year.</li>
-    </ul>
-     
-    <div class="padded-div ">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q1: Do you get headaches when you read?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q2: Does reading make your eyes feel sore,gritty or watery?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q3: Does reading make you feel tired or sleepy?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q4: Do you become restless or fidgety or distracted when reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q5: Do you become less comfortable the longer you read?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q6: When do you prefer dim light to brighter light for reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q7: Does reading from white paper seem too bright or glaring?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q8: Do parts of the white page between the words form patterns when you read?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9: Does the print or background shimmer or appear coloured as you read?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q10: Does print appear to jitter or move on the page as you read?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q11: Do you screw your eyes up when reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q12: Do you rub your eyes to relieve the strain when you are reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q13: Do you move your eyes around or blink to keep text clear when you are reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q14: Do you use a marker or your finger to stop you losing the place when you read?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q15: Do you cover or close one eye when reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q16: Do you lose your place when reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q17: Do you re-read or skip words or lines when reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q18: Does text appear blurred, or go in and out of focus, when you read?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q19: Do objects in the distance appear more blurred after you have been reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <div class="bold-label">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q20: Do the words, page or book appear double when you are reading?:</mat-label>
-    </div>
-      <div class="example-list-section">
-          <ul class="horizontal-list">
-            <li *ngFor="let subtask of task.subtasks">
-              <mat-checkbox [checked]="subtask.completed"
-                            [color]="subtask.color"
-                            (change)="updateTask2Node(subtask.name)">
-                <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-                
-              </mat-checkbox>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div class="padded-div">
-      <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q21: If there is any other information you would like the assessor to know about your vision, use of coloured overlays or lenses for reading (including preferred colour) then please add your information here. Thank you.
-      </mat-label>
-      <mat-form-field class="padded-formcontrol" appearance="outline">
-          <input matInput>
-          <mat-error>Full Name is mandatory.</mat-error>
-      </mat-form-field>
   </div>
-    </form> -->
+
+
+  <p style="font-weight: bold; color: red;">
+    Personal Information
+    This section looks at your personal information for the purpose of the report that will be generated at the end of your appointment.
+  </p>
+  <ul>
+    <li>Always = every day</li>
+    <li>Often = several times a week but not necessarily every day.</li>
+    <li>Sometimes = 2-3 times a month.</li>
+    <li>Rarely = only once every few months / a year.</li>
+  </ul>
+    
+  <div class="padded-div ">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q1: Do you get headaches when you read?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q2: Does reading make your eyes feel sore,gritty or watery?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q3: Does reading make you feel tired or sleepy?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q4: Do you become restless or fidgety or distracted when reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q5: Do you become less comfortable the longer you read?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q6: When do you prefer dim light to brighter light for reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q7: Does reading from white paper seem too bright or glaring?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q8: Do parts of the white page between the words form patterns when you read?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q9: Does the print or background shimmer or appear coloured as you read?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q10: Does print appear to jitter or move on the page as you read?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q11: Do you screw your eyes up when reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q12: Do you rub your eyes to relieve the strain when you are reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q13: Do you move your eyes around or blink to keep text clear when you are reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q14: Do you use a marker or your finger to stop you losing the place when you read?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q15: Do you cover or close one eye when reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q16: Do you lose your place when reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q17: Do you re-read or skip words or lines when reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q18: Does text appear blurred, or go in and out of focus, when you read?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q19: Do objects in the distance appear more blurred after you have been reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <div class="bold-label">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">Q20: Do the words, page or book appear double when you are reading?:</mat-label>
+  </div>
+    <div class="example-list-section">
+        <ul class="horizontal-list">
+          <li *ngFor="let subtask of task.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask2Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              
+            </mat-checkbox>
+          </li>
+        </ul>
+    </div>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="1" matBadgePosition="before" matBadgeColor="accent">
+        Q21: If there is any other information you would like the assessor to know about your vision, use of coloured overlays or lenses for reading (including preferred colour) then please add your information here. Thank you.
+    </mat-label>
+    <mat-form-field class="padded-formcontrol" appearance="outline">
+        <input matInput>
+        <mat-error>Full Name is mandatory.</mat-error>
+    </mat-form-field>
+  </div>
+</form>
