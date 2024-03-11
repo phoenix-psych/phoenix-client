@@ -198,7 +198,7 @@ export class Page1Component implements OnInit {
   ngOnInit() {
 
     var userId = localStorage.getItem('userId');
-    this.http.get<Page1>(this.baseUrl + 'individual/'+userId+'/page1', this.setHeader()).subscribe({
+    this.http.get<Page1>(this.baseUrl + 'individual/'+ userId +'/page1', this.setHeader()).subscribe({
       next: (x) =>{
         this.form = this.formBuilder.group(x);
         //q6
