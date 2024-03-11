@@ -119,3 +119,10 @@ align-items: center;
     padding-right: 250px;
     width: 100%; 
 }
+
+
+.floating-buttons {
+    position: fixed;
+    bottom: 1%; 
+    z-index: 1000; 
+} 

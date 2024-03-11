@@ -4,10 +4,20 @@ flex: 1 1 auto;
 mat-sidenav-container{
 height: calc(205vh - 115vh);
 }
-mat-sidenav{
-width: 200px;
-background-color: #000;
+
+mat-toolbar{
+    background-color: teal;
 }
+
+mat-sidenav{
+    width: 200px;
+    background-color: black;
+}
+
+mat-sidenav-content{
+    background-color: grey
+}
+
 
 /*new */
 

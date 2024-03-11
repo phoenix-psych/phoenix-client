@@ -1,5 +1,5 @@
 <div class="fill-remaining-space">
-  <mat-toolbar color="primary">
+  <mat-toolbar>
     <button mat-icon-button (click)="opened = !opened">
       <mat-icon>menu</mat-icon>
     </button>
@@ -16,7 +16,7 @@
     <mat-sidenav opened mode="side">
       <mat-nav-list>
           <a mat-list-item routerLink="/individual/dashboard">Home</a>
-          <a mat-list-item routerLink="/individual/assessment">Assessment</a>
+          <a mat-list-item routerLink="/individual/assessment" hidden>Assessment</a>
           <a mat-list-item routerLink="/individual/screening">Screening</a>
       </mat-nav-list>
     </mat-sidenav>

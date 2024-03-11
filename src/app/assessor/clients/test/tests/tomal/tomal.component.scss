@@ -44,3 +44,10 @@
 display: inline-flex;
 align-items: center;
 }
+
+
+.floating-buttons {
+    position: fixed;
+    bottom: 1%; 
+    z-index: 1000; 
+} 

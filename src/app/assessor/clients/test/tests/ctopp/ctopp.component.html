@@ -24,9 +24,13 @@
         <mat-form-field class="form-span-extra-small"  appearance="outline">
             <input matInput formControlName="ageMonth" readonly="true">
         </mat-form-field>
-        <button style="padding: 3%;margin-left: 40%;" mat-stroked-button (click)="onSave()">
+        
+        <div class="floating-buttons">
+          <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+      </div>
+        <!-- <button style="padding: 3%;margin-left: 40%;" mat-stroked-button (click)="onSave()">
           <mat-icon>cloud_upload</mat-icon>
-      </button>
+      </button> -->
     </div>
   </form>
   

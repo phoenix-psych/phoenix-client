@@ -145,3 +145,9 @@ span-left-green
     padding-left: 10%;
     padding-right: 10%;
 }
+
+.floating-buttons {
+    position: fixed;
+    bottom: 1%; 
+    z-index: 1000; 
+} 

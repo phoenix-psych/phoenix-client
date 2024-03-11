@@ -2,7 +2,8 @@
     <span>Report</span>
     <span class="fill-remaining-space"></span>
     <button class ="btn-dialog-close" mat-stroked-button (click)="OnEdit()">{{editText}}</button>
-    <button class ="btn-dialog-close" mat-stroked-button (click)="generatePDF1()">Generate PDF</button>
+    <button class ="btn-dialog-close" mat-stroked-button (click)="generateDocx()">Generate Docx</button>
+    <button class ="btn-dialog-close" mat-stroked-button (click)="generatePDF()">Generate PDF</button>
     <button (click)="this.dialogRef.close()" mat-stroked-button >Close</button>
 </mat-toolbar>
 <div id="content-to-pdf">
@@ -197,11 +198,6 @@
     </div>
 
 </div>
-
-
-
-
-
 
 <div class="page"  style="padding-left: 10%;padding-right: 10%;padding-top: 2%;padding-bottom: 2%;"  id="page2">
     <p class=MsoNormal style='margin-bottom:5.0pt;line-height:200%'><b><span

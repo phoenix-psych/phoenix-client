@@ -132,3 +132,8 @@ span-left-green
     border-right: none;
 }
 
+.floating-buttons {
+    position: fixed;
+    bottom: 1%; 
+    z-index: 1000; 
+} 

@@ -72,3 +72,10 @@ span-left-green
     color: red;
     background-color: green($color: #02ff2c);
 }
+
+
+.floating-buttons {
+    position: fixed;
+    bottom: 1%; 
+    z-index: 1000; 
+} 

@@ -7,6 +7,8 @@ import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 const html2pdf = require('html2pdf.js');
+import { asBlob } from 'html-docx-js-typescript';
+import { saveAs } from 'file-saver';
 
 interface ClientTestsDto 
 {
@@ -1431,54 +1433,59 @@ export class Report1Component implements OnInit {
     return age;
   }
 
-  public generatePDF(): void {
-    const pages = document.querySelectorAll('.page');
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const name = this.data.name;
+  // public generatePDF(): void {
+  //   const pages = document.querySelectorAll('.page');
+  //   const pdf = new jsPDF('p', 'mm', 'a4');
+  //   const name = this.data.name;
   
-    function generatePage(name:string ,index:number) {
-      // if (index < pages.length) {
-        if (index < 2) {
-        const page = pages[index] as HTMLElement;
+  //   function generatePage(name:string ,index:number) {
+  //     // if (index < pages.length) {
+  //       if (index < 2) {
+  //       const page = pages[index] as HTMLElement;
   
-        html2canvas(page).then(canvas => {
-          const imageData = canvas.toDataURL('image/png');
+  //       html2canvas(page).then(canvas => {
+  //         const imageData = canvas.toDataURL('image/png');
   
-          if (index > 0) {
-            pdf.addPage();
-          }
+  //         if (index > 0) {
+  //           pdf.addPage();
+  //         }
   
-          pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+  //         pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
   
-          generatePage(name, index + 1);
-        });
-      } else {
-        pdf.save(`${name}.pdf`);
-      }
-    }
+  //         generatePage(name, index + 1);
+  //       });
+  //     } else {
+  //       pdf.save(`${name}.pdf`);
+  //     }
+  //   }
   
-    generatePage(name, 0);
-  }
-  public generatePDF1() {
-    // Get the container element that includes all the pages you want to export
+  //   generatePage(name, 0);
+  // }
+
+  public generatePDF() {
     const element = document.getElementById('content-to-pdf');
-    const element1 = document.getElementById('content-to-pdf2');
-    // Define options for html2pdf
     const name = this.data.name;
     const options = {
         margin: 1,
         filename: name+'.pdf',
         image: { type: 'jpeg', quality: 1 },
-         html2canvas: { scale: 1.6, letterRendering: true, useCORS: true },
-        //html2canvas: { letterRendering: true, useCORS: true },
+        html2canvas: { scale: 1.6, letterRendering: true, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    // Use html2pdf to convert the entire container element
     html2pdf().set(options).from(element).save();
-    // html2pdf().set(options).from(element1).save();
 }
 
+  async generateDocx (){
+  const element = document.getElementById('content-to-pdf');
+  const name = this.data.name;
+  var text = element?.outerHTML!;
+    var converted = await asBlob(text, {
+      orientation: 'landscape',
+      margins: { top: 720 },
+    });
+    saveAs(converted as Blob , `${name}.docx`);
+  }
 
   selectedSPLDDesc = '';
   updatedTextSPLDDesc = '';
