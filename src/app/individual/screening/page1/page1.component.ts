@@ -255,47 +255,47 @@ export class Page1Component implements OnInit {
     });
   }
 
-  onRadioChange2(event: string) {
-    // if (this.form)
-    // {
-    //   this.form.patchValue({
-    //     answer2:event
-    //   });
-    // }
+  // onRadioChange2(event: string) {
+  //   // if (this.form)
+  //   // {
+  //   //   this.form.patchValue({
+  //   //     answer2:event
+  //   //   });
+  //   // }
 
-    // if(event == 'true'){
-    //   this.form.get('answer3')?.addValidators(Validators.required);               
-    //   this.form.get('answer3')?.updateValueAndValidity();              
-    //   this.form.get('answer4')?.addValidators(Validators.required);     
-    //   this.form.get('answer4')?.updateValueAndValidity();              
-    //   this.form.get('answer5')?.addValidators(Validators.required);           
-    //   this.form.get('answer5')?.updateValueAndValidity();                    
-    //   this.form.get('answer6')?.addValidators(Validators.required);           
-    //   this.form.get('answer6')?.updateValueAndValidity();                    
-    //   this.form.get('answer7')?.addValidators(Validators.required);          
-    //   this.form.get('answer7')?.updateValueAndValidity();                     
-    // } else {                
-    //   this.form.get('answer3')?.clearValidators();        
-    //   this.form.get('answer3')?.updateValueAndValidity();              
-    //   this.form.get('answer4')?.clearValidators();             
-    //   this.form.get('answer4')?.updateValueAndValidity();            
-    //   this.form.get('answer5')?.clearValidators();             
-    //   this.form.get('answer5')?.updateValueAndValidity();            
-    //   this.form.get('answer6')?.clearValidators();              
-    //   this.form.get('answer6')?.updateValueAndValidity();           
-    //   this.form.get('answer7')?.clearValidators();               
-    //   this.form.get('answer7')?.updateValueAndValidity();          
-    // }
-  }
+  //   // if(event == 'true'){
+  //   //   this.form.get('answer3')?.addValidators(Validators.required);               
+  //   //   this.form.get('answer3')?.updateValueAndValidity();              
+  //   //   this.form.get('answer4')?.addValidators(Validators.required);     
+  //   //   this.form.get('answer4')?.updateValueAndValidity();              
+  //   //   this.form.get('answer5')?.addValidators(Validators.required);           
+  //   //   this.form.get('answer5')?.updateValueAndValidity();                    
+  //   //   this.form.get('answer6')?.addValidators(Validators.required);           
+  //   //   this.form.get('answer6')?.updateValueAndValidity();                    
+  //   //   this.form.get('answer7')?.addValidators(Validators.required);          
+  //   //   this.form.get('answer7')?.updateValueAndValidity();                     
+  //   // } else {                
+  //   //   this.form.get('answer3')?.clearValidators();        
+  //   //   this.form.get('answer3')?.updateValueAndValidity();              
+  //   //   this.form.get('answer4')?.clearValidators();             
+  //   //   this.form.get('answer4')?.updateValueAndValidity();            
+  //   //   this.form.get('answer5')?.clearValidators();             
+  //   //   this.form.get('answer5')?.updateValueAndValidity();            
+  //   //   this.form.get('answer6')?.clearValidators();              
+  //   //   this.form.get('answer6')?.updateValueAndValidity();           
+  //   //   this.form.get('answer7')?.clearValidators();               
+  //   //   this.form.get('answer7')?.updateValueAndValidity();          
+  //   // }
+  // }
 
-  onRadioChange6() {
-    // if (this.form && this.selectedValue6)
-    // {
-    //   this.form.patchValue({
-    //     answer6: this.selectedValue6 === "Other" ? this.other6 : this.selectedValue6
-    //   });
-    // }
-  }
+  // onRadioChange6() {
+  //   // if (this.form && this.selectedValue6)
+  //   // {
+  //   //   this.form.patchValue({
+  //   //     answer6: this.selectedValue6 === "Other" ? this.other6 : this.selectedValue6
+  //   //   });
+  //   // }
+  // }
 
   updateTask1Node(type: string) {
     if (this.task1.subtasks == null) {
