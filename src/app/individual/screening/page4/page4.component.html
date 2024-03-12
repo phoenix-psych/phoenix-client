@@ -7,10 +7,27 @@
   <p style="color:blue; font-weight:bold;">Part 1 : Childhood</p>
   <p style="font-weight:bold;">As a child, did you:</p>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q1: Have difficulties with self-care tasks, such as tying shoelaces, fastening buttons and zips?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q1: Have difficulties with self-care tasks, such as tying shoelaces, fastening buttons and zips?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task1.subtasks">
+            <mat-checkbox [checked]="subtask.completed"
+                          [color]="subtask.color"
+                          (change)="updateTask1Node(subtask.name)">
+              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
+              <mat-form-field *ngIf="subtask.name == 'Other'">
+                <input matInput placeholder="Other">
+            </mat-form-field>
+            </mat-checkbox>
+          </li>
+        </ul>
+    </span>
+  </div>
+  <div class="padded-div">
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q2: Have difficulty eating without getting dirty?:</mat-label>
+    <span class="example-list-section">
+        <ul>
+          <li *ngFor="let subtask of task2.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
                           (change)="updateTask2Node(subtask.name)">
@@ -24,13 +41,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q2: Have difficulty eating without getting dirty?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q3: Have difficulty learning to ride a bike compared to your peers?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task3.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask3Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -41,13 +58,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q3: Have difficulty learning to ride a bike compared to your peers?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q4: Have difficulties with playing team games, such as football, volleyball, catching or throwing balls accurately?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task4.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask4Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -58,13 +75,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q4: Have difficulties with playing team games, such as football, volleyball, catching or throwing balls accurately?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q5: Have difficulty writing neatly (so others could read it)?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task5.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask5Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -75,13 +92,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q5: Have difficulty writing neatly (so others could read it)?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q6: Have difficulty writing as fast as your peers?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task6.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask6Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -92,13 +109,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q6: Have difficulty writing as fast as your peers?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q7: Bump into objects or people, trip over things more than others?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task7.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask7Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -109,13 +126,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q7: Bump into objects or people, trip over things more than others?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q8: Have difficulty playing a musical instrument (e.g. violin, recorder)?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task8.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask8Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -126,13 +143,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q8: Have difficulty playing a musical instrument (e.g. violin, recorder)?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q9: Have difficulties with organising/finding things in your room?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task9.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask9Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -143,30 +160,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q9: Have difficulties with organising/finding things in your room?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q10: Have others comment about your lack of coordination or call you clumsy?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task10.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
-              <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
-              <mat-form-field *ngIf="subtask.name == 'Other'">
-                <input matInput placeholder="Other">
-            </mat-form-field>
-            </mat-checkbox>
-          </li>
-        </ul>
-    </span>
-  </div>
-  <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q10: Have others comment about your lack of coordination or call you clumsy?:</mat-label>
-    <span class="example-list-section">
-        <ul>
-          <li *ngFor="let subtask of task.subtasks">
-            <mat-checkbox [checked]="subtask.completed"
-                          [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask10Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -179,13 +179,13 @@
   <p style="color:blue; font-weight:bold;">Part 1 : Adulthood</p>
   <p style="font-weight:bold;">Do you currently have difficulties with the following items:</p>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q11: Self-care tasks such as shaving or make up?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q11: Self-care tasks such as shaving or make up?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task11.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask11Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -196,13 +196,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q12: Eating with a knife and fork/spoon?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q12: Eating with a knife and fork/spoon?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task12.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask12Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -213,13 +213,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q13: Hobbies that require good coordination?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q13: Hobbies that require good coordination?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task13.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask13Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -230,13 +230,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q14: Writing neatly when having to write fast?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q14: Writing neatly when having to write fast?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task14.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask14Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -247,13 +247,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q15: Writing as fast as your peers?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q15: Writing as fast as your peers?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task15.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask15Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -264,13 +264,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q16: Reading your own writing?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q16: Reading your own writing?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task16.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask16Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -281,13 +281,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q17: Copying things down without making mistakes?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q17: Copying things down without making mistakes?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task17.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask17Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -298,13 +298,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q18: Organising/finding things in your room?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q18: Organising/finding things in your room?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task18.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask18Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -315,13 +315,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q19: Finding your way around new buildings or places?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q19: Finding your way around new buildings or places?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task19.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask19Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -332,13 +332,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q20: Have others called you disorganised?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q20: Have others called you disorganised?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task20.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask20Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -349,13 +349,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q21: Do you have difficulties sitting still or appearing fidgety?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q21: Do you have difficulties sitting still or appearing fidgety?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task21.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask21Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -366,13 +366,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q22: Do you lose or leave behind possessions?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q22: Do you lose or leave behind possessions?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task22.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask22Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -383,13 +383,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q23: Would you say that you bump into things, spill or break things?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q23: Would you say that you bump into things, spill or break things?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task23.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask23Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -400,13 +400,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q24: Are you slower than others getting up on the morning and getting to work or college?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q24: Are you slower than others getting up on the morning and getting to work or college?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task24.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask24Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -417,13 +417,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q25: Did it take you longer than others to learn to drive? (if you do not drive, please indicate on the paper and describe why you chose not to drive).:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q25: Did it take you longer than others to learn to drive? (if you do not drive, please indicate on the paper and describe why you chose not to drive).:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task25.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask25Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -434,13 +434,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q26: Do others find it difficult to read your writing?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q26: Do others find it difficult to read your writing?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task26.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask26Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -451,13 +451,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q27: Do you avoid hobbies that require good coordination?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q27: Do you avoid hobbies that require good coordination?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task27.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask27Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -468,13 +468,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q28: Do you choose to spend your leisure time more on your own than with others?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q28: Do you choose to spend your leisure time more on your own than with others?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task28.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask28Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -485,13 +485,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q29: Do you avoid team games/sports?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q29: Do you avoid team games/sports?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task29.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask29Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -502,13 +502,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q30: If you do a sport, is it more likely to be on your own, e.g. going to the gym, than with others?    </mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q30: If you do a sport, is it more likely to be on your own, e.g. going to the gym, than with others?    </mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task30.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask30Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -519,13 +519,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q31: Do you/did you in your teens/twenties avoid going to clubs/dancing?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q31: Do you/did you in your teens/twenties avoid going to clubs/dancing?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task31.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask31Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -536,13 +536,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q32: If you are a driver, do you have difficulty parking a car?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q32: If you are a driver, do you have difficulty parking a car?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task32.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask32Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -553,13 +553,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q33: Do you have difficulty preparing a meal from scratch?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q33: Do you have difficulty preparing a meal from scratch?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task33.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask33Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -570,13 +570,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q34: Do you have difficulty packing a suitcase to go away?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q34: Do you have difficulty packing a suitcase to go away?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task34.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask34Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -587,13 +587,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q35: Do you have difficulty packing a suitcase to go away?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q35: Do you have difficulty packing a suitcase to go away?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task35.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask35Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -604,13 +604,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q36: Do you have difficulty folding clothes to put them away neatly?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q36: Do you have difficulty folding clothes to put them away neatly?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task36.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask36Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -621,13 +621,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q37: Do you have difficulty managing money?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q37: Do you have difficulty managing money?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task37.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask37Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -638,13 +638,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q38: Do you have difficulties with performing two things at the same time (e.g. driving and listening or taking a telephone message)?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q38: Do you have difficulties with performing two things at the same time (e.g. driving and listening or taking a telephone message)?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task38.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask38Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -655,13 +655,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q39: Do you have difficulties with distance estimation (e.g. with regard to parking, passing through objects)?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q39: Do you have difficulties with distance estimation (e.g. with regard to parking, passing through objects)?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task39.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask39Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -672,13 +672,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q40: Do you have difficulty planning ahead?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q40: Do you have difficulty planning ahead?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task40.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask40Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -689,13 +689,13 @@
     </span>
   </div>
   <div class="padded-div">
-    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q41: Do you feel you are losing attention in certain situations?:</mat-label>
+    <mat-label matBadge="3" matBadgePosition="before" matBadgeColor="accent">Q41: Do you feel you are losing attention in certain situations?:</mat-label>
     <span class="example-list-section">
         <ul>
-          <li *ngFor="let subtask of task.subtasks">
+          <li *ngFor="let subtask of task41.subtasks">
             <mat-checkbox [checked]="subtask.completed"
                           [color]="subtask.color"
-                          (change)="updateTask2Node(subtask.name)">
+                          (change)="updateTask41Node(subtask.name)">
               <p *ngIf="subtask.name != 'Other'">{{subtask.name}}</p>
               <mat-form-field *ngIf="subtask.name == 'Other'">
                 <input matInput placeholder="Other">
@@ -707,10 +707,10 @@
   </div>
   <div class="padded-div">
     <mat-label matBadge="2" matBadgePosition="before" matBadgeColor="accent">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q42: Can you describe any compensatory approaches that you have developed over the years in order to deal with coordination difficulties in your everyday life?
+        Q42: Can you describe any compensatory approaches that you have developed over the years in order to deal with coordination difficulties in your everyday life?
     </mat-label>
     <mat-form-field class="padded-formcontrol" appearance="outline">
-        <input matInput>
+        <input matInput formControlName="q42">
         <mat-error>Enter your answer .</mat-error>
     </mat-form-field>
   </div>
