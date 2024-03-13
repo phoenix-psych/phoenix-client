@@ -8,7 +8,7 @@ div {
     flex: 1 1 auto;
     }
 
-    .chart-container {
+.chart-container {
       display: grid;
       /* Increase the grid-template-columns size for the y-axis to better accommodate longer text */
       grid-template-columns: auto auto; /* Adjust this value to fit the longest label */
@@ -62,3 +62,5 @@ div {
   .bar9 { background-color: #8BC34A; }
   .bar10 { background-color: #FFEB3B; }
   .bar11 { background-color: #FFC107; }
+
+  

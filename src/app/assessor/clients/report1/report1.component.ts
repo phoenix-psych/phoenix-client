@@ -1511,16 +1511,27 @@ export class Report1Component implements OnInit {
   
     // Now use cloneElement's HTML for document generation
     var text = cloneElement.outerHTML;
-  
+    
     const name = this.data.name;
     var converted = await asBlob(text, {
-      orientation: 'landscape',
-      margins: { top: 720 },
+      orientation: 'portrait',
+      // margins: { top: 720 },
     });
   
     saveAs(converted as Blob, `${name}.docx`);
   }
   
+  private stylesToString(computedStyles: CSSStyleDeclaration): string {
+    let stylesString = '';
+
+    for (let i = 0; i < computedStyles.length; i++) {
+      const propertyName = computedStyles[i];
+      const propertyValue = computedStyles.getPropertyValue(propertyName);
+      stylesString += `${propertyName}: ${propertyValue}; `;
+    }
+
+    return stylesString;
+  }
 
   selectedSPLDDesc = '';
   updatedTextSPLDDesc = '';

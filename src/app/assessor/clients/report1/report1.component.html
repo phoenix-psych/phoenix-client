@@ -5601,10 +5601,9 @@
     src="../../../../assets/report/graph1.png" align=right hspace=12><b><span
     lang=EN-GB>GRAPH OF RESULTS</span></b></p> -->
 
-        <div id="chart">
-            
-            <div class="chart-container">
-                <div class="y-axis">
+        <div>
+            <div style="display: grid; grid-template-columns: auto auto; gap: 20px; width: 90%; margin: 30px auto;">
+                <div style="display: flex; flex-direction: column; justify-content: space-around; text-align: right; padding-right: 10px;">
                     <div>ART2 silent reading comprehension</div>
                     <div>TOWRE-2</div>
                     <div>WRAT5- SPELLING</div>
@@ -5617,20 +5616,20 @@
                     <div>Verbal Reasoning-Vocabulary</div>
                     <div>Verbal Reasoning-Verbal Analogies</div>
                 </div>
-                <div class="bar-container">
-                    <div class="bar bar1" [style.width]="art2Chart">{{art2ChartVal}}({{art2Chart}})</div>
-                    <div class="bar bar2" [style.width]="towre2Chart">{{towre2ChartVal}}({{towre2Chart}})</div>
-                    <div class="bar bar3" [style.width]="wrat5SChart">{{wrat5SChartVal}}({{wrat5SChart}})</div>
-                    <div class="bar bar4" [style.width]="wrat5RChart">{{wrat5RChartVal}}({{wrat5RChart}})</div>
-                    <div class="bar bar5" [style.width]="ctopp2RSNChart">{{ctopp2RSNChartVal}}({{ctopp2RSNChart}})</div>
-                    <div class="bar bar6" [style.width]="ctopp2PAChart">{{ctopp2PAChartVal}}({{ctopp2PAChart}})</div>
-                    <div class="bar bar7" [style.width]="ctopp2PMChart">{{ctopp2PMChartVal}}({{ctopp2PMChart}})</div>
-                    <div class="bar bar8" [style.width]="wMChart">{{wMChartVal}}({{wMChart}})</div>
-                    <div class="bar bar9" [style.width]="nVRChart">{{nVRChartVal}}({{nVRChart}})</div>
-                    <div class="bar bar10" [style.width]="vRVChart">{{vRVChartVal}}({{vRVChart}})</div>
-                    <div class="bar bar11" [style.width]="vRVAChart">{{vRVAChartVal}}({{vRVAChart}})</div>
+                <div style="display: flex; flex-direction: column; justify-content: flex-start; height: 100%;">
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #4CAF50;" [style.width]="art2Chart">{{art2ChartVal}}({{art2Chart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #FF5722;" [style.width]="towre2Chart">{{towre2ChartVal}}({{towre2Chart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #2196F3;" [style.width]="wrat5SChart">{{wrat5SChartVal}}({{wrat5SChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #9C27B0;" [style.width]="wrat5RChart">{{wrat5RChartVal}}({{wrat5RChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #E91E63;" [style.width]="ctopp2RSNChart">{{ctopp2RSNChartVal}}({{ctopp2RSNChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #3F51B5;" [style.width]="ctopp2PAChart">{{ctopp2PAChartVal}}({{ctopp2PAChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #00BCD4;" [style.width]="ctopp2PMChart">{{ctopp2PMChartVal}}({{ctopp2PMChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #009688;" [style.width]="wMChart">{{wMChartVal}}({{wMChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #8BC34A;" [style.width]="nVRChart">{{nVRChartVal}}({{nVRChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #FFEB3B;" [style.width]="vRVChart">{{vRVChartVal}}({{vRVChart}})</div>
+                    <div style="height: 20px; border-radius: 5px; margin-bottom: 10px; background-color: #FFC107;" [style.width]="vRVAChart">{{vRVAChartVal}}({{vRVAChart}})</div>
                 </div>
-                <div class="x-axis">
+                <div style="grid-column: 2 / 3; display: flex; justify-content: space-between; align-items: center; padding-top: 10px;">
                     <span>0</span>
                     <span>10</span>
                     <span>20</span>
