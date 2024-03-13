@@ -1,0 +1,24 @@
+<div >
+    <h1 style="margin-top:5%;margin-left:5%;">
+        Documents :
+    </h1>
+
+    <mat-grid-list  cols="10" rowHeight="60px">
+        <div class="Availability"> 
+            <mat-grid-tile colspan="3" style="background-color: grey;color: black;"><b>Id</b></mat-grid-tile>
+            <mat-grid-tile colspan="5" style="background-color: grey;color: black;"><b>Document</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;"><b>Download</b></mat-grid-tile>
+        </div>
+        <ul >
+          <li *ngFor="let doc of docs; let i = index;">
+            <div> 
+                <mat-grid-tile colspan="3" style="background-color: aquamarine;color: black;"><b>{{doc.id}}</b></mat-grid-tile>
+                <mat-grid-tile colspan="5" style="background-color: aquamarine;color: black;"><b>{{doc.name}}</b></mat-grid-tile>
+                <mat-grid-tile colspan="2" style="background-color: aquamarine;color: black;">
+                    <button (click)="downloadfile(doc)">Download</button>
+                </mat-grid-tile>
+            </div>
+          </li>
+        </ul>
+    </mat-grid-list>
+</div>

@@ -55,6 +55,12 @@ import { WritComponent } from './clients/test/tests/writ/writ.component';
 import { DashComponent } from './clients/test/tests/dash/dash.component';
 import { GoartComponent } from './clients/test/tests/goart/goart.component';
 import { FormComponent } from './clients/form/form.component';
+import { ScreeningResultComponent } from './clients/screening-result/screening-result.component';
+import { Page1ResultComponent } from './clients/screening-result/page1-result/page1-result.component';
+import { Page2ResultComponent } from './clients/screening-result/page2-result/page2-result.component';
+import { Page3ResultComponent } from './clients/screening-result/page3-result/page3-result.component';
+import { Page4ResultComponent } from './clients/screening-result/page4-result/page4-result.component';
+import { Page5ResultComponent } from './clients/screening-result/page5-result/page5-result.component';
 
 
 @NgModule({
@@ -85,7 +91,13 @@ import { FormComponent } from './clients/form/form.component';
     DashComponent,
     GoartComponent,
     AddComponent,
-    FormComponent
+    FormComponent,
+    ScreeningResultComponent,
+    Page1ResultComponent,
+    Page2ResultComponent,
+    Page3ResultComponent,
+    Page4ResultComponent,
+    Page5ResultComponent
   ],
   imports: [
     CommonModule,

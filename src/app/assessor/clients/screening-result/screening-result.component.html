@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <span>Form</span>
+    <span class="fill-remaining-space"></span>
+    <button (click)="this.dialogRef.close()" mat-stroked-button >Close</button>
+</mat-toolbar>
+<mat-stepper [linear]="isLinear" #stepper>
+    <mat-step label="Background Information Questionnaire">
+        <app-page1-result  [clientId]="data.id"></app-page1-result>
+    </mat-step>
+    <mat-step label="Visual Disturbance Questionnaire">
+       <app-page2-result  [clientId]="data.id"></app-page2-result> 
+    </mat-step>
+    <mat-step label="Adult ADHD Screener/Checklist">
+         <app-page3-result [clientId]="data.id"></app-page3-result> 
+    </mat-step>
+    <mat-step label="Dyspraxia Screener">
+        <app-page4-result [clientId]="data.id"></app-page4-result> 
+    </mat-step>
+    <mat-step label="Upload Files">
+        <app-page5-result [clientId]="data.id"></app-page5-result>
+    </mat-step>
+</mat-stepper>
