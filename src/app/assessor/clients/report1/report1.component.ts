@@ -1519,6 +1519,16 @@ export class Report1Component implements OnInit {
     });
   
     saveAs(converted as Blob, `${name}.docx`);
+
+	this.http.get(`${this.baseUrl}individual/${this.data.id}/word`, { responseType: 'blob' }).subscribe((blob: Blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `word1.docx`; 
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
   }
   
   private stylesToString(computedStyles: CSSStyleDeclaration): string {
