@@ -1531,18 +1531,6 @@ export class Report1Component implements OnInit {
 
   }
   
-  // private stylesToString(computedStyles: CSSStyleDeclaration): string {
-  //   let stylesString = '';
-
-  //   for (let i = 0; i < computedStyles.length; i++) {
-  //     const propertyName = computedStyles[i];
-  //     const propertyValue = computedStyles.getPropertyValue(propertyName);
-  //     stylesString += `${propertyName}: ${propertyValue}; `;
-  //   }
-
-  //   return stylesString;
-  // }
-
   selectedSPLDDesc = '';
   updatedTextSPLDDesc = '';
   dropdownSPLDDesc: Array<any> = [
