@@ -1489,36 +1489,36 @@ export class Report1Component implements OnInit {
 
 
   async generateDocx() {
-    const element = document.getElementById('content-to-pdf');
+    // const element = document.getElementById('content-to-pdf');
   
-    if (!element) {
-      console.error('Element not found');
-      return;
-    }
+    // if (!element) {
+    //   console.error('Element not found');
+    //   return;
+    // }
   
-    // Clone the element to not modify the original content on the page
-    const cloneElement = element.cloneNode(true) as HTMLElement;
+    // // Clone the element to not modify the original content on the page
+    // const cloneElement = element.cloneNode(true) as HTMLElement;
   
-    // Assuming you have two dropdowns based on your provided HTML
-    const dropdowns = cloneElement.querySelectorAll('select');
+    // // Assuming you have two dropdowns based on your provided HTML
+    // const dropdowns = cloneElement.querySelectorAll('select');
   
-    // Replace each dropdown with its selected text
-    dropdowns.forEach(dropdown => {
-      const selectedText = (dropdown as HTMLSelectElement).options[(dropdown as HTMLSelectElement).selectedIndex]?.text;
-      const textNode = document.createTextNode(selectedText || ''); // Create a text node from the selected option's text
-      dropdown.parentNode?.replaceChild(textNode, dropdown); // Replace the dropdown with the text node
-    });
+    // // Replace each dropdown with its selected text
+    // dropdowns.forEach(dropdown => {
+    //   const selectedText = (dropdown as HTMLSelectElement).options[(dropdown as HTMLSelectElement).selectedIndex]?.text;
+    //   const textNode = document.createTextNode(selectedText || ''); // Create a text node from the selected option's text
+    //   dropdown.parentNode?.replaceChild(textNode, dropdown); // Replace the dropdown with the text node
+    // });
   
-    // Now use cloneElement's HTML for document generation
-    var text = cloneElement.outerHTML;
+    // // Now use cloneElement's HTML for document generation
+    // var text = cloneElement.outerHTML;
     
-    const name = this.data.name;
-    var converted = await asBlob(text, {
-      orientation: 'portrait',
-      // margins: { top: 720 },
-    });
+    // const name = this.data.name;
+    // var converted = await asBlob(text, {
+    //   orientation: 'portrait',
+    //   // margins: { top: 720 },
+    // });
   
-    saveAs(converted as Blob, `${name}.docx`);
+    // saveAs(converted as Blob, `${name}.docx`);
 
 	this.http.get(`${this.baseUrl}individual/${this.data.id}/word`, { responseType: 'blob' }).subscribe((blob: Blob) => {
       const url = window.URL.createObjectURL(blob);
@@ -1531,17 +1531,17 @@ export class Report1Component implements OnInit {
 
   }
   
-  private stylesToString(computedStyles: CSSStyleDeclaration): string {
-    let stylesString = '';
+  // private stylesToString(computedStyles: CSSStyleDeclaration): string {
+  //   let stylesString = '';
 
-    for (let i = 0; i < computedStyles.length; i++) {
-      const propertyName = computedStyles[i];
-      const propertyValue = computedStyles.getPropertyValue(propertyName);
-      stylesString += `${propertyName}: ${propertyValue}; `;
-    }
+  //   for (let i = 0; i < computedStyles.length; i++) {
+  //     const propertyName = computedStyles[i];
+  //     const propertyValue = computedStyles.getPropertyValue(propertyName);
+  //     stylesString += `${propertyName}: ${propertyValue}; `;
+  //   }
 
-    return stylesString;
-  }
+  //   return stylesString;
+  // }
 
   selectedSPLDDesc = '';
   updatedTextSPLDDesc = '';
