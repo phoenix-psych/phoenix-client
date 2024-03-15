@@ -4,7 +4,9 @@ import { environment } from 'src/environments/environment';
 
 export interface UserDto {
   id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
+  username: string;
   status: string;
 }
 
