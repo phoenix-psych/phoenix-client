@@ -15,14 +15,13 @@
     <mat-sidenav-container>
       <mat-sidenav opened mode="side">
         <mat-nav-list>
-            <a mat-list-item routerLink="/assessor/dashboard">Home</a>
-            <a mat-list-item routerLink="/assessor/profile">Profile</a>
-            <a mat-list-item routerLink="/assessor/personal-verification" hidden>Personal Verification</a>
+            <a mat-list-item routerLink="/assessor/dashboard" *ngIf="isAdmin">Home</a>
+            <a mat-list-item routerLink="/assessor/profile" *ngIf="isAdmin">Profile</a>
+            <a mat-list-item routerLink="/assessor/personal-verification" *ngIf="!isAdmin">Personal Verification</a>
             <a mat-list-item routerLink="/assessor/servicelevel-agreement" hidden>Servicelevel Agreement</a>
-            <a mat-list-item routerLink="/assessor/clients">Clients</a>
+            <a mat-list-item routerLink="/assessor/clients" *ngIf="isAdmin">Clients</a>
             <a mat-list-item routerLink="/assessor/report" hidden>Report</a>
             <a mat-list-item routerLink="/assessor/slots" hidden>Slots</a>
-            
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content>

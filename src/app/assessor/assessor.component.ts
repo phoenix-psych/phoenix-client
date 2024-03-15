@@ -1,4 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
+export interface UserDto {
+  id: string;
+  name: string;
+  type: string;
+  isAdmin:false;
+}
 
 @Component({
   selector: 'app-assessor',
@@ -8,9 +17,16 @@ import { Component, OnInit } from '@angular/core';
 export class AssessorComponent implements OnInit {
 
   opened=false;
-  constructor() { }
+  isAdmin=false;
+  private baseUrl:string = environment.baseApiUrl;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    var userId = localStorage.getItem('userId');
+    this.http.get<UserDto>(`${this.baseUrl}user/${userId}`).subscribe(
+      x => {
+        this.isAdmin = x.isAdmin;
+    });
   }
 
   

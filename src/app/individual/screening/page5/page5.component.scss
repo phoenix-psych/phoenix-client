@@ -1,3 +1,10 @@
 #file-input {
     color: transparent;
   }
+
+  .floating-buttons {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}

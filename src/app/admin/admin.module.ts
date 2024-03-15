@@ -22,11 +22,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
+    ManageUserComponent,
   ],
   imports: [
     CommonModule,
