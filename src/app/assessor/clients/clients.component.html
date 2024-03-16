@@ -9,7 +9,7 @@
     </button>
   </mat-form-field>
 </div>
-<div>
+<div style="padding: 10px;">
   <mat-table [dataSource]="listData"  matSort>
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef  mat-sort-header>Id</mat-header-cell>
@@ -58,10 +58,10 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <button mat-icon-button (click)="onTest(row)"><mat-icon>launch</mat-icon></button>
-        <button mat-icon-button (click)="onReport(row)"><mat-icon>print</mat-icon></button>
-        <button mat-icon-button (click)="onForm(row)"><mat-icon>assignment</mat-icon></button>
-        <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
+        <button mat-icon-button (click)="onForm(row)" style="width: 20px;"><mat-icon>assignment</mat-icon></button>&nbsp;&nbsp;
+        <button mat-icon-button (click)="onTest(row)" style="width: 20px;"><mat-icon>launch</mat-icon></button>&nbsp;&nbsp;
+        <button mat-icon-button (click)="onReport(row)" style="width: 20px;"><mat-icon>print</mat-icon></button>&nbsp;&nbsp;
+        <button mat-icon-button color="warn" (click)="onDelete(row.id)" style="width: 20px;"><mat-icon>delete_outline</mat-icon></button>
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="loading">

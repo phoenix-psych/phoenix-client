@@ -8,6 +8,10 @@ export interface UserDto {
   lastName: string;
   username: string;
   status: string;
+  name: string;
+  type: string;
+  isAdmin:boolean;
+  isAccessor:boolean;
 }
 
 @Component({
@@ -27,10 +31,15 @@ export class ManageUserComponent implements OnInit {
     this.http.get<UserDto[]>(`${this.baseUrl}user`).subscribe(
         x => {
           this.users = x;
+          this.users.filter((x) => x.type == 'Assessor').forEach(t => (t.isAccessor = true));
       });
   }
   
-  makeAdmin(doc: UserDto) {
-    
+  makeAdmin(user: UserDto) {
+    this.http.put<UserDto>(this.baseUrl + 'user/admin', user).subscribe(
+      x => {
+        console.log('Updated');
+        this.ngOnInit();
+    });
   }
 }

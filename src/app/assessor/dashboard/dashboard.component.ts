@@ -1,5 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { environment } from 'src/environments/environment';
+
+interface SummaryDto {
+  clients: string;
+  completedScreeners: string;
+  tests: string;
+  testFinished: string;
+  reportPending: string;
+  reportCompleted: string;
+  paymentPending: string;
+}
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,24 +21,15 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DashboardComponent implements OnInit {
 
-  dailySalesDataSource = new MatTableDataSource<SalesData>([
-    { date: '2023-09-23', sales: 100 },
-    { date: '2023-09-24', sales: 200 },
-    { date: '2023-09-25', sales: 300 }
-  ]);
+  summary !: SummaryDto;
+  private baseUrl:string = environment.baseApiUrl;
 
-  topProducts = ['Product 1', 'Product 2', 'Product 3'];
+  constructor(private http: HttpClient) { }
 
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
-
-  constructor() { }
-
-  ngOnInit(): void { }
-}
-
-interface SalesData {
-  date: string;
-  sales: number;
+  ngOnInit() {
+    this.http.get<SummaryDto>(`${this.baseUrl}assessor/summary`).subscribe(
+        x => {
+          this.summary = x;
+      });
+  }
 }

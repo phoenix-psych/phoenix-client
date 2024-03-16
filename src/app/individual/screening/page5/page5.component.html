@@ -4,7 +4,7 @@
 <div class="span-table2" >
 
     <div class="floating-buttons">
-        <button mat-raised-button>Final Submit</button>
+        <button color="warn" mat-raised-button (click)="finalSubmit()">Final Submit</button>
     </div>
 
     <h1 style="margin-left: 5%;margin-right: 5%;">
@@ -28,11 +28,11 @@
             </ul>
     
             <div>
-                <button style="margin-left: 5%;" mat-flat-button color="primary" (click)="AddNew()" >Add New File</button>
+                <button style="margin-left: 5%;" mat-flat-button color="warn" (click)="AddNew()" >Add New File</button>
             </div>
 
             <div style="margin: 2%;">
-                <button style="margin-left: 5%;" mat-flat-button color="primary" (click)="Save(docs)" >Save</button>
+                <button style="margin-left: 5%;" mat-flat-button color="accent" (click)="Save(docs)"  >Save</button>
             </div>
         </div>
 

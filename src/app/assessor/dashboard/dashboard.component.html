@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,7 +77,7 @@
         }
     </style>
 </head>
-<body>
+<body> -->
 <div class="container">
     <div class="dashboard-grid">
         <!-- Number of Clients -->
@@ -85,20 +85,20 @@
             <div class="status-bar"></div>
             <i class="fas fa-users" style="color: #4CAF50;"></i>
             <h2>Clients</h2>
-            <p>Status: <strong>XX Active</strong></p>
+            <p>Status: <strong>{{summary.clients}} Active</strong></p>
         </div>
         <div class="dashboard-item completed-screeners">
             <div class="status-bar"></div>
             <i class="fas fa-tasks" style="color: #FF9800;"></i>
             <h2>Completed Screeners</h2>
-            <p>Total: <strong>XX</strong></p>
+            <p>Total: <strong>{{summary.completedScreeners}}</strong></p>
         </div>
         <!-- Tests Completed -->
         <div class="dashboard-item tests-completed">
             <div class="status-bar"></div>
             <i class="fas fa-check-circle" style="color: #2196F3;"></i>
             <h2>Tests </h2>
-            <p>Total: <strong>XX</strong></p>
+            <p>Total: <strong>{{summary.reportCompleted}}</strong></p>
         </div>
         
         <!-- Tests Finished -->
@@ -106,7 +106,7 @@
             <div class="status-bar"></div>
             <i class="fas fa-flag-checkered" style="color: #FFC107;"></i>
             <h2>Tests Finished</h2>
-            <p>Total: <strong>XX</strong></p>
+            <p>Total: <strong>{{summary.testFinished}}</strong></p>
         </div>
         
         <!-- Reports Pending -->
@@ -114,7 +114,7 @@
             <div class="status-bar"></div>
             <i class="fas fa-hourglass-start" style="color: #f44336;"></i>
             <h2>Reports Pending</h2>
-            <p>Total: <strong>XX</strong></p>
+            <p>Total: <strong>{{summary.reportPending}}</strong></p>
         </div>
         
         <!-- Reports Completed -->
@@ -122,7 +122,7 @@
             <div class="status-bar"></div>
             <i class="fas fa-clipboard-check" style="color: #673AB7;"></i>
             <h2>Reports Completed</h2>
-            <p>Total: <strong>XX</strong></p>
+            <p>Total: <strong>{{summary.reportCompleted}}</strong></p>
         </div>
         
         <!-- Payment Pending -->
@@ -130,12 +130,12 @@
             <div class="status-bar"></div>
             <i class="fas fa-credit-card" style="color: #E91E63;"></i>
             <h2>Payment Pending</h2>
-            <p>Total: <strong>XX</strong></p>
+            <p>Total: <strong>{{summary.paymentPending}}</strong></p>
         </div>
         
         <!-- Completed Screeners -->
         
     </div>
 </div>
-</body>
-</html>
+<!-- </body>
+</html> -->

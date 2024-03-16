@@ -9,6 +9,10 @@ const routes: Routes = [
     component:AdminComponent,
     children:[
       {
+        path:'', 
+        component:ManageUserComponent
+      },
+      {
         path:'user', 
         component:ManageUserComponent
       },

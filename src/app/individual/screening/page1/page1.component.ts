@@ -123,6 +123,15 @@ export class Page1Component implements OnInit {
     });
   }
 
+  finalSubmit() {
+    var userId = localStorage.getItem('userId');
+    this.http.put(this.baseUrl + 'client/completed', { Id:userId }).subscribe(
+      x => {
+        console.log('Updated');
+        // this.ngOnInit();
+    });
+  }
+
   selectedValue2!: string;
   selectedValue4!: string;
   selectedValue5!: string;

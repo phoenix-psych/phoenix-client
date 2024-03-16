@@ -117,15 +117,15 @@ export class ClientsComponent implements OnInit {
     this.dialog.open(AddComponent,dialogConfig);
   }
 
-  onReport(row: any){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    dialogConfig.autoFocus= false,
-    dialogConfig.maxHeight= '90vh' 
-    dialogConfig.data = row;
-    this.dialog.open(Report1Component,dialogConfig);
+  onReport(row: ClientDto){
+    this.http.get(`${this.baseUrl}individual/${row.id}/word`, { responseType: 'blob' }).subscribe((blob: Blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${row.name}.docx`; 
+      link.click();
+      URL.revokeObjectURL(url);
+    });
   }
 
   onDelete(id: any){

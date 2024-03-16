@@ -120,6 +120,15 @@ export class Page4Component implements OnInit {
 
   }
 
+  finalSubmit() {
+    var userId = localStorage.getItem('userId');
+    this.http.put(this.baseUrl + 'client/completed', { Id:userId }).subscribe(
+      x => {
+        console.log('Updated');
+        // this.ngOnInit();
+    });
+  }
+
   task1: Task = {
     name: 'All',
     completed: false,

@@ -3,26 +3,24 @@
         USER MANAGEMENT
     </h1>
     
-    <mat-grid-list  cols="16" rowHeight="60px" style="margin: 5%;">
+    <mat-grid-list rowHeight="40px" cols="14" style="margin: 5%;">
         <div class="Availability"> 
-            <mat-grid-tile colspan="2" style="background-color: grey;color: black;"><b>Id</b></mat-grid-tile>
-            <mat-grid-tile colspan="4" style="background-color: grey;color: black;"><b>FirstName</b></mat-grid-tile>
-            <mat-grid-tile colspan="4" style="background-color: grey;color: black;"><b>LastName</b></mat-grid-tile>
-            <mat-grid-tile colspan="4" style="background-color: grey;color: black;"><b>Username</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" style="background-color: grey;color: black;"><b>FirstName</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" style="background-color: grey;color: black;"><b>LastName</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" style="background-color: grey;color: black;"><b>Username</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: grey;color: black;"><b>Type</b></mat-grid-tile>
+            <mat-grid-tile colspan="1" style="background-color: grey;color: black;"><b>Is Admin</b></mat-grid-tile>
             <mat-grid-tile colspan="2" style="background-color: grey;color: black;"><b>Action</b></mat-grid-tile>
         </div>
-        <ul >
-          <li *ngFor="let user of users; let i = index;">
-            <div> 
-                <mat-grid-tile colspan="2" style="background-color: aquamarine;color: black;"><b>{{user.id}}</b></mat-grid-tile>
-                <mat-grid-tile colspan="4" style="background-color: aquamarine;color: black;"><b>{{user.firstName}}</b></mat-grid-tile>
-                <mat-grid-tile colspan="4" style="background-color: aquamarine;color: black;"><b>{{user.lastName}}</b></mat-grid-tile>
-                <mat-grid-tile colspan="4" style="background-color: aquamarine;color: black;"><b>{{user.username}}</b></mat-grid-tile>
-                <mat-grid-tile colspan="2" style="background-color: aquamarine;color: black;">
-                    <button (click)="makeAdmin(user)">Make Admin</button>
-                </mat-grid-tile>
-            </div>
-          </li>
-        </ul>
+        <div *ngFor="let user of users; let i = index;"> 
+            <mat-grid-tile colspan="3" style="background-color: aquamarine;color: black;"><b>{{user.firstName}}</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" style="background-color: aquamarine;color: black;"><b>{{user.lastName}}</b></mat-grid-tile>
+            <mat-grid-tile colspan="3" style="background-color: aquamarine;color: black;"><b>{{user.username}}</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: aquamarine;color: black;"><b>{{user.type}}</b></mat-grid-tile>
+            <mat-grid-tile colspan="1" style="background-color: aquamarine;color: black;"><b>{{user.isAdmin}}</b></mat-grid-tile>
+            <mat-grid-tile colspan="2" style="background-color: aquamarine;color: black;" >
+                <button (click)="makeAdmin(user)" [hidden]="user.type != 'Assessor'">Make Admin</button>
+            </mat-grid-tile>
+        </div>
     </mat-grid-list>
 </div>

@@ -34,3 +34,73 @@ p {
   mat-grid-list{
     margin-top: 5%;
   }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.dashboard-item {
+    position: relative;
+    padding: 30px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dashboard-item i {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.dashboard-item h2 {
+    color: #333;
+    margin: 0;
+    font-size: 20px;
+}
+
+.dashboard-item p {
+    font-size: 16px;
+    color: #333;
+}
+
+.status-bar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 5px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+/* Color definitions */
+.clients .status-bar { background-color: #4CAF50; }
+.tests-completed .status-bar { background-color: #2196F3; }
+.tests-finished .status-bar { background-color: #FFC107; }
+.reports-pending .status-bar { background-color: #f44336; }
+.reports-completed .status-bar { background-color: #673AB7; }
+.payment-pending .status-bar { background-color: #E91E63; }
+.completed-screeners .status-bar { background-color: #FF9800; }
+
+.dashboard-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}

@@ -6,7 +6,7 @@
   <div class="floating-buttons">
     <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
     <button mat-button color="primary" matStepperNext>Next</button>
-    <button mat-raised-button [disabled]="form.invalid">Final Submit</button>
+    <button mat-raised-button  color="warn" [disabled]="form.invalid" (click)="finalSubmit()">Final Submit</button>
   </div>
   <p>
     <br>
