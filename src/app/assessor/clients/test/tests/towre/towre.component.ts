@@ -221,9 +221,13 @@ export class TowreComponent implements OnInit {
     , this.setHeader()).subscribe({
       next: (x) =>{
         console.log(x);
+        
+        this.notificationService.success('TOWRE Submitted successfully');
       },
       error: (msg)=> {
         console.log(msg);
+        
+        this.notificationService.success('TOWRE Failed : ' + msg.toString());
       }
     });
   }

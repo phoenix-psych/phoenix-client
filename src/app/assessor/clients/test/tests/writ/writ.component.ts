@@ -372,9 +372,13 @@ export class WritComponent implements OnInit {
     , this.setHeader()).subscribe({
       next: (x) =>{
         console.log(x);
+        
+        this.notificationService.success('WRIT Submitted successfully');
       },
       error: (msg)=> {
         console.log(msg);
+        
+        this.notificationService.success('WRIT Failed : ' + msg.toString());
       }
     });
   }

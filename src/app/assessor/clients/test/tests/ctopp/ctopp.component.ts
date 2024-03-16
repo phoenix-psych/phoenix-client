@@ -220,7 +220,7 @@ export class CtoppComponent implements OnInit {
         }
 
         if(x.percentageRank){
-          this.elPercentageRank = x.percentageRank
+          this.elPercentageRank = x.percentageRank;
         }
 
         this.setScore();
@@ -578,9 +578,13 @@ export class CtoppComponent implements OnInit {
     , this.setHeader()).subscribe({
       next: (x) =>{
         console.log(x);
+        
+        this.notificationService.success('CTOPP Submitted successfully');
       },
       error: (msg)=> {
         console.log(msg);
+        
+        this.notificationService.success('CTOPP Failed : ' + msg.toString());
       }
     });
   }

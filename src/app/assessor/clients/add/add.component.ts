@@ -90,7 +90,7 @@ export class AddComponent implements OnInit {
   }
 
   onClear() {
-    this.notificationService.success(':: Submitted successfully');
+    this.notificationService.success('Successfully');
   }
 
   onSubmit() {
@@ -101,7 +101,7 @@ export class AddComponent implements OnInit {
           next: (x) =>{
             console.log(x);
             this.form.reset();
-            this.notificationService.success(':: Submitted successfully');
+            this.notificationService.success('Client Submitted successfully');
             this.onClose();
           },
           error: (msg)=> {
@@ -118,7 +118,7 @@ export class AddComponent implements OnInit {
           next: (x) =>{
             console.log(x);
             this.form.reset();
-            this.notificationService.success(':: Submitted successfully');
+            this.notificationService.success('Client Submitted successfully');
             this.onClose();
           },
           error: (msg)=> {

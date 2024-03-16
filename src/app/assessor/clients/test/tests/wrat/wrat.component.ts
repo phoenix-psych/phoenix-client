@@ -345,9 +345,13 @@ export class WratComponent implements OnInit {
     , this.setHeader()).subscribe({
       next: (x) =>{
         console.log(x);
+        
+        this.notificationService.success('WRAT Submitted successfully');
       },
       error: (msg)=> {
         console.log(msg);
+        
+        this.notificationService.success('WRAT Failed : ' + msg.toString());
       }
     });
   }
@@ -358,35 +362,38 @@ export class WratComponent implements OnInit {
     this.http.get<Wrat>(this.baseUrl + 'client/wrat/'+ clientId + '', 
     this.setHeader()).subscribe({
       next: (x) =>{
-        
-        this.selected = x.selected,
-        this.wrRawScore = x.wrRawScore,
-        this.wrStandardScore = x.wrStandardScore,
-        this.wrCI = x.wrCI,
-        this.wrPer = x.wrPer,
-        this.wrGrade = x.wrGrade,
-        this.spRawScore = x.spRawScore,
-        this.spStandardScore = x.spStandardScore,
-        this.spCI = x.spCI,
-        this.spPer = x.spPer,
-        this.spGrade = x.spGrade,
-        this.mcRawScore = x.mcRawScore,
-        this.mcStandardScore = x.mcStandardScore,
-        this.mcCI = x.mcCI,
-        this.mcPer = x.mcPer,
-        this.mcGrade = x.mcGrade,
-        this.scRawScore = x.scRawScore,
-        this.scStandardScore = x.scStandardScore,
-        this.scCI = x.scCI,
-        this.scPer = x.scPer,
-        this.scGrade = x.scGrade,
-        this.rcRawScore = x.rcRawScore,
-        this.rcStandardScore = x.rcStandardScore,
-        this.rcCI = x.rcCI,
-        this.rcPer = x.rcPer,
-        this.rcGrade = x.rcGrade,
+        if(x)
+        {
+          this.selected = x.selected,
+          this.wrRawScore = x.wrRawScore,
+          this.wrStandardScore = x.wrStandardScore,
+          this.wrCI = x.wrCI,
+          this.wrPer = x.wrPer,
+          this.wrGrade = x.wrGrade,
+          this.spRawScore = x.spRawScore,
+          this.spStandardScore = x.spStandardScore,
+          this.spCI = x.spCI,
+          this.spPer = x.spPer,
+          this.spGrade = x.spGrade,
+          this.mcRawScore = x.mcRawScore,
+          this.mcStandardScore = x.mcStandardScore,
+          this.mcCI = x.mcCI,
+          this.mcPer = x.mcPer,
+          this.mcGrade = x.mcGrade,
+          this.scRawScore = x.scRawScore,
+          this.scStandardScore = x.scStandardScore,
+          this.scCI = x.scCI,
+          this.scPer = x.scPer,
+          this.scGrade = x.scGrade,
+          this.rcRawScore = x.rcRawScore,
+          this.rcStandardScore = x.rcStandardScore,
+          this.rcCI = x.rcCI,
+          this.rcPer = x.rcPer,
+          this.rcGrade = x.rcGrade,
 
-        console.log(x);
+          console.log(x);
+        }
+        
       },
       error: (msg)=> {
         console.log(msg);

@@ -209,54 +209,57 @@ export class Page1Component implements OnInit {
     var userId = localStorage.getItem('userId');
     this.http.get<Page1>(this.baseUrl + 'individual/'+ userId +'/page1', this.setHeader()).subscribe({
       next: (x) =>{
-        this.form = this.formBuilder.group(x);
-        //q6
-        let q6  = this.form.get('q6')?.value;
-        var splitted = q6.split(","); 
-        if (this.task1.subtasks != null) {
-          this.task1.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
-          const lastElement = splitted[splitted.length - 1];
-          this.other1 = lastElement.split(':')[1];
-          if(this.other1 != '')
-          {
-            this.task1.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+        if(x)
+        {
+          this.form = this.formBuilder.group(x);
+          //q6
+          let q6  = this.form.get('q6')?.value;
+          var splitted = q6.split(","); 
+          if (this.task1.subtasks != null) {
+            this.task1.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+            const lastElement = splitted[splitted.length - 1];
+            this.other1 = lastElement.split(':')[1];
+            if(this.other1 != '')
+            {
+              this.task1.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+            }
           }
-        }
 
-        //q16
-        let q16  = this.form.get('q16')?.value;
-        var splitted = q16.split(","); 
-        if (this.task2.subtasks != null) {
-          this.task2.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
-          const lastElement = splitted[splitted.length - 1];
-          this.other2 = lastElement.split(':')[1];
-          if(this.other2 != '')
-          {
-            this.task2.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+          //q16
+          let q16  = this.form.get('q16')?.value;
+          var splitted = q16.split(","); 
+          if (this.task2.subtasks != null) {
+            this.task2.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+            const lastElement = splitted[splitted.length - 1];
+            this.other2 = lastElement.split(':')[1];
+            if(this.other2 != '')
+            {
+              this.task2.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+            }
           }
-        }
 
-        //q32
-        let q32  = this.form.get('q32')?.value;
-        var splitted = q32.split(","); 
-        if (this.task3.subtasks != null) {
-          this.task3.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
-          const lastElement = splitted[splitted.length - 1];
-          this.other3 = lastElement.split(':')[1];
-          if(this.other3 != '')
-          {
-            this.task3.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+          //q32
+          let q32  = this.form.get('q32')?.value;
+          var splitted = q32.split(","); 
+          if (this.task3.subtasks != null) {
+            this.task3.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+            const lastElement = splitted[splitted.length - 1];
+            this.other3 = lastElement.split(':')[1];
+            if(this.other3 != '')
+            {
+              this.task3.subtasks.filter((x) => x.name == 'Other').forEach(t => (t.completed = true));
+            }
           }
-        }
 
-        //q33
-        let q33  = this.form.get('q33')?.value;
-        var splitted = q33.split(","); 
-        if (this.task4.subtasks != null) {
-          this.task4.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
-        }
+          //q33
+          let q33  = this.form.get('q33')?.value;
+          var splitted = q33.split(","); 
+          if (this.task4.subtasks != null) {
+            this.task4.subtasks.filter((x) => splitted.includes(x.name)).forEach(t => (t.completed = true));
+          }
 
-        console.log(x);
+          console.log(x);
+        }
       },
       error: (msg)=> {
         console.log(msg);

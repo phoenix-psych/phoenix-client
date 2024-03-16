@@ -29,7 +29,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.http.get<SummaryDto>(`${this.baseUrl}assessor/summary`).subscribe(
         x => {
+        if(x)
+        {
           this.summary = x;
+        }
       });
   }
 }

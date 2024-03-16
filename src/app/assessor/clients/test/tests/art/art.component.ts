@@ -409,11 +409,11 @@ export class ArtComponent implements OnInit {
     this.hidden = false;
     if(type == 'acc')
     {
-      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smAccuracy + '', this.setHeader()).subscribe({
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ Number(this.smAccuracy).toString() + '', this.setHeader()).subscribe({
         next: (x) =>{
   
-          this.smAccuracyCentile = x.centile;
-          this.smAccuracyStd = x.standardScore;
+          this.smAccuracyCentile = x.centile.toString();
+          this.smAccuracyStd = x.standardScore.toString();
           
           this.notificationService.success(`Standard Score Populated Successfully`);
         },
@@ -425,11 +425,11 @@ export class ArtComponent implements OnInit {
 
     if(type == 'compA')
     {
-      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smCompreAloud + '', this.setHeader()).subscribe({
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ Number(this.smCompreAloud).toString() + '', this.setHeader()).subscribe({
         next: (x) =>{
   
-          this.smCompreAloudCentile = x.centile;
-          this.smCompreAloudStd = x.standardScore;
+          this.smCompreAloudCentile = x.centile.toString();
+          this.smCompreAloudStd = x.standardScore.toString();
           
           this.notificationService.success(`Standard Score Populated Successfully`);
         },
@@ -441,11 +441,11 @@ export class ArtComponent implements OnInit {
 
     if(type == 'spdA')
     {
-      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smSpeedAloud + '', this.setHeader()).subscribe({
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ Number(this.smSpeedAloud).toString() + '', this.setHeader()).subscribe({
         next: (x) =>{
   
-          this.smSpeedAloudCentile = x.centile;
-          this.smSpeedAloudStd = x.standardScore;
+          this.smSpeedAloudCentile = x.centile.toString();
+          this.smSpeedAloudStd = x.standardScore.toString();
           
           this.notificationService.success(`Standard Score Populated Successfully`);
         },
@@ -457,11 +457,11 @@ export class ArtComponent implements OnInit {
 
     if(type == 'compS')
     {
-      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smCompreSilent + '', this.setHeader()).subscribe({
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ Number(this.smCompreSilent).toString() + '', this.setHeader()).subscribe({
         next: (x) =>{
   
-          this.smCompreSilentCentile = x.centile;
-          this.smCompreSilentStd = x.standardScore;
+          this.smCompreSilentCentile = x.centile.toString();
+          this.smCompreSilentStd = x.standardScore.toString();
           
           this.notificationService.success(`Standard Score Populated Successfully`);
         },
@@ -473,11 +473,11 @@ export class ArtComponent implements OnInit {
 
     if(type == 'spdS')
     {
-      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ this.smSpeedSilent + '', this.setHeader()).subscribe({
+      this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type='+ type + '&score='+ Number(this.smSpeedSilent).toString() + '', this.setHeader()).subscribe({
         next: (x) =>{
   
-          this.smSpeedSilentCentile = x.centile;
-          this.smSpeedSilentStd = x.standardScore;
+          this.smSpeedSilentCentile = x.centile.toString();
+          this.smSpeedSilentStd = x.standardScore.toString();
           
           this.notificationService.success(`Standard Score Populated Successfully`);
         },
@@ -516,11 +516,11 @@ export class ArtComponent implements OnInit {
   }
 
   getWritingSpeedScore(){
-    this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type=wSpd&score='+ this.smWritingSpeed + '', this.setHeader()).subscribe({
+    this.http.get<ArtTest>(this.baseUrl + 'assessor/art?type=wSpd&score='+ Number(this.smWritingSpeed).toString() + '', this.setHeader()).subscribe({
       next: (x) =>{
 
-        this.smWritingSpeedCentile = x.centile;
-        this.smWritingSpeedStd = x.standardScore;
+        this.smWritingSpeedCentile = x.centile.toString();
+        this.smWritingSpeedStd = x.standardScore.toString();
         
         this.notificationService.success(`Standard Score Populated Successfully`);
       },
@@ -619,71 +619,14 @@ export class ArtComponent implements OnInit {
     , this.setHeader()).subscribe({
       next: (x) =>{
 
-        // this.second1 = x.second1,
-        // this.second2 = x.second2,
-        // this.second3 = x.second3,
-        // this.second4 = x.second4,
-        // this.second5 = x.second5,
-        // this.second6 = x.second6,
-        // this.second7 = x.second7,
-        // this.second8 = x.second8,
-    
-        // this.prErr1= x.prErr1,
-        // this.prAcc1= x.prAcc1,
-        // this.prCom1= x.prCom1,
-        // this.prSpd1= x.prSpd1,
-
-        // this.prErr2= x.prErr2,
-        // this.prAcc2= x.prAcc2,
-        // this.prCom2= x.prCom2,
-        // this.prSpd2= x.prSpd2,
-
-        // this.prErr3= x.prErr3,
-        // this.prAcc3= x.prAcc3,
-        // this.prCom3= x.prCom3,
-        // this.prSpd3= x.prSpd3,
-
-        // this.prErr4= x.prErr4,
-        // this.prAcc4= x.prAcc4,
-        // this.prCom4= x.prCom4,
-        // this.prSpd4= x.prSpd4,
-
-        // this.prComp5= x.prComp5,
-        // this.prSpd5= x.prSpd5,
-
-        // this.prComp6= x.prComp6,
-        // this.prSpd6= x.prSpd6,
-
-        // this.prComp7= x.prComp7,
-        // this.prSpd7= x.prSpd7,
-
-        // this.prComp8= x.prComp8,
-        // this.prSpd8= x.prSpd8,
-
-        // this.smAccuracy= x.smAccuracy,
-        // this.smCompreAloud= x.smCompreAloud,
-        // this.smSpeedAloud= x.smSpeedAloud,
-        // this.smCompreSilent= x.smCompreSilent,
-        // this.smSpeedSilent= x.smSpeedSilent,
-        // this.smWritingSpeed= x.smWritingSpeed,
-
-        // this.smAccuracyCentile= x.smAccuracyCentile,
-        // this.smAccuracyStd= x.smAccuracyStd,
-        // this.smCompreAloudCentile= x.smCompreAloudCentile,
-        // this.smCompreAloudStd= x.smCompreAloudStd,
-        // this.smSpeedAloudCentile= x.smSpeedAloudCentile,
-        // this.smSpeedAloudStd= x.smSpeedAloudStd,
-        // this.smCompreSilentCentile= x.smCompreSilentCentile,
-        // this.smCompreSilentStd= x.smCompreSilentStd,
-        // this.smSpeedSilentCentile= x.smSpeedSilentCentile,
-        // this.smSpeedSilentStd= x.smSpeedSilentStd,
-        // this.smWritingSpeedCentile= x.smWritingSpeedCentile,
-        // this.smWritingSpeedStd= x.smWritingSpeedStd,
-
         console.log(x);
+        
+        this.notificationService.success('ART Submitted successfully');
       },
       error: (msg)=> {
         console.log(msg);
+        
+        this.notificationService.success('ART Failed : ' + msg.toString());
       }
     });
   }

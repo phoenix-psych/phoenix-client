@@ -44,9 +44,13 @@ export class ProfileComponent implements OnInit {
     this.getProfile()
     .subscribe({
       next: (x) =>{
-        this.form = this._formBuilder.group(x);
-        this.file = this.form.controls['imageUrl'].value;
-        console.log(x);
+        if(x)
+        {
+          this.form = this._formBuilder.group(x);
+          this.file = this.form.controls['imageUrl'].value;
+          console.log(x);
+        }
+        
       },
       error: (msg)=> {
         console.log(msg);
@@ -88,7 +92,7 @@ export class ProfileComponent implements OnInit {
       });
       //this.form.reset();
       //this.initializeFormGroup();
-      this.notificationService.success(':: Submitted successfully');
+      this.notificationService.success('Profile Submitted successfully');
       //this.onClose();
     }
   }

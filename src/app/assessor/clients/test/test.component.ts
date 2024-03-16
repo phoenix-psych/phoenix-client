@@ -44,15 +44,15 @@ export class TestComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      // if (!this.form.get('id')?.value)
-      //   this.service.insertUser(this.service.form.value);
-      // else
-      //   this.service.updateUser(this.service.form.value);
-      this.form.reset();
-      this.notificationService.success(':: Submitted successfully');
-      this.onClose();
-    }
+    // if (this.form.valid) {
+    //   // if (!this.form.get('id')?.value)
+    //   //   this.service.insertUser(this.service.form.value);
+    //   // else
+    //   //   this.service.updateUser(this.service.form.value);
+    //   this.form.reset();
+    //   this.notificationService.success(':: Submitted successfully');
+    //   this.onClose();
+    // }
   }
 
   onClose() {

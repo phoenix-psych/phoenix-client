@@ -2327,9 +2327,13 @@ export class TomalComponent implements OnInit {
     , this.setHeader()).subscribe({
       next: (x) =>{
         console.log(x);
+        
+        this.notificationService.success('TOMAL Submitted successfully');
       },
       error: (msg)=> {
         console.log(msg);
+        
+        this.notificationService.success('TOMAL Failed : ' + msg.toString());
       }
     });
   }
