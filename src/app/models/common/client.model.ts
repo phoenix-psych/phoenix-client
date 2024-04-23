@@ -18,5 +18,7 @@ export interface ClientDto
   course: string,
   courseYear: string,
 
+  gender: number,
+  genderString: string,
 
 }

@@ -30,7 +30,7 @@ export class ClientsComponent implements OnInit {
     private dialogService: DialogService) { }
 
   listData: MatTableDataSource<ClientDto> = new MatTableDataSource<ClientDto>;
-  displayedColumns: string[] = ['name','dob','serviceName','email','phone', 'address', 'university', 'course', 'courseYear', 'status', 'actions']; // 'id',
+  displayedColumns: string[] = ['name','dob','genderString','serviceName','email','phone', 'address', 'university', 'course', 'courseYear', 'status', 'actions']; // 'id',
   @ViewChild(MatSort) sort = new MatSort ;
   @ViewChild(MatPaginator) paginator = MatPaginator;
   searchKey: string = "";

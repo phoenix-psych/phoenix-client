@@ -19,7 +19,13 @@
       </mat-form-field>
     </mat-grid-tile>
     
-    <mat-grid-tile colspan="3"></mat-grid-tile>
+    <mat-grid-tile colspan="3">
+      <mat-select class="span-30" placeholder="Gender" [(value)]="genderSelected" (selectionChange)="onGenderSelectionchanged()">
+        <ng-container *ngFor="let ci of genderList">
+          <mat-option value="{{ci.Value}}">{{ci.Name}}</mat-option>
+        </ng-container>
+    </mat-select>
+    </mat-grid-tile>
 
     <mat-grid-tile colspan="3">
       <mat-form-field class="field-1 field-margin-1" appearance="outline">

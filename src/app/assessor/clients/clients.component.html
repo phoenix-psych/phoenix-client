@@ -19,6 +19,10 @@
       <mat-header-cell *matHeaderCellDef  mat-sort-header>Name</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="genderString">
+      <mat-header-cell *matHeaderCellDef  mat-sort-header>Gender</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.genderString}}</mat-cell>
+    </ng-container>
     <ng-container matColumnDef="dob">
       <mat-header-cell *matHeaderCellDef  mat-sort-header>DOB</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.dob}}</mat-cell>
