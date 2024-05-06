@@ -23,6 +23,7 @@ interface Towre
   pdeDesc: string;
   pdeSum: string;
   descriptiveTerm: string;
+  towreScaleScore : string;
 }
 
 @Component({
@@ -82,7 +83,7 @@ export class TowreComponent implements OnInit {
 
     if(type == 'swe')
     {
-      this.http.get<TowreTest>(this.baseUrl + 'assessor/towre?type='+ type +'&score='+ this.sweRawScore + '&year='+ year + '&month='+ month + '', this.setHeader()).subscribe({
+      this.http.get<TowreTest>(this.baseUrl + 'assessor/towre?type='+ type +'&score='+ this.sweRawScore + '&year='+ year + '&month='+ month+ '&pwe='+ this.pdeScale+ '&swe='+ this.sweScale + '', this.setHeader()).subscribe({
         next: (x) =>{
           if(x.ageEqui){
             this.sweAgeEqui = x.ageEqui.toString();
@@ -100,6 +101,10 @@ export class TowreComponent implements OnInit {
             this.sweDesc = x.descriptive.toString();
           }
 
+          if(x.towreScore){
+            this.twreScale = x.towreScore;
+          }
+
           this.pdeSum = (Number(this.pdeScale) + Number(this.sweScale)).toString();
           this.notificationService.success('swe RawScore Updated Successfully');
         },
@@ -110,7 +115,7 @@ export class TowreComponent implements OnInit {
     }
     if(type == 'pde')
     {
-      this.http.get<TowreTest>(this.baseUrl + 'assessor/towre?type='+ type +'&score='+ this.pdeRawScore + '&year='+ year + '&month='+ month + '', this.setHeader()).subscribe({
+      this.http.get<TowreTest>(this.baseUrl + 'assessor/towre?type='+ type +'&score='+ this.pdeRawScore + '&year='+ year + '&month='+ month + '&pwe='+ this.pdeScale+ '&swe='+ this.sweScale + '', this.setHeader()).subscribe({
         next: (x) =>{
           if(x.ageEqui){
             this.pdeAgeEqui = x.ageEqui.toString();
@@ -126,6 +131,10 @@ export class TowreComponent implements OnInit {
           }
           if(x.descriptive){
             this.pdeDesc = x.descriptive.toString();
+          }
+          
+          if(x.towreScore){
+            this.twreScale = x.towreScore;
           }
 
           this.pdeSum = (Number(this.pdeScale) + Number(this.sweScale)).toString();
@@ -212,6 +221,7 @@ export class TowreComponent implements OnInit {
       pdeDesc: this.pdeDesc,
       pdeSum: this.pdeSum,
       descriptiveTerm: this.descriptiveTerm,
+      towreScaleScore: this.twreScale.toString(),
       
       clientId : this.clientId
     };
@@ -253,6 +263,7 @@ export class TowreComponent implements OnInit {
         this.pdeDesc= x.pdeDesc,
         this.pdeSum= x.pdeSum,
         this.descriptiveTerm= x.descriptiveTerm,
+        this.twreScale = x.towreScaleScore,
         
         console.log(x);
       },

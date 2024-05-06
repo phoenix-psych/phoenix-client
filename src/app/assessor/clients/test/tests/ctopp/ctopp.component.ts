@@ -596,48 +596,48 @@ export class CtoppComponent implements OnInit {
     this.setHeader()).subscribe({
       next: (x) =>{
 
-        this.elRawScore = x.elRawScore.toString(),
-        this.elScaleScore = x.elScaleScore.toString(),
+        this.elRawScore = x.elRawScore?.toString(),
+        this.elScaleScore = x.elScaleScore?.toString(),
         this.elPercentageRank = x.elPercentageRank,
 
-        this.bwRawScore = x.bwRawScore.toString(),
-        this.bwScaleScore = x.bwScaleScore.toString(),
+        this.bwRawScore = x.bwRawScore?.toString(),
+        this.bwScaleScore = x.bwScaleScore?.toString(),
         this.bwPercentageRank = x.bwPercentageRank,
 
-        this.plRawScore = x.plRawScore.toString(),
-        this.plScaleScore = x.plScaleScore.toString(),
+        this.plRawScore = x.plRawScore?.toString(),
+        this.plScaleScore = x.plScaleScore?.toString(),
         this.plPercentageRank = x.plPercentageRank,
 
-        this.mdRawScore = x.mdRawScore.toString(),
-        this.mdScaleScore = x.mdScaleScore.toString(),
+        this.mdRawScore = x.mdRawScore?.toString(),
+        this.mdScaleScore = x.mdScaleScore?.toString(),
         this.mdPercentageRank = x.mdPercentageRank,
 
-        this.nrRawScore = x.nrRawScore.toString(),
-        this.nrScaleScore = x.nrScaleScore.toString(),
+        this.nrRawScore = x.nrRawScore?.toString(),
+        this.nrScaleScore = x.nrScaleScore?.toString(),
         this.nrPercentageRank = x.nrPercentageRank,
 
-        this.rdRawScore = x.rdRawScore.toString(),
-        this.rdScaleScore = x.rdScaleScore.toString(),
+        this.rdRawScore = x.rdRawScore?.toString(),
+        this.rdScaleScore = x.rdScaleScore?.toString(),
         this.rdPercentageRank = x.rdPercentageRank,
 
-        this.rlRawScore = x.rlRawScore.toString(),
-        this.rlScaleScore = x.rlScaleScore.toString(),
+        this.rlRawScore = x.rlRawScore?.toString(),
+        this.rlScaleScore = x.rlScaleScore?.toString(),
         this.rlPercentageRank = x.rlPercentageRank,
 
-        this.bnRawScore = x.bnRawScore.toString(),
-        this.bnScaleScore = x.bnScaleScore.toString(),
+        this.bnRawScore = x.bnRawScore?.toString(),
+        this.bnScaleScore = x.bnScaleScore?.toString(),
         this.bnPercentageRank = x.bnPercentageRank,
 
-        this.snRawScore = x.snRawScore.toString(),
-        this.snScaleScore = x.snScaleScore.toString(),
+        this.snRawScore = x.snRawScore?.toString(),
+        this.snScaleScore = x.snScaleScore?.toString(),
         this.snPercentageRank = x.snPercentageRank,
 
         this.selected = x.selected,
 
-        this.paSum = x.paSum.toString(),
-        this.pmSum = x.pmSum.toString(),
-        this.rsnSum = x.rsnSum.toString(),
-        this.apaSum = x.apaSum.toString(),
+        this.paSum = x.paSum?.toString(),
+        this.pmSum = x.pmSum?.toString(),
+        this.rsnSum = x.rsnSum?.toString(),
+        this.apaSum = x.apaSum?.toString(),
 
         this.paScore = x.paScore,
         this.paCI = x.paCI,

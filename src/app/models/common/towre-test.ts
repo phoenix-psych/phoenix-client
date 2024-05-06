@@ -5,4 +5,5 @@ export interface TowreTest {
     percentageRank?: string;
     scale?: string;
     descriptive?: string;
+    towreScore?: string;
   }
